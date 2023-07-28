@@ -51,7 +51,7 @@
 /******************************************************************************/
 /* OBJECTS                                                                    */
 /******************************************************************************/
-CONST(Type_McalDio_stPin, MCALDIO_CONFIG_DATA)  CfgMcalDio_castListPins[] = {
+CONST(Type_McalDio_stPin, MCALDIO_CONFIG_DATA) CfgMcalDio_castListPins[] = {
       {GPIO_LED1      , 3u,  &PMC10, &PM10, &PPR10, &PIBC10, &P10}
    ,  {GPIO_LCD_E     , 6u,  &PMC8 , &PM8 , &PPR8,  &PIBC8,  &P8}
    ,  {GPIO_LCD_RW    , 5u,  &PMC8 , &PM8 , &PPR8,  &PIBC8,  &P8}

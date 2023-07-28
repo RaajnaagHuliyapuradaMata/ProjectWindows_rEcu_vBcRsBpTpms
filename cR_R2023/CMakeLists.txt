@@ -23,9 +23,11 @@ add_executable(
 
    ${PROJECT_SOURCE_DIR}/source/ProjectCfg/CfgMcalAdc.c
    ${PROJECT_SOURCE_DIR}/source/ProjectCfg/CfgMcalDio.c
+   ${PROJECT_SOURCE_DIR}/source/SwcServiceEcuM/SwcServiceEcuM.c
    ${PROJECT_SOURCE_DIR}/source/SwcServiceStartUp/SwcServiceStartUp.c
    ${PROJECT_SOURCE_DIR}/source/McalAdc/McalAdc.c
    ${PROJECT_SOURCE_DIR}/source/McalDio/McalDio.c
+   ${PROJECT_SOURCE_DIR}/source/McalGpt/McalGpt.c
    ${PROJECT_SOURCE_DIR}/source/McalMcu/McalMcu.c
    ${PROJECT_SOURCE_DIR}/source/McalWdg/McalWdg.c
    ${PROJECT_SOURCE_DIR}/source/wrappers/wrappers.c

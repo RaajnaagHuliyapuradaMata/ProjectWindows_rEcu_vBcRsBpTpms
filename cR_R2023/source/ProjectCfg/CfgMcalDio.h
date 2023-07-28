@@ -49,7 +49,7 @@
 /******************************************************************************/
 /* OBJECTS                                                                    */
 /******************************************************************************/
-extern const Type_McalDio_stPin CfgMcalDio_castListPins[];
+extern CONST(Type_McalDio_stPin, MCALDIO_CONFIG_DATA) CfgMcalDio_castListPins[];
 
 /******************************************************************************/
 /* FUNCTIONS                                                                  */
