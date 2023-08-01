@@ -24,15 +24,20 @@
 /******************************************************************************/
 /* #INCLUDES                                                                  */
 /******************************************************************************/
+#include "CfgEcuabCanIf.h"
+#include "CfgSwcServiceBswM.h"
+#include "CfgSwcServiceCanSM.h"
+#include "CfgSwcServiceCanTp.h"
+#include "CfgSwcServiceCom.h"
+#include "CfgSwcServiceComM.h"
+#include "CfgSwcServiceFiM.h"
+#include "CfgSwcServicePduR.h"
 
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
-#define ECUM_CFG_MULTICORE_ENABLED                                   (STD_OFF)
-#define ECUM_CFG_CCAS_INIT                                           (STD_OFF)
-#define ECUM_CFG_SLAVECORE_EARLIER_START                             (STD_OFF)
-#define ECUM_STARTUP_DURATION                                        (FALSE)
 #define ECUM_NO_WKUP_SRC                                             ((uint32)0)
+#define CfgSwcServiceEcuM_dLenHash		                                     (16)
 
 /******************************************************************************/
 /* MACROS                                                                     */
@@ -41,6 +46,31 @@
 /******************************************************************************/
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
+typedef uint32 Type_SwcServiceOs_tModeApp; //TBD: Move to Types_SwcServiceOs.h
+
+typedef struct{
+   const Type_CfgEcuabCanIf_st*      pcstCfgEcuabCanIf;
+   const Type_CfgSwcServiceComM_st*  pcstCfgSwcServiceComM;
+   const Type_CfgSwcServiceCanSM_st* pcstCfgSwcServiceCanSM;
+   const Type_CfgSwcServicePduR_st*  pcstCfgSwcServicePduR;
+   const Type_CfgSwcServiceCom_st*   pcstCfgSwcServiceCom;
+   const Type_CfgSwcServiceCanTp_st* pcstCfgSwcServiceCanTp;
+   const Type_CfgSwcServiceFiM_st*   pcstCfgSwcServiceFiM;
+   const Type_CfgSwcServiceBswM_st*  pcstCfgSwcServiceBswM;
+}Type_SwcServiceEcuM_stRefCfgModules;
+
+typedef struct{
+         uint8  u8NumRefsPncComM;
+   const uint8* pcau8ListRefsPnc;
+}Type_SwcServiceEcuM_stListRefsPncWakeup;
+
+typedef struct{
+         Type_SwcServiceOs_tModeApp               tModeAppDefault;
+         Type_SwcServiceEcuM_stInfoTargetShutdown stInfoTargetShutdownDefault;
+         Type_SwcServiceEcuM_stRefCfgModules      stRefCfgModules;
+   const Type_SwcServiceEcuM_stListRefsPncWakeup* pcstListRefsPncWakeup;
+         uint8                                    au8HashPostBuild[CfgSwcServiceEcuM_dLenHash];
+}Type_CfgSwcServiceEcuM_st;
 
 /******************************************************************************/
 /* CONSTS                                                                     */
