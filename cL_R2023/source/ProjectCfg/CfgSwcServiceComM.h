@@ -37,7 +37,8 @@
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
 typedef struct{
-   uint8 u8Dummy;
+   P2CONST(void,                AUTOMATIC, COMM_APPL_CONST) ComM_GlobalConfigData_pcs;
+   P2CONST(Std_VersionInfoType, AUTOMATIC, COMM_APPL_CONST) versionInfo;
 }Type_CfgSwcServiceComM_st;
 
 /******************************************************************************/

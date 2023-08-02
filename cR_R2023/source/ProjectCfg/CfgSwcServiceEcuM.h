@@ -24,6 +24,8 @@
 /******************************************************************************/
 /* #INCLUDES                                                                  */
 /******************************************************************************/
+#include "Types_SwcServiceEcuM.h"
+
 #include "CfgEcuabCanIf.h"
 #include "CfgSwcServiceBswM.h"
 #include "CfgSwcServiceCanSM.h"
@@ -31,13 +33,19 @@
 #include "CfgSwcServiceCom.h"
 #include "CfgSwcServiceComM.h"
 #include "CfgSwcServiceFiM.h"
+#include "CfgSwcServiceOs.h"
 #include "CfgSwcServicePduR.h"
 
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
-#define ECUM_NO_WKUP_SRC                                             ((uint32)0)
 #define CfgSwcServiceEcuM_dLenHash		                                     (16)
+#define CfgSwcServiceEcuM_dSourceWakeupNone ((Type_SwcServiceEcuM_tSourceWakeup) 0x0000u) //TBD: enum
+#define CfgSwcServiceEcuM_dPOWER            ((Type_SwcServiceEcuM_tSourceWakeup) 0x0001u)
+#define CfgSwcServiceEcuM_dRESET            ((Type_SwcServiceEcuM_tSourceWakeup) 0x0002u)
+#define CfgSwcServiceEcuM_dINTERNAL_RESET   ((Type_SwcServiceEcuM_tSourceWakeup) 0x0004u)
+#define CfgSwcServiceEcuM_dINTERNAL_WDG     ((Type_SwcServiceEcuM_tSourceWakeup) 0x0008u)
+#define CfgSwcServiceEcuM_dEXTERNAL_WDG     ((Type_SwcServiceEcuM_tSourceWakeup) 0x1000u)
 
 /******************************************************************************/
 /* MACROS                                                                     */
@@ -46,8 +54,6 @@
 /******************************************************************************/
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
-typedef uint32 Type_SwcServiceOs_tModeApp; //TBD: Move to Types_SwcServiceOs.h
-
 typedef struct{
    const Type_CfgEcuabCanIf_st*      pcstCfgEcuabCanIf;
    const Type_CfgSwcServiceComM_st*  pcstCfgSwcServiceComM;

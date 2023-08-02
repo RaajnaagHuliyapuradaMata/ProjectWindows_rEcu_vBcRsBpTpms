@@ -23,6 +23,7 @@ add_executable(
 
    ${PROJECT_SOURCE_DIR}/source/ProjectCfg/CfgMcalAdc.c
    ${PROJECT_SOURCE_DIR}/source/ProjectCfg/CfgMcalDio.c
+   ${PROJECT_SOURCE_DIR}/source/SwcApplEcuM/SwcApplEcuM.c
    ${PROJECT_SOURCE_DIR}/source/SwcServiceEcuM/SwcServiceEcuM.c
    ${PROJECT_SOURCE_DIR}/source/SwcServiceStartUp/SwcServiceStartUp.c
    ${PROJECT_SOURCE_DIR}/source/McalAdc/McalAdc.c
@@ -38,6 +39,7 @@ target_include_directories(
    "${PROJECT_SOURCE_DIR}/source/common"
    "${PROJECT_SOURCE_DIR}/source/ProjectCompiler"
    "${PROJECT_SOURCE_DIR}/source/ProjectCfg"
+   "${PROJECT_SOURCE_DIR}/source/SwcApplEcuM"
    "${PROJECT_SOURCE_DIR}/source/SwcServiceEcuM"
    "${PROJECT_SOURCE_DIR}/source/SwcServiceNvM"
    "${PROJECT_SOURCE_DIR}/source/SwcServiceOs"

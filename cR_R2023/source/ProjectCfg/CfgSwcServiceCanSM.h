@@ -37,7 +37,11 @@
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
 typedef struct{
-   uint8 u8Dummy;
+   P2CONST(uint8,  AUTOMATIC, CANSM_CONST) CanSM_NetworktoCtrlConf_pcu8;
+     CONST(uint16,            CANSM_CONST) CanSMModeRequestRepetitionTime_u16;
+     CONST(uint8,             CANSM_CONST) CanSMModeRequestRepetitionMax_u8;
+       VAR(uint8,             CANSM_VAR)   CanSM_SizeOfCanSMNetworks_u8;
+       VAR(uint8,             CANSM_VAR)   CanSM_ActiveConfigset_u8;
 }Type_CfgSwcServiceCanSM_st;
 
 /******************************************************************************/
