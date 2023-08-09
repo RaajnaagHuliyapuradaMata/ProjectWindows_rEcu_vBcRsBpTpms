@@ -37,11 +37,22 @@
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
 typedef struct{
-   P2CONST(uint8,  AUTOMATIC, CANSM_CONST) CanSM_NetworktoCtrlConf_pcu8;
-     CONST(uint16,            CANSM_CONST) CanSMModeRequestRepetitionTime_u16;
-     CONST(uint8,             CANSM_CONST) CanSMModeRequestRepetitionMax_u8;
-       VAR(uint8,             CANSM_VAR)   CanSM_SizeOfCanSMNetworks_u8;
-       VAR(uint8,             CANSM_VAR)   CanSM_ActiveConfigset_u8;
+//   P2CONST(CanSM_NetworkConf_tst, AUTOMATIC,CANSM_CONST) CanSM_NetworkConf_pcst;
+/*
+#if(CANSM_DSM_REINIT_ENABLED != STD_OFF)
+   P2VAR(CanSM_NetworkConf_DEM_tst, AUTOMATIC, CANSM_CONST ) CanSMNetworkConfDEM_pst;
+#endif
+*/
+   P2CONST (uint8, AUTOMATIC, CANSM_CONST ) CanSM_NetworktoCtrlConf_pcu8;
+/*
+#if(CANSM_GETBUSOFFDELAY_SUPPORT == STD_ON)
+   P2FUNC(void, TYPEDEF, User_GetBusOffDelay)(VAR(NetworkHandleType,AUTOMATIC), P2VAR(uint8,AUTOMATIC,CANSM_APPL_CODE));
+#endif
+*/
+   CONST(uint16, CANSM_CONST) CanSMModeRequestRepetitionTime_u16;
+   CONST(uint8,  CANSM_CONST) CanSMModeRequestRepetitionMax_u8;
+     VAR(uint8,  CANSM_VAR)   CanSM_SizeOfCanSMNetworks_u8;
+     VAR(uint8,  CANSM_VAR)   CanSM_ActiveConfigset_u8;
 }Type_CfgSwcServiceCanSM_st;
 
 /******************************************************************************/
