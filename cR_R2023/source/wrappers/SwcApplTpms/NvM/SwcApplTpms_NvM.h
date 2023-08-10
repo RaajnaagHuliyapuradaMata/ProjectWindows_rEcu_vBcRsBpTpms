@@ -183,10 +183,32 @@
                                NVM_CAT05_IDX09_REAL_SIZE + \
                                NVM_CAT05_IDX10_REAL_SIZE)
 
-#define NVM_CAT06_NUMBER_OF_MEMBERS 1U
+#define NVM_CAT06_NUMBER_OF_MEMBERS 9U
 
-#define NVM_CAT06_IDX01_REAL_SIZE   48U
-#define NVM_CAT06_SIZE_BYTES       (NVM_CAT06_IDX01_REAL_SIZE)
+#define NVM_CAT06_IDX01_REAL_SIZE   1U
+#define NVM_CAT06_IDX02_REAL_SIZE   1U
+#define NVM_CAT06_IDX03_REAL_SIZE   1U
+#define NVM_CAT06_IDX04_REAL_SIZE   1U
+#define NVM_CAT06_IDX05_REAL_SIZE   1U
+#define NVM_CAT06_IDX06_REAL_SIZE   1U
+#define NVM_CAT06_IDX07_REAL_SIZE   1U
+#define NVM_CAT06_IDX08_REAL_SIZE   1U
+#define NVM_CAT06_IDX09_REAL_SIZE   40U
+
+#define NVM_CAT06_SIZE_BYTES       (NVM_CAT06_IDX01_REAL_SIZE + \
+                                    NVM_CAT06_IDX02_REAL_SIZE + \
+                                    NVM_CAT06_IDX03_REAL_SIZE + \
+                                    NVM_CAT06_IDX04_REAL_SIZE + \
+                                    NVM_CAT06_IDX05_REAL_SIZE + \
+                                    NVM_CAT06_IDX06_REAL_SIZE + \
+                                    NVM_CAT06_IDX07_REAL_SIZE + \
+                                    NVM_CAT06_IDX08_REAL_SIZE + \
+                                    NVM_CAT06_IDX09_REAL_SIZE)
+
+//#define NVM_CAT06_NUMBER_OF_MEMBERS 1U
+//
+//#define NVM_CAT06_IDX01_REAL_SIZE   48U
+//#define NVM_CAT06_SIZE_BYTES       (NVM_CAT06_IDX01_REAL_SIZE)
 
 #define NVM_CAT07_NUMBER_OF_MEMBERS 1U
 
@@ -219,6 +241,27 @@
                                     NVM_CAT10_IDX02_REAL_SIZE + \
                                     NVM_CAT10_IDX03_REAL_SIZE + \
                                     NVM_CAT10_IDX04_REAL_SIZE  )
+
+#ifdef NVMc
+void ReadBlock2Member(uint8 ui8Categ, uint8 ui8Member, uint8 * pui8Target);
+void WriteMember2Blocks(uint8 ui8Categ, uint8 ui8Member, uint8 * pui8Target);
+void InitEEAll(void);
+void EE_InconsistencyHandling(uint16 uiNvmCategoryConsistence);
+
+#else
+
+//extern uint8  NvM_ReadBlock(uint16,uint16,NVM_BLOCK_TYPE*);
+//extern uint8  NvM_WriteBlock(uint16,uint16,const NVM_BLOCK_TYPE*);
+//extern uint16 GetMemberSize(uint8,uint16);
+//extern void   NvM_Member_Data_Write(const uint8 *,uint16,uint8,uint16);
+//extern void   NvM_Member_Data_Read(uint8 *,uint16,uint8,uint16);
+
+extern void InitEEAll(void);
+extern void ReadBlock2Member(uint8 ui8Categ, uint8 ui8Member, uint8 * pui8Target);
+extern void WriteMember2Blocks(uint8 ui8Categ, uint8 ui8Member, uint8 * pui8Target);
+extern void EE_InconsistencyHandling(uint16 uiNvmCategoryConsistence);
+
+#endif
 
 #endif
 

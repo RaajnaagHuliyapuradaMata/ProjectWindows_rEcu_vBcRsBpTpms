@@ -246,7 +246,7 @@ FEE_30_SMALLSECTOR_LOCAL FUNC(void, FEE_30_SMALLSECTOR_PRIVATE_CODE) Fee_30_Smal
 
     Fee_30_SmallSector_Ih_StoreMgmtValueFromBuffer(Fee_30_SmallSector_RdMgmt_Instance);
 
-#   if (FEE_30_SMALLSECTOR_CORRECT_SINGLE_BIT_FLIPS == STD_ON)
+#if (FEE_30_SMALLSECTOR_CORRECT_SINGLE_BIT_FLIPS == STD_ON)
     Fee_30_SmallSector_Ih_CorrectSingleBitFlips(&(Fee_30_SmallSector_RdMgmt_Instance)->MgmtValue);
 #   endif
 

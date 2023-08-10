@@ -72,14 +72,14 @@ typedef unsigned char *RxDataPtr;
 # else
 #  if defined( C_CPUTYPE_32BIT )
 
-#   ifndef vuintx
+#ifndef vuintx
 #    define vuintx vuint32
 #   endif
-#   ifndef vsintx
+#ifndef vsintx
 #    define vsintx vsint32
 #   endif
 #  else
-#   if defined( C_CPUTYPE_64BIT )
+#if defined( C_CPUTYPE_64BIT )
 
 #    ifndef vuintx
 #     define vuintx vuint32

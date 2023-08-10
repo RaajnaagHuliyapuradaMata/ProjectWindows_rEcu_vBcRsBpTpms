@@ -3,7 +3,7 @@
 
 #include "Types.h"
 #include "Dem_NvmCallbacks.h"
-#include "Huf_NvM.h"
+#include "SwcApplTpms_NvM.h"
 #include "iTpms_Interface.h"
 
 #define NVM_BLOCK_SIZE_BSW_DATA     (uint16)64

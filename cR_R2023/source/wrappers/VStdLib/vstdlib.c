@@ -529,7 +529,7 @@ VSTDLIB_LOCAL_INLINE FUNC(void, VSTDLIB_CODE) VStdLib_Loc_MemCpy_8_PartialWord(
   P2VAR(uint32_least, AUTOMATIC, VSTDLIB_VAR_FAR) pDPos)
 {
 #  if (CPU_BYTE_ORDER == LOW_BYTE_FIRST)
-#   if (VSTDLIB_USE_JUMPTABLES == STD_ON)
+#if (VSTDLIB_USE_JUMPTABLES == STD_ON)
 
   switch (nCnt)
   {
@@ -563,7 +563,7 @@ VSTDLIB_LOCAL_INLINE FUNC(void, VSTDLIB_CODE) VStdLib_Loc_MemCpy_8_PartialWord(
 
 #   endif
 #  else
-#   if (VSTDLIB_USE_JUMPTABLES == STD_ON)
+#if (VSTDLIB_USE_JUMPTABLES == STD_ON)
 
   switch (nCnt)
   {
