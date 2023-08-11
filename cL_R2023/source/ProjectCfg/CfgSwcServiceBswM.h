@@ -37,7 +37,8 @@
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
 typedef struct{
-   uint8 u8Dummy;
+   P2CONST(void,                TYPEDEF, BSWM_CONST) BswM_ConfigDataPtr;
+   P2CONST(Std_VersionInfoType, TYPEDEF, BSWM_CONST) BswM_VersionInfoPtr;
 }Type_CfgSwcServiceBswM_st;
 
 /******************************************************************************/

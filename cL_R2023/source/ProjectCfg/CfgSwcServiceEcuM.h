@@ -39,7 +39,7 @@
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
-#define CfgSwcServiceEcuM_dLenHash		                                     (16)
+#define CfgSwcServiceEcuM_dLenHash                                          (16)
 #define CfgSwcServiceEcuM_dSourceWakeupNone ((Type_SwcServiceEcuM_tSourceWakeup) 0x0000u)
 #define CfgSwcServiceEcuM_dPOWER            ((Type_SwcServiceEcuM_tSourceWakeup) 0x0001u)
 #define CfgSwcServiceEcuM_dRESET            ((Type_SwcServiceEcuM_tSourceWakeup) 0x0002u)

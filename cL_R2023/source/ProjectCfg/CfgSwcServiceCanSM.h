@@ -37,7 +37,13 @@
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
 typedef struct{
+//   const CanSM_NetworkConf_tst* CanSM_NetworkConf_pcst;
    const uint8*                 CanSM_NetworktoCtrlConf_pcu8;
+/*
+#if(CANSM_GETBUSOFFDELAY_SUPPORT == STD_ON)
+   void (*User_GetBusOffDelay) (NetworkHandleType, uint8* CANSM_APPL_CODE);
+#endif
+*/
    const uint16                 CanSMModeRequestRepetitionTime_u16;
    const uint8                  CanSMModeRequestRepetitionMax_u8;
          uint8                  CanSM_SizeOfCanSMNetworks_u8;

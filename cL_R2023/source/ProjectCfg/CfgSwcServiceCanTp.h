@@ -24,6 +24,7 @@
 /******************************************************************************/
 /* #INCLUDES                                                                  */
 /******************************************************************************/
+#include "CanTp_Types.h"
 
 /******************************************************************************/
 /* #DEFINES                                                                   */
@@ -37,7 +38,16 @@
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
 typedef struct{
-   uint8 u8Dummy;
+   const        CanTp_ChannelIdType      NumberOfChannels;
+   const        PduIdType                NumberOfRxPdus;
+   const        PduIdType                NumberOfTxPdus;
+   const        CanTp_SduIdType          NumberOfRxSdus;
+   const        CanTp_SduIdType          NumberOfTxSdus;
+   const struct CanTp_RxPduStructType*   RxPdu;
+   const struct CanTp_TxSduStructType*   TxSdu;
+   const struct CanTp_RxSduStructType*   RxSdu;
+   const struct CanTp_TimeOutStructType* TimeOut;
+   const struct CanTp_ParamStructType*   Param;
 }Type_CfgSwcServiceCanTp_st;
 
 /******************************************************************************/

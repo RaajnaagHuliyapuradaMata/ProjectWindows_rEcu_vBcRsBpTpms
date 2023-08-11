@@ -37,7 +37,8 @@
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
 typedef struct{
-   uint8 u8Dummy;
+    const void*                PduR_ConfigDataPtr;
+    const Std_VersionInfoType* PduR_VersionInfoPtr;
 }Type_CfgSwcServicePduR_st;
 
 /******************************************************************************/

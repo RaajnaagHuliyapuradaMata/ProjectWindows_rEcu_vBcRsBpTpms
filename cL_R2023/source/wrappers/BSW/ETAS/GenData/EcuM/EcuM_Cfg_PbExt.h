@@ -1,0 +1,8 @@
+
+
+#ifndef ECUM_CFG_PBEXT_H
+#define ECUM_CFG_PBEXT_H
+
+#define ECUM_PBDETERMINE_VIA_PORT_ENABLE FALSE
+
+#endif

@@ -1,0 +1,76 @@
+-- Reset vector for the RH850GHS example applications
+--
+-- Copyright ETAS GmbH 2019
+--
+-- Notes:
+--   Configures the reset vector at (0x0) in section reset to jump to the
+--   application entry point
+--
+--   It jumps to the default Green Hills start-up module crt0.o.  Please refer
+--   to the Green Hills documentation for further information on this module.
+--
+
+  .globl __start
+
+  .weak ___ghsbegin_sda_start
+
+  .section ".reset",.text
+  .globl reset_vector
+reset_vector:
+  jr Os_sample_reset
+
+  -- Application entry point
+  .text
+  .align 2
+  .globl __start
+  .globl Os_sample_reset
+  .globl Os_Cbk_StopCore
+Os_sample_reset:
+
+  -- Detect which SDA model is in use. If __ghs_v800_sda_model==0(default),
+  -- it is .sdabase, otherwise it is .sda_start/.sda_end.
+  movea lo(__ghs_v800_sda_model),zero,r5
+
+  -- Initialization of the global pointer to .sdabase by default
+  movhi hi(___ghsbegin_sdabase),zero,gp
+  movea lo(___ghsbegin_sdabase),gp,gp
+
+  cmp zero,r5
+  be got_sdabase
+
+  -- Use .sda_start/.sda_end. Add the linker-time offset of __gp from
+  -- .sda_start to gp
+  movhi hi(__gp),zero,r10
+  movea lo(__gp),r10,r10
+  movhi hi(___ghsbegin_sda_start),zero,gp
+  movea lo(___ghsbegin_sda_start),gp,gp
+  sub r5,r10
+  add r10,gp
+  jr  gp_done
+
+got_sdabase:
+  -- Point gp 32K past SDA start
+  addi  0x4000,gp,gp
+  addi  0x4000,gp,gp
+gp_done:
+
+  -- Initialization of the text pointer
+  movhi hi(__tp),zero,tp
+  movea lo(__tp),tp,tp
+
+  -- Initialization of the stack pointer
+  movhi hi(___ghsend_stack-4),zero,sp
+  movea lo(___ghsend_stack-4),sp,sp
+  mov -4,r1
+  and r1,sp
+
+Os_CPU0_start:
+
+  -- Jump to the default Green Hills startup code (crt0.800)
+  jr __start
+
+  -- needed by gdump to calculate object size
+  .type Os_sample_reset,@function
+  .size Os_sample_reset,.-Os_sample_reset
+  .end
+

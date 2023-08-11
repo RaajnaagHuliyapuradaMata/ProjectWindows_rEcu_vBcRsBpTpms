@@ -24,6 +24,7 @@
 /******************************************************************************/
 /* #INCLUDES                                                                  */
 /******************************************************************************/
+#include "FiM_Types.h"
 
 /******************************************************************************/
 /* #DEFINES                                                                   */
@@ -37,7 +38,11 @@
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
 typedef struct{
-   uint8 u8Dummy;
+   const FiM_NumOffsetEventType*     FiM_Cfg_NumOffsetEventptr;
+   const FiM_FunctionIdType*         FiM_CfgInhibitSourceMatrixptr;
+   const FiM_InhibitionMaskType*     FiM_CfgInhibitMaskMatrixptr;
+   const FiM_NumOffsetComponentType* FiM_Cfg_NumOffsetComponentptr;
+   const FiM_FunctionIdType*         FiM_CfgInhibitSourceMatrixComponentptr;
 }Type_CfgSwcServiceFiM_st;
 
 /******************************************************************************/

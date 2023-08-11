@@ -24,6 +24,10 @@
 /******************************************************************************/
 /* #INCLUDES                                                                  */
 /******************************************************************************/
+#include "Std_Types.h"
+
+#include "ComStack_Cfg.h"
+#include "Can_GeneralTypes.h"
 
 /******************************************************************************/
 /* #DEFINES                                                                   */
@@ -36,15 +40,101 @@
 /******************************************************************************/
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
+typedef enum{
+   CANIF_PRV_FULL_E = 0,
+   CANIF_PRV_BASIC_RANGE_E,
+   CANIF_PRV_BASIC_LIST_E
+}CanIf_Lok_HrhType_ten;
+
 typedef struct{
+   CanIf_Lok_HrhType_ten HrhInfo_e;
+   PduIdType             PduIdx_t;
+   uint32                NumRxPdus_u32;
+   boolean               HrhRangeMask_b;
+   uint8                 ControllerId_u8;
+}CanIf_Cfg_Hrhtype_tst;
+
+typedef struct{
+   uint8 RxPduReadNotifyReadDataStatus_u8;
+   uint8_least IndexForUL_u8;
+   uint8 CanIdtype_u8;
+   uint8 RxPduDlc_u8;
+   Can_IdType RxPduCanId;
+   PduIdType Hrhref_t;
+   PduIdType RxPduTargetId_t;
+}CanIf_Cfg_RxPduType_tst;
+
+typedef struct{
+   uint8   CtrlId;
+   uint8   CtrlCanCtrlRef;
+   boolean CtrlWakeupSupport;
+}CanIf_Cfg_CtrlConfig_tst;
+
+typedef struct{
+   const CanIf_Cfg_CtrlConfig_tst*   CanIf_CtrlConfigPtr;
+         Can_HwHandleType            CanObjectId;
+}CanIf_Cfg_HthConfig_tst;
+
+typedef struct{
+   const CanIf_Cfg_HthConfig_tst* CanIf_HthConfigPtr;
+}CanIf_Cfg_TxBufferConfig_tst;
+
+typedef enum{
+   STANDARD_CAN    = 0x00,
+   STANDARD_FD_CAN = 0x01,
+   EXTENDED_CAN    = 0x02,
+   EXTENDED_FD_CAN = 0x03
+}CanIf_Cfg_TxPduCanIdType_ten;
+
+typedef enum{
+   CANIF_NO_UL = 0,
+   CAN_NM,
+   CAN_TP,
+   CAN_TSYN,
+   J1939NM,
+   J1939TP,
+   PDUR,
+   XCP,
+   CDD,
+   USER,
+   MAX_USER_TYPE
+}CanIf_Cfg_UserType_ten;
+
+typedef struct{
+   const CanIf_Cfg_TxBufferConfig_tst* CanIf_TxBufferConfigPtr;
+   PduIdType                         TxPduId;
+   PduIdType                         TxPduTargetPduId;
+   PduIdType                         TxPduType;
+   CanIf_Cfg_TxPduCanIdType_ten      TxPduCanIdType;
+   CanIf_Cfg_UserType_ten            TxPduTxUserUL;
+   void (*UserTxConfirmation) (PduIdType TxPduTargetPduId);
+   Can_IdType                        TxPduCanId;
+   boolean                           TxPduReadNotifyStatus;
+   boolean                           TxTruncEnabled_b;
+   uint8                             TxPduLength_u8;
+}CanIf_Cfg_TxPduConfig_tst;
+
+typedef struct{
+   void (*CanIfRxPduIndicationName) (PduIdType RxPduTargetId_t, const PduInfoType * CanIf_ULPduinfo_pst );
+}CanIf_RxCbk_Prototype;
+
+typedef struct{
+   P2CONST(CanIf_Cfg_Hrhtype_tst,   TYPEDEF,CANIF_CFG_CONST) HrhConfig_pcst;
+   P2CONST(CanIf_Cfg_RxPduType_tst, TYPEDEF,CANIF_CFG_CONST) RxPduConfig_pcst;
+   VAR(PduIdType,                   TYPEDEF)                 NumCanRxPduId_t;
    VAR(uint8,                       TYPEDEF)                 NumCanCtrl_u8;
+   VAR(PduIdType,                   TYPEDEF)                 NumCddRxPdus_t;
    const uint16*                                             RxPduIdTable_Ptr;
    const uint16*                                             HrhPduIdTable_Ptr;
    VAR(uint8,                       TYPEDEF)                 CfgSetIndex_u8;
+   const CanIf_Cfg_TxPduConfig_tst*                          CanIf_TxPduConfigPtr;
+   const CanIf_Cfg_TxBufferConfig_tst*                       CanIf_TxBufferConfigPtr;
+   const CanIf_Cfg_CtrlConfig_tst*                           CanIf_CtrlConfigPtr;
          uint32                                              NumOfTxPdus;
          uint32                                              NumOfTxBuffers;
    const uint16*                                             TxPduIdTable_Ptr;
    const uint8*                                              CtrlIdTable_Ptr;
+   const CanIf_RxCbk_Prototype*                              RxAutosarUL_Ptr;
 }Type_CfgEcuabCanIf_st;
 
 /******************************************************************************/
@@ -54,6 +144,11 @@ typedef struct{
 /******************************************************************************/
 /* PARAMS                                                                     */
 /******************************************************************************/
+#define CANIF_START_SEC_CONST_UNSPECIFIED
+#include "CanIf_MemMap.h"
+extern const Type_CfgEcuabCanIf_st CanIf_Config;
+#define CANIF_STOP_SEC_CONST_UNSPECIFIED
+#include "CanIf_MemMap.h"
 
 /******************************************************************************/
 /* OBJECTS                                                                    */

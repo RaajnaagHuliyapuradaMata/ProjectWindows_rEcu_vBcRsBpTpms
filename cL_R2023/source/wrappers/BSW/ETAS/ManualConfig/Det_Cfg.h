@@ -1,0 +1,11 @@
+
+
+#ifndef _DET_CFG_H_
+#define _DET_CFG_H_
+
+#define DET_AR_RELEASE_MAJOR_VERSION 4
+#define DET_AR_RELEASE_MINOR_VERSION 2
+
+#define DET_CFG_CHECK_API_CONSISTENCY TRUE
+
+#endif
