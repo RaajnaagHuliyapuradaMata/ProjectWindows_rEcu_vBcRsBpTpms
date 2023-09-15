@@ -1,0 +1,3938 @@
+                                                                      Page 1
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+Command Line: C:\ghs\comp_201517\ease850.exe -w -elf -b0 -I../source/common -I../source/ProjectCompiler -I../source/ProjectCfg -I../source/SwcApplTpms -I../source/SwcApplEcuM -I../source/SwcServiceBswM -I../source/SwcServiceEcuM -I../source/SwcServiceNvM -I../source/SwcServiceOs -I../source/SwcServiceStartUp -I../source/McalAdc -I../source/McalDio -I../source/McalGpt -I../source/McalMcu -I../source/McalWdg -I../source/wrappers -I../source/wrappers/McalAta -I../source/McalLin -I../source/McalCan -I../source/wrappers/OS -I../source/McalFls -I../source/EcuabFee -I../source/EcuabMemIf -I../source/wrappers/VStdLib -I../source/wrappers/Crc -I../source/wrappers/FBL_APPL -I../source/wrappers/NVM_MANAGER -I../source/wrappers/DEM_MANAGER -I../source/wrappers/RDC_MANAGER -I../source/wrappers/ENV_MANAGER -I../source/wrappers/SYS_MANAGER -I../source/wrappers/EcuabCanIf -I../source/EcuabCanTrcv -I../source/wrappers/SwcServiceCanSM -I../source/wrappers/SwcServiceCanTp -I../source/wrappers/SwcServiceCanTp_PreCompile -I../source/wrappers/SwcServiceCom -I../source/wrappers/SwcServiceComM -I../source/wrappers/SwcServiceDcm -I../source/wrappers/SwcServicePduR -I../source/wrappers/SwcServiceEcuM -I../source/wrappers/Bfx -I../source/wrappers/SwcServiceDem -I../source/SwcServiceCom -I../source/SwcServiceDet -I../source/SwcServiceFiM -I../source/SwcServicePduR -I../source/SwcServiceSchM -I../source/wrappers/LibAutosarDiag -I../source/wrappers/rba_BswSrv -IC:\ghs\comp_201517\lib\rh850 -cg_underscore -cpu=rh850g3k -no_v850_simd -rh850_fpsimd=none -nomacro -patch_dbo=C:\_ECU2\ECU_Rivian_A1\Target\repo_projects\pRealEcu\cR_LATEST\make\output\objects\tau.dbo -source=tau.c -o output\objects\gh_0000bs01.o -list=output\list\tau.lst C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s 
+Original File: C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+Source File: tau.c
+Directory: C:\_ECU2\ECU_Rivian_A1\Target\repo_projects\pRealEcu\cR_LATEST\make
+Host OS: Windows
+EASE: Copyright (C) 1983-2015 Green Hills Software.  All Rights Reserved.
+Release: Compiler v2015.1.7
+Build Directory: [Directory] BTOWORKER6:c:/build_2015_1_bto/2015-10-21.2100-2015_1_bto/win32-comp-ecom
+Revision: [VCInfo] http://toolsvc/branches/release-branch-70-bto/src@544153 (built by build)
+Revision Date: Thu Oct 22 07:50:13 2015
+
+Release Date: Thu Oct 22 09:32:32 2015
+
+                           1 --Driver Command: ccv850 ../source/McalGpt/tau.c -cpu=rh850 -fhard
+                           2 --		-ignore_callt_state_in_interrupts -large_sda -misalign_pack
+                           3 --		-nofarcalls -nofloatio -no_callt -Ogeneral -Onounroll
+                           4 --		-prepare_dispose -registermode=32 -reserve_r2 -sda=0
+                           5 --		-shorten_loads -Wshadow --brief_diagnostics --no_commons
+                           6 --		--no_wrap_diagnostics --prototype_errors --short_enum -list -G
+                           7 --		-dual_debug -dwarf -X5523 -lnk=-no_xda_modifications -D
+                           8 --		NOT_READY_FOR_TESTING_OR_DEPLOYMENT -D IBTCM_SW_ANPASSUNGEN -D
+                           9 --		BUILD_RIVIAN -c -inline_prologue -I../source/common
+                          10 --		-I../source/ProjectCompiler -I../source/ProjectCfg
+                          11 --		-I../source/SwcApplTpms -I../source/SwcApplEcuM
+                          12 --		-I../source/SwcServiceBswM -I../source/SwcServiceEcuM
+                          13 --		-I../source/SwcServiceNvM -I../source/SwcServiceOs
+                          14 --		-I../source/SwcServiceStartUp -I../source/McalAdc
+                          15 --		-I../source/McalDio -I../source/McalGpt -I../source/McalMcu
+                          16 --		-I../source/McalWdg -I../source/wrappers
+                          17 --		-I../source/wrappers/McalAta -I../source/McalLin
+                          18 --		-I../source/McalCan -I../source/wrappers/OS -I../source/McalFls
+                          19 --		-I../source/EcuabFee -I../source/EcuabMemIf
+                          20 --		-I../source/wrappers/VStdLib -I../source/wrappers
+                          21 --		-I../source/wrappers/Crc -I../source/wrappers/FBL_APPL
+                          22 --		-I../source/wrappers/NVM_MANAGER -I../source/wrappers/DEM_MANAGER
+                          23 --		-I../source/wrappers/RDC_MANAGER -I../source/wrappers/ENV_MANAGER
+                          24 --		-I../source/wrappers/SYS_MANAGER -I../source/wrappers/EcuabCanIf
+                          25 --		-I../source/EcuabCanTrcv -I../source/wrappers/SwcServiceCanSM
+                          26 --		-I../source/wrappers/SwcServiceCanTp
+                          27 --		-I../source/wrappers/SwcServiceCanTp_PreCompile
+                          28 --		-I../source/wrappers/SwcServiceCom
+                          29 --		-I../source/wrappers/SwcServiceComM
+                          30 --		-I../source/wrappers/SwcServiceDcm
+                          31 --		-I../source/wrappers/SwcServicePduR
+                          32 --		-I../source/wrappers/SwcServiceEcuM -I../source/wrappers/Bfx
+                          33 --		-I../source/wrappers/SwcServiceDem -I../source/SwcServiceCom
+                          34 --		-I../source/SwcServiceDet -I../source/SwcServiceFiM
+                          35 --		-I../source/SwcServicePduR -I../source/SwcServiceSchM
+                          36 --		-I../source/wrappers/LibAutosarDiag
+                          37 --		-I../source/wrappers/rba_BswSrv -object_dir=output/objects
+                          38 --		-list_dir=output/list
+                          39 --Source File:   ../source/McalGpt/tau.c
+                          40 --Directory:     
+                          41 --		C:\_ECU2\ECU_Rivian_A1\Target\repo_projects\pRealEcu\cR_LATEST\make
+                          42 --Compile Date:  Fri Sep 15 14:16:15 2023
+                          43 --Host OS:       Win32
+                          44 --Version:       C-RH850 2015.1.7 RELEASE VERSION
+                          45 --Release:       Compiler v2015.1.7
+                          46 --Revision Date: Thu Oct 22 08:06:12 2015
+                          47 --Release Date:  Thu Oct 22 09:34:32 2015
+                          48 -- ecom  -g -w -OM
+                          49 	.text
+                          50 ..bof.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake.5Coutput.5Cobjects.5Ctau...43.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake..65044B0F..0::
+
+                                                                      Page 2
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+                          51 	.align	2
+                          52 ..gh.f.f.1.e.0:
+                          53 	.type	..gh.f.f.1.e.0,@object
+                          54 	.size	..gh.f.f.1.e.0,0
+                          55 	.global	_Tau_Init
+                          56 _Tau_Init:
+00000000 3e060021f8ff     57 	mov	-515840,ep
+                          58 --	    .bf
+                          59 .LDW01:
+                          60 .L6:
+                          61 --line8
+                          62 ..lin.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake.5Coutput.5Cobjects.5Ctau.1::
+                          63 .LDWlin1:
+00000006 2086a500         64 	movea	165,zero,r16
+0000000a 80070f8000f0     65 	st.w	r16,4294443008[zero]
+00000010 018a             66 	mov	1,r17
+00000012 018d             67 	sst.w	r17,0[ep]
+00000014 1e7a             68 	mov	-2,r15
+00000016 017d             69 	sst.w	r15,0[ep]
+00000018 018d             70 	sst.w	r17,0[ep]
+0000001a 8007497000f0     71 	ld.w	4294443012[zero],r14
+00000020 6172             72 	cmp	1,r14
+00000022 a2f5*            73 	be	.L6
+                          74 .L7:
+                          75 --line9
+                          76 ..lin.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake.5Coutput.5Cobjects.5Ctau.2::
+                          77 .LDWlin2:
+00000024 0095             78 	sld.w	0[ep],r18
+00000026 6192             79 	cmp	1,r18
+00000028 eafd*            80 	bne	.L7
+                          81 --line10
+                          82 ..lin.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake.5Coutput.5Cobjects.5Ctau.3::
+                          83 .LDWlin3:
+0000002a 80078f9144f0     84 	st.w	r18,4294451736[zero]
+                          85 --line12
+                          86 ..lin.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake.5Coutput.5Cobjects.5Ctau.4::
+                          87 .LDWlin4:
+00000030 40f6e5ff         88 	movhi	hi(-1769472),zero,ep
+00000034 136a             89 	mov	-13,r13
+00000036 c86c             90 	sst.h	r13,144[ep]
+                          91 --line13
+                          92 ..lin.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake.5Coutput.5Cobjects.5Ctau.5::
+                          93 .LDWlin5:
+00000038 5e079400         94 	st.b	zero,148[ep]
+0000003c c004             95 	sst.h	zero,128[ep]
+0000003e 0105             96 	sst.w	zero,0[ep]
+00000040 c03790a0         97 	set1	6,lo(4294942864)[zero]
+00000044 c0bf90a0         98 	clr1	7,lo(4294942864)[zero]
+00000048 c204             99 	sst.h	zero,132[ep]
+0000004a 80074f0000ca    100 	st.w	zero,4293197828[zero]
+                         101 --line22
+                         102 ..lin.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake.5Coutput.5Cobjects.5Ctau.6::
+                         103 .LDWlin6:
+00000050 c03792a0        104 	set1	6,lo(4294942866)[zero]
+00000054 c0bf92a0        105 	clr1	7,lo(4294942866)[zero]
+00000058 c404            106 	sst.h	zero,136[ep]
+0000005a 80078f0000ca    107 	st.w	zero,4293197832[zero]
+                         108 --line27
+                         109 ..lin.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake.5Coutput.5Cobjects.5Ctau.7::
+                         110 .LDWlin7:
+00000060 c03794a0        111 	set1	6,lo(4294942868)[zero]
+
+                                                                      Page 3
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+00000064 c0bf94a0        112 	clr1	7,lo(4294942868)[zero]
+00000068 c604            113 	sst.h	zero,140[ep]
+0000006a 8007cf0000ca    114 	st.w	zero,4293197836[zero]
+                         115 --line32
+                         116 ..lin.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake.5Coutput.5Cobjects.5Ctau.8::
+                         117 .LDWlin8:
+00000070 c03796a0        118 	set1	6,lo(4294942870)[zero]
+00000074 c0bf96a0        119 	clr1	7,lo(4294942870)[zero]
+                         120 --	    .ef
+                         121 .LDW11:
+00000078 7f00            122 	jmp	[lp]
+                         123 	.global	___ghs_eofn_Tau_Init
+                         124 ___ghs_eofn_Tau_Init:
+                         125 	.type	_Tau_Init,@function
+                         126 	.size	_Tau_Init,.-_Tau_Init
+                         127 	.align	2
+                         128 
+                         129 	.section ".bss","awb"
+                         130 .L88:
+                         131 	.type	.L88,@object
+                         132 	.size	.L88,0
+                         133 	.data
+                         134 	.text
+                         135 	.align	2
+                         136 	.align	2
+                         137 ..gh.f.f.1.e.1:
+                         138 	.type	..gh.f.f.1.e.1,@object
+                         139 	.size	..gh.f.f.1.e.1,0
+                         140 	.global	_Tau_StartTimer
+                         141 _Tau_StartTimer:
+0000007a a600            142 	sxb	r6
+                         143 --	    .bf
+                         144 .LDW21:
+0000007c 2096e803        145 	movea	1000,zero,r18
+00000080 e7972202        146 	mulu	r7,r18,zero
+00000084 40f6e5ff        147 	movhi	hi(-1769472),zero,ep
+00000088 6132            148 	cmp	1,r6
+0000008a 910d*           149 	bl	.L139
+0000008c a20d*           150 	be	.L140
+0000008e 6332            151 	cmp	3,r6
+00000090 c10d*           152 	bl	.L141
+00000092 da15*           153 	bne	.L135
+                         154 --line53
+                         155 ..lin.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake.5Coutput.5Cobjects.5Ctau.9::
+                         156 .LDWlin9:
+00000094 8007cf9000ca    157 	st.w	r18,4293197836[zero]
+                         158 --line54
+                         159 ..lin.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake.5Coutput.5Cobjects.5Ctau.10::
+                         160 .LDWlin10:
+0000009a a50d*           161 	br	.L145
+                         162 .L139:
+                         163 --line44
+                         164 ..lin.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake.5Coutput.5Cobjects.5Ctau.11::
+                         165 .LDWlin11:
+0000009c 0195            166 	sst.w	r18,0[ep]
+0000009e 850d*           167 	br	.L145
+                         168 .L140:
+                         169 --line47
+                         170 ..lin.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake.5Coutput.5Cobjects.5Ctau.12::
+                         171 .LDWlin12:
+000000a0 80074f9000ca    172 	st.w	r18,4293197828[zero]
+
+                                                                      Page 4
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+                         173 --line48
+                         174 ..lin.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake.5Coutput.5Cobjects.5Ctau.13::
+                         175 .LDWlin13:
+000000a6 c505*           176 	br	.L145
+                         177 .L141:
+                         178 --line50
+                         179 ..lin.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake.5Coutput.5Cobjects.5Ctau.14::
+                         180 .LDWlin14:
+000000a8 80078f9000ca    181 	st.w	r18,4293197832[zero]
+                         182 .L145:
+                         183 --line62
+                         184 ..lin.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake.5Coutput.5Cobjects.5Ctau.15::
+                         185 .LDWlin15:
+000000ae 9e8f5500        186 	ld.bu	84[ep],r17
+000000b2 0192            187 	mov	1,r18
+000000b4 e697c298        188 	shl	r6,r18,r19
+000000b8 1389            189 	or	r19,r17
+000000ba d48b            190 	sst.b	r17,84[ep]
+                         191 .L135:
+                         192 --	    .ef
+                         193 .LDW31:
+000000bc 7f00            194 	jmp	[lp]
+                         195 	.global	___ghs_eofn_Tau_StartTimer
+                         196 ___ghs_eofn_Tau_StartTimer:
+                         197 	.type	_Tau_StartTimer,@function
+                         198 	.size	_Tau_StartTimer,.-_Tau_StartTimer
+                         199 	.align	2
+                         200 --_U32_TimerValue_ticks	r18	local
+                         201 
+                         202 --_EN_Channel	r6	param
+                         203 --_U32_TimerValue_ms	r7	param
+                         204 
+                         205 	.section ".bss","awb"
+                         206 .L233:
+                         207 	.type	.L233,@object
+                         208 	.size	.L233,0
+                         209 	.data
+                         210 	.text
+                         211 	.align	2
+                         212 	.align	2
+                         213 ..gh.f.f.1.e.2:
+                         214 	.type	..gh.f.f.1.e.2,@object
+                         215 	.size	..gh.f.f.1.e.2,0
+                         216 	.global	_Tau_StopTimer
+                         217 _Tau_StopTimer:
+                         218 --	    .bf
+                         219 .LDW41:
+000000be 0192            220 	mov	1,r18
+000000c0 e697c298        221 	shl	r6,r18,r19
+000000c4 3e065800e5ff    222 	mov	-1769384,ep
+000000ca 6090            223 	sld.bu	0[ep],r18
+000000cc 1391            224 	or	r19,r18
+000000ce 8093            225 	sst.b	r18,0[ep]
+                         226 --	    .ef
+                         227 .LDW51:
+                         228 --line69
+                         229 ..lin.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake.5Coutput.5Cobjects.5Ctau.16::
+                         230 .LDWlin16:
+000000d0 7f00            231 	jmp	[lp]
+                         232 	.global	___ghs_eofn_Tau_StopTimer
+                         233 ___ghs_eofn_Tau_StopTimer:
+
+                                                                      Page 5
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+                         234 	.type	_Tau_StopTimer,@function
+                         235 	.size	_Tau_StopTimer,.-_Tau_StopTimer
+                         236 	.align	2
+                         237 
+                         238 --_EN_Channel	r6	param
+                         239 
+                         240 	.section ".bss","awb"
+                         241 .L353:
+                         242 	.type	.L353,@object
+                         243 	.size	.L353,0
+                         244 	.data
+                         245 	.text
+                         246 	.align	2
+                         247 	.align	2
+                         248 ..gh.f.f.1.e.3:
+                         249 	.type	..gh.f.f.1.e.3,@object
+                         250 	.size	..gh.f.f.1.e.3,0
+                         251 	.global	_Tau_GetTimer
+                         252 _Tau_GetTimer:
+000000d2 a600            253 	sxb	r6
+000000d4 07f0            254 	mov	r7,ep
+                         255 --	    .bf
+                         256 .LDW61:
+000000d6 407ee5ff        257 	movhi	65509,zero,r15
+000000da 8f7f5100        258 	ld.bu	80[r15],r15
+                         259 --line74
+                         260 ..lin.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake.5Coutput.5Cobjects.5Ctau.17::
+                         261 .LDWlin17:
+000000de 018a            262 	mov	1,r17
+000000e0 e68fc288        263 	shl	r6,r17,r17
+000000e4 9100            264 	zxb	r17
+000000e6 5179            265 	and	r17,r15
+000000e8 f179            266 	cmp	r17,r15
+000000ea 8a25*           267 	bne	.L373
+                         268 --line77
+                         269 ..lin.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake.5Coutput.5Cobjects.5Ctau.18::
+                         270 .LDWlin18:
+000000ec 6132            271 	cmp	1,r6
+000000ee e10d*           272 	bl	.L377
+000000f0 9215*           273 	be	.L378
+000000f2 6332            274 	cmp	3,r6
+                         275 --line92
+                         276 ..lin.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake.5Coutput.5Cobjects.5Ctau.19::
+                         277 .LDWlin19:
+000000f4 1f92            278 	mov	-1,r18
+000000f6 a115*           279 	bl	.L379
+000000f8 d315*           280 	bnh	.L380
+                         281 .L375:
+                         282 --line96
+                         283 ..lin.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake.5Coutput.5Cobjects.5Ctau.20::
+                         284 .LDWlin20:
+000000fa 2e06d34d6210    285 	mov	274877907,r14
+00000100 f277227a        286 	mulu	r18,r14,r15
+00000104 0f80            287 	mov	r15,r16
+00000106 8682            288 	shr	6,r16
+00000108 a515*           289 	br	.L408
+                         290 .L377:
+                         291 --line80
+                         292 ..lin.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake.5Coutput.5Cobjects.5Ctau.21::
+                         293 .LDWlin21:
+0000010a 8007099100ca    294 	ld.w	4293197840[zero],r18
+
+                                                                      Page 6
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+                         295 --line81
+                         296 ..lin.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake.5Coutput.5Cobjects.5Ctau.22::
+                         297 .LDWlin22:
+00000110 d5f5*           298 	br	.L375
+                         299 .L378:
+                         300 --line83
+                         301 ..lin.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake.5Coutput.5Cobjects.5Ctau.23::
+                         302 .LDWlin23:
+00000112 8007499100ca    303 	ld.w	4293197844[zero],r18
+                         304 --line84
+                         305 ..lin.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake.5Coutput.5Cobjects.5Ctau.24::
+                         306 .LDWlin24:
+00000118 95f5*           307 	br	.L375
+                         308 .L379:
+                         309 --line86
+                         310 ..lin.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake.5Coutput.5Cobjects.5Ctau.25::
+                         311 .LDWlin25:
+0000011a 8007899100ca    312 	ld.w	4293197848[zero],r18
+                         313 --line87
+                         314 ..lin.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake.5Coutput.5Cobjects.5Ctau.26::
+                         315 .LDWlin26:
+00000120 d5ed*           316 	br	.L375
+                         317 .L380:
+                         318 --line89
+                         319 ..lin.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake.5Coutput.5Cobjects.5Ctau.27::
+                         320 .LDWlin27:
+00000122 8007c99100ca    321 	ld.w	4293197852[zero],r18
+                         322 --line90
+                         323 ..lin.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake.5Coutput.5Cobjects.5Ctau.28::
+                         324 .LDWlin28:
+00000128 95ed*           325 	br	.L375
+                         326 .L373:
+                         327 --line99
+                         328 ..lin.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake.5Coutput.5Cobjects.5Ctau.29::
+                         329 .LDWlin29:
+0000012a 1f82            330 	mov	-1,r16
+                         331 .L408:
+0000012c 0185            332 	sst.w	r16,0[ep]
+                         333 --	    .ef
+                         334 .LDW71:
+0000012e 7f00            335 	jmp	[lp]
+                         336 	.global	___ghs_eofn_Tau_GetTimer
+                         337 ___ghs_eofn_Tau_GetTimer:
+                         338 	.type	_Tau_GetTimer,@function
+                         339 	.size	_Tau_GetTimer,.-_Tau_GetTimer
+                         340 	.align	2
+                         341 --_U32_TimerValue_ticks	r18	local
+                         342 --_U8_TimerEnableMask	r17	local
+                         343 
+                         344 --_EN_Channel	r6	param
+                         345 --_PU32_TimerValue_ms	ep	param
+                         346 
+                         347 	.section ".bss","awb"
+                         348 .L457:
+                         349 	.type	.L457,@object
+                         350 	.size	.L457,0
+                         351 	.data
+                         352 	.text
+                         353 	.align	2
+                         354 --_PROTCMD0	4294443008	import
+                         355 --_PROTS0	4294443012	import
+
+                                                                      Page 7
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+                         356 --_CKSC_ATAUJS_CTL	4294451456	import
+                         357 --_CKSC_ATAUJD_STPM	4294451736	import
+                         358 --_TAUJ0	4293197824	import
+                         359 
+                         360 	.data
+                         361 	.ghsnote version,17
+                         362 	.ghsnote tools,3
+                         363 	.ghsnote options,144
+                         364 	.text
+                         365 	.align	2
+                         366 ..eof.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake.5Coutput.5Cobjects.5Ctau...43.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake..65044B0F..0::
+                         367 	.section	.debug_info
+                         368 .Ldw_begin:
+00000000 2d0c0000        369 	.word	.Ldw_end-.Ldw_begin-4
+00000004 0200            370 	.byte	2,0
+00000006 00000000*       371 	.word	.Ldw_abbr_begin
+0000000a 04              372 	.byte	4
+                         373 	.section	.debug_abbrev
+                         374 .Ldw_abbr_begin:
+                         375 	.section	.debug_info
+0000000b 01              376 	.byte	1
+0000000c 00000000*       377 	.word	..bof.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake.5Coutput.5Cobjects.5Ctau...43.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake..65044B0F..0
+00000010 00000000*       378 	.word	..eof.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake.5Coutput.5Cobjects.5Ctau...43.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake..65044B0F..0
+00000014 2e2e2f736f75    379 	.strz	"../source/McalGpt/tau.c"
+0000001a 7263652f4d63 
+00000020 616c4770742f 
+00000026 7461752e6300 
+0000002c 433a5c5f4543    380 	.strz	"C:\\_ECU2\\ECU_Rivian_A1\\Target\\repo_projects\\pRealEcu\\cR_LATEST\\make"
+00000032 55325c454355 
+00000038 5f5269766961 
+0000003e 6e5f41315c54 
+00000044 61726765745c 
+0000004a 7265706f5f70 
+00000050 726f6a656374 
+00000056 735c70526561 
+0000005c 6c4563755c63 
+00000062 525f4c415445 
+00000068 53545c6d616b 
+0000006e 6500 
+00000070 474853204320    381 	.strz	"GHS C 2015.1.7 [dual]"
+00000076 323031352e31 
+0000007c 2e37205b6475 
+00000082 616c5d00 
+00000086 0100            382 	.byte	1,0
+00000088 00000000*       383 	.word	.Ldw_line_begin
+0000008c 00000000*       384 	.word	.Ldw_macinfo_begin
+00000090 00              385 	.byte	0
+                         386 
+                         387 	.section	.debug_abbrev
+00000000 01              388 	.byte	1
+00000001 11              389 	.byte	17
+00000002 01              390 	.byte	1
+00000003 1101            391 	.byte	17,1
+00000005 1201            392 	.byte	18,1
+00000007 0308            393 	.byte	3,8
+00000009 1b08            394 	.byte	27,8
+0000000b 2508            395 	.byte	37,8
+0000000d 1305            396 	.byte	19,5
+0000000f 1006            397 	.byte	16,6
+00000011 4306            398 	.byte	67,6
+00000013 420b            399 	.byte	66,11
+
+                                                                      Page 8
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+00000015 0000            400 	.byte	0,0
+                         401 
+                         402 	.section	.debug_line
+                         403 .Ldw_line_begin:
+00000000 3d030000        404 	.word	.Ldw_line_end-.Ldw_line_begin-4
+00000004 0200            405 	.byte	2,0
+00000006 00000000*       406 	.word	.Ldw_lpro_end-.Ldw_lpro_begin
+                         407 .Ldw_lpro_begin:
+0000000a 01              408 	.byte	1
+0000000b 00              409 	.byte	0
+0000000c 00              410 	.byte	0
+0000000d 04              411 	.byte	4
+0000000e 0a              412 	.byte	10
+0000000f 000101          413 	.byte	0,1,1
+00000012 010100          414 	.byte	1,1,0
+00000015 000001          415 	.byte	0,0,1
+00000018 00              416 	.byte	0
+00000019 2e2e2f736f75    417 	.strz	"../source/McalGpt/tau.c"
+0000001f 7263652f4d63 
+00000025 616c4770742f 
+0000002b 7461752e6300 
+00000031 000000          418 	.byte	0,0,0
+00000034 2e2e2f736f75    419 	.strz	"../source/common/Std_Types.hpp"
+0000003a 7263652f636f 
+00000040 6d6d6f6e2f53 
+00000046 74645f547970 
+0000004c 65732e687070 
+00000052 00 
+00000053 000000          420 	.byte	0,0,0
+00000056 2e2e2f736f75    421 	.strz	"../source/common/Platform_Types.hpp"
+0000005c 7263652f636f 
+00000062 6d6d6f6e2f50 
+00000068 6c6174666f72 
+0000006e 6d5f54797065 
+00000074 732e68707000 
+0000007a 000000          422 	.byte	0,0,0
+0000007d 2e2e2f736f75    423 	.strz	"../source/common/Compiler.hpp"
+00000083 7263652f636f 
+00000089 6d6d6f6e2f43 
+0000008f 6f6d70696c65 
+00000095 722e68707000 
+0000009b 000000          424 	.byte	0,0,0
+0000009e 2e2e2f736f75    425 	.strz	"../source/ProjectCompiler/Compiler_Cfg.hpp"
+000000a4 7263652f5072 
+000000aa 6f6a65637443 
+000000b0 6f6d70696c65 
+000000b6 722f436f6d70 
+000000bc 696c65725f43 
+000000c2 66672e687070 
+000000c8 00 
+000000c9 000000          426 	.byte	0,0,0
+000000cc 2e2e2f736f75    427 	.strz	"../source/ProjectCompiler/CompilerCfg_SwcServiceOs.hpp"
+000000d2 7263652f5072 
+000000d8 6f6a65637443 
+000000de 6f6d70696c65 
+000000e4 722f436f6d70 
+000000ea 696c65724366 
+000000f0 675f53776353 
+000000f6 657276696365 
+000000fc 4f732e687070 
+00000102 00 
+
+                                                                      Page 9
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+00000103 000000          428 	.byte	0,0,0
+00000106 2e2e2f736f75    429 	.strz	"../source/McalGpt/Tau.hpp"
+0000010c 7263652f4d63 
+00000112 616c4770742f 
+00000118 5461752e6870 
+0000011e 7000 
+00000120 000000          430 	.byte	0,0,0
+00000123 2e2e2f736f75    431 	.strz	"../source/McalGpt/TauX.hpp"
+00000129 7263652f4d63 
+0000012f 616c4770742f 
+00000135 546175582e68 
+0000013b 707000 
+0000013e 000000          432 	.byte	0,0,0
+00000141 2e2e2f736f75    433 	.strz	"../source/McalMcu/device.hpp"
+00000147 7263652f4d63 
+0000014d 616c4d63752f 
+00000153 646576696365 
+00000159 2e68707000 
+0000015e 000000          434 	.byte	0,0,0
+00000161 2e2e2f736f75    435 	.strz	"../source/McalMcu/dr7f701013.dvf.hpp"
+00000167 7263652f4d63 
+0000016d 616c4d63752f 
+00000173 647237663730 
+00000179 313031332e64 
+0000017f 76662e687070 
+00000185 00 
+00000186 000000          436 	.byte	0,0,0
+00000189 2e2e2f736f75    437 	.strz	"../source/McalMcu/cpu.hpp"
+0000018f 7263652f4d63 
+00000195 616c4d63752f 
+0000019b 6370752e6870 
+000001a1 7000 
+000001a3 000000          438 	.byte	0,0,0
+000001a6 2e2e2f736f75    439 	.strz	"../source/McalMcu/v800_ghs.hpp"
+000001ac 7263652f4d63 
+000001b2 616c4d63752f 
+000001b8 763830305f67 
+000001be 68732e687070 
+000001c4 00 
+000001c5 000000          440 	.byte	0,0,0
+000001c8 00              441 	.byte	0
+                         442 .Ldw_lpro_end:
+                         443 	.section	.debug_macinfo
+                         444 .Ldw_macinfo_begin:
+                         445 	.section	.debug_frame
+                         446 .LDW_5257f28:
+00000000 00000000*       447 	.word	.LDW_unq_2-.LDW_unq_1
+                         448 .LDW_unq_1:
+00000004 ffffffff        449 	.byte	255,255,255,255
+00000008 01              450 	.byte	1
+00000009 00              451 	.byte	0
+0000000a 01              452 	.byte	1
+0000000b 01              453 	.byte	1
+0000000c 1f              454 	.byte	31
+0000000d 0c              455 	.byte	12
+0000000e 03              456 	.byte	3
+0000000f 00              457 	.byte	0
+00000010 07              458 	.byte	7
+00000011 00              459 	.byte	0
+00000012 07              460 	.byte	7
+00000013 01              461 	.byte	1
+
+                                                                      Page 10
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+00000014 07              462 	.byte	7
+00000015 02              463 	.byte	2
+00000016 07              464 	.byte	7
+00000017 03              465 	.byte	3
+00000018 07              466 	.byte	7
+00000019 04              467 	.byte	4
+0000001a 07              468 	.byte	7
+0000001b 05              469 	.byte	5
+0000001c 07              470 	.byte	7
+0000001d 06              471 	.byte	6
+0000001e 07              472 	.byte	7
+0000001f 07              473 	.byte	7
+00000020 07              474 	.byte	7
+00000021 08              475 	.byte	8
+00000022 07              476 	.byte	7
+00000023 09              477 	.byte	9
+00000024 07              478 	.byte	7
+00000025 0a              479 	.byte	10
+00000026 07              480 	.byte	7
+00000027 0b              481 	.byte	11
+00000028 07              482 	.byte	7
+00000029 0c              483 	.byte	12
+0000002a 07              484 	.byte	7
+0000002b 0d              485 	.byte	13
+0000002c 07              486 	.byte	7
+0000002d 0e              487 	.byte	14
+0000002e 07              488 	.byte	7
+0000002f 0f              489 	.byte	15
+00000030 07              490 	.byte	7
+00000031 10              491 	.byte	16
+00000032 07              492 	.byte	7
+00000033 11              493 	.byte	17
+00000034 07              494 	.byte	7
+00000035 12              495 	.byte	18
+00000036 07              496 	.byte	7
+00000037 13              497 	.byte	19
+00000038 08              498 	.byte	8
+00000039 14              499 	.byte	20
+0000003a 08              500 	.byte	8
+0000003b 15              501 	.byte	21
+0000003c 08              502 	.byte	8
+0000003d 16              503 	.byte	22
+0000003e 08              504 	.byte	8
+0000003f 17              505 	.byte	23
+00000040 08              506 	.byte	8
+00000041 18              507 	.byte	24
+00000042 08              508 	.byte	8
+00000043 19              509 	.byte	25
+00000044 08              510 	.byte	8
+00000045 1a              511 	.byte	26
+00000046 08              512 	.byte	8
+00000047 1b              513 	.byte	27
+00000048 08              514 	.byte	8
+00000049 1c              515 	.byte	28
+0000004a 08              516 	.byte	8
+0000004b 1d              517 	.byte	29
+0000004c 07              518 	.byte	7
+0000004d 1e              519 	.byte	30
+0000004e 08              520 	.byte	8
+0000004f 1f              521 	.byte	31
+00000050 07              522 	.byte	7
+
+                                                                      Page 11
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+00000051 20              523 	.byte	32
+00000052 07              524 	.byte	7
+00000053 21              525 	.byte	33
+00000054 07              526 	.byte	7
+00000055 22              527 	.byte	34
+00000056 07              528 	.byte	7
+00000057 23              529 	.byte	35
+00000058 07              530 	.byte	7
+00000059 24              531 	.byte	36
+0000005a 07              532 	.byte	7
+0000005b 25              533 	.byte	37
+0000005c 07              534 	.byte	7
+0000005d 26              535 	.byte	38
+0000005e 07              536 	.byte	7
+0000005f 27              537 	.byte	39
+00000060 07              538 	.byte	7
+00000061 28              539 	.byte	40
+00000062 07              540 	.byte	7
+00000063 29              541 	.byte	41
+00000064 07              542 	.byte	7
+00000065 2a              543 	.byte	42
+00000066 07              544 	.byte	7
+00000067 2b              545 	.byte	43
+00000068 07              546 	.byte	7
+00000069 2c              547 	.byte	44
+0000006a 07              548 	.byte	7
+0000006b 2d              549 	.byte	45
+0000006c 07              550 	.byte	7
+0000006d 2e              551 	.byte	46
+0000006e 07              552 	.byte	7
+0000006f 2f              553 	.byte	47
+00000070 07              554 	.byte	7
+00000071 30              555 	.byte	48
+00000072 07              556 	.byte	7
+00000073 31              557 	.byte	49
+00000074 07              558 	.byte	7
+00000075 32              559 	.byte	50
+00000076 07              560 	.byte	7
+00000077 33              561 	.byte	51
+00000078 07              562 	.byte	7
+00000079 34              563 	.byte	52
+0000007a 07              564 	.byte	7
+0000007b 35              565 	.byte	53
+0000007c 07              566 	.byte	7
+0000007d 36              567 	.byte	54
+0000007e 07              568 	.byte	7
+0000007f 37              569 	.byte	55
+00000080 07              570 	.byte	7
+00000081 38              571 	.byte	56
+00000082 07              572 	.byte	7
+00000083 39              573 	.byte	57
+00000084 07              574 	.byte	7
+00000085 3a              575 	.byte	58
+00000086 07              576 	.byte	7
+00000087 3b              577 	.byte	59
+00000088 07              578 	.byte	7
+00000089 3c              579 	.byte	60
+0000008a 07              580 	.byte	7
+0000008b 3d              581 	.byte	61
+0000008c 07              582 	.byte	7
+0000008d 3e              583 	.byte	62
+
+                                                                      Page 12
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+0000008e 07              584 	.byte	7
+0000008f 3f              585 	.byte	63
+                         586 .LDW_unq_2:
+                         587 	.section	.debug_info
+                         588 .LDW_2966f10:
+00000091 25              589 	.byte	37
+00000092 756e7369676e    590 	.strz	"unsigned long"
+00000098 6564206c6f6e 
+0000009e 6700 
+000000a0 07              591 	.byte	7
+000000a1 04              592 	.byte	4
+                         593 
+                         594 	.section	.debug_abbrev
+00000017 25              595 	.byte	37
+00000018 24              596 	.byte	36
+00000019 00              597 	.byte	0
+0000001a 0308            598 	.byte	3,8
+0000001c 3e0b            599 	.byte	62,11
+0000001e 0b0b            600 	.byte	11,11
+00000020 0000            601 	.byte	0,0
+                         602 
+                         603 	.section	.debug_info
+                         604 .LDW_5336498:
+000000a2 45              605 	.byte	69
+000000a3 01              606 	.byte	1
+                         607 
+                         608 	.section	.debug_abbrev
+00000022 45              609 	.byte	69
+00000023 15              610 	.byte	21
+00000024 01              611 	.byte	1
+00000025 270c            612 	.byte	39,12
+00000027 0000            613 	.byte	0,0
+                         614 
+                         615 	.section	.debug_info
+000000a4 00              616 	.byte	0
+                         617 
+                         618 .LDW_53364d0:
+000000a5 45              619 	.byte	69
+000000a6 01              620 	.byte	1
+                         621 
+                         622 .LDW_5335780:
+000000a7 12              623 	.byte	18
+000000a8 00000000*       624 	.word	.LDW_52b9d50
+000000ac 00              625 	.byte	0
+                         626 
+                         627 	.section	.debug_abbrev
+00000029 12              628 	.byte	18
+0000002a 05              629 	.byte	5
+0000002b 00              630 	.byte	0
+0000002c 4910            631 	.byte	73,16
+0000002e 4b0c            632 	.byte	75,12
+00000030 0000            633 	.byte	0,0
+                         634 
+                         635 	.section	.debug_info
+                         636 .LDW_5335570:
+000000ad 12              637 	.byte	18
+000000ae 00000000*       638 	.word	.LDW_52b9f08
+000000b2 00              639 	.byte	0
+                         640 
+000000b3 00              641 	.byte	0
+                         642 
+
+                                                                      Page 13
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+                         643 .LDW_29ad4e0:
+000000b4 25              644 	.byte	37
+000000b5 756e7369676e    645 	.strz	"unsigned char"
+000000bb 656420636861 
+000000c1 7200 
+000000c3 08              646 	.byte	8
+000000c4 01              647 	.byte	1
+                         648 
+                         649 .LDW_29ad588:
+000000c5 45              650 	.byte	69
+000000c6 01              651 	.byte	1
+                         652 
+                         653 .LDW_5335930:
+000000c7 12              654 	.byte	18
+000000c8 00000000*       655 	.word	.LDW_52b9d50
+000000cc 00              656 	.byte	0
+                         657 
+000000cd 00              658 	.byte	0
+                         659 
+                         660 .LDW_29ad5c0:
+000000ce 2f              661 	.byte	47
+000000cf 00000000*       662 	.word	.LDW_52b9f08
+                         663 
+                         664 	.section	.debug_abbrev
+00000032 2f              665 	.byte	47
+00000033 0f              666 	.byte	15
+00000034 00              667 	.byte	0
+00000035 4910            668 	.byte	73,16
+00000037 0000            669 	.byte	0,0
+                         670 
+                         671 	.section	.debug_info
+                         672 .LDW_29ad1d0:
+000000d3 45              673 	.byte	69
+000000d4 01              674 	.byte	1
+                         675 
+                         676 .LDW_5335840:
+000000d5 12              677 	.byte	18
+000000d6 00000000*       678 	.word	.LDW_52b9d50
+000000da 00              679 	.byte	0
+                         680 
+                         681 .LDW_5335960:
+000000db 12              682 	.byte	18
+000000dc 00000000*       683 	.word	.LDW_29ad5c0
+000000e0 00              684 	.byte	0
+                         685 
+000000e1 00              686 	.byte	0
+                         687 
+                         688 .LDW_29ad160:
+000000e2 25              689 	.byte	37
+000000e3 756e7369676e    690 	.strz	"unsigned short"
+000000e9 65642073686f 
+000000ef 727400 
+000000f2 07              691 	.byte	7
+000000f3 02              692 	.byte	2
+                         693 
+                         694 .LDW_29ad668:
+000000f4 25              695 	.byte	37
+000000f5 756e7369676e    696 	.strz	"unsigned int"
+000000fb 656420696e74 
+00000101 00 
+00000102 07              697 	.byte	7
+
+                                                                      Page 14
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+00000103 04              698 	.byte	4
+                         699 
+                         700 .LDW_29ad2b0:
+00000104 25              701 	.byte	37
+00000105 696e7400        702 	.strz	"int"
+00000109 05              703 	.byte	5
+0000010a 04              704 	.byte	4
+                         705 
+                         706 .LDW_4cd0d38:
+0000010b 29              707 	.byte	41
+0000010c 00000000*       708 	.word	.LDW_52b9f08
+                         709 
+                         710 	.section	.debug_abbrev
+00000039 29              711 	.byte	41
+0000003a 26              712 	.byte	38
+0000003b 00              713 	.byte	0
+0000003c 4910            714 	.byte	73,16
+0000003e 0000            715 	.byte	0,0
+                         716 
+                         717 	.section	.debug_info
+                         718 .LDW_29a8fd0:
+00000110 29              719 	.byte	41
+00000111 00000000*       720 	.word	.LDW_52b96c8
+                         721 
+                         722 .LDW_53691e0:
+00000115 3a              723 	.byte	58
+00000116 00              724 	.byte	0
+00000117 03              725 	.byte	3
+00000118 00000000*       726 	.word	.LDW_52b96c8
+                         727 
+                         728 	.section	.debug_abbrev
+00000040 3a              729 	.byte	58
+00000041 01              730 	.byte	1
+00000042 01              731 	.byte	1
+00000043 090b            732 	.byte	9,11
+00000045 0b0f            733 	.byte	11,15
+00000047 4910            734 	.byte	73,16
+00000049 0000            735 	.byte	0,0
+                         736 
+                         737 	.section	.debug_info
+0000011c 32              738 	.byte	50
+0000011d 00000000*       739 	.word	.LDW_29ad2b0
+00000121 04              740 	.byte	4
+00000122 00              741 	.byte	0
+00000123 02              742 	.byte	2
+                         743 
+                         744 	.section	.debug_abbrev
+0000004b 32              745 	.byte	50
+0000004c 21              746 	.byte	33
+0000004d 00              747 	.byte	0
+0000004e 4910            748 	.byte	73,16
+00000050 0b0f            749 	.byte	11,15
+00000052 220d            750 	.byte	34,13
+00000054 2f0d            751 	.byte	47,13
+00000056 0000            752 	.byte	0,0
+                         753 
+                         754 	.section	.debug_info
+00000124 00              755 	.byte	0
+                         756 
+                         757 .LDW_5368af8:
+00000125 3a              758 	.byte	58
+
+                                                                      Page 15
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+00000126 00              759 	.byte	0
+00000127 03              760 	.byte	3
+00000128 00000000*       761 	.word	.LDW_52b96c8
+                         762 
+0000012c 32              763 	.byte	50
+0000012d 00000000*       764 	.word	.LDW_29ad2b0
+00000131 04              765 	.byte	4
+00000132 00              766 	.byte	0
+00000133 02              767 	.byte	2
+                         768 
+00000134 00              769 	.byte	0
+                         770 
+                         771 .LDW_53728e8:
+00000135 3a              772 	.byte	58
+00000136 00              773 	.byte	0
+00000137 03              774 	.byte	3
+00000138 00000000*       775 	.word	.LDW_52b96c8
+                         776 
+0000013c 32              777 	.byte	50
+0000013d 00000000*       778 	.word	.LDW_29ad2b0
+00000141 04              779 	.byte	4
+00000142 00              780 	.byte	0
+00000143 02              781 	.byte	2
+                         782 
+00000144 00              783 	.byte	0
+                         784 
+                         785 .LDW_5372640:
+00000145 3a              786 	.byte	58
+00000146 00              787 	.byte	0
+00000147 03              788 	.byte	3
+00000148 00000000*       789 	.word	.LDW_52b96c8
+                         790 
+0000014c 32              791 	.byte	50
+0000014d 00000000*       792 	.word	.LDW_29ad2b0
+00000151 04              793 	.byte	4
+00000152 00              794 	.byte	0
+00000153 02              795 	.byte	2
+                         796 
+00000154 00              797 	.byte	0
+                         798 
+                         799 .LDW_5371a90:
+00000155 3a              800 	.byte	58
+00000156 00              801 	.byte	0
+00000157 03              802 	.byte	3
+00000158 00000000*       803 	.word	.LDW_52b96c8
+                         804 
+0000015c 32              805 	.byte	50
+0000015d 00000000*       806 	.word	.LDW_29ad2b0
+00000161 04              807 	.byte	4
+00000162 00              808 	.byte	0
+00000163 02              809 	.byte	2
+                         810 
+00000164 00              811 	.byte	0
+                         812 
+                         813 .LDW_5372970:
+00000165 3a              814 	.byte	58
+00000166 00              815 	.byte	0
+00000167 03              816 	.byte	3
+00000168 00000000*       817 	.word	.LDW_52b96c8
+                         818 
+0000016c 32              819 	.byte	50
+
+                                                                      Page 16
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+0000016d 00000000*       820 	.word	.LDW_29ad2b0
+00000171 04              821 	.byte	4
+00000172 00              822 	.byte	0
+00000173 02              823 	.byte	2
+                         824 
+00000174 00              825 	.byte	0
+                         826 
+                         827 .LDW_5371c28:
+00000175 3a              828 	.byte	58
+00000176 00              829 	.byte	0
+00000177 03              830 	.byte	3
+00000178 00000000*       831 	.word	.LDW_52b96c8
+                         832 
+0000017c 32              833 	.byte	50
+0000017d 00000000*       834 	.word	.LDW_29ad2b0
+00000181 04              835 	.byte	4
+00000182 00              836 	.byte	0
+00000183 02              837 	.byte	2
+                         838 
+00000184 00              839 	.byte	0
+                         840 
+                         841 .LDW_53724a8:
+00000185 3a              842 	.byte	58
+00000186 00              843 	.byte	0
+00000187 03              844 	.byte	3
+00000188 00000000*       845 	.word	.LDW_52b96c8
+                         846 
+0000018c 32              847 	.byte	50
+0000018d 00000000*       848 	.word	.LDW_29ad2b0
+00000191 04              849 	.byte	4
+00000192 00              850 	.byte	0
+00000193 02              851 	.byte	2
+                         852 
+00000194 00              853 	.byte	0
+                         854 
+                         855 .LDW_5372750:
+00000195 3a              856 	.byte	58
+00000196 00              857 	.byte	0
+00000197 03              858 	.byte	3
+00000198 00000000*       859 	.word	.LDW_52b96c8
+                         860 
+0000019c 32              861 	.byte	50
+0000019d 00000000*       862 	.word	.LDW_29ad2b0
+000001a1 04              863 	.byte	4
+000001a2 00              864 	.byte	0
+000001a3 02              865 	.byte	2
+                         866 
+000001a4 00              867 	.byte	0
+                         868 
+                         869 .LDW_5371e48:
+000001a5 3a              870 	.byte	58
+000001a6 00              871 	.byte	0
+000001a7 03              872 	.byte	3
+000001a8 00000000*       873 	.word	.LDW_52b96c8
+                         874 
+000001ac 32              875 	.byte	50
+000001ad 00000000*       876 	.word	.LDW_29ad2b0
+000001b1 04              877 	.byte	4
+000001b2 00              878 	.byte	0
+000001b3 02              879 	.byte	2
+                         880 
+
+                                                                      Page 17
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+000001b4 00              881 	.byte	0
+                         882 
+                         883 .LDW_53726c8:
+000001b5 3a              884 	.byte	58
+000001b6 00              885 	.byte	0
+000001b7 03              886 	.byte	3
+000001b8 00000000*       887 	.word	.LDW_52b96c8
+                         888 
+000001bc 32              889 	.byte	50
+000001bd 00000000*       890 	.word	.LDW_29ad2b0
+000001c1 04              891 	.byte	4
+000001c2 00              892 	.byte	0
+000001c3 02              893 	.byte	2
+                         894 
+000001c4 00              895 	.byte	0
+                         896 
+                         897 .LDW_53727d8:
+000001c5 3a              898 	.byte	58
+000001c6 00              899 	.byte	0
+000001c7 03              900 	.byte	3
+000001c8 00000000*       901 	.word	.LDW_52b96c8
+                         902 
+000001cc 32              903 	.byte	50
+000001cd 00000000*       904 	.word	.LDW_29ad2b0
+000001d1 04              905 	.byte	4
+000001d2 00              906 	.byte	0
+000001d3 02              907 	.byte	2
+                         908 
+000001d4 00              909 	.byte	0
+                         910 
+                         911 .LDW_5371b18:
+000001d5 3a              912 	.byte	58
+000001d6 00              913 	.byte	0
+000001d7 03              914 	.byte	3
+000001d8 00000000*       915 	.word	.LDW_52b96c8
+                         916 
+000001dc 32              917 	.byte	50
+000001dd 00000000*       918 	.word	.LDW_29ad2b0
+000001e1 04              919 	.byte	4
+000001e2 00              920 	.byte	0
+000001e3 02              921 	.byte	2
+                         922 
+000001e4 00              923 	.byte	0
+                         924 
+                         925 .LDW_5372860:
+000001e5 3a              926 	.byte	58
+000001e6 00              927 	.byte	0
+000001e7 03              928 	.byte	3
+000001e8 00000000*       929 	.word	.LDW_52b96c8
+                         930 
+000001ec 32              931 	.byte	50
+000001ed 00000000*       932 	.word	.LDW_29ad2b0
+000001f1 04              933 	.byte	4
+000001f2 00              934 	.byte	0
+000001f3 02              935 	.byte	2
+                         936 
+000001f4 00              937 	.byte	0
+                         938 
+                         939 .LDW_53729f8:
+000001f5 3a              940 	.byte	58
+000001f6 00              941 	.byte	0
+
+                                                                      Page 18
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+000001f7 03              942 	.byte	3
+000001f8 00000000*       943 	.word	.LDW_52b96c8
+                         944 
+000001fc 32              945 	.byte	50
+000001fd 00000000*       946 	.word	.LDW_29ad2b0
+00000201 04              947 	.byte	4
+00000202 00              948 	.byte	0
+00000203 02              949 	.byte	2
+                         950 
+00000204 00              951 	.byte	0
+                         952 
+                         953 .LDW_5371ed0:
+00000205 3a              954 	.byte	58
+00000206 00              955 	.byte	0
+00000207 03              956 	.byte	3
+00000208 00000000*       957 	.word	.LDW_52b96c8
+                         958 
+0000020c 32              959 	.byte	50
+0000020d 00000000*       960 	.word	.LDW_29ad2b0
+00000211 04              961 	.byte	4
+00000212 00              962 	.byte	0
+00000213 02              963 	.byte	2
+                         964 
+00000214 00              965 	.byte	0
+                         966 
+                         967 .LDW_5371ba0:
+00000215 3a              968 	.byte	58
+00000216 00              969 	.byte	0
+00000217 03              970 	.byte	3
+00000218 00000000*       971 	.word	.LDW_52b96c8
+                         972 
+0000021c 32              973 	.byte	50
+0000021d 00000000*       974 	.word	.LDW_29ad2b0
+00000221 04              975 	.byte	4
+00000222 00              976 	.byte	0
+00000223 02              977 	.byte	2
+                         978 
+00000224 00              979 	.byte	0
+                         980 
+                         981 .LDW_5372a80:
+00000225 3a              982 	.byte	58
+00000226 00              983 	.byte	0
+00000227 03              984 	.byte	3
+00000228 00000000*       985 	.word	.LDW_52b96c8
+                         986 
+0000022c 32              987 	.byte	50
+0000022d 00000000*       988 	.word	.LDW_29ad2b0
+00000231 04              989 	.byte	4
+00000232 00              990 	.byte	0
+00000233 02              991 	.byte	2
+                         992 
+00000234 00              993 	.byte	0
+                         994 
+                         995 .LDW_5372420:
+00000235 3a              996 	.byte	58
+00000236 00              997 	.byte	0
+00000237 03              998 	.byte	3
+00000238 00000000*       999 	.word	.LDW_52b96c8
+                        1000 
+0000023c 32             1001 	.byte	50
+0000023d 00000000*      1002 	.word	.LDW_29ad2b0
+
+                                                                      Page 19
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+00000241 04             1003 	.byte	4
+00000242 00             1004 	.byte	0
+00000243 02             1005 	.byte	2
+                        1006 
+00000244 00             1007 	.byte	0
+                        1008 
+                        1009 .LDW_5371a08:
+00000245 3a             1010 	.byte	58
+00000246 00             1011 	.byte	0
+00000247 13             1012 	.byte	19
+00000248 00000000*      1013 	.word	.LDW_52b96c8
+                        1014 
+0000024c 32             1015 	.byte	50
+0000024d 00000000*      1016 	.word	.LDW_29ad2b0
+00000251 04             1017 	.byte	4
+00000252 00             1018 	.byte	0
+00000253 12             1019 	.byte	18
+                        1020 
+00000254 00             1021 	.byte	0
+                        1022 
+                        1023 .LDW_5372068:
+00000255 3a             1024 	.byte	58
+00000256 00             1025 	.byte	0
+00000257 02             1026 	.byte	2
+00000258 00000000*      1027 	.word	.LDW_52b96c8
+                        1028 
+0000025c 32             1029 	.byte	50
+0000025d 00000000*      1030 	.word	.LDW_29ad2b0
+00000261 04             1031 	.byte	4
+00000262 00             1032 	.byte	0
+00000263 01             1033 	.byte	1
+                        1034 
+00000264 00             1035 	.byte	0
+                        1036 
+                        1037 .LDW_5371fe0:
+00000265 3a             1038 	.byte	58
+00000266 00             1039 	.byte	0
+00000267 02             1040 	.byte	2
+00000268 00000000*      1041 	.word	.LDW_52b96c8
+                        1042 
+0000026c 32             1043 	.byte	50
+0000026d 00000000*      1044 	.word	.LDW_29ad2b0
+00000271 04             1045 	.byte	4
+00000272 00             1046 	.byte	0
+00000273 01             1047 	.byte	1
+                        1048 
+00000274 00             1049 	.byte	0
+                        1050 
+                        1051 .LDW_53725b8:
+00000275 3a             1052 	.byte	58
+00000276 00             1053 	.byte	0
+00000277 02             1054 	.byte	2
+00000278 00000000*      1055 	.word	.LDW_52b96c8
+                        1056 
+0000027c 32             1057 	.byte	50
+0000027d 00000000*      1058 	.word	.LDW_29ad2b0
+00000281 04             1059 	.byte	4
+00000282 00             1060 	.byte	0
+00000283 01             1061 	.byte	1
+                        1062 
+00000284 00             1063 	.byte	0
+
+                                                                      Page 20
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+                        1064 
+                        1065 .LDW_5371cb0:
+00000285 3a             1066 	.byte	58
+00000286 00             1067 	.byte	0
+00000287 02             1068 	.byte	2
+00000288 00000000*      1069 	.word	.LDW_52b96c8
+                        1070 
+0000028c 32             1071 	.byte	50
+0000028d 00000000*      1072 	.word	.LDW_29ad2b0
+00000291 04             1073 	.byte	4
+00000292 00             1074 	.byte	0
+00000293 01             1075 	.byte	1
+                        1076 
+00000294 00             1077 	.byte	0
+                        1078 
+                        1079 .LDW_5371f58:
+00000295 3a             1080 	.byte	58
+00000296 00             1081 	.byte	0
+00000297 02             1082 	.byte	2
+00000298 00000000*      1083 	.word	.LDW_52b96c8
+                        1084 
+0000029c 32             1085 	.byte	50
+0000029d 00000000*      1086 	.word	.LDW_29ad2b0
+000002a1 04             1087 	.byte	4
+000002a2 00             1088 	.byte	0
+000002a3 01             1089 	.byte	1
+                        1090 
+000002a4 00             1091 	.byte	0
+                        1092 
+                        1093 .LDW_5371d38:
+000002a5 3a             1094 	.byte	58
+000002a6 00             1095 	.byte	0
+000002a7 03             1096 	.byte	3
+000002a8 00000000*      1097 	.word	.LDW_52b96c8
+                        1098 
+000002ac 32             1099 	.byte	50
+000002ad 00000000*      1100 	.word	.LDW_29ad2b0
+000002b1 04             1101 	.byte	4
+000002b2 00             1102 	.byte	0
+000002b3 02             1103 	.byte	2
+                        1104 
+000002b4 00             1105 	.byte	0
+                        1106 
+                        1107 .LDW_53720f0:
+000002b5 3a             1108 	.byte	58
+000002b6 00             1109 	.byte	0
+000002b7 03             1110 	.byte	3
+000002b8 00000000*      1111 	.word	.LDW_52b96c8
+                        1112 
+000002bc 32             1113 	.byte	50
+000002bd 00000000*      1114 	.word	.LDW_29ad2b0
+000002c1 04             1115 	.byte	4
+000002c2 00             1116 	.byte	0
+000002c3 02             1117 	.byte	2
+                        1118 
+000002c4 00             1119 	.byte	0
+                        1120 
+                        1121 .LDW_5371dc0:
+000002c5 3a             1122 	.byte	58
+000002c6 00             1123 	.byte	0
+000002c7 03             1124 	.byte	3
+
+                                                                      Page 21
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+000002c8 00000000*      1125 	.word	.LDW_52b96c8
+                        1126 
+000002cc 32             1127 	.byte	50
+000002cd 00000000*      1128 	.word	.LDW_29ad2b0
+000002d1 04             1129 	.byte	4
+000002d2 00             1130 	.byte	0
+000002d3 02             1131 	.byte	2
+                        1132 
+000002d4 00             1133 	.byte	0
+                        1134 
+                        1135 .LDW_5372178:
+000002d5 3a             1136 	.byte	58
+000002d6 00             1137 	.byte	0
+000002d7 03             1138 	.byte	3
+000002d8 00000000*      1139 	.word	.LDW_52b96c8
+                        1140 
+000002dc 32             1141 	.byte	50
+000002dd 00000000*      1142 	.word	.LDW_29ad2b0
+000002e1 04             1143 	.byte	4
+000002e2 00             1144 	.byte	0
+000002e3 02             1145 	.byte	2
+                        1146 
+000002e4 00             1147 	.byte	0
+                        1148 
+                        1149 .LDW_5372200:
+000002e5 3a             1150 	.byte	58
+000002e6 00             1151 	.byte	0
+000002e7 03             1152 	.byte	3
+000002e8 00000000*      1153 	.word	.LDW_52b96c8
+                        1154 
+000002ec 32             1155 	.byte	50
+000002ed 00000000*      1156 	.word	.LDW_29ad2b0
+000002f1 04             1157 	.byte	4
+000002f2 00             1158 	.byte	0
+000002f3 02             1159 	.byte	2
+                        1160 
+000002f4 00             1161 	.byte	0
+                        1162 
+                        1163 .LDW_537f108:
+000002f5 2b             1164 	.byte	43
+000002f6 00000000*      1165 	.word	.LDW_52b9f08
+                        1166 
+                        1167 	.section	.debug_abbrev
+00000058 2b             1168 	.byte	43
+00000059 35             1169 	.byte	53
+0000005a 00             1170 	.byte	0
+0000005b 4910           1171 	.byte	73,16
+0000005d 0000           1172 	.byte	0,0
+                        1173 
+                        1174 	.section	.debug_info
+                        1175 .LDW_537f058:
+000002fa 29             1176 	.byte	41
+000002fb 00000000*      1177 	.word	.LDW_unq_3
+                        1178 
+                        1179 .LDW_unq_3:
+000002ff 2b             1180 	.byte	43
+00000300 00000000*      1181 	.word	.LDW_52b9f08
+                        1182 
+                        1183 .LDW_537ead8:
+00000304 2b             1184 	.byte	43
+00000305 00000000*      1185 	.word	.LDW_52b91f8
+
+                                                                      Page 22
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+                        1186 
+                        1187 .LDW_537ee48:
+00000309 2b             1188 	.byte	43
+0000030a 00000000*      1189 	.word	.LDW_52b96c8
+                        1190 
+                        1191 .LDW_537fcf0:
+0000030e 29             1192 	.byte	41
+0000030f 00000000*      1193 	.word	.LDW_unq_4
+                        1194 
+                        1195 .LDW_unq_4:
+00000313 2b             1196 	.byte	43
+00000314 00000000*      1197 	.word	.LDW_52b96c8
+                        1198 
+                        1199 .LDW_53942b8:
+00000318 2b             1200 	.byte	43
+00000319 00000000*      1201 	.word	.LDW_29a8688
+                        1202 
+                        1203 .LDW_52b9bf0:
+0000031d 28             1204 	.byte	40
+0000031e 626f6f6c6561   1205 	.strz	"boolean"
+00000324 6e00 
+00000326 4e             1206 	.byte	78
+00000327 49             1207 	.byte	73
+00000328 03             1208 	.byte	3
+00000329 00000000*      1209 	.word	.LDW_29ad4e0
+                        1210 
+                        1211 	.section	.debug_abbrev
+0000005f 28             1212 	.byte	40
+00000060 16             1213 	.byte	22
+00000061 00             1214 	.byte	0
+00000062 0308           1215 	.byte	3,8
+00000064 3b0f           1216 	.byte	59,15
+00000066 390f           1217 	.byte	57,15
+00000068 3a0f           1218 	.byte	58,15
+0000006a 4910           1219 	.byte	73,16
+0000006c 0000           1220 	.byte	0,0
+                        1221 
+                        1222 	.section	.debug_info
+                        1223 .LDW_52b96c8:
+0000032d 28             1224 	.byte	40
+0000032e 75696e743800   1225 	.strz	"uint8"
+00000334 50             1226 	.byte	80
+00000335 4b             1227 	.byte	75
+00000336 03             1228 	.byte	3
+00000337 00000000*      1229 	.word	.LDW_29ad4e0
+                        1230 
+                        1231 .LDW_52b91f8:
+0000033b 28             1232 	.byte	40
+0000033c 75696e743136   1233 	.strz	"uint16"
+00000342 00 
+00000343 52             1234 	.byte	82
+00000344 4a             1235 	.byte	74
+00000345 03             1236 	.byte	3
+00000346 00000000*      1237 	.word	.LDW_29ad160
+                        1238 
+                        1239 .LDW_52b9f08:
+0000034a 28             1240 	.byte	40
+0000034b 75696e743332   1241 	.strz	"uint32"
+00000351 00 
+00000352 54             1242 	.byte	84
+00000353 4a             1243 	.byte	74
+
+                                                                      Page 23
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+00000354 03             1244 	.byte	3
+00000355 00000000*      1245 	.word	.LDW_2966f10
+                        1246 
+                        1247 .LDW_4ebece8:
+00000359 2e             1248 	.byte	46
+0000035a 00             1249 	.byte	0
+0000035b 04             1250 	.byte	4
+0000035c 0d             1251 	.byte	13
+0000035d 08             1252 	.byte	8
+0000035e 01             1253 	.byte	1
+0000035f 01             1254 	.byte	1
+                        1255 
+                        1256 	.section	.debug_abbrev
+0000006e 2e             1257 	.byte	46
+0000006f 04             1258 	.byte	4
+00000070 01             1259 	.byte	1
+00000071 0308           1260 	.byte	3,8
+00000073 3b0f           1261 	.byte	59,15
+00000075 390f           1262 	.byte	57,15
+00000077 3a0f           1263 	.byte	58,15
+00000079 0b0f           1264 	.byte	11,15
+0000007b 320b           1265 	.byte	50,11
+0000007d 0000           1266 	.byte	0,0
+                        1267 
+                        1268 	.section	.debug_info
+                        1269 .LDW_4ebed38:
+00000360 2d             1270 	.byte	45
+00000361 5441555f455f   1271 	.strz	"TAU_E_CHANNEL_0"
+00000367 4348414e4e45 
+0000036d 4c5f3000 
+00000371 05             1272 	.byte	5
+00000372 03             1273 	.byte	3
+00000373 08             1274 	.byte	8
+00000374 00             1275 	.byte	0
+                        1276 
+                        1277 	.section	.debug_abbrev
+0000007f 2d             1278 	.byte	45
+00000080 28             1279 	.byte	40
+00000081 00             1280 	.byte	0
+00000082 0308           1281 	.byte	3,8
+00000084 3b0f           1282 	.byte	59,15
+00000086 390f           1283 	.byte	57,15
+00000088 3a0f           1284 	.byte	58,15
+0000008a 1c0d           1285 	.byte	28,13
+0000008c 0000           1286 	.byte	0,0
+                        1287 
+                        1288 	.section	.debug_info
+                        1289 .LDW_4ebed78:
+00000375 2d             1290 	.byte	45
+00000376 5441555f455f   1291 	.strz	"TAU_E_CHANNEL_1"
+0000037c 4348414e4e45 
+00000382 4c5f3100 
+00000386 06             1292 	.byte	6
+00000387 07             1293 	.byte	7
+00000388 08             1294 	.byte	8
+00000389 01             1295 	.byte	1
+                        1296 
+                        1297 .LDW_4ebedb8:
+0000038a 2d             1298 	.byte	45
+0000038b 5441555f455f   1299 	.strz	"TAU_E_CHANNEL_2"
+00000391 4348414e4e45 
+
+                                                                      Page 24
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+00000397 4c5f3200 
+0000039b 07             1300 	.byte	7
+0000039c 07             1301 	.byte	7
+0000039d 08             1302 	.byte	8
+0000039e 02             1303 	.byte	2
+                        1304 
+                        1305 .LDW_4ebedf8:
+0000039f 2d             1306 	.byte	45
+000003a0 5441555f455f   1307 	.strz	"TAU_E_CHANNEL_3"
+000003a6 4348414e4e45 
+000003ac 4c5f3300 
+000003b0 08             1308 	.byte	8
+000003b1 07             1309 	.byte	7
+000003b2 08             1310 	.byte	8
+000003b3 03             1311 	.byte	3
+                        1312 
+000003b4 00             1313 	.byte	0
+                        1314 
+                        1315 .LDW_52b9d50:
+000003b5 28             1316 	.byte	40
+000003b6 5461755f456e   1317 	.strz	"Tau_Enum_Channels"
+000003bc 756d5f436861 
+000003c2 6e6e656c7300 
+000003c8 09             1318 	.byte	9
+000003c9 02             1319 	.byte	2
+000003ca 08             1320 	.byte	8
+000003cb 00000000*      1321 	.word	.LDW_4ebece8
+                        1322 
+                        1323 .LDW_52b91a0:
+000003cf 41             1324 	.byte	65
+000003d0 23             1325 	.byte	35
+000003d1 0f             1326 	.byte	15
+000003d2 0a             1327 	.byte	10
+000003d3 01             1328 	.byte	1
+000003d4 01             1329 	.byte	1
+                        1330 
+                        1331 	.section	.debug_abbrev
+0000008e 41             1332 	.byte	65
+0000008f 13             1333 	.byte	19
+00000090 01             1334 	.byte	1
+00000091 3b0f           1335 	.byte	59,15
+00000093 390f           1336 	.byte	57,15
+00000095 3a0f           1337 	.byte	58,15
+00000097 0b0f           1338 	.byte	11,15
+00000099 320b           1339 	.byte	50,11
+0000009b 0000           1340 	.byte	0,0
+                        1341 
+                        1342 	.section	.debug_info
+                        1343 .LDW_4ebae18:
+000003d5 24             1344 	.byte	36
+000003d6 626974303000   1345 	.strz	"bit00"
+000003dc 24             1346 	.byte	36
+000003dd 0a             1347 	.byte	10
+000003de 0a             1348 	.byte	10
+000003df 00000000*      1349 	.word	.LDW_52b96c8
+000003e3 01             1350 	.byte	1
+000003e4 07             1351 	.byte	7
+000003e5 01             1352 	.byte	1
+000003e6 0223           1353 	.byte	2,35
+000003e8 00             1354 	.byte	0
+000003e9 01             1355 	.byte	1
+
+                                                                      Page 25
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+                        1356 
+                        1357 	.section	.debug_abbrev
+0000009d 24             1358 	.byte	36
+0000009e 0d             1359 	.byte	13
+0000009f 00             1360 	.byte	0
+000000a0 0308           1361 	.byte	3,8
+000000a2 3b0f           1362 	.byte	59,15
+000000a4 390f           1363 	.byte	57,15
+000000a6 3a0f           1364 	.byte	58,15
+000000a8 4910           1365 	.byte	73,16
+000000aa 0b0f           1366 	.byte	11,15
+000000ac 0c0f           1367 	.byte	12,15
+000000ae 0d0b           1368 	.byte	13,11
+000000b0 380a           1369 	.byte	56,10
+000000b2 320b           1370 	.byte	50,11
+000000b4 0000           1371 	.byte	0,0
+                        1372 
+                        1373 	.section	.debug_info
+                        1374 .LDW_4ebae60:
+000003ea 24             1375 	.byte	36
+000003eb 626974303100   1376 	.strz	"bit01"
+000003f1 25             1377 	.byte	37
+000003f2 0a             1378 	.byte	10
+000003f3 0a             1379 	.byte	10
+000003f4 00000000*      1380 	.word	.LDW_52b96c8
+000003f8 01             1381 	.byte	1
+000003f9 06             1382 	.byte	6
+000003fa 01             1383 	.byte	1
+000003fb 0223           1384 	.byte	2,35
+000003fd 00             1385 	.byte	0
+000003fe 01             1386 	.byte	1
+                        1387 
+                        1388 .LDW_52ba908:
+000003ff 24             1389 	.byte	36
+00000400 626974303200   1390 	.strz	"bit02"
+00000406 26             1391 	.byte	38
+00000407 0a             1392 	.byte	10
+00000408 0a             1393 	.byte	10
+00000409 00000000*      1394 	.word	.LDW_52b96c8
+0000040d 01             1395 	.byte	1
+0000040e 05             1396 	.byte	5
+0000040f 01             1397 	.byte	1
+00000410 0223           1398 	.byte	2,35
+00000412 00             1399 	.byte	0
+00000413 01             1400 	.byte	1
+                        1401 
+                        1402 .LDW_52ba680:
+00000414 24             1403 	.byte	36
+00000415 626974303300   1404 	.strz	"bit03"
+0000041b 27             1405 	.byte	39
+0000041c 0a             1406 	.byte	10
+0000041d 0a             1407 	.byte	10
+0000041e 00000000*      1408 	.word	.LDW_52b96c8
+00000422 01             1409 	.byte	1
+00000423 04             1410 	.byte	4
+00000424 01             1411 	.byte	1
+00000425 0223           1412 	.byte	2,35
+00000427 00             1413 	.byte	0
+00000428 01             1414 	.byte	1
+                        1415 
+                        1416 .LDW_52ba0e0:
+
+                                                                      Page 26
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+00000429 24             1417 	.byte	36
+0000042a 626974303400   1418 	.strz	"bit04"
+00000430 28             1419 	.byte	40
+00000431 0a             1420 	.byte	10
+00000432 0a             1421 	.byte	10
+00000433 00000000*      1422 	.word	.LDW_52b96c8
+00000437 01             1423 	.byte	1
+00000438 03             1424 	.byte	3
+00000439 01             1425 	.byte	1
+0000043a 0223           1426 	.byte	2,35
+0000043c 00             1427 	.byte	0
+0000043d 01             1428 	.byte	1
+                        1429 
+                        1430 .LDW_52ba878:
+0000043e 24             1431 	.byte	36
+0000043f 626974303500   1432 	.strz	"bit05"
+00000445 29             1433 	.byte	41
+00000446 0a             1434 	.byte	10
+00000447 0a             1435 	.byte	10
+00000448 00000000*      1436 	.word	.LDW_52b96c8
+0000044c 01             1437 	.byte	1
+0000044d 02             1438 	.byte	2
+0000044e 01             1439 	.byte	1
+0000044f 0223           1440 	.byte	2,35
+00000451 00             1441 	.byte	0
+00000452 01             1442 	.byte	1
+                        1443 
+                        1444 .LDW_52ba128:
+00000453 24             1445 	.byte	36
+00000454 626974303600   1446 	.strz	"bit06"
+0000045a 2a             1447 	.byte	42
+0000045b 0a             1448 	.byte	10
+0000045c 0a             1449 	.byte	10
+0000045d 00000000*      1450 	.word	.LDW_52b96c8
+00000461 01             1451 	.byte	1
+00000462 01             1452 	.byte	1
+00000463 01             1453 	.byte	1
+00000464 0223           1454 	.byte	2,35
+00000466 00             1455 	.byte	0
+00000467 01             1456 	.byte	1
+                        1457 
+                        1458 .LDW_52ba368:
+00000468 24             1459 	.byte	36
+00000469 626974303700   1460 	.strz	"bit07"
+0000046f 2b             1461 	.byte	43
+00000470 0a             1462 	.byte	10
+00000471 0a             1463 	.byte	10
+00000472 00000000*      1464 	.word	.LDW_52b96c8
+00000476 01             1465 	.byte	1
+00000477 00             1466 	.byte	0
+00000478 01             1467 	.byte	1
+00000479 0223           1468 	.byte	2,35
+0000047b 00             1469 	.byte	0
+0000047c 01             1470 	.byte	1
+                        1471 
+0000047d 00             1472 	.byte	0
+                        1473 
+                        1474 .LDW_52b9a90:
+0000047e 28             1475 	.byte	40
+0000047f 5f5f62697466   1476 	.strz	"__bitf_T"
+00000485 5f5400 
+
+                                                                      Page 27
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+00000488 2c             1477 	.byte	44
+00000489 02             1478 	.byte	2
+0000048a 0a             1479 	.byte	10
+0000048b 00000000*      1480 	.word	.LDW_52b91a0
+                        1481 
+                        1482 .LDW_29a89a0:
+0000048f 41             1483 	.byte	65
+00000490 f70b           1484 	.byte	247,11
+00000492 0f             1485 	.byte	15
+00000493 0a             1486 	.byte	10
+00000494 ac01           1487 	.byte	172,1
+00000496 01             1488 	.byte	1
+                        1489 
+                        1490 .LDW_536ae70:
+00000497 23             1491 	.byte	35
+00000498 4344523000     1492 	.strz	"CDR0"
+0000049d f80b           1493 	.byte	248,11
+0000049f 0b             1494 	.byte	11
+000004a0 0a             1495 	.byte	10
+000004a1 00000000*      1496 	.word	.LDW_52b9f08
+000004a5 0223           1497 	.byte	2,35
+000004a7 00             1498 	.byte	0
+000004a8 01             1499 	.byte	1
+                        1500 
+                        1501 	.section	.debug_abbrev
+000000b6 23             1502 	.byte	35
+000000b7 0d             1503 	.byte	13
+000000b8 00             1504 	.byte	0
+000000b9 0308           1505 	.byte	3,8
+000000bb 3b0f           1506 	.byte	59,15
+000000bd 390f           1507 	.byte	57,15
+000000bf 3a0f           1508 	.byte	58,15
+000000c1 4910           1509 	.byte	73,16
+000000c3 380a           1510 	.byte	56,10
+000000c5 320b           1511 	.byte	50,11
+000000c7 0000           1512 	.byte	0,0
+                        1513 
+                        1514 	.section	.debug_info
+                        1515 .LDW_536aeb8:
+000004a9 23             1516 	.byte	35
+000004aa 4344523100     1517 	.strz	"CDR1"
+000004af f90b           1518 	.byte	249,11
+000004b1 0b             1519 	.byte	11
+000004b2 0a             1520 	.byte	10
+000004b3 00000000*      1521 	.word	.LDW_52b9f08
+000004b7 0223           1522 	.byte	2,35
+000004b9 04             1523 	.byte	4
+000004ba 01             1524 	.byte	1
+                        1525 
+                        1526 .LDW_536af00:
+000004bb 23             1527 	.byte	35
+000004bc 4344523200     1528 	.strz	"CDR2"
+000004c1 fa0b           1529 	.byte	250,11
+000004c3 0b             1530 	.byte	11
+000004c4 0a             1531 	.byte	10
+000004c5 00000000*      1532 	.word	.LDW_52b9f08
+000004c9 0223           1533 	.byte	2,35
+000004cb 08             1534 	.byte	8
+000004cc 01             1535 	.byte	1
+                        1536 
+                        1537 .LDW_536b698:
+
+                                                                      Page 28
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+000004cd 23             1538 	.byte	35
+000004ce 4344523300     1539 	.strz	"CDR3"
+000004d3 fb0b           1540 	.byte	251,11
+000004d5 0b             1541 	.byte	11
+000004d6 0a             1542 	.byte	10
+000004d7 00000000*      1543 	.word	.LDW_52b9f08
+000004db 0223           1544 	.byte	2,35
+000004dd 0c             1545 	.byte	12
+000004de 01             1546 	.byte	1
+                        1547 
+                        1548 .LDW_536b7b8:
+000004df 23             1549 	.byte	35
+000004e0 434e543000     1550 	.strz	"CNT0"
+000004e5 fc0b           1551 	.byte	252,11
+000004e7 11             1552 	.byte	17
+000004e8 0a             1553 	.byte	10
+000004e9 00000000*      1554 	.word	.LDW_4cd0d38
+000004ed 0223           1555 	.byte	2,35
+000004ef 10             1556 	.byte	16
+000004f0 01             1557 	.byte	1
+                        1558 
+                        1559 .LDW_536b800:
+000004f1 23             1560 	.byte	35
+000004f2 434e543100     1561 	.strz	"CNT1"
+000004f7 fd0b           1562 	.byte	253,11
+000004f9 11             1563 	.byte	17
+000004fa 0a             1564 	.byte	10
+000004fb 00000000*      1565 	.word	.LDW_4cd0d38
+000004ff 0223           1566 	.byte	2,35
+00000501 14             1567 	.byte	20
+00000502 01             1568 	.byte	1
+                        1569 
+                        1570 .LDW_536b920:
+00000503 23             1571 	.byte	35
+00000504 434e543200     1572 	.strz	"CNT2"
+00000509 fe0b           1573 	.byte	254,11
+0000050b 11             1574 	.byte	17
+0000050c 0a             1575 	.byte	10
+0000050d 00000000*      1576 	.word	.LDW_4cd0d38
+00000511 0223           1577 	.byte	2,35
+00000513 18             1578 	.byte	24
+00000514 01             1579 	.byte	1
+                        1580 
+                        1581 .LDW_536b9b0:
+00000515 23             1582 	.byte	35
+00000516 434e543300     1583 	.strz	"CNT3"
+0000051b ff0b           1584 	.byte	255,11
+0000051d 11             1585 	.byte	17
+0000051e 0a             1586 	.byte	10
+0000051f 00000000*      1587 	.word	.LDW_4cd0d38
+00000523 0223           1588 	.byte	2,35
+00000525 1c             1589 	.byte	28
+00000526 01             1590 	.byte	1
+                        1591 
+                        1592 .LDW_536bd58:
+00000527 23             1593 	.byte	35
+00000528 434d55523000   1594 	.strz	"CMUR0"
+0000052e 800c           1595 	.byte	128,12
+00000530 0b             1596 	.byte	11
+00000531 0a             1597 	.byte	10
+00000532 00000000*      1598 	.word	.LDW_52b96c8
+
+                                                                      Page 29
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+00000536 0223           1599 	.byte	2,35
+00000538 20             1600 	.byte	32
+00000539 01             1601 	.byte	1
+                        1602 
+                        1603 .LDW_536b608:
+0000053a 23             1604 	.byte	35
+0000053b 64756d6d7932   1605 	.strz	"dummy206"
+00000541 303600 
+00000544 810c           1606 	.byte	129,12
+00000546 0b             1607 	.byte	11
+00000547 0a             1608 	.byte	10
+00000548 00000000*      1609 	.word	.LDW_53691e0
+0000054c 0223           1610 	.byte	2,35
+0000054e 21             1611 	.byte	33
+0000054f 01             1612 	.byte	1
+                        1613 
+                        1614 .LDW_536bc38:
+00000550 23             1615 	.byte	35
+00000551 434d55523100   1616 	.strz	"CMUR1"
+00000557 820c           1617 	.byte	130,12
+00000559 0b             1618 	.byte	11
+0000055a 0a             1619 	.byte	10
+0000055b 00000000*      1620 	.word	.LDW_52b96c8
+0000055f 0223           1621 	.byte	2,35
+00000561 24             1622 	.byte	36
+00000562 01             1623 	.byte	1
+                        1624 
+                        1625 .LDW_536b9f8:
+00000563 23             1626 	.byte	35
+00000564 64756d6d7932   1627 	.strz	"dummy207"
+0000056a 303700 
+0000056d 830c           1628 	.byte	131,12
+0000056f 0b             1629 	.byte	11
+00000570 0a             1630 	.byte	10
+00000571 00000000*      1631 	.word	.LDW_5368af8
+00000575 0223           1632 	.byte	2,35
+00000577 25             1633 	.byte	37
+00000578 01             1634 	.byte	1
+                        1635 
+                        1636 .LDW_536b848:
+00000579 23             1637 	.byte	35
+0000057a 434d55523200   1638 	.strz	"CMUR2"
+00000580 840c           1639 	.byte	132,12
+00000582 0b             1640 	.byte	11
+00000583 0a             1641 	.byte	10
+00000584 00000000*      1642 	.word	.LDW_52b96c8
+00000588 0223           1643 	.byte	2,35
+0000058a 28             1644 	.byte	40
+0000058b 01             1645 	.byte	1
+                        1646 
+                        1647 .LDW_536bad0:
+0000058c 23             1648 	.byte	35
+0000058d 64756d6d7932   1649 	.strz	"dummy208"
+00000593 303800 
+00000596 850c           1650 	.byte	133,12
+00000598 0b             1651 	.byte	11
+00000599 0a             1652 	.byte	10
+0000059a 00000000*      1653 	.word	.LDW_53728e8
+0000059e 0223           1654 	.byte	2,35
+000005a0 29             1655 	.byte	41
+000005a1 01             1656 	.byte	1
+
+                                                                      Page 30
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+                        1657 
+                        1658 .LDW_536b890:
+000005a2 23             1659 	.byte	35
+000005a3 434d55523300   1660 	.strz	"CMUR3"
+000005a9 860c           1661 	.byte	134,12
+000005ab 0b             1662 	.byte	11
+000005ac 0a             1663 	.byte	10
+000005ad 00000000*      1664 	.word	.LDW_52b96c8
+000005b1 0223           1665 	.byte	2,35
+000005b3 2c             1666 	.byte	44
+000005b4 01             1667 	.byte	1
+                        1668 
+                        1669 .LDW_536b8d8:
+000005b5 23             1670 	.byte	35
+000005b6 64756d6d7932   1671 	.strz	"dummy209"
+000005bc 303900 
+000005bf 870c           1672 	.byte	135,12
+000005c1 0b             1673 	.byte	11
+000005c2 0a             1674 	.byte	10
+000005c3 00000000*      1675 	.word	.LDW_5372640
+000005c7 0223           1676 	.byte	2,35
+000005c9 2d             1677 	.byte	45
+000005ca 01             1678 	.byte	1
+                        1679 
+                        1680 .LDW_536b968:
+000005cb 23             1681 	.byte	35
+000005cc 4353523000     1682 	.strz	"CSR0"
+000005d1 880c           1683 	.byte	136,12
+000005d3 11             1684 	.byte	17
+000005d4 0a             1685 	.byte	10
+000005d5 00000000*      1686 	.word	.LDW_29a8fd0
+000005d9 0223           1687 	.byte	2,35
+000005db 30             1688 	.byte	48
+000005dc 01             1689 	.byte	1
+                        1690 
+                        1691 .LDW_536ba40:
+000005dd 23             1692 	.byte	35
+000005de 64756d6d7932   1693 	.strz	"dummy210"
+000005e4 313000 
+000005e7 890c           1694 	.byte	137,12
+000005e9 0b             1695 	.byte	11
+000005ea 0a             1696 	.byte	10
+000005eb 00000000*      1697 	.word	.LDW_5371a90
+000005ef 0223           1698 	.byte	2,35
+000005f1 31             1699 	.byte	49
+000005f2 01             1700 	.byte	1
+                        1701 
+                        1702 .LDW_536b6e0:
+000005f3 23             1703 	.byte	35
+000005f4 4353523100     1704 	.strz	"CSR1"
+000005f9 8a0c           1705 	.byte	138,12
+000005fb 11             1706 	.byte	17
+000005fc 0a             1707 	.byte	10
+000005fd 00000000*      1708 	.word	.LDW_29a8fd0
+00000601 0223           1709 	.byte	2,35
+00000603 34             1710 	.byte	52
+00000604 01             1711 	.byte	1
+                        1712 
+                        1713 .LDW_536bbf0:
+00000605 23             1714 	.byte	35
+00000606 64756d6d7932   1715 	.strz	"dummy211"
+
+                                                                      Page 31
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+0000060c 313100 
+0000060f 8b0c           1716 	.byte	139,12
+00000611 0b             1717 	.byte	11
+00000612 0a             1718 	.byte	10
+00000613 00000000*      1719 	.word	.LDW_5372970
+00000617 0223           1720 	.byte	2,35
+00000619 35             1721 	.byte	53
+0000061a 01             1722 	.byte	1
+                        1723 
+                        1724 .LDW_536ba88:
+0000061b 23             1725 	.byte	35
+0000061c 4353523200     1726 	.strz	"CSR2"
+00000621 8c0c           1727 	.byte	140,12
+00000623 11             1728 	.byte	17
+00000624 0a             1729 	.byte	10
+00000625 00000000*      1730 	.word	.LDW_29a8fd0
+00000629 0223           1731 	.byte	2,35
+0000062b 38             1732 	.byte	56
+0000062c 01             1733 	.byte	1
+                        1734 
+                        1735 .LDW_536bda0:
+0000062d 23             1736 	.byte	35
+0000062e 64756d6d7932   1737 	.strz	"dummy212"
+00000634 313200 
+00000637 8d0c           1738 	.byte	141,12
+00000639 0b             1739 	.byte	11
+0000063a 0a             1740 	.byte	10
+0000063b 00000000*      1741 	.word	.LDW_5371c28
+0000063f 0223           1742 	.byte	2,35
+00000641 39             1743 	.byte	57
+00000642 01             1744 	.byte	1
+                        1745 
+                        1746 .LDW_536b650:
+00000643 23             1747 	.byte	35
+00000644 4353523300     1748 	.strz	"CSR3"
+00000649 8e0c           1749 	.byte	142,12
+0000064b 11             1750 	.byte	17
+0000064c 0a             1751 	.byte	10
+0000064d 00000000*      1752 	.word	.LDW_29a8fd0
+00000651 0223           1753 	.byte	2,35
+00000653 3c             1754 	.byte	60
+00000654 01             1755 	.byte	1
+                        1756 
+                        1757 .LDW_536bb18:
+00000655 23             1758 	.byte	35
+00000656 64756d6d7932   1759 	.strz	"dummy213"
+0000065c 313300 
+0000065f 8f0c           1760 	.byte	143,12
+00000661 0b             1761 	.byte	11
+00000662 0a             1762 	.byte	10
+00000663 00000000*      1763 	.word	.LDW_53724a8
+00000667 0223           1764 	.byte	2,35
+00000669 3d             1765 	.byte	61
+0000066a 01             1766 	.byte	1
+                        1767 
+                        1768 .LDW_536bde8:
+0000066b 23             1769 	.byte	35
+0000066c 4353433000     1770 	.strz	"CSC0"
+00000671 900c           1771 	.byte	144,12
+00000673 0b             1772 	.byte	11
+00000674 0a             1773 	.byte	10
+
+                                                                      Page 32
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+00000675 00000000*      1774 	.word	.LDW_52b96c8
+00000679 0223           1775 	.byte	2,35
+0000067b 40             1776 	.byte	64
+0000067c 01             1777 	.byte	1
+                        1778 
+                        1779 .LDW_536bba8:
+0000067d 23             1780 	.byte	35
+0000067e 64756d6d7932   1781 	.strz	"dummy214"
+00000684 313400 
+00000687 910c           1782 	.byte	145,12
+00000689 0b             1783 	.byte	11
+0000068a 0a             1784 	.byte	10
+0000068b 00000000*      1785 	.word	.LDW_5372750
+0000068f 0223           1786 	.byte	2,35
+00000691 41             1787 	.byte	65
+00000692 01             1788 	.byte	1
+                        1789 
+                        1790 .LDW_536bb60:
+00000693 23             1791 	.byte	35
+00000694 4353433100     1792 	.strz	"CSC1"
+00000699 920c           1793 	.byte	146,12
+0000069b 0b             1794 	.byte	11
+0000069c 0a             1795 	.byte	10
+0000069d 00000000*      1796 	.word	.LDW_52b96c8
+000006a1 0223           1797 	.byte	2,35
+000006a3 44             1798 	.byte	68
+000006a4 01             1799 	.byte	1
+                        1800 
+                        1801 .LDW_536bc80:
+000006a5 23             1802 	.byte	35
+000006a6 64756d6d7932   1803 	.strz	"dummy215"
+000006ac 313500 
+000006af 930c           1804 	.byte	147,12
+000006b1 0b             1805 	.byte	11
+000006b2 0a             1806 	.byte	10
+000006b3 00000000*      1807 	.word	.LDW_5371e48
+000006b7 0223           1808 	.byte	2,35
+000006b9 45             1809 	.byte	69
+000006ba 01             1810 	.byte	1
+                        1811 
+                        1812 .LDW_536b728:
+000006bb 23             1813 	.byte	35
+000006bc 4353433200     1814 	.strz	"CSC2"
+000006c1 940c           1815 	.byte	148,12
+000006c3 0b             1816 	.byte	11
+000006c4 0a             1817 	.byte	10
+000006c5 00000000*      1818 	.word	.LDW_52b96c8
+000006c9 0223           1819 	.byte	2,35
+000006cb 48             1820 	.byte	72
+000006cc 01             1821 	.byte	1
+                        1822 
+                        1823 .LDW_536bcc8:
+000006cd 23             1824 	.byte	35
+000006ce 64756d6d7932   1825 	.strz	"dummy216"
+000006d4 313600 
+000006d7 950c           1826 	.byte	149,12
+000006d9 0b             1827 	.byte	11
+000006da 0a             1828 	.byte	10
+000006db 00000000*      1829 	.word	.LDW_53726c8
+000006df 0223           1830 	.byte	2,35
+000006e1 49             1831 	.byte	73
+
+                                                                      Page 33
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+000006e2 01             1832 	.byte	1
+                        1833 
+                        1834 .LDW_536bd10:
+000006e3 23             1835 	.byte	35
+000006e4 4353433300     1836 	.strz	"CSC3"
+000006e9 960c           1837 	.byte	150,12
+000006eb 0b             1838 	.byte	11
+000006ec 0a             1839 	.byte	10
+000006ed 00000000*      1840 	.word	.LDW_52b96c8
+000006f1 0223           1841 	.byte	2,35
+000006f3 4c             1842 	.byte	76
+000006f4 01             1843 	.byte	1
+                        1844 
+                        1845 .LDW_536b5c0:
+000006f5 23             1846 	.byte	35
+000006f6 64756d6d7932   1847 	.strz	"dummy217"
+000006fc 313700 
+000006ff 970c           1848 	.byte	151,12
+00000701 0b             1849 	.byte	11
+00000702 0a             1850 	.byte	10
+00000703 00000000*      1851 	.word	.LDW_53727d8
+00000707 0223           1852 	.byte	2,35
+00000709 4d             1853 	.byte	77
+0000070a 01             1854 	.byte	1
+                        1855 
+                        1856 .LDW_536b530:
+0000070b 23             1857 	.byte	35
+0000070c 544500         1858 	.strz	"TE"
+0000070f 980c           1859 	.byte	152,12
+00000711 11             1860 	.byte	17
+00000712 0a             1861 	.byte	10
+00000713 00000000*      1862 	.word	.LDW_29a8fd0
+00000717 0223           1863 	.byte	2,35
+00000719 50             1864 	.byte	80
+0000071a 01             1865 	.byte	1
+                        1866 
+                        1867 .LDW_536b578:
+0000071b 23             1868 	.byte	35
+0000071c 64756d6d7932   1869 	.strz	"dummy218"
+00000722 313800 
+00000725 990c           1870 	.byte	153,12
+00000727 0b             1871 	.byte	11
+00000728 0a             1872 	.byte	10
+00000729 00000000*      1873 	.word	.LDW_5371b18
+0000072d 0223           1874 	.byte	2,35
+0000072f 51             1875 	.byte	81
+00000730 01             1876 	.byte	1
+                        1877 
+                        1878 .LDW_536b770:
+00000731 23             1879 	.byte	35
+00000732 545300         1880 	.strz	"TS"
+00000735 9a0c           1881 	.byte	154,12
+00000737 0b             1882 	.byte	11
+00000738 0a             1883 	.byte	10
+00000739 00000000*      1884 	.word	.LDW_52b96c8
+0000073d 0223           1885 	.byte	2,35
+0000073f 54             1886 	.byte	84
+00000740 01             1887 	.byte	1
+                        1888 
+                        1889 .LDW_536c2f8:
+00000741 23             1890 	.byte	35
+
+                                                                      Page 34
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+00000742 64756d6d7932   1891 	.strz	"dummy219"
+00000748 313900 
+0000074b 9b0c           1892 	.byte	155,12
+0000074d 0b             1893 	.byte	11
+0000074e 0a             1894 	.byte	10
+0000074f 00000000*      1895 	.word	.LDW_5372860
+00000753 0223           1896 	.byte	2,35
+00000755 55             1897 	.byte	85
+00000756 01             1898 	.byte	1
+                        1899 
+                        1900 .LDW_536c658:
+00000757 23             1901 	.byte	35
+00000758 545400         1902 	.strz	"TT"
+0000075b 9c0c           1903 	.byte	156,12
+0000075d 0b             1904 	.byte	11
+0000075e 0a             1905 	.byte	10
+0000075f 00000000*      1906 	.word	.LDW_52b96c8
+00000763 0223           1907 	.byte	2,35
+00000765 58             1908 	.byte	88
+00000766 01             1909 	.byte	1
+                        1910 
+                        1911 .LDW_536c220:
+00000767 23             1912 	.byte	35
+00000768 64756d6d7932   1913 	.strz	"dummy220"
+0000076e 323000 
+00000771 9d0c           1914 	.byte	157,12
+00000773 0b             1915 	.byte	11
+00000774 0a             1916 	.byte	10
+00000775 00000000*      1917 	.word	.LDW_53729f8
+00000779 0223           1918 	.byte	2,35
+0000077b 59             1919 	.byte	89
+0000077c 01             1920 	.byte	1
+                        1921 
+                        1922 .LDW_536c148:
+0000077d 23             1923 	.byte	35
+0000077e 544f00         1924 	.strz	"TO"
+00000781 9e0c           1925 	.byte	158,12
+00000783 0b             1926 	.byte	11
+00000784 0a             1927 	.byte	10
+00000785 00000000*      1928 	.word	.LDW_52b96c8
+00000789 0223           1929 	.byte	2,35
+0000078b 5c             1930 	.byte	92
+0000078c 01             1931 	.byte	1
+                        1932 
+                        1933 .LDW_536c5c8:
+0000078d 23             1934 	.byte	35
+0000078e 64756d6d7932   1935 	.strz	"dummy221"
+00000794 323100 
+00000797 9f0c           1936 	.byte	159,12
+00000799 0b             1937 	.byte	11
+0000079a 0a             1938 	.byte	10
+0000079b 00000000*      1939 	.word	.LDW_5371ed0
+0000079f 0223           1940 	.byte	2,35
+000007a1 5d             1941 	.byte	93
+000007a2 01             1942 	.byte	1
+                        1943 
+                        1944 .LDW_536bf50:
+000007a3 23             1945 	.byte	35
+000007a4 544f4500       1946 	.strz	"TOE"
+000007a8 a00c           1947 	.byte	160,12
+000007aa 0b             1948 	.byte	11
+
+                                                                      Page 35
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+000007ab 0a             1949 	.byte	10
+000007ac 00000000*      1950 	.word	.LDW_52b96c8
+000007b0 0223           1951 	.byte	2,35
+000007b2 60             1952 	.byte	96
+000007b3 01             1953 	.byte	1
+                        1954 
+                        1955 .LDW_536c6e8:
+000007b4 23             1956 	.byte	35
+000007b5 64756d6d7932   1957 	.strz	"dummy222"
+000007bb 323200 
+000007be a10c           1958 	.byte	161,12
+000007c0 0b             1959 	.byte	11
+000007c1 0a             1960 	.byte	10
+000007c2 00000000*      1961 	.word	.LDW_5371ba0
+000007c6 0223           1962 	.byte	2,35
+000007c8 61             1963 	.byte	97
+000007c9 01             1964 	.byte	1
+                        1965 
+                        1966 .LDW_536c580:
+000007ca 23             1967 	.byte	35
+000007cb 544f4c00       1968 	.strz	"TOL"
+000007cf a20c           1969 	.byte	162,12
+000007d1 0b             1970 	.byte	11
+000007d2 0a             1971 	.byte	10
+000007d3 00000000*      1972 	.word	.LDW_52b96c8
+000007d7 0223           1973 	.byte	2,35
+000007d9 64             1974 	.byte	100
+000007da 01             1975 	.byte	1
+                        1976 
+                        1977 .LDW_536c100:
+000007db 23             1978 	.byte	35
+000007dc 64756d6d7932   1979 	.strz	"dummy223"
+000007e2 323300 
+000007e5 a30c           1980 	.byte	163,12
+000007e7 0b             1981 	.byte	11
+000007e8 0a             1982 	.byte	10
+000007e9 00000000*      1983 	.word	.LDW_5372a80
+000007ed 0223           1984 	.byte	2,35
+000007ef 65             1985 	.byte	101
+000007f0 01             1986 	.byte	1
+                        1987 
+                        1988 .LDW_536c460:
+000007f1 23             1989 	.byte	35
+000007f2 52445400       1990 	.strz	"RDT"
+000007f6 a40c           1991 	.byte	164,12
+000007f8 0b             1992 	.byte	11
+000007f9 0a             1993 	.byte	10
+000007fa 00000000*      1994 	.word	.LDW_52b96c8
+000007fe 0223           1995 	.byte	2,35
+00000800 68             1996 	.byte	104
+00000801 01             1997 	.byte	1
+                        1998 
+                        1999 .LDW_536c4f0:
+00000802 23             2000 	.byte	35
+00000803 64756d6d7932   2001 	.strz	"dummy224"
+00000809 323400 
+0000080c a50c           2002 	.byte	165,12
+0000080e 0b             2003 	.byte	11
+0000080f 0a             2004 	.byte	10
+00000810 00000000*      2005 	.word	.LDW_5372420
+00000814 0223           2006 	.byte	2,35
+
+                                                                      Page 36
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+00000816 69             2007 	.byte	105
+00000817 01             2008 	.byte	1
+                        2009 
+                        2010 .LDW_536c610:
+00000818 23             2011 	.byte	35
+00000819 52534600       2012 	.strz	"RSF"
+0000081d a60c           2013 	.byte	166,12
+0000081f 11             2014 	.byte	17
+00000820 0a             2015 	.byte	10
+00000821 00000000*      2016 	.word	.LDW_29a8fd0
+00000825 0223           2017 	.byte	2,35
+00000827 6c             2018 	.byte	108
+00000828 01             2019 	.byte	1
+                        2020 
+                        2021 .LDW_536c028:
+00000829 23             2022 	.byte	35
+0000082a 64756d6d7932   2023 	.strz	"dummy225"
+00000830 323500 
+00000833 a70c           2024 	.byte	167,12
+00000835 0b             2025 	.byte	11
+00000836 0a             2026 	.byte	10
+00000837 00000000*      2027 	.word	.LDW_5371a08
+0000083b 0223           2028 	.byte	2,35
+0000083d 6d             2029 	.byte	109
+0000083e 01             2030 	.byte	1
+                        2031 
+                        2032 .LDW_536c1d8:
+0000083f 23             2033 	.byte	35
+00000840 434d4f523000   2034 	.strz	"CMOR0"
+00000846 a80c           2035 	.byte	168,12
+00000848 0b             2036 	.byte	11
+00000849 0a             2037 	.byte	10
+0000084a 00000000*      2038 	.word	.LDW_52b91f8
+0000084e 0323           2039 	.byte	3,35
+00000850 8001           2040 	.byte	128,1
+00000852 01             2041 	.byte	1
+                        2042 
+                        2043 .LDW_536c418:
+00000853 23             2044 	.byte	35
+00000854 64756d6d7932   2045 	.strz	"dummy226"
+0000085a 323600 
+0000085d a90c           2046 	.byte	169,12
+0000085f 0b             2047 	.byte	11
+00000860 0a             2048 	.byte	10
+00000861 00000000*      2049 	.word	.LDW_5372068
+00000865 0323           2050 	.byte	3,35
+00000867 8201           2051 	.byte	130,1
+00000869 01             2052 	.byte	1
+                        2053 
+                        2054 .LDW_536c0b8:
+0000086a 23             2055 	.byte	35
+0000086b 434d4f523100   2056 	.strz	"CMOR1"
+00000871 aa0c           2057 	.byte	170,12
+00000873 0b             2058 	.byte	11
+00000874 0a             2059 	.byte	10
+00000875 00000000*      2060 	.word	.LDW_52b91f8
+00000879 0323           2061 	.byte	3,35
+0000087b 8401           2062 	.byte	132,1
+0000087d 01             2063 	.byte	1
+                        2064 
+                        2065 .LDW_536c070:
+
+                                                                      Page 37
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+0000087e 23             2066 	.byte	35
+0000087f 64756d6d7932   2067 	.strz	"dummy227"
+00000885 323700 
+00000888 ab0c           2068 	.byte	171,12
+0000088a 0b             2069 	.byte	11
+0000088b 0a             2070 	.byte	10
+0000088c 00000000*      2071 	.word	.LDW_5371fe0
+00000890 0323           2072 	.byte	3,35
+00000892 8601           2073 	.byte	134,1
+00000894 01             2074 	.byte	1
+                        2075 
+                        2076 .LDW_536c6a0:
+00000895 23             2077 	.byte	35
+00000896 434d4f523200   2078 	.strz	"CMOR2"
+0000089c ac0c           2079 	.byte	172,12
+0000089e 0b             2080 	.byte	11
+0000089f 0a             2081 	.byte	10
+000008a0 00000000*      2082 	.word	.LDW_52b91f8
+000008a4 0323           2083 	.byte	3,35
+000008a6 8801           2084 	.byte	136,1
+000008a8 01             2085 	.byte	1
+                        2086 
+                        2087 .LDW_536be78:
+000008a9 23             2088 	.byte	35
+000008aa 64756d6d7932   2089 	.strz	"dummy228"
+000008b0 323800 
+000008b3 ad0c           2090 	.byte	173,12
+000008b5 0b             2091 	.byte	11
+000008b6 0a             2092 	.byte	10
+000008b7 00000000*      2093 	.word	.LDW_53725b8
+000008bb 0323           2094 	.byte	3,35
+000008bd 8a01           2095 	.byte	138,1
+000008bf 01             2096 	.byte	1
+                        2097 
+                        2098 .LDW_536be30:
+000008c0 23             2099 	.byte	35
+000008c1 434d4f523300   2100 	.strz	"CMOR3"
+000008c7 ae0c           2101 	.byte	174,12
+000008c9 0b             2102 	.byte	11
+000008ca 0a             2103 	.byte	10
+000008cb 00000000*      2104 	.word	.LDW_52b91f8
+000008cf 0323           2105 	.byte	3,35
+000008d1 8c01           2106 	.byte	140,1
+000008d3 01             2107 	.byte	1
+                        2108 
+                        2109 .LDW_536c388:
+000008d4 23             2110 	.byte	35
+000008d5 64756d6d7932   2111 	.strz	"dummy229"
+000008db 323900 
+000008de af0c           2112 	.byte	175,12
+000008e0 0b             2113 	.byte	11
+000008e1 0a             2114 	.byte	10
+000008e2 00000000*      2115 	.word	.LDW_5371cb0
+000008e6 0323           2116 	.byte	3,35
+000008e8 8e01           2117 	.byte	142,1
+000008ea 01             2118 	.byte	1
+                        2119 
+                        2120 .LDW_536bf08:
+000008eb 23             2121 	.byte	35
+000008ec 54505300       2122 	.strz	"TPS"
+000008f0 b00c           2123 	.byte	176,12
+
+                                                                      Page 38
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+000008f2 0b             2124 	.byte	11
+000008f3 0a             2125 	.byte	10
+000008f4 00000000*      2126 	.word	.LDW_52b91f8
+000008f8 0323           2127 	.byte	3,35
+000008fa 9001           2128 	.byte	144,1
+000008fc 01             2129 	.byte	1
+                        2130 
+                        2131 .LDW_536c190:
+000008fd 23             2132 	.byte	35
+000008fe 64756d6d7932   2133 	.strz	"dummy230"
+00000904 333000 
+00000907 b10c           2134 	.byte	177,12
+00000909 0b             2135 	.byte	11
+0000090a 0a             2136 	.byte	10
+0000090b 00000000*      2137 	.word	.LDW_5371f58
+0000090f 0323           2138 	.byte	3,35
+00000911 9201           2139 	.byte	146,1
+00000913 01             2140 	.byte	1
+                        2141 
+                        2142 .LDW_536bec0:
+00000914 23             2143 	.byte	35
+00000915 42525300       2144 	.strz	"BRS"
+00000919 b20c           2145 	.byte	178,12
+0000091b 0b             2146 	.byte	11
+0000091c 0a             2147 	.byte	10
+0000091d 00000000*      2148 	.word	.LDW_52b96c8
+00000921 0323           2149 	.byte	3,35
+00000923 9401           2150 	.byte	148,1
+00000925 01             2151 	.byte	1
+                        2152 
+                        2153 .LDW_536bf98:
+00000926 23             2154 	.byte	35
+00000927 64756d6d7932   2155 	.strz	"dummy231"
+0000092d 333100 
+00000930 b30c           2156 	.byte	179,12
+00000932 0b             2157 	.byte	11
+00000933 0a             2158 	.byte	10
+00000934 00000000*      2159 	.word	.LDW_5371d38
+00000938 0323           2160 	.byte	3,35
+0000093a 9501           2161 	.byte	149,1
+0000093c 01             2162 	.byte	1
+                        2163 
+                        2164 .LDW_536bfe0:
+0000093d 23             2165 	.byte	35
+0000093e 544f4d00       2166 	.strz	"TOM"
+00000942 b40c           2167 	.byte	180,12
+00000944 0b             2168 	.byte	11
+00000945 0a             2169 	.byte	10
+00000946 00000000*      2170 	.word	.LDW_52b96c8
+0000094a 0323           2171 	.byte	3,35
+0000094c 9801           2172 	.byte	152,1
+0000094e 01             2173 	.byte	1
+                        2174 
+                        2175 .LDW_536c340:
+0000094f 23             2176 	.byte	35
+00000950 64756d6d7932   2177 	.strz	"dummy232"
+00000956 333200 
+00000959 b50c           2178 	.byte	181,12
+0000095b 0b             2179 	.byte	11
+0000095c 0a             2180 	.byte	10
+0000095d 00000000*      2181 	.word	.LDW_53720f0
+
+                                                                      Page 39
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+00000961 0323           2182 	.byte	3,35
+00000963 9901           2183 	.byte	153,1
+00000965 01             2184 	.byte	1
+                        2185 
+                        2186 .LDW_536c538:
+00000966 23             2187 	.byte	35
+00000967 544f4300       2188 	.strz	"TOC"
+0000096b b60c           2189 	.byte	182,12
+0000096d 0b             2190 	.byte	11
+0000096e 0a             2191 	.byte	10
+0000096f 00000000*      2192 	.word	.LDW_52b96c8
+00000973 0323           2193 	.byte	3,35
+00000975 9c01           2194 	.byte	156,1
+00000977 01             2195 	.byte	1
+                        2196 
+                        2197 .LDW_536c3d0:
+00000978 23             2198 	.byte	35
+00000979 64756d6d7932   2199 	.strz	"dummy233"
+0000097f 333300 
+00000982 b70c           2200 	.byte	183,12
+00000984 0b             2201 	.byte	11
+00000985 0a             2202 	.byte	10
+00000986 00000000*      2203 	.word	.LDW_5371dc0
+0000098a 0323           2204 	.byte	3,35
+0000098c 9d01           2205 	.byte	157,1
+0000098e 01             2206 	.byte	1
+                        2207 
+                        2208 .LDW_536c268:
+0000098f 23             2209 	.byte	35
+00000990 52444500       2210 	.strz	"RDE"
+00000994 b80c           2211 	.byte	184,12
+00000996 0b             2212 	.byte	11
+00000997 0a             2213 	.byte	10
+00000998 00000000*      2214 	.word	.LDW_52b96c8
+0000099c 0323           2215 	.byte	3,35
+0000099e a001           2216 	.byte	160,1
+000009a0 01             2217 	.byte	1
+                        2218 
+                        2219 .LDW_536c2b0:
+000009a1 23             2220 	.byte	35
+000009a2 64756d6d7932   2221 	.strz	"dummy234"
+000009a8 333400 
+000009ab b90c           2222 	.byte	185,12
+000009ad 0b             2223 	.byte	11
+000009ae 0a             2224 	.byte	10
+000009af 00000000*      2225 	.word	.LDW_5372178
+000009b3 0323           2226 	.byte	3,35
+000009b5 a101           2227 	.byte	161,1
+000009b7 01             2228 	.byte	1
+                        2229 
+                        2230 .LDW_536c4a8:
+000009b8 23             2231 	.byte	35
+000009b9 52444d00       2232 	.strz	"RDM"
+000009bd ba0c           2233 	.byte	186,12
+000009bf 0b             2234 	.byte	11
+000009c0 0a             2235 	.byte	10
+000009c1 00000000*      2236 	.word	.LDW_52b96c8
+000009c5 0323           2237 	.byte	3,35
+000009c7 a401           2238 	.byte	164,1
+000009c9 01             2239 	.byte	1
+                        2240 
+
+                                                                      Page 40
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+                        2241 .LDW_536ce38:
+000009ca 23             2242 	.byte	35
+000009cb 64756d6d7932   2243 	.strz	"dummy235"
+000009d1 333500 
+000009d4 bb0c           2244 	.byte	187,12
+000009d6 0b             2245 	.byte	11
+000009d7 0a             2246 	.byte	10
+000009d8 00000000*      2247 	.word	.LDW_5372200
+000009dc 0323           2248 	.byte	3,35
+000009de a501           2249 	.byte	165,1
+000009e0 01             2250 	.byte	1
+                        2251 
+                        2252 .LDW_536ce80:
+000009e1 23             2253 	.byte	35
+000009e2 454d5500       2254 	.strz	"EMU"
+000009e6 bc0c           2255 	.byte	188,12
+000009e8 0b             2256 	.byte	11
+000009e9 0a             2257 	.byte	10
+000009ea 00000000*      2258 	.word	.LDW_52b96c8
+000009ee 0323           2259 	.byte	3,35
+000009f0 a801           2260 	.byte	168,1
+000009f2 01             2261 	.byte	1
+                        2262 
+000009f3 00             2263 	.byte	0
+                        2264 
+                        2265 .LDW_29a8688:
+000009f4 28             2266 	.byte	40
+000009f5 5f5f74797065   2267 	.strz	"__type37"
+000009fb 333700 
+000009fe bd0c           2268 	.byte	189,12
+00000a00 02             2269 	.byte	2
+00000a01 0a             2270 	.byte	10
+00000a02 00000000*      2271 	.word	.LDW_29a89a0
+                        2272 
+                        2273 .LDW_5383aa0:
+00000a06 05             2274 	.byte	5
+00000a07 50524f54434d   2275 	.strz	"PROTCMD0"
+00000a0d 443000 
+00000a10 e610           2276 	.byte	230,16
+00000a12 01             2277 	.byte	1
+00000a13 0a             2278 	.byte	10
+00000a14 00000000*      2279 	.word	.LDW_537f108
+00000a18 01             2280 	.byte	1
+00000a19 01             2281 	.byte	1
+                        2282 
+                        2283 	.section	.debug_abbrev
+000000c9 05             2284 	.byte	5
+000000ca 34             2285 	.byte	52
+000000cb 00             2286 	.byte	0
+000000cc 0308           2287 	.byte	3,8
+000000ce 3b0f           2288 	.byte	59,15
+000000d0 390f           2289 	.byte	57,15
+000000d2 3a0f           2290 	.byte	58,15
+000000d4 4910           2291 	.byte	73,16
+000000d6 3f0c           2292 	.byte	63,12
+000000d8 3c0c           2293 	.byte	60,12
+000000da 0000           2294 	.byte	0,0
+                        2295 
+                        2296 	.section	.debug_info
+                        2297 .LDW_5383c58:
+00000a1a 05             2298 	.byte	5
+
+                                                                      Page 41
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+00000a1b 50524f545330   2299 	.strz	"PROTS0"
+00000a21 00 
+00000a22 e710           2300 	.byte	231,16
+00000a24 01             2301 	.byte	1
+00000a25 0a             2302 	.byte	10
+00000a26 00000000*      2303 	.word	.LDW_537f058
+00000a2a 01             2304 	.byte	1
+00000a2b 01             2305 	.byte	1
+                        2306 
+                        2307 .LDW_5384ee8:
+00000a2c 05             2308 	.byte	5
+00000a2d 434b53435f41   2309 	.strz	"CKSC_ATAUJS_CTL"
+00000a33 5441554a535f 
+00000a39 43544c00 
+00000a3d 8911           2310 	.byte	137,17
+00000a3f 01             2311 	.byte	1
+00000a40 0a             2312 	.byte	10
+00000a41 00000000*      2313 	.word	.LDW_537f108
+00000a45 01             2314 	.byte	1
+00000a46 01             2315 	.byte	1
+                        2316 
+                        2317 .LDW_5384650:
+00000a47 05             2318 	.byte	5
+00000a48 434b53435f41   2319 	.strz	"CKSC_ATAUJD_STPM"
+00000a4e 5441554a445f 
+00000a54 5354504d00 
+00000a59 8d11           2320 	.byte	141,17
+00000a5b 01             2321 	.byte	1
+00000a5c 0a             2322 	.byte	10
+00000a5d 00000000*      2323 	.word	.LDW_537f108
+00000a61 01             2324 	.byte	1
+00000a62 01             2325 	.byte	1
+                        2326 
+                        2327 .LDW_5393e40:
+00000a63 05             2328 	.byte	5
+00000a64 5441554a3000   2329 	.strz	"TAUJ0"
+00000a6a d01e           2330 	.byte	208,30
+00000a6c 01             2331 	.byte	1
+00000a6d 0a             2332 	.byte	10
+00000a6e 00000000*      2333 	.word	.LDW_53942b8
+00000a72 01             2334 	.byte	1
+00000a73 01             2335 	.byte	1
+                        2336 
+                        2337 .LDW_52b83d0:
+00000a74 13             2338 	.byte	19
+00000a75 5461755f496e   2339 	.strz	"Tau_Init"
+00000a7b 697400 
+00000a7e 06             2340 	.byte	6
+00000a7f 0d             2341 	.byte	13
+00000a80 01             2342 	.byte	1
+00000a81 00000000*      2343 	.word	_Tau_Init
+00000a85 00000000*      2344 	.word	___ghs_eofn_Tau_Init
+00000a89 0153           2345 	.byte	1,83
+00000a8b 02             2346 	.byte	2
+00000a8c 00             2347 	.byte	0
+00000a8d 02             2348 	.byte	2
+00000a8e 00             2349 	.byte	0
+00000a8f 00             2350 	.byte	0
+00000a90 00             2351 	.byte	0
+00000a91 00             2352 	.byte	0
+00000a92 01             2353 	.byte	1
+
+                                                                      Page 42
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+00000a93 01             2354 	.byte	1
+00000a94 00             2355 	.byte	0
+00000a95 01             2356 	.byte	1
+                        2357 
+                        2358 	.section	.debug_abbrev
+000000dc 13             2359 	.byte	19
+000000dd 2e             2360 	.byte	46
+000000de 01             2361 	.byte	1
+000000df 0308           2362 	.byte	3,8
+000000e1 3b0f           2363 	.byte	59,15
+000000e3 390f           2364 	.byte	57,15
+000000e5 3a0f           2365 	.byte	58,15
+000000e7 1101           2366 	.byte	17,1
+000000e9 1201           2367 	.byte	18,1
+000000eb 400a           2368 	.byte	64,10
+000000ed 8341           2369 	.byte	131,65
+000000ef 0f             2370 	.byte	15
+000000f0 8741           2371 	.byte	135,65
+000000f2 0d             2372 	.byte	13
+000000f3 8541           2373 	.byte	133,65
+000000f5 0f             2374 	.byte	15
+000000f6 8641           2375 	.byte	134,65
+000000f8 0d             2376 	.byte	13
+000000f9 9241           2377 	.byte	146,65
+000000fb 0f             2378 	.byte	15
+000000fc 3c0c           2379 	.byte	60,12
+000000fe 200b           2380 	.byte	32,11
+00000100 3f0c           2381 	.byte	63,12
+00000102 320b           2382 	.byte	50,11
+00000104 4c0b           2383 	.byte	76,11
+00000106 270c           2384 	.byte	39,12
+00000108 0000           2385 	.byte	0,0
+                        2386 
+                        2387 	.section	.debug_frame
+                        2388 .LDW_5399658:
+00000090 00000000*      2389 	.word	.LDW_unq_6-.LDW_unq_5
+                        2390 .LDW_unq_5:
+00000094 00000000*      2391 	.word	.LDW_5257f28
+00000098 00000000*      2392 	.word	_Tau_Init
+0000009c 00000000*      2393 	.word	___ghs_eofn_Tau_Init-_Tau_Init
+000000a0 01             2394 	.byte	1
+000000a1 00000000*      2395 	.word	.LDW11
+000000a5 00             2396 	.byte	0
+000000a6 00             2397 	.byte	0
+000000a7 00             2398 	.byte	0
+                        2399 .LDW_unq_6:
+                        2400 	.section	.debug_line
+000001c9 000502         2401 	.byte	0,5,2
+000001cc 00000000*      2402 	.word	_Tau_Init
+000001d0 03             2403 	.byte	3
+000001d1 05             2404 	.byte	5
+000001d2 02             2405 	.byte	2
+000001d3 00             2406 	.byte	0
+000001d4 01             2407 	.byte	1
+000001d5 06             2408 	.byte	6
+000001d6 000502         2409 	.byte	0,5,2
+000001d9 00000000*      2410 	.word	.LDWlin1
+000001dd 0c             2411 	.byte	12
+000001de 000502         2412 	.byte	0,5,2
+000001e1 00000000*      2413 	.word	.LDWlin2
+000001e5 02             2414 	.byte	2
+
+                                                                      Page 43
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+000001e6 00             2415 	.byte	0
+000001e7 0b             2416 	.byte	11
+000001e8 000502         2417 	.byte	0,5,2
+000001eb 00000000*      2418 	.word	.LDWlin3
+000001ef 02             2419 	.byte	2
+000001f0 00             2420 	.byte	0
+000001f1 0b             2421 	.byte	11
+000001f2 000502         2422 	.byte	0,5,2
+000001f5 00000000*      2423 	.word	.LDWlin4
+000001f9 0c             2424 	.byte	12
+000001fa 000502         2425 	.byte	0,5,2
+000001fd 00000000*      2426 	.word	.LDWlin5
+00000201 0b             2427 	.byte	11
+00000202 1c             2428 	.byte	28
+00000203 13             2429 	.byte	19
+00000204 13             2430 	.byte	19
+00000205 1b             2431 	.byte	27
+00000206 1c             2432 	.byte	28
+00000207 13             2433 	.byte	19
+00000208 000502         2434 	.byte	0,5,2
+0000020b 00000000*      2435 	.word	.LDWlin6
+0000020f 0b             2436 	.byte	11
+00000210 1b             2437 	.byte	27
+00000211 1c             2438 	.byte	28
+00000212 13             2439 	.byte	19
+00000213 000502         2440 	.byte	0,5,2
+00000216 00000000*      2441 	.word	.LDWlin7
+0000021a 0b             2442 	.byte	11
+0000021b 1b             2443 	.byte	27
+0000021c 1c             2444 	.byte	28
+0000021d 13             2445 	.byte	19
+0000021e 000502         2446 	.byte	0,5,2
+00000221 00000000*      2447 	.word	.LDWlin8
+00000225 0b             2448 	.byte	11
+00000226 1b             2449 	.byte	27
+00000227 1b             2450 	.byte	27
+00000228 02             2451 	.byte	2
+00000229 02             2452 	.byte	2
+0000022a 000101         2453 	.byte	0,1,1
+                        2454 	.section	.debug_info
+                        2455 .LDW_5335600:
+00000a96 1d             2456 	.byte	29
+00000a97 00000000*      2457 	.word	.LDW01
+00000a9b 00000000*      2458 	.word	.LDW11
+                        2459 
+                        2460 	.section	.debug_abbrev
+0000010a 1d             2461 	.byte	29
+0000010b 0b             2462 	.byte	11
+0000010c 01             2463 	.byte	1
+0000010d 1101           2464 	.byte	17,1
+0000010f 1201           2465 	.byte	18,1
+00000111 0000           2466 	.byte	0,0
+                        2467 
+                        2468 	.section	.debug_info
+00000a9f 00             2469 	.byte	0
+                        2470 
+00000aa0 00             2471 	.byte	0
+                        2472 
+                        2473 .LDW_52b8f18:
+00000aa1 13             2474 	.byte	19
+00000aa2 5461755f5374   2475 	.strz	"Tau_StartTimer"
+
+                                                                      Page 44
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+00000aa8 61727454696d 
+00000aae 657200 
+00000ab1 24             2476 	.byte	36
+00000ab2 0d             2477 	.byte	13
+00000ab3 01             2478 	.byte	1
+00000ab4 00000000*      2479 	.word	_Tau_StartTimer
+00000ab8 00000000*      2480 	.word	___ghs_eofn_Tau_StartTimer
+00000abc 0153           2481 	.byte	1,83
+00000abe 02             2482 	.byte	2
+00000abf 00             2483 	.byte	0
+00000ac0 02             2484 	.byte	2
+00000ac1 00             2485 	.byte	0
+00000ac2 00             2486 	.byte	0
+00000ac3 00             2487 	.byte	0
+00000ac4 00             2488 	.byte	0
+00000ac5 01             2489 	.byte	1
+00000ac6 01             2490 	.byte	1
+00000ac7 00             2491 	.byte	0
+00000ac8 01             2492 	.byte	1
+                        2493 
+                        2494 	.section	.debug_frame
+                        2495 .LDW_4f2fd20:
+000000a8 00000000*      2496 	.word	.LDW_unq_8-.LDW_unq_7
+                        2497 .LDW_unq_7:
+000000ac 00000000*      2498 	.word	.LDW_5257f28
+000000b0 00000000*      2499 	.word	_Tau_StartTimer
+000000b4 00000000*      2500 	.word	___ghs_eofn_Tau_StartTimer-_Tau_StartTimer
+000000b8 01             2501 	.byte	1
+000000b9 00000000*      2502 	.word	.LDW31
+000000bd 00             2503 	.byte	0
+000000be 00             2504 	.byte	0
+000000bf 00             2505 	.byte	0
+                        2506 .LDW_unq_8:
+                        2507 	.section	.debug_line
+0000022d 000502         2508 	.byte	0,5,2
+00000230 00000000*      2509 	.word	_Tau_StartTimer
+00000234 03             2510 	.byte	3
+00000235 24             2511 	.byte	36
+00000236 02             2512 	.byte	2
+00000237 00             2513 	.byte	0
+00000238 01             2514 	.byte	1
+00000239 06             2515 	.byte	6
+0000023a 14             2516 	.byte	20
+0000023b 2c             2517 	.byte	44
+0000023c 000502         2518 	.byte	0,5,2
+0000023f 00000000*      2519 	.word	.LDWlin9
+00000243 03             2520 	.byte	3
+00000244 0c             2521 	.byte	12
+00000245 02             2522 	.byte	2
+00000246 00             2523 	.byte	0
+00000247 01             2524 	.byte	1
+00000248 000502         2525 	.byte	0,5,2
+0000024b 00000000*      2526 	.word	.LDWlin10
+0000024f 0b             2527 	.byte	11
+00000250 000502         2528 	.byte	0,5,2
+00000253 00000000*      2529 	.word	.LDWlin11
+00000257 03             2530 	.byte	3
+00000258 76             2531 	.byte	118
+00000259 02             2532 	.byte	2
+0000025a 00             2533 	.byte	0
+0000025b 01             2534 	.byte	1
+
+                                                                      Page 45
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+0000025c 13             2535 	.byte	19
+0000025d 000502         2536 	.byte	0,5,2
+00000260 00000000*      2537 	.word	.LDWlin12
+00000264 0c             2538 	.byte	12
+00000265 000502         2539 	.byte	0,5,2
+00000268 00000000*      2540 	.word	.LDWlin13
+0000026c 0b             2541 	.byte	11
+0000026d 000502         2542 	.byte	0,5,2
+00000270 00000000*      2543 	.word	.LDWlin14
+00000274 0c             2544 	.byte	12
+00000275 000502         2545 	.byte	0,5,2
+00000278 00000000*      2546 	.word	.LDWlin15
+0000027c 0b             2547 	.byte	11
+0000027d 03             2548 	.byte	3
+0000027e 04             2549 	.byte	4
+0000027f 02             2550 	.byte	2
+00000280 00             2551 	.byte	0
+00000281 01             2552 	.byte	1
+00000282 0c             2553 	.byte	12
+00000283 0b             2554 	.byte	11
+00000284 0c             2555 	.byte	12
+00000285 0b             2556 	.byte	11
+00000286 0b             2557 	.byte	11
+00000287 43             2558 	.byte	67
+00000288 02             2559 	.byte	2
+00000289 00             2560 	.byte	0
+0000028a 0b             2561 	.byte	11
+0000028b 02             2562 	.byte	2
+0000028c 02             2563 	.byte	2
+0000028d 000101         2564 	.byte	0,1,1
+                        2565 	.section	.debug_info
+                        2566 .LDW_52b9f60:
+00000ac9 0f             2567 	.byte	15
+00000aca 454e5f436861   2568 	.strz	"EN_Channel"
+00000ad0 6e6e656c00 
+00000ad5 24             2569 	.byte	36
+00000ad6 2e             2570 	.byte	46
+00000ad7 01             2571 	.byte	1
+00000ad8 00000000*      2572 	.word	.LDW_52b9d50
+00000adc 00             2573 	.byte	0
+00000add 0156           2574 	.byte	1,86
+                        2575 
+                        2576 	.section	.debug_abbrev
+00000113 0f             2577 	.byte	15
+00000114 05             2578 	.byte	5
+00000115 00             2579 	.byte	0
+00000116 0308           2580 	.byte	3,8
+00000118 3b0f           2581 	.byte	59,15
+0000011a 390f           2582 	.byte	57,15
+0000011c 3a0f           2583 	.byte	58,15
+0000011e 4910           2584 	.byte	73,16
+00000120 4b0c           2585 	.byte	75,12
+00000122 020a           2586 	.byte	2,10
+00000124 0000           2587 	.byte	0,0
+                        2588 
+                        2589 	.section	.debug_info
+                        2590 .LDW_52b9fb8:
+00000adf 0f             2591 	.byte	15
+00000ae0 5533325f5469   2592 	.strz	"U32_TimerValue_ms"
+00000ae6 6d657256616c 
+00000aec 75655f6d7300 
+
+                                                                      Page 46
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+00000af2 24             2593 	.byte	36
+00000af3 41             2594 	.byte	65
+00000af4 01             2595 	.byte	1
+00000af5 00000000*      2596 	.word	.LDW_52b9f08
+00000af9 00             2597 	.byte	0
+00000afa 0157           2598 	.byte	1,87
+                        2599 
+                        2600 .LDW_5335750:
+00000afc 1d             2601 	.byte	29
+00000afd 00000000*      2602 	.word	.LDW21
+00000b01 00000000*      2603 	.word	.LDW31
+                        2604 
+                        2605 .LDW_52b9b98:
+00000b05 05             2606 	.byte	5
+00000b06 424f5f456e61   2607 	.strz	"BO_EnableCounter"
+00000b0c 626c65436f75 
+00000b12 6e74657200 
+00000b17 26             2608 	.byte	38
+00000b18 0b             2609 	.byte	11
+00000b19 01             2610 	.byte	1
+00000b1a 00000000*      2611 	.word	.LDW_52b9bf0
+00000b1e 00             2612 	.byte	0
+00000b1f 00             2613 	.byte	0
+                        2614 
+                        2615 .LDW_52b9c48:
+00000b20 04             2616 	.byte	4
+00000b21 5533325f5469   2617 	.strz	"U32_TimerValue_ticks"
+00000b27 6d657256616c 
+00000b2d 75655f746963 
+00000b33 6b7300 
+00000b36 27             2618 	.byte	39
+00000b37 0a             2619 	.byte	10
+00000b38 01             2620 	.byte	1
+00000b39 00000000*      2621 	.word	.LDW_52b9f08
+00000b3d 00             2622 	.byte	0
+00000b3e 00             2623 	.byte	0
+00000b3f 0162           2624 	.byte	1,98
+                        2625 
+                        2626 	.section	.debug_abbrev
+00000126 04             2627 	.byte	4
+00000127 34             2628 	.byte	52
+00000128 00             2629 	.byte	0
+00000129 0308           2630 	.byte	3,8
+0000012b 3b0f           2631 	.byte	59,15
+0000012d 390f           2632 	.byte	57,15
+0000012f 3a0f           2633 	.byte	58,15
+00000131 4910           2634 	.byte	73,16
+00000133 3f0c           2635 	.byte	63,12
+00000135 3c0c           2636 	.byte	60,12
+00000137 020a           2637 	.byte	2,10
+00000139 0000           2638 	.byte	0,0
+                        2639 
+                        2640 	.section	.debug_info
+00000b41 00             2641 	.byte	0
+                        2642 
+00000b42 00             2643 	.byte	0
+                        2644 
+                        2645 .LDW_52b89c0:
+00000b43 13             2646 	.byte	19
+00000b44 5461755f5374   2647 	.strz	"Tau_StopTimer"
+00000b4a 6f7054696d65 
+
+                                                                      Page 47
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+00000b50 7200 
+00000b52 42             2648 	.byte	66
+00000b53 0d             2649 	.byte	13
+00000b54 01             2650 	.byte	1
+00000b55 00000000*      2651 	.word	_Tau_StopTimer
+00000b59 00000000*      2652 	.word	___ghs_eofn_Tau_StopTimer
+00000b5d 0153           2653 	.byte	1,83
+00000b5f 02             2654 	.byte	2
+00000b60 00             2655 	.byte	0
+00000b61 02             2656 	.byte	2
+00000b62 00             2657 	.byte	0
+00000b63 00             2658 	.byte	0
+00000b64 00             2659 	.byte	0
+00000b65 00             2660 	.byte	0
+00000b66 01             2661 	.byte	1
+00000b67 01             2662 	.byte	1
+00000b68 00             2663 	.byte	0
+00000b69 01             2664 	.byte	1
+                        2665 
+                        2666 	.section	.debug_frame
+                        2667 .LDW_4f2faa0:
+000000c0 00000000*      2668 	.word	.LDW_unq_a-.LDW_unq_9
+                        2669 .LDW_unq_9:
+000000c4 00000000*      2670 	.word	.LDW_5257f28
+000000c8 00000000*      2671 	.word	_Tau_StopTimer
+000000cc 00000000*      2672 	.word	___ghs_eofn_Tau_StopTimer-_Tau_StopTimer
+000000d0 01             2673 	.byte	1
+000000d1 00000000*      2674 	.word	.LDW51
+000000d5 00             2675 	.byte	0
+000000d6 00             2676 	.byte	0
+000000d7 00             2677 	.byte	0
+                        2678 .LDW_unq_a:
+                        2679 	.section	.debug_line
+00000290 000502         2680 	.byte	0,5,2
+00000293 00000000*      2681 	.word	_Tau_StopTimer
+00000297 06             2682 	.byte	6
+00000298 03             2683 	.byte	3
+00000299 c300           2684 	.byte	195,0
+0000029b 02             2685 	.byte	2
+0000029c 00             2686 	.byte	0
+0000029d 01             2687 	.byte	1
+0000029e 000502         2688 	.byte	0,5,2
+000002a1 00000000*      2689 	.word	.LDWlin16
+000002a5 0b             2690 	.byte	11
+000002a6 02             2691 	.byte	2
+000002a7 02             2692 	.byte	2
+000002a8 000101         2693 	.byte	0,1,1
+                        2694 	.section	.debug_info
+                        2695 .LDW_52b9da8:
+00000b6a 0f             2696 	.byte	15
+00000b6b 454e5f436861   2697 	.strz	"EN_Channel"
+00000b71 6e6e656c00 
+00000b76 42             2698 	.byte	66
+00000b77 2d             2699 	.byte	45
+00000b78 01             2700 	.byte	1
+00000b79 00000000*      2701 	.word	.LDW_52b9d50
+00000b7d 00             2702 	.byte	0
+00000b7e 0156           2703 	.byte	1,86
+                        2704 
+                        2705 .LDW_53355a0:
+00000b80 1d             2706 	.byte	29
+
+                                                                      Page 48
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+00000b81 00000000*      2707 	.word	.LDW41
+00000b85 00000000*      2708 	.word	.LDW51
+                        2709 
+00000b89 00             2710 	.byte	0
+                        2711 
+00000b8a 00             2712 	.byte	0
+                        2713 
+                        2714 .LDW_52b8468:
+00000b8b 13             2715 	.byte	19
+00000b8c 5461755f4765   2716 	.strz	"Tau_GetTimer"
+00000b92 7454696d6572 
+00000b98 00 
+00000b99 47             2717 	.byte	71
+00000b9a 0d             2718 	.byte	13
+00000b9b 01             2719 	.byte	1
+00000b9c 00000000*      2720 	.word	_Tau_GetTimer
+00000ba0 00000000*      2721 	.word	___ghs_eofn_Tau_GetTimer
+00000ba4 0153           2722 	.byte	1,83
+00000ba6 02             2723 	.byte	2
+00000ba7 00             2724 	.byte	0
+00000ba8 02             2725 	.byte	2
+00000ba9 00             2726 	.byte	0
+00000baa 00             2727 	.byte	0
+00000bab 00             2728 	.byte	0
+00000bac 00             2729 	.byte	0
+00000bad 01             2730 	.byte	1
+00000bae 01             2731 	.byte	1
+00000baf 00             2732 	.byte	0
+00000bb0 01             2733 	.byte	1
+                        2734 
+                        2735 	.section	.debug_frame
+                        2736 .LDW_4f2fb60:
+000000d8 00000000*      2737 	.word	.LDW_unq_c-.LDW_unq_b
+                        2738 .LDW_unq_b:
+000000dc 00000000*      2739 	.word	.LDW_5257f28
+000000e0 00000000*      2740 	.word	_Tau_GetTimer
+000000e4 00000000*      2741 	.word	___ghs_eofn_Tau_GetTimer-_Tau_GetTimer
+000000e8 01             2742 	.byte	1
+000000e9 00000000*      2743 	.word	.LDW71
+000000ed 00             2744 	.byte	0
+000000ee 00             2745 	.byte	0
+000000ef 00             2746 	.byte	0
+                        2747 .LDW_unq_c:
+                        2748 	.section	.debug_line
+000002ab 000502         2749 	.byte	0,5,2
+000002ae 00000000*      2750 	.word	_Tau_GetTimer
+000002b2 03             2751 	.byte	3
+000002b3 c700           2752 	.byte	199,0
+000002b5 02             2753 	.byte	2
+000002b6 00             2754 	.byte	0
+000002b7 01             2755 	.byte	1
+000002b8 06             2756 	.byte	6
+000002b9 1d             2757 	.byte	29
+000002ba 000502         2758 	.byte	0,5,2
+000002bd 00000000*      2759 	.word	.LDWlin17
+000002c1 03             2760 	.byte	3
+000002c2 7f             2761 	.byte	127
+000002c3 02             2762 	.byte	2
+000002c4 00             2763 	.byte	0
+000002c5 01             2764 	.byte	1
+000002c6 000502         2765 	.byte	0,5,2
+
+                                                                      Page 49
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+000002c9 00000000*      2766 	.word	.LDWlin18
+000002cd 0c             2767 	.byte	12
+000002ce 0b             2768 	.byte	11
+000002cf 000502         2769 	.byte	0,5,2
+000002d2 00000000*      2770 	.word	.LDWlin19
+000002d6 03             2771 	.byte	3
+000002d7 0e             2772 	.byte	14
+000002d8 02             2773 	.byte	2
+000002d9 00             2774 	.byte	0
+000002da 01             2775 	.byte	1
+000002db 0b             2776 	.byte	11
+000002dc 13             2777 	.byte	19
+000002dd 000502         2778 	.byte	0,5,2
+000002e0 00000000*      2779 	.word	.LDWlin20
+000002e4 0b             2780 	.byte	11
+000002e5 0c             2781 	.byte	12
+000002e6 000502         2782 	.byte	0,5,2
+000002e9 00000000*      2783 	.word	.LDWlin21
+000002ed 03             2784 	.byte	3
+000002ee 70             2785 	.byte	112
+000002ef 02             2786 	.byte	2
+000002f0 00             2787 	.byte	0
+000002f1 01             2788 	.byte	1
+000002f2 000502         2789 	.byte	0,5,2
+000002f5 00000000*      2790 	.word	.LDWlin22
+000002f9 0b             2791 	.byte	11
+000002fa 000502         2792 	.byte	0,5,2
+000002fd 00000000*      2793 	.word	.LDWlin23
+00000301 0c             2794 	.byte	12
+00000302 000502         2795 	.byte	0,5,2
+00000305 00000000*      2796 	.word	.LDWlin24
+00000309 0b             2797 	.byte	11
+0000030a 000502         2798 	.byte	0,5,2
+0000030d 00000000*      2799 	.word	.LDWlin25
+00000311 0c             2800 	.byte	12
+00000312 000502         2801 	.byte	0,5,2
+00000315 00000000*      2802 	.word	.LDWlin26
+00000319 0b             2803 	.byte	11
+0000031a 000502         2804 	.byte	0,5,2
+0000031d 00000000*      2805 	.word	.LDWlin27
+00000321 0c             2806 	.byte	12
+00000322 000502         2807 	.byte	0,5,2
+00000325 00000000*      2808 	.word	.LDWlin28
+00000329 0b             2809 	.byte	11
+0000032a 000502         2810 	.byte	0,5,2
+0000032d 00000000*      2811 	.word	.LDWlin29
+00000331 03             2812 	.byte	3
+00000332 07             2813 	.byte	7
+00000333 02             2814 	.byte	2
+00000334 00             2815 	.byte	0
+00000335 01             2816 	.byte	1
+00000336 0b             2817 	.byte	11
+00000337 0b             2818 	.byte	11
+00000338 1b             2819 	.byte	27
+00000339 02             2820 	.byte	2
+0000033a 00             2821 	.byte	0
+0000033b 0b             2822 	.byte	11
+0000033c 02             2823 	.byte	2
+0000033d 02             2824 	.byte	2
+0000033e 000101         2825 	.byte	0,1,1
+                        2826 	.section	.debug_info
+
+                                                                      Page 50
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+                        2827 .LDW_52b9ca0:
+00000bb1 0f             2828 	.byte	15
+00000bb2 454e5f436861   2829 	.strz	"EN_Channel"
+00000bb8 6e6e656c00 
+00000bbd 47             2830 	.byte	71
+00000bbe 2c             2831 	.byte	44
+00000bbf 01             2832 	.byte	1
+00000bc0 00000000*      2833 	.word	.LDW_52b9d50
+00000bc4 00             2834 	.byte	0
+00000bc5 0156           2835 	.byte	1,86
+                        2836 
+                        2837 .LDW_52b93b0:
+00000bc7 0f             2838 	.byte	15
+00000bc8 505533325f54   2839 	.strz	"PU32_TimerValue_ms"
+00000bce 696d65725661 
+00000bd4 6c75655f6d73 
+00000bda 00 
+00000bdb 47             2840 	.byte	71
+00000bdc 40             2841 	.byte	64
+00000bdd 01             2842 	.byte	1
+00000bde 00000000*      2843 	.word	.LDW_29ad5c0
+00000be2 00             2844 	.byte	0
+00000be3 016e           2845 	.byte	1,110
+                        2846 
+                        2847 .LDW_53357b0:
+00000be5 1d             2848 	.byte	29
+00000be6 00000000*      2849 	.word	.LDW61
+00000bea 00000000*      2850 	.word	.LDW71
+                        2851 
+                        2852 .LDW_52b9040:
+00000bee 04             2853 	.byte	4
+00000bef 5533325f5469   2854 	.strz	"U32_TimerValue_ticks"
+00000bf5 6d657256616c 
+00000bfb 75655f746963 
+00000c01 6b7300 
+00000c04 49             2855 	.byte	73
+00000c05 0a             2856 	.byte	10
+00000c06 01             2857 	.byte	1
+00000c07 00000000*      2858 	.word	.LDW_52b9f08
+00000c0b 00             2859 	.byte	0
+00000c0c 00             2860 	.byte	0
+00000c0d 0162           2861 	.byte	1,98
+                        2862 
+                        2863 .LDW_52b9828:
+00000c0f 04             2864 	.byte	4
+00000c10 55385f54696d   2865 	.strz	"U8_TimerEnableMask"
+00000c16 6572456e6162 
+00000c1c 6c654d61736b 
+00000c22 00 
+00000c23 4a             2866 	.byte	74
+00000c24 09             2867 	.byte	9
+00000c25 01             2868 	.byte	1
+00000c26 00000000*      2869 	.word	.LDW_52b96c8
+00000c2a 00             2870 	.byte	0
+00000c2b 00             2871 	.byte	0
+00000c2c 0161           2872 	.byte	1,97
+                        2873 
+00000c2e 00             2874 	.byte	0
+                        2875 
+00000c2f 00             2876 	.byte	0
+                        2877 
+
+                                                                      Page 51
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+00000c30 00             2878 	.byte	0
+                        2879 
+                        2880 	.section	.debug_line
+                        2881 .Ldw_line_end:
+                        2882 	.section	.debug_macinfo
+00000000 01             2883 	.byte	1
+00000001 00             2884 	.byte	0
+00000002 5f5f474e555f   2885 	.strz	"__GNU_ASM_SUPPORT__ 1"
+00000008 41534d5f5355 
+0000000e 50504f52545f 
+00000014 5f203100 
+00000018 01             2886 	.byte	1
+00000019 00             2887 	.byte	0
+0000001a 5f5f67687320   2888 	.strz	"__ghs 1"
+00000020 3100 
+00000022 01             2889 	.byte	1
+00000023 00             2890 	.byte	0
+00000024 5f5f6768735f   2891 	.strz	"__ghs__ 1"
+0000002a 5f203100 
+0000002e 01             2892 	.byte	1
+0000002f 00             2893 	.byte	0
+00000030 5f5f41545452   2894 	.strz	"__ATTRIBUTES 1"
+00000036 494255544553 
+0000003c 203100 
+0000003f 01             2895 	.byte	1
+00000040 00             2896 	.byte	0
+00000041 5f5f4544475f   2897 	.strz	"__EDG__ 1"
+00000047 5f203100 
+0000004b 01             2898 	.byte	1
+0000004c 00             2899 	.byte	0
+0000004d 5f5f434f5245   2900 	.strz	"__CORE_V850E3V5__ 1"
+00000053 5f5638353045 
+00000059 3356355f5f20 
+0000005f 3100 
+00000061 01             2901 	.byte	1
+00000062 00             2902 	.byte	0
+00000063 5f5f56383530   2903 	.strz	"__V850E__ 1"
+00000069 455f5f203100 
+0000006f 01             2904 	.byte	1
+00000070 00             2905 	.byte	0
+00000071 5f5f56383530   2906 	.strz	"__V850E2__ 1"
+00000077 45325f5f2031 
+0000007d 00 
+0000007e 01             2907 	.byte	1
+0000007f 00             2908 	.byte	0
+00000080 5f5f56383530   2909 	.strz	"__V850E2R__ 1"
+00000086 4532525f5f20 
+0000008c 3100 
+0000008e 01             2910 	.byte	1
+0000008f 00             2911 	.byte	0
+00000090 5f5f56383530   2912 	.strz	"__V850E2V3__ 1"
+00000096 453256335f5f 
+0000009c 203100 
+0000009f 01             2913 	.byte	1
+000000a0 00             2914 	.byte	0
+000000a1 5f5f56383530   2915 	.strz	"__V850E3__ 1"
+000000a7 45335f5f2031 
+000000ad 00 
+000000ae 01             2916 	.byte	1
+000000af 00             2917 	.byte	0
+000000b0 5f5f4c4c4f4e   2918 	.strz	"__LLONG_BIT 64"
+
+                                                                      Page 52
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+000000b6 475f42495420 
+000000bc 363400 
+000000bf 03             2919 	.byte	3
+000000c0 00             2920 	.byte	0
+000000c1 01             2921 	.byte	1
+000000c2 03             2922 	.byte	3
+000000c3 01             2923 	.byte	1
+000000c4 02             2924 	.byte	2
+000000c5 03             2925 	.byte	3
+000000c6 1c             2926 	.byte	28
+000000c7 03             2927 	.byte	3
+000000c8 01             2928 	.byte	1
+000000c9 3c             2929 	.byte	60
+000000ca 545255452031   2930 	.strz	"TRUE 1u"
+000000d0 7500 
+000000d2 01             2931 	.byte	1
+000000d3 40             2932 	.byte	64
+000000d4 46414c534520   2933 	.strz	"FALSE 0u"
+000000da 307500 
+000000dd 04             2934 	.byte	4
+000000de 03             2935 	.byte	3
+000000df 1d             2936 	.byte	29
+000000e0 04             2937 	.byte	4
+000000e1 03             2938 	.byte	3
+000000e2 1b             2939 	.byte	27
+000000e3 05             2940 	.byte	5
+000000e4 03             2941 	.byte	3
+000000e5 54             2942 	.byte	84
+000000e6 06             2943 	.byte	6
+000000e7 04             2944 	.byte	4
+000000e8 04             2945 	.byte	4
+000000e9 04             2946 	.byte	4
+000000ea 04             2947 	.byte	4
+000000eb 03             2948 	.byte	3
+000000ec 03             2949 	.byte	3
+000000ed 07             2950 	.byte	7
+000000ee 03             2951 	.byte	3
+000000ef 06             2952 	.byte	6
+000000f0 08             2953 	.byte	8
+000000f1 04             2954 	.byte	4
+000000f2 04             2955 	.byte	4
+000000f3 03             2956 	.byte	3
+000000f4 04             2957 	.byte	4
+000000f5 09             2958 	.byte	9
+000000f6 03             2959 	.byte	3
+000000f7 44             2960 	.byte	68
+000000f8 0a             2961 	.byte	10
+000000f9 01             2962 	.byte	1
+000000fa 17             2963 	.byte	23
+000000fb 505241474d41   2964 	.strz	"PRAGMA(x) _Pragma(#x)"
+00000101 287829205f50 
+00000107 7261676d6128 
+0000010d 23782900 
+00000111 01             2965 	.byte	1
+00000112 18             2966 	.byte	24
+00000113 5f5f52454144   2967 	.strz	"__READ volatile const"
+00000119 20766f6c6174 
+0000011f 696c6520636f 
+00000125 6e737400 
+00000129 01             2968 	.byte	1
+0000012a 1a             2969 	.byte	26
+
+                                                                      Page 53
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+0000012b 5f5f52454144   2970 	.strz	"__READ_WRITE volatile"
+00000131 5f5752495445 
+00000137 20766f6c6174 
+0000013d 696c6500 
+00000141 01             2971 	.byte	1
+00000142 1c             2972 	.byte	28
+00000143 5f5f494f5245   2973 	.strz	"__IOREG(reg,addr,attrib,type) PRAGMA(ghs io reg addr) extern attrib type reg;"
+00000149 47287265672c 
+0000014f 616464722c61 
+00000155 74747269622c 
+0000015b 747970652920 
+00000161 505241474d41 
+00000167 286768732069 
+0000016d 6f2072656720 
+00000173 616464722920 
+00000179 65787465726e 
+0000017f 206174747269 
+00000185 622074797065 
+0000018b 207265673b00 
+00000191 01             2974 	.byte	1
+00000192 1f             2975 	.byte	31
+00000193 5f5f494f5245   2976 	.strz	"__IOREGARRAY(reg,array,addr,attrib,type) PRAGMA(ghs io reg addr) extern attrib type reg[array];"
+00000199 474152524159 
+0000019f 287265672c61 
+000001a5 727261792c61 
+000001ab 6464722c6174 
+000001b1 747269622c74 
+000001b7 797065292050 
+000001bd 5241474d4128 
+000001c3 67687320696f 
+000001c9 207265672061 
+000001cf 646472292065 
+000001d5 787465726e20 
+000001db 617474726962 
+000001e1 207479706520 
+000001e7 7265675b6172 
+000001ed 7261795d3b00 
+000001f3 01             2977 	.byte	1
+000001f4 c119           2978 	.byte	193,25
+000001f6 54425441554a   2979 	.strz	"TBTAUJ0I0 (((volatile __bitf_T *)0xFFFFA090)->bit06)"
+000001fc 304930202828 
+00000202 28766f6c6174 
+00000208 696c65205f5f 
+0000020e 626974665f54 
+00000214 202a29307846 
+0000021a 464646413039 
+00000220 30292d3e6269 
+00000226 7430362900 
+0000022b 01             2980 	.byte	1
+0000022c c219           2981 	.byte	194,25
+0000022e 4d4b5441554a   2982 	.strz	"MKTAUJ0I0 (((volatile __bitf_T *)0xFFFFA090)->bit07)"
+00000234 304930202828 
+0000023a 28766f6c6174 
+00000240 696c65205f5f 
+00000246 626974665f54 
+0000024c 202a29307846 
+00000252 464646413039 
+00000258 30292d3e6269 
+0000025e 7430372900 
+00000263 01             2983 	.byte	1
+00000264 cb19           2984 	.byte	203,25
+
+                                                                      Page 54
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+00000266 54425441554a   2985 	.strz	"TBTAUJ0I1 (((volatile __bitf_T *)0xFFFFA092)->bit06)"
+0000026c 304931202828 
+00000272 28766f6c6174 
+00000278 696c65205f5f 
+0000027e 626974665f54 
+00000284 202a29307846 
+0000028a 464646413039 
+00000290 32292d3e6269 
+00000296 7430362900 
+0000029b 01             2986 	.byte	1
+0000029c cc19           2987 	.byte	204,25
+0000029e 4d4b5441554a   2988 	.strz	"MKTAUJ0I1 (((volatile __bitf_T *)0xFFFFA092)->bit07)"
+000002a4 304931202828 
+000002aa 28766f6c6174 
+000002b0 696c65205f5f 
+000002b6 626974665f54 
+000002bc 202a29307846 
+000002c2 464646413039 
+000002c8 32292d3e6269 
+000002ce 7430372900 
+000002d3 01             2989 	.byte	1
+000002d4 d519           2990 	.byte	213,25
+000002d6 54425441554a   2991 	.strz	"TBTAUJ0I2 (((volatile __bitf_T *)0xFFFFA094)->bit06)"
+000002dc 304932202828 
+000002e2 28766f6c6174 
+000002e8 696c65205f5f 
+000002ee 626974665f54 
+000002f4 202a29307846 
+000002fa 464646413039 
+00000300 34292d3e6269 
+00000306 7430362900 
+0000030b 01             2992 	.byte	1
+0000030c d619           2993 	.byte	214,25
+0000030e 4d4b5441554a   2994 	.strz	"MKTAUJ0I2 (((volatile __bitf_T *)0xFFFFA094)->bit07)"
+00000314 304932202828 
+0000031a 28766f6c6174 
+00000320 696c65205f5f 
+00000326 626974665f54 
+0000032c 202a29307846 
+00000332 464646413039 
+00000338 34292d3e6269 
+0000033e 7430372900 
+00000343 01             2995 	.byte	1
+00000344 df19           2996 	.byte	223,25
+00000346 54425441554a   2997 	.strz	"TBTAUJ0I3 (((volatile __bitf_T *)0xFFFFA096)->bit06)"
+0000034c 304933202828 
+00000352 28766f6c6174 
+00000358 696c65205f5f 
+0000035e 626974665f54 
+00000364 202a29307846 
+0000036a 464646413039 
+00000370 36292d3e6269 
+00000376 7430362900 
+0000037b 01             2998 	.byte	1
+0000037c e019           2999 	.byte	224,25
+0000037e 4d4b5441554a   3000 	.strz	"MKTAUJ0I3 (((volatile __bitf_T *)0xFFFFA096)->bit07)"
+00000384 304933202828 
+0000038a 28766f6c6174 
+00000390 696c65205f5f 
+00000396 626974665f54 
+0000039c 202a29307846 
+
+                                                                      Page 55
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+000003a2 464646413039 
+000003a8 36292d3e6269 
+000003ae 7430372900 
+000003b3 01             3001 	.byte	1
+000003b4 fe48           3002 	.byte	254,72
+000003b6 5441554a3043   3003 	.strz	"TAUJ0CDR0 TAUJ0.CDR0"
+000003bc 445230205441 
+000003c2 554a302e4344 
+000003c8 523000 
+000003cb 01             3004 	.byte	1
+000003cc ff48           3005 	.byte	255,72
+000003ce 5441554a3043   3006 	.strz	"TAUJ0CDR1 TAUJ0.CDR1"
+000003d4 445231205441 
+000003da 554a302e4344 
+000003e0 523100 
+000003e3 01             3007 	.byte	1
+000003e4 8049           3008 	.byte	128,73
+000003e6 5441554a3043   3009 	.strz	"TAUJ0CDR2 TAUJ0.CDR2"
+000003ec 445232205441 
+000003f2 554a302e4344 
+000003f8 523200 
+000003fb 01             3010 	.byte	1
+000003fc 8149           3011 	.byte	129,73
+000003fe 5441554a3043   3012 	.strz	"TAUJ0CDR3 TAUJ0.CDR3"
+00000404 445233205441 
+0000040a 554a302e4344 
+00000410 523300 
+00000413 01             3013 	.byte	1
+00000414 8249           3014 	.byte	130,73
+00000416 5441554a3043   3015 	.strz	"TAUJ0CNT0 TAUJ0.CNT0"
+0000041c 4e5430205441 
+00000422 554a302e434e 
+00000428 543000 
+0000042b 01             3016 	.byte	1
+0000042c 8349           3017 	.byte	131,73
+0000042e 5441554a3043   3018 	.strz	"TAUJ0CNT1 TAUJ0.CNT1"
+00000434 4e5431205441 
+0000043a 554a302e434e 
+00000440 543100 
+00000443 01             3019 	.byte	1
+00000444 8449           3020 	.byte	132,73
+00000446 5441554a3043   3021 	.strz	"TAUJ0CNT2 TAUJ0.CNT2"
+0000044c 4e5432205441 
+00000452 554a302e434e 
+00000458 543200 
+0000045b 01             3022 	.byte	1
+0000045c 8549           3023 	.byte	133,73
+0000045e 5441554a3043   3024 	.strz	"TAUJ0CNT3 TAUJ0.CNT3"
+00000464 4e5433205441 
+0000046a 554a302e434e 
+00000470 543300 
+00000473 01             3025 	.byte	1
+00000474 9249           3026 	.byte	146,73
+00000476 5441554a3054   3027 	.strz	"TAUJ0TE TAUJ0.TE"
+0000047c 45205441554a 
+00000482 302e544500 
+00000487 01             3028 	.byte	1
+00000488 9349           3029 	.byte	147,73
+0000048a 5441554a3054   3030 	.strz	"TAUJ0TS TAUJ0.TS"
+00000490 53205441554a 
+00000496 302e545300 
+
+                                                                      Page 56
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+0000049b 01             3031 	.byte	1
+0000049c 9449           3032 	.byte	148,73
+0000049e 5441554a3054   3033 	.strz	"TAUJ0TT TAUJ0.TT"
+000004a4 54205441554a 
+000004aa 302e545400 
+000004af 01             3034 	.byte	1
+000004b0 9a49           3035 	.byte	154,73
+000004b2 5441554a3043   3036 	.strz	"TAUJ0CMOR0 TAUJ0.CMOR0"
+000004b8 4d4f52302054 
+000004be 41554a302e43 
+000004c4 4d4f523000 
+000004c9 01             3037 	.byte	1
+000004ca 9b49           3038 	.byte	155,73
+000004cc 5441554a3043   3039 	.strz	"TAUJ0CMOR1 TAUJ0.CMOR1"
+000004d2 4d4f52312054 
+000004d8 41554a302e43 
+000004de 4d4f523100 
+000004e3 01             3040 	.byte	1
+000004e4 9c49           3041 	.byte	156,73
+000004e6 5441554a3043   3042 	.strz	"TAUJ0CMOR2 TAUJ0.CMOR2"
+000004ec 4d4f52322054 
+000004f2 41554a302e43 
+000004f8 4d4f523200 
+000004fd 01             3043 	.byte	1
+000004fe 9d49           3044 	.byte	157,73
+00000500 5441554a3043   3045 	.strz	"TAUJ0CMOR3 TAUJ0.CMOR3"
+00000506 4d4f52332054 
+0000050c 41554a302e43 
+00000512 4d4f523300 
+00000517 01             3046 	.byte	1
+00000518 9e49           3047 	.byte	158,73
+0000051a 5441554a3054   3048 	.strz	"TAUJ0TPS TAUJ0.TPS"
+00000520 505320544155 
+00000526 4a302e545053 
+0000052c 00 
+0000052d 01             3049 	.byte	1
+0000052e 9f49           3050 	.byte	159,73
+00000530 5441554a3042   3051 	.strz	"TAUJ0BRS TAUJ0.BRS"
+00000536 525320544155 
+0000053c 4a302e425253 
+00000542 00 
+00000543 04             3052 	.byte	4
+00000544 03             3053 	.byte	3
+00000545 45             3054 	.byte	69
+00000546 0b             3055 	.byte	11
+00000547 01             3056 	.byte	1
+00000548 05             3057 	.byte	5
+00000549 5f494e4c494e   3058 	.strz	"_INLINE_ __inline"
+0000054f 455f205f5f69 
+00000555 6e6c696e6500 
+0000055b 03             3059 	.byte	3
+0000055c 06             3060 	.byte	6
+0000055d 0c             3061 	.byte	12
+0000055e 01             3062 	.byte	1
+0000055f 0f             3063 	.byte	15
+00000560 5f5f41545452   3064 	.strz	"__ATTRIBUTE(x) __attribute__(x)"
+00000566 494255544528 
+0000056c 7829205f5f61 
+00000572 747472696275 
+00000578 74655f5f2878 
+0000057e 2900 
+
+                                                                      Page 57
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+00000580 01             3065 	.byte	1
+00000581 74             3066 	.byte	116
+00000582 5f5f47455453   3067 	.strz	"__GETSP_macro() asm (\"mov sp, %0\" : \"=r\" (result));"
+00000588 505f6d616372 
+0000058e 6f2829206173 
+00000594 6d2028226d6f 
+0000059a 762073702c20 
+000005a0 253022203a20 
+000005a6 223d72222028 
+000005ac 726573756c74 
+000005b2 29293b00 
+000005b6 04             3068 	.byte	4
+000005b7 01             3069 	.byte	1
+000005b8 09             3070 	.byte	9
+000005b9 7533325f5420   3071 	.strz	"u32_T unsigned long"
+000005bf 756e7369676e 
+000005c5 6564206c6f6e 
+000005cb 6700 
+000005cd 01             3072 	.byte	1
+000005ce b902           3073 	.byte	185,2
+000005d0 50535720352c   3074 	.strz	"PSW 5, 0"
+000005d6 203000 
+000005d9 01             3075 	.byte	1
+000005da c302           3076 	.byte	195,2
+000005dc 4d4346473020   3077 	.strz	"MCFG0 0, 1"
+000005e2 302c203100 
+000005e7 01             3078 	.byte	1
+000005e8 c502           3079 	.byte	197,2
+000005ea 454241534520   3080 	.strz	"EBASE 3, 1"
+000005f0 332c203100 
+000005f5 01             3081 	.byte	1
+000005f6 c602           3082 	.byte	198,2
+000005f8 494e54425020   3083 	.strz	"INTBP 4, 1"
+000005fe 342c203100 
+00000603 01             3084 	.byte	1
+00000604 c702           3085 	.byte	199,2
+00000606 4d43544c2035   3086 	.strz	"MCTL 5, 1"
+0000060c 2c203100 
+00000610 01             3087 	.byte	1
+00000611 c902           3088 	.byte	201,2
+00000613 534343464720   3089 	.strz	"SCCFG 11, 1"
+00000619 31312c203100 
+0000061f 01             3090 	.byte	1
+00000620 ce02           3091 	.byte	206,2
+00000622 415349442037   3092 	.strz	"ASID 7, 2"
+00000628 2c203200 
+0000062c 01             3093 	.byte	1
+0000062d d002           3094 	.byte	208,2
+0000062f 495350522031   3095 	.strz	"ISPR 10, 2"
+00000635 302c203200 
+0000063a 01             3096 	.byte	1
+0000063b d102           3097 	.byte	209,2
+0000063d 504d52203131   3098 	.strz	"PMR 11, 2"
+00000643 2c203200 
+00000647 01             3099 	.byte	1
+00000648 d202           3100 	.byte	210,2
+0000064a 494353522031   3101 	.strz	"ICSR 12, 2"
+00000650 322c203200 
+00000655 01             3102 	.byte	1
+00000656 d302           3103 	.byte	211,2
+00000658 494e54434647   3104 	.strz	"INTCFG 13, 2"
+
+                                                                      Page 58
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+0000065e 2031332c2032 
+00000664 00 
+00000665 01             3105 	.byte	1
+00000666 d502           3106 	.byte	213,2
+00000668 4d504d20302c   3107 	.strz	"MPM 0, 5"
+0000066e 203500 
+00000671 01             3108 	.byte	1
+00000672 d602           3109 	.byte	214,2
+00000674 4d5052432031   3110 	.strz	"MPRC 1, 5"
+0000067a 2c203500 
+0000067e 01             3111 	.byte	1
+0000067f d702           3112 	.byte	215,2
+00000681 4d504252474e   3113 	.strz	"MPBRGN 4, 5"
+00000687 20342c203500 
+0000068d 01             3114 	.byte	1
+0000068e d802           3115 	.byte	216,2
+00000690 4d505452474e   3116 	.strz	"MPTRGN 5, 5"
+00000696 20352c203500 
+0000069c 01             3117 	.byte	1
+0000069d d902           3118 	.byte	217,2
+0000069f 4d434120382c   3119 	.strz	"MCA 8, 5"
+000006a5 203500 
+000006a8 01             3120 	.byte	1
+000006a9 da02           3121 	.byte	218,2
+000006ab 4d435320392c   3122 	.strz	"MCS 9, 5"
+000006b1 203500 
+000006b4 01             3123 	.byte	1
+000006b5 db02           3124 	.byte	219,2
+000006b7 4d4343203130   3125 	.strz	"MCC 10, 5"
+000006bd 2c203500 
+000006c1 01             3126 	.byte	1
+000006c2 dc02           3127 	.byte	220,2
+000006c4 4d4352203131   3128 	.strz	"MCR 11, 5"
+000006ca 2c203500 
+000006ce 01             3129 	.byte	1
+000006cf de02           3130 	.byte	222,2
+000006d1 4d504c413020   3131 	.strz	"MPLA0 0, 6"
+000006d7 302c203600 
+000006dc 01             3132 	.byte	1
+000006dd df02           3133 	.byte	223,2
+000006df 4d5055413020   3134 	.strz	"MPUA0 1, 6"
+000006e5 312c203600 
+000006ea 01             3135 	.byte	1
+000006eb e002           3136 	.byte	224,2
+000006ed 4d5041543020   3137 	.strz	"MPAT0 2, 6"
+000006f3 322c203600 
+000006f8 01             3138 	.byte	1
+000006f9 e102           3139 	.byte	225,2
+000006fb 4d504c413120   3140 	.strz	"MPLA1 4, 6"
+00000701 342c203600 
+00000706 01             3141 	.byte	1
+00000707 e202           3142 	.byte	226,2
+00000709 4d5055413120   3143 	.strz	"MPUA1 5, 6"
+0000070f 352c203600 
+00000714 01             3144 	.byte	1
+00000715 e302           3145 	.byte	227,2
+00000717 4d5041543120   3146 	.strz	"MPAT1 6, 6"
+0000071d 362c203600 
+00000722 01             3147 	.byte	1
+00000723 e402           3148 	.byte	228,2
+00000725 4d504c413220   3149 	.strz	"MPLA2 8, 6"
+
+                                                                      Page 59
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+0000072b 382c203600 
+00000730 01             3150 	.byte	1
+00000731 e502           3151 	.byte	229,2
+00000733 4d5055413220   3152 	.strz	"MPUA2 9, 6"
+00000739 392c203600 
+0000073e 01             3153 	.byte	1
+0000073f e602           3154 	.byte	230,2
+00000741 4d5041543220   3155 	.strz	"MPAT2 10, 6"
+00000747 31302c203600 
+0000074d 01             3156 	.byte	1
+0000074e e702           3157 	.byte	231,2
+00000750 4d504c413320   3158 	.strz	"MPLA3 12, 6"
+00000756 31322c203600 
+0000075c 01             3159 	.byte	1
+0000075d e802           3160 	.byte	232,2
+0000075f 4d5055413320   3161 	.strz	"MPUA3 13, 6"
+00000765 31332c203600 
+0000076b 01             3162 	.byte	1
+0000076c e902           3163 	.byte	233,2
+0000076e 4d5041543320   3164 	.strz	"MPAT3 14, 6"
+00000774 31342c203600 
+0000077a 01             3165 	.byte	1
+0000077b ea02           3166 	.byte	234,2
+0000077d 4d504c413420   3167 	.strz	"MPLA4 16, 6"
+00000783 31362c203600 
+00000789 01             3168 	.byte	1
+0000078a eb02           3169 	.byte	235,2
+0000078c 4d5055413420   3170 	.strz	"MPUA4 17, 6"
+00000792 31372c203600 
+00000798 01             3171 	.byte	1
+00000799 ec02           3172 	.byte	236,2
+0000079b 4d5041543420   3173 	.strz	"MPAT4 18, 6"
+000007a1 31382c203600 
+000007a7 01             3174 	.byte	1
+000007a8 ed02           3175 	.byte	237,2
+000007aa 4d504c413520   3176 	.strz	"MPLA5 20, 6"
+000007b0 32302c203600 
+000007b6 01             3177 	.byte	1
+000007b7 ee02           3178 	.byte	238,2
+000007b9 4d5055413520   3179 	.strz	"MPUA5 21, 6"
+000007bf 32312c203600 
+000007c5 01             3180 	.byte	1
+000007c6 ef02           3181 	.byte	239,2
+000007c8 4d5041543520   3182 	.strz	"MPAT5 22, 6"
+000007ce 32322c203600 
+000007d4 01             3183 	.byte	1
+000007d5 f002           3184 	.byte	240,2
+000007d7 4d504c413620   3185 	.strz	"MPLA6 24, 6"
+000007dd 32342c203600 
+000007e3 01             3186 	.byte	1
+000007e4 f102           3187 	.byte	241,2
+000007e6 4d5055413620   3188 	.strz	"MPUA6 25, 6"
+000007ec 32352c203600 
+000007f2 01             3189 	.byte	1
+000007f3 f202           3190 	.byte	242,2
+000007f5 4d5041543620   3191 	.strz	"MPAT6 26, 6"
+000007fb 32362c203600 
+00000801 01             3192 	.byte	1
+00000802 f302           3193 	.byte	243,2
+00000804 4d4c55413720   3194 	.strz	"MLUA7 28, 6"
+0000080a 32382c203600 
+
+                                                                      Page 60
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+00000810 01             3195 	.byte	1
+00000811 f402           3196 	.byte	244,2
+00000813 4d5055413720   3197 	.strz	"MPUA7 29, 6"
+00000819 32392c203600 
+0000081f 01             3198 	.byte	1
+00000820 f502           3199 	.byte	245,2
+00000822 4d5041543720   3200 	.strz	"MPAT7 30, 6"
+00000828 33302c203600 
+0000082e 01             3201 	.byte	1
+0000082f f602           3202 	.byte	246,2
+00000831 4d504c413820   3203 	.strz	"MPLA8 0, 7"
+00000837 302c203700 
+0000083c 01             3204 	.byte	1
+0000083d f702           3205 	.byte	247,2
+0000083f 4d5055413820   3206 	.strz	"MPUA8 1, 7"
+00000845 312c203700 
+0000084a 01             3207 	.byte	1
+0000084b f802           3208 	.byte	248,2
+0000084d 4d5041543820   3209 	.strz	"MPAT8 2, 7"
+00000853 322c203700 
+00000858 01             3210 	.byte	1
+00000859 f902           3211 	.byte	249,2
+0000085b 4d504c413920   3212 	.strz	"MPLA9 4, 7"
+00000861 342c203700 
+00000866 01             3213 	.byte	1
+00000867 fa02           3214 	.byte	250,2
+00000869 4d5055413920   3215 	.strz	"MPUA9 5, 7"
+0000086f 352c203700 
+00000874 01             3216 	.byte	1
+00000875 fb02           3217 	.byte	251,2
+00000877 4d5041543920   3218 	.strz	"MPAT9 6, 7"
+0000087d 362c203700 
+00000882 01             3219 	.byte	1
+00000883 fc02           3220 	.byte	252,2
+00000885 4d504c413130   3221 	.strz	"MPLA10 8, 7"
+0000088b 20382c203700 
+00000891 01             3222 	.byte	1
+00000892 fd02           3223 	.byte	253,2
+00000894 4d5055413130   3224 	.strz	"MPUA10 9, 7"
+0000089a 20392c203700 
+000008a0 01             3225 	.byte	1
+000008a1 fe02           3226 	.byte	254,2
+000008a3 4d5041543130   3227 	.strz	"MPAT10 10, 7"
+000008a9 2031302c2037 
+000008af 00 
+000008b0 01             3228 	.byte	1
+000008b1 ff02           3229 	.byte	255,2
+000008b3 4d504c413131   3230 	.strz	"MPLA11 12, 7"
+000008b9 2031322c2037 
+000008bf 00 
+000008c0 01             3231 	.byte	1
+000008c1 8003           3232 	.byte	128,3
+000008c3 4d5055413131   3233 	.strz	"MPUA11 13, 7"
+000008c9 2031332c2037 
+000008cf 00 
+000008d0 01             3234 	.byte	1
+000008d1 8103           3235 	.byte	129,3
+000008d3 4d5041543131   3236 	.strz	"MPAT11 14, 7"
+000008d9 2031342c2037 
+000008df 00 
+000008e0 01             3237 	.byte	1
+
+                                                                      Page 61
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+000008e1 8203           3238 	.byte	130,3
+000008e3 4d504c413132   3239 	.strz	"MPLA12 16, 7"
+000008e9 2031362c2037 
+000008ef 00 
+000008f0 01             3240 	.byte	1
+000008f1 8303           3241 	.byte	131,3
+000008f3 4d5055413132   3242 	.strz	"MPUA12 17, 7"
+000008f9 2031372c2037 
+000008ff 00 
+00000900 01             3243 	.byte	1
+00000901 8403           3244 	.byte	132,3
+00000903 4d5041543132   3245 	.strz	"MPAT12 18, 7"
+00000909 2031382c2037 
+0000090f 00 
+00000910 01             3246 	.byte	1
+00000911 8503           3247 	.byte	133,3
+00000913 4d504c413133   3248 	.strz	"MPLA13 20, 7"
+00000919 2032302c2037 
+0000091f 00 
+00000920 01             3249 	.byte	1
+00000921 8603           3250 	.byte	134,3
+00000923 4d5055413133   3251 	.strz	"MPUA13 21, 7"
+00000929 2032312c2037 
+0000092f 00 
+00000930 01             3252 	.byte	1
+00000931 8703           3253 	.byte	135,3
+00000933 4d5041543133   3254 	.strz	"MPAT13 22, 7"
+00000939 2032322c2037 
+0000093f 00 
+00000940 01             3255 	.byte	1
+00000941 8803           3256 	.byte	136,3
+00000943 4d504c413134   3257 	.strz	"MPLA14 24, 7"
+00000949 2032342c2037 
+0000094f 00 
+00000950 01             3258 	.byte	1
+00000951 8903           3259 	.byte	137,3
+00000953 4d5055413134   3260 	.strz	"MPUA14 25, 7"
+00000959 2032352c2037 
+0000095f 00 
+00000960 01             3261 	.byte	1
+00000961 8a03           3262 	.byte	138,3
+00000963 4d5041543134   3263 	.strz	"MPAT14 26, 7"
+00000969 2032362c2037 
+0000096f 00 
+00000970 01             3264 	.byte	1
+00000971 8b03           3265 	.byte	139,3
+00000973 4d504c413135   3266 	.strz	"MPLA15 28, 7"
+00000979 2032382c2037 
+0000097f 00 
+00000980 01             3267 	.byte	1
+00000981 8c03           3268 	.byte	140,3
+00000983 4d5055413135   3269 	.strz	"MPUA15 29, 7"
+00000989 2032392c2037 
+0000098f 00 
+00000990 01             3270 	.byte	1
+00000991 8d03           3271 	.byte	141,3
+00000993 4d5041543135   3272 	.strz	"MPAT15 30, 7"
+00000999 2033302c2037 
+0000099f 00 
+000009a0 04             3273 	.byte	4
+000009a1 01             3274 	.byte	1
+
+                                                                      Page 62
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000bs01.s
+000009a2 4b             3275 	.byte	75
+000009a3 70726f746563   3276 	.strz	"protected_write(preg,pstatus,reg,value) do{ (preg)=0xa5u; (reg)=(value); (reg)=~(value); (reg)=(value); }while((pstatus)==1u)"
+000009a9 7465645f7772 
+000009af 697465287072 
+000009b5 65672c707374 
+000009bb 617475732c72 
+000009c1 65672c76616c 
+000009c7 75652920646f 
+000009cd 7b2028707265 
+000009d3 67293d307861 
+000009d9 35753b202872 
+000009df 6567293d2876 
+000009e5 616c7565293b 
+000009eb 202872656729 
+000009f1 3d7e2876616c 
+000009f7 7565293b2028 
+000009fd 726567293d28 
+00000a03 76616c756529 
+00000a09 3b207d776869 
+00000a0f 6c6528287073 
+00000a15 746174757329 
+00000a1b 3d3d31752900 
+00000a21 04             3277 	.byte	4
+00000a22 04             3278 	.byte	4
+00000a23 00             3279 	.byte	0
+                        3280 	.section	.debug_abbrev
+0000013b 00             3281 	.byte	0
+                        3282 	.section	.debug_info
+                        3283 .Ldw_end:
+                        3284 .rh850_flags REGMODE32,DATA_ALIGN8,GP_FIX,EP_NONFIX,TP_FIX,REG2_RESERVE,G3K,GHS_MISALIGN,SDA_EXTRA_REGS_0

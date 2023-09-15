@@ -1,0 +1,4532 @@
+                                                                      Page 1
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+Command Line: C:\ghs\comp_201517\ease850.exe -w -elf -b0 -I../source/common -I../source/ProjectCompiler -I../source/ProjectCfg -I../source/SwcApplTpms -I../source/SwcApplEcuM -I../source/SwcServiceBswM -I../source/SwcServiceEcuM -I../source/SwcServiceNvM -I../source/SwcServiceOs -I../source/SwcServiceStartUp -I../source/McalAdc -I../source/McalDio -I../source/McalGpt -I../source/McalMcu -I../source/McalWdg -I../source/wrappers -I../source/wrappers/McalAta -I../source/McalLin -I../source/McalCan -I../source/wrappers/OS -I../source/McalFls -I../source/EcuabFee -I../source/EcuabMemIf -I../source/wrappers/VStdLib -I../source/wrappers/Crc -I../source/wrappers/FBL_APPL -I../source/wrappers/NVM_MANAGER -I../source/wrappers/DEM_MANAGER -I../source/wrappers/RDC_MANAGER -I../source/wrappers/ENV_MANAGER -I../source/wrappers/SYS_MANAGER -I../source/wrappers/EcuabCanIf -I../source/EcuabCanTrcv -I../source/wrappers/SwcServiceCanSM -I../source/wrappers/SwcServiceCanTp -I../source/wrappers/SwcServiceCanTp_PreCompile -I../source/wrappers/SwcServiceCom -I../source/wrappers/SwcServiceComM -I../source/wrappers/SwcServiceDcm -I../source/wrappers/SwcServicePduR -I../source/wrappers/SwcServiceEcuM -I../source/wrappers/Bfx -I../source/wrappers/SwcServiceDem -I../source/SwcServiceCom -I../source/SwcServiceDet -I../source/SwcServiceFiM -I../source/SwcServicePduR -I../source/SwcServiceSchM -I../source/wrappers/LibAutosarDiag -I../source/wrappers/rba_BswSrv -IC:\ghs\comp_201517\lib\rh850 -cg_underscore -cpu=rh850g3k -no_v850_simd -rh850_fpsimd=none -nomacro -patch_dbo=C:\_ECU2\ECU_Rivian_A1\Target\repo_projects\pRealEcu\cR_LATEST\make\output\objects\DcmDspUds_Roe.dbo -source=DcmDspUds_Roe.c -o output\objects\gh_0000a801.o -list=output\list\DcmDspUds_Roe.lst C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s 
+Original File: C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+Source File: DcmDspUds_Roe.c
+Directory: C:\_ECU2\ECU_Rivian_A1\Target\repo_projects\pRealEcu\cR_LATEST\make
+Host OS: Windows
+EASE: Copyright (C) 1983-2015 Green Hills Software.  All Rights Reserved.
+Release: Compiler v2015.1.7
+Build Directory: [Directory] BTOWORKER6:c:/build_2015_1_bto/2015-10-21.2100-2015_1_bto/win32-comp-ecom
+Revision: [VCInfo] http://toolsvc/branches/release-branch-70-bto/src@544153 (built by build)
+Revision Date: Thu Oct 22 07:50:13 2015
+
+Release Date: Thu Oct 22 09:32:32 2015
+
+                           1 --Driver Command: ccv850 ../source/wrappers/SwcServiceDcm/DcmDspUds_Roe.c
+                           2 --		-cpu=rh850 -fhard -ignore_callt_state_in_interrupts -large_sda
+                           3 --		-misalign_pack -nofarcalls -nofloatio -no_callt -Ogeneral
+                           4 --		-Onounroll -prepare_dispose -registermode=32 -reserve_r2 -sda=0
+                           5 --		-shorten_loads -Wshadow --brief_diagnostics --no_commons
+                           6 --		--no_wrap_diagnostics --prototype_errors --short_enum -list -G
+                           7 --		-dual_debug -dwarf -X5523 -lnk=-no_xda_modifications -D
+                           8 --		NOT_READY_FOR_TESTING_OR_DEPLOYMENT -D IBTCM_SW_ANPASSUNGEN -D
+                           9 --		BUILD_RIVIAN -c -inline_prologue -I../source/common
+                          10 --		-I../source/ProjectCompiler -I../source/ProjectCfg
+                          11 --		-I../source/SwcApplTpms -I../source/SwcApplEcuM
+                          12 --		-I../source/SwcServiceBswM -I../source/SwcServiceEcuM
+                          13 --		-I../source/SwcServiceNvM -I../source/SwcServiceOs
+                          14 --		-I../source/SwcServiceStartUp -I../source/McalAdc
+                          15 --		-I../source/McalDio -I../source/McalGpt -I../source/McalMcu
+                          16 --		-I../source/McalWdg -I../source/wrappers
+                          17 --		-I../source/wrappers/McalAta -I../source/McalLin
+                          18 --		-I../source/McalCan -I../source/wrappers/OS -I../source/McalFls
+                          19 --		-I../source/EcuabFee -I../source/EcuabMemIf
+                          20 --		-I../source/wrappers/VStdLib -I../source/wrappers
+                          21 --		-I../source/wrappers/Crc -I../source/wrappers/FBL_APPL
+                          22 --		-I../source/wrappers/NVM_MANAGER -I../source/wrappers/DEM_MANAGER
+                          23 --		-I../source/wrappers/RDC_MANAGER -I../source/wrappers/ENV_MANAGER
+                          24 --		-I../source/wrappers/SYS_MANAGER -I../source/wrappers/EcuabCanIf
+                          25 --		-I../source/EcuabCanTrcv -I../source/wrappers/SwcServiceCanSM
+                          26 --		-I../source/wrappers/SwcServiceCanTp
+                          27 --		-I../source/wrappers/SwcServiceCanTp_PreCompile
+                          28 --		-I../source/wrappers/SwcServiceCom
+                          29 --		-I../source/wrappers/SwcServiceComM
+                          30 --		-I../source/wrappers/SwcServiceDcm
+                          31 --		-I../source/wrappers/SwcServicePduR
+                          32 --		-I../source/wrappers/SwcServiceEcuM -I../source/wrappers/Bfx
+                          33 --		-I../source/wrappers/SwcServiceDem -I../source/SwcServiceCom
+                          34 --		-I../source/SwcServiceDet -I../source/SwcServiceFiM
+                          35 --		-I../source/SwcServicePduR -I../source/SwcServiceSchM
+                          36 --		-I../source/wrappers/LibAutosarDiag
+                          37 --		-I../source/wrappers/rba_BswSrv -object_dir=output/objects
+                          38 --		-list_dir=output/list
+                          39 --Source File:   ../source/wrappers/SwcServiceDcm/DcmDspUds_Roe.c
+                          40 --Directory:     
+                          41 --		C:\_ECU2\ECU_Rivian_A1\Target\repo_projects\pRealEcu\cR_LATEST\make
+                          42 --Compile Date:  Fri Sep 15 14:05:31 2023
+                          43 --Host OS:       Win32
+                          44 --Version:       C-RH850 2015.1.7 RELEASE VERSION
+                          45 --Release:       Compiler v2015.1.7
+                          46 --Revision Date: Thu Oct 22 08:06:12 2015
+                          47 --Release Date:  Thu Oct 22 09:34:32 2015
+                          48 -- ecom  -g -w -OM
+                          49 
+                          50 	.data
+
+                                                                      Page 2
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+                          51 	.ghsnote version,17
+                          52 	.ghsnote tools,3
+                          53 	.ghsnote options,144
+                          54 	.text
+                          55 ..bof.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake.5Coutput.5Cobjects.5CDcmDspUds_Roe...43.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake..6504488B..0::
+                          56 ..eof.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake.5Coutput.5Cobjects.5CDcmDspUds_Roe...43.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake..6504488B..0::
+                          57 	.section	.debug_info
+                          58 .Ldw_begin:
+00000000 a7000000         59 	.word	.Ldw_end-.Ldw_begin-4
+00000004 0200             60 	.byte	2,0
+00000006 00000000*        61 	.word	.Ldw_abbr_begin
+0000000a 04               62 	.byte	4
+                          63 	.section	.debug_abbrev
+                          64 .Ldw_abbr_begin:
+                          65 	.section	.debug_info
+0000000b 01               66 	.byte	1
+0000000c 00000000*        67 	.word	..bof.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake.5Coutput.5Cobjects.5CDcmDspUds_Roe...43.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake..6504488B..0
+00000010 00000000*        68 	.word	..eof.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake.5Coutput.5Cobjects.5CDcmDspUds_Roe...43.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake..6504488B..0
+00000014 2e2e2f736f75     69 	.strz	"../source/wrappers/SwcServiceDcm/DcmDspUds_Roe.c"
+0000001a 7263652f7772 
+00000020 617070657273 
+00000026 2f5377635365 
+0000002c 727669636544 
+00000032 636d2f44636d 
+00000038 447370556473 
+0000003e 5f526f652e63 
+00000044 00 
+00000045 433a5c5f4543     70 	.strz	"C:\\_ECU2\\ECU_Rivian_A1\\Target\\repo_projects\\pRealEcu\\cR_LATEST\\make"
+0000004b 55325c454355 
+00000051 5f5269766961 
+00000057 6e5f41315c54 
+0000005d 61726765745c 
+00000063 7265706f5f70 
+00000069 726f6a656374 
+0000006f 735c70526561 
+00000075 6c4563755c63 
+0000007b 525f4c415445 
+00000081 53545c6d616b 
+00000087 6500 
+00000089 474853204320     71 	.strz	"GHS C 2015.1.7 [dual]"
+0000008f 323031352e31 
+00000095 2e37205b6475 
+0000009b 616c5d00 
+0000009f 0100             72 	.byte	1,0
+000000a1 00000000*        73 	.word	.Ldw_line_begin
+000000a5 00000000*        74 	.word	.Ldw_macinfo_begin
+000000a9 00               75 	.byte	0
+                          76 
+                          77 	.section	.debug_abbrev
+00000000 01               78 	.byte	1
+00000001 11               79 	.byte	17
+00000002 01               80 	.byte	1
+00000003 1101             81 	.byte	17,1
+00000005 1201             82 	.byte	18,1
+00000007 0308             83 	.byte	3,8
+00000009 1b08             84 	.byte	27,8
+0000000b 2508             85 	.byte	37,8
+0000000d 1305             86 	.byte	19,5
+0000000f 1006             87 	.byte	16,6
+00000011 4306             88 	.byte	67,6
+00000013 420b             89 	.byte	66,11
+
+                                                                      Page 3
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+00000015 0000             90 	.byte	0,0
+                          91 
+                          92 	.section	.debug_line
+                          93 .Ldw_line_begin:
+00000000 99050000         94 	.word	.Ldw_line_end-.Ldw_line_begin-4
+00000004 0200             95 	.byte	2,0
+00000006 00000000*        96 	.word	.Ldw_lpro_end-.Ldw_lpro_begin
+                          97 .Ldw_lpro_begin:
+0000000a 01               98 	.byte	1
+0000000b 00               99 	.byte	0
+0000000c 00              100 	.byte	0
+0000000d 04              101 	.byte	4
+0000000e 0a              102 	.byte	10
+0000000f 000101          103 	.byte	0,1,1
+00000012 010100          104 	.byte	1,1,0
+00000015 000001          105 	.byte	0,0,1
+00000018 00              106 	.byte	0
+00000019 2e2e2f736f75    107 	.strz	"../source/wrappers/SwcServiceDcm/DcmDspUds_Roe.c"
+0000001f 7263652f7772 
+00000025 617070657273 
+0000002b 2f5377635365 
+00000031 727669636544 
+00000037 636d2f44636d 
+0000003d 447370556473 
+00000043 5f526f652e63 
+00000049 00 
+0000004a 000000          108 	.byte	0,0,0
+0000004d 2e2e2f736f75    109 	.strz	"../source/common/Std_Types.hpp"
+00000053 7263652f636f 
+00000059 6d6d6f6e2f53 
+0000005f 74645f547970 
+00000065 65732e687070 
+0000006b 00 
+0000006c 000000          110 	.byte	0,0,0
+0000006f 2e2e2f736f75    111 	.strz	"../source/common/Platform_Types.hpp"
+00000075 7263652f636f 
+0000007b 6d6d6f6e2f50 
+00000081 6c6174666f72 
+00000087 6d5f54797065 
+0000008d 732e68707000 
+00000093 000000          112 	.byte	0,0,0
+00000096 2e2e2f736f75    113 	.strz	"../source/common/Compiler.hpp"
+0000009c 7263652f636f 
+000000a2 6d6d6f6e2f43 
+000000a8 6f6d70696c65 
+000000ae 722e68707000 
+000000b4 000000          114 	.byte	0,0,0
+000000b7 2e2e2f736f75    115 	.strz	"../source/ProjectCompiler/Compiler_Cfg.hpp"
+000000bd 7263652f5072 
+000000c3 6f6a65637443 
+000000c9 6f6d70696c65 
+000000cf 722f436f6d70 
+000000d5 696c65725f43 
+000000db 66672e687070 
+000000e1 00 
+000000e2 000000          116 	.byte	0,0,0
+000000e5 2e2e2f736f75    117 	.strz	"../source/ProjectCompiler/CompilerCfg_SwcServiceOs.hpp"
+000000eb 7263652f5072 
+000000f1 6f6a65637443 
+000000f7 6f6d70696c65 
+000000fd 722f436f6d70 
+
+                                                                      Page 4
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+00000103 696c65724366 
+00000109 675f53776353 
+0000010f 657276696365 
+00000115 4f732e687070 
+0000011b 00 
+0000011c 000000          118 	.byte	0,0,0
+0000011f 2e2e2f736f75    119 	.strz	"../source/wrappers/SwcServiceDcm/DcmDspUds_Roe_Inf.hpp"
+00000125 7263652f7772 
+0000012b 617070657273 
+00000131 2f5377635365 
+00000137 727669636544 
+0000013d 636d2f44636d 
+00000143 447370556473 
+00000149 5f526f655f49 
+0000014f 6e662e687070 
+00000155 00 
+00000156 000000          120 	.byte	0,0,0
+00000159 2e2e2f736f75    121 	.strz	"../source/wrappers/SwcServiceDcm/Dcm.hpp"
+0000015f 7263652f7772 
+00000165 617070657273 
+0000016b 2f5377635365 
+00000171 727669636544 
+00000177 636d2f44636d 
+0000017d 2e68707000 
+00000182 000000          122 	.byte	0,0,0
+00000185 2e2e2f736f75    123 	.strz	"../source/SwcServiceCom/ComStack_Types.hpp"
+0000018b 7263652f5377 
+00000191 635365727669 
+00000197 6365436f6d2f 
+0000019d 436f6d537461 
+000001a3 636b5f547970 
+000001a9 65732e687070 
+000001af 00 
+000001b0 000000          124 	.byte	0,0,0
+000001b3 2e2e2f736f75    125 	.strz	"../source/ProjectCfg/ComStack_Cfg.hpp"
+000001b9 7263652f5072 
+000001bf 6f6a65637443 
+000001c5 66672f436f6d 
+000001cb 537461636b5f 
+000001d1 4366672e6870 
+000001d7 7000 
+000001d9 000000          126 	.byte	0,0,0
+000001dc 2e2e2f736f75    127 	.strz	"../source/ProjectCfg/Dcm_Cfg_DslDsd.hpp"
+000001e2 7263652f5072 
+000001e8 6f6a65637443 
+000001ee 66672f44636d 
+000001f4 5f4366675f44 
+000001fa 736c4473642e 
+00000200 68707000 
+00000204 000000          128 	.byte	0,0,0
+00000207 2e2e2f736f75    129 	.strz	"../source/ProjectCompiler/Dcm_Cfg_MemMap.hpp"
+0000020d 7263652f5072 
+00000213 6f6a65637443 
+00000219 6f6d70696c65 
+0000021f 722f44636d5f 
+00000225 4366675f4d65 
+0000022b 6d4d61702e68 
+00000231 707000 
+00000234 000000          130 	.byte	0,0,0
+00000237 2e2e2f736f75    131 	.strz	"../source/ProjectCompiler/Bsw_MemMap.hpp"
+0000023d 7263652f5072 
+
+                                                                      Page 5
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+00000243 6f6a65637443 
+00000249 6f6d70696c65 
+0000024f 722f4273775f 
+00000255 4d656d4d6170 
+0000025b 2e68707000 
+00000260 000000          132 	.byte	0,0,0
+00000263 2e2e2f736f75    133 	.strz	"../source/ProjectCompiler/MemMap_Common.hpp"
+00000269 7263652f5072 
+0000026f 6f6a65637443 
+00000275 6f6d70696c65 
+0000027b 722f4d656d4d 
+00000281 61705f436f6d 
+00000287 6d6f6e2e6870 
+0000028d 7000 
+0000028f 000000          134 	.byte	0,0,0
+00000292 2e2e2f736f75    135 	.strz	"../source/wrappers/SwcServiceDcm/Dcm_Types.hpp"
+00000298 7263652f7772 
+0000029e 617070657273 
+000002a4 2f5377635365 
+000002aa 727669636544 
+000002b0 636d2f44636d 
+000002b6 5f5479706573 
+000002bc 2e68707000 
+000002c1 000000          136 	.byte	0,0,0
+000002c4 2e2e2f736f75    137 	.strz	"../source/wrappers/Rte_Dcm_Type.hpp"
+000002ca 7263652f7772 
+000002d0 617070657273 
+000002d6 2f5274655f44 
+000002dc 636d5f547970 
+000002e2 652e68707000 
+000002e8 000000          138 	.byte	0,0,0
+000002eb 2e2e2f736f75    139 	.strz	"../source/McalMcu/types.hpp"
+000002f1 7263652f4d63 
+000002f7 616c4d63752f 
+000002fd 74797065732e 
+00000303 68707000 
+00000307 000000          140 	.byte	0,0,0
+0000030a 2e2e2f736f75    141 	.strz	"../source/wrappers/SwcServiceDcm/DcmCore_DslDsd_Pub.hpp"
+00000310 7263652f7772 
+00000316 617070657273 
+0000031c 2f5377635365 
+00000322 727669636544 
+00000328 636d2f44636d 
+0000032e 436f72655f44 
+00000334 736c4473645f 
+0000033a 5075622e6870 
+00000340 7000 
+00000342 000000          142 	.byte	0,0,0
+00000345 2e2e2f736f75    143 	.strz	"../source/ProjectCfg/Dcm_Cfg_DspUds.hpp"
+0000034b 7263652f5072 
+00000351 6f6a65637443 
+00000357 66672f44636d 
+0000035d 5f4366675f44 
+00000363 73705564732e 
+00000369 68707000 
+0000036d 000000          144 	.byte	0,0,0
+00000370 2e2e2f736f75    145 	.strz	"../source/ProjectCfg/Dcm_Lcfg_DspUds.hpp"
+00000376 7263652f5072 
+0000037c 6f6a65637443 
+00000382 66672f44636d 
+00000388 5f4c6366675f 
+
+                                                                      Page 6
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+0000038e 447370556473 
+00000394 2e68707000 
+00000399 000000          146 	.byte	0,0,0
+0000039c 2e2e2f736f75    147 	.strz	"../source/wrappers/SwcServiceDcm/DcmDspUds_Uds_Pub.hpp"
+000003a2 7263652f7772 
+000003a8 617070657273 
+000003ae 2f5377635365 
+000003b4 727669636544 
+000003ba 636d2f44636d 
+000003c0 447370556473 
+000003c6 5f5564735f50 
+000003cc 75622e687070 
+000003d2 00 
+000003d3 000000          148 	.byte	0,0,0
+000003d6 2e2e2f736f75    149 	.strz	"../source/wrappers/SwcServiceDcm/DcmDspUds_Rdtc_Pub.hpp"
+000003dc 7263652f7772 
+000003e2 617070657273 
+000003e8 2f5377635365 
+000003ee 727669636544 
+000003f4 636d2f44636d 
+000003fa 447370556473 
+00000400 5f526474635f 
+00000406 5075622e6870 
+0000040c 7000 
+0000040e 000000          150 	.byte	0,0,0
+00000411 2e2e2f736f75    151 	.strz	"../source/wrappers/SwcServiceDcm/DcmDspUds_Seca_Pub.hpp"
+00000417 7263652f7772 
+0000041d 617070657273 
+00000423 2f5377635365 
+00000429 727669636544 
+0000042f 636d2f44636d 
+00000435 447370556473 
+0000043b 5f536563615f 
+00000441 5075622e6870 
+00000447 7000 
+00000449 000000          152 	.byte	0,0,0
+0000044c 2e2e2f736f75    153 	.strz	"../source/wrappers/SwcServiceDcm/DcmDspUds_Dsc_Pub.hpp"
+00000452 7263652f7772 
+00000458 617070657273 
+0000045e 2f5377635365 
+00000464 727669636544 
+0000046a 636d2f44636d 
+00000470 447370556473 
+00000476 5f4473635f50 
+0000047c 75622e687070 
+00000482 00 
+00000483 000000          154 	.byte	0,0,0
+00000486 2e2e2f736f75    155 	.strz	"../source/wrappers/SwcServiceDcm/DcmDspUds_CC_Pub.hpp"
+0000048c 7263652f7772 
+00000492 617070657273 
+00000498 2f5377635365 
+0000049e 727669636544 
+000004a4 636d2f44636d 
+000004aa 447370556473 
+000004b0 5f43435f5075 
+000004b6 622e68707000 
+000004bc 000000          156 	.byte	0,0,0
+000004bf 2e2e2f736f75    157 	.strz	"../source/wrappers/SwcServiceDcm/DcmDspUds_Cdtcs_Pub.hpp"
+000004c5 7263652f7772 
+000004cb 617070657273 
+000004d1 2f5377635365 
+
+                                                                      Page 7
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+000004d7 727669636544 
+000004dd 636d2f44636d 
+000004e3 447370556473 
+000004e9 5f4364746373 
+000004ef 5f5075622e68 
+000004f5 707000 
+000004f8 000000          158 	.byte	0,0,0
+000004fb 2e2e2f736f75    159 	.strz	"../source/wrappers/SwcServiceDcm/DcmDspUds_Cdi_Pub.hpp"
+00000501 7263652f7772 
+00000507 617070657273 
+0000050d 2f5377635365 
+00000513 727669636544 
+00000519 636d2f44636d 
+0000051f 447370556473 
+00000525 5f4364695f50 
+0000052b 75622e687070 
+00000531 00 
+00000532 000000          160 	.byte	0,0,0
+00000535 2e2e2f736f75    161 	.strz	"../source/ProjectCfg/Dcm_Lcfg_DslDsd.hpp"
+0000053b 7263652f5072 
+00000541 6f6a65637443 
+00000547 66672f44636d 
+0000054d 5f4c6366675f 
+00000553 44736c447364 
+00000559 2e68707000 
+0000055e 000000          162 	.byte	0,0,0
+00000561 2e2e2f736f75    163 	.strz	"../source/wrappers/SwcServiceDcm/DcmDspUds_Roe_Priv.hpp"
+00000567 7263652f7772 
+0000056d 617070657273 
+00000573 2f5377635365 
+00000579 727669636544 
+0000057f 636d2f44636d 
+00000585 447370556473 
+0000058b 5f526f655f50 
+00000591 7269762e6870 
+00000597 7000 
+00000599 000000          164 	.byte	0,0,0
+0000059c 00              165 	.byte	0
+                         166 .Ldw_lpro_end:
+                         167 	.section	.debug_macinfo
+                         168 .Ldw_macinfo_begin:
+                         169 	.section	.debug_info
+000000aa 00              170 	.byte	0
+                         171 
+                         172 	.section	.debug_line
+                         173 .Ldw_line_end:
+                         174 	.section	.debug_macinfo
+00000000 01              175 	.byte	1
+00000001 00              176 	.byte	0
+00000002 5f5f6768735f    177 	.strz	"__ghs__ 1"
+00000008 5f203100 
+0000000c 01              178 	.byte	1
+0000000d 00              179 	.byte	0
+0000000e 5f5f4c4c4f4e    180 	.strz	"__LLONG_BIT 64"
+00000014 475f42495420 
+0000001a 363400 
+0000001d 01              181 	.byte	1
+0000001e 00              182 	.byte	0
+0000001f 4e4f545f5245    183 	.strz	"NOT_READY_FOR_TESTING_OR_DEPLOYMENT 1"
+00000025 4144595f464f 
+0000002b 525f54455354 
+
+                                                                      Page 8
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+00000031 494e475f4f52 
+00000037 5f4445504c4f 
+0000003d 594d454e5420 
+00000043 3100 
+00000045 03              184 	.byte	3
+00000046 00              185 	.byte	0
+00000047 01              186 	.byte	1
+00000048 03              187 	.byte	3
+00000049 01              188 	.byte	1
+0000004a 02              189 	.byte	2
+0000004b 03              190 	.byte	3
+0000004c 1c              191 	.byte	28
+0000004d 03              192 	.byte	3
+0000004e 04              193 	.byte	4
+0000004f 03              194 	.byte	3
+00000050 1d              195 	.byte	29
+00000051 04              196 	.byte	4
+00000052 03              197 	.byte	3
+00000053 1b              198 	.byte	27
+00000054 05              199 	.byte	5
+00000055 03              200 	.byte	3
+00000056 54              201 	.byte	84
+00000057 06              202 	.byte	6
+00000058 04              203 	.byte	4
+00000059 04              204 	.byte	4
+0000005a 01              205 	.byte	1
+0000005b 34              206 	.byte	52
+0000005c 46554e432872    207 	.strz	"FUNC(rettype,memclass) rettype"
+00000062 657474797065 
+00000068 2c6d656d636c 
+0000006e 617373292072 
+00000074 657474797065 
+0000007a 00 
+0000007b 01              208 	.byte	1
+0000007c 37              209 	.byte	55
+0000007d 503256415228    210 	.strz	"P2VAR(ptrtype,memclass,ptrclass) ptrtype*"
+00000083 707472747970 
+00000089 652c6d656d63 
+0000008f 6c6173732c70 
+00000095 7472636c6173 
+0000009b 732920707472 
+000000a1 747970652a00 
+000000a7 01              211 	.byte	1
+000000a8 38              212 	.byte	56
+000000a9 5032434f4e53    213 	.strz	"P2CONST(ptrtype,memclass,ptrclass) const ptrtype*"
+000000af 542870747274 
+000000b5 7970652c6d65 
+000000bb 6d636c617373 
+000000c1 2c707472636c 
+000000c7 617373292063 
+000000cd 6f6e73742070 
+000000d3 747274797065 
+000000d9 2a00 
+000000db 01              214 	.byte	1
+000000dc 39              215 	.byte	57
+000000dd 434f4e535450    216 	.strz	"CONSTP2VAR(ptrtype,memclass,ptrclass) ptrtype *const"
+000000e3 325641522870 
+000000e9 747274797065 
+000000ef 2c6d656d636c 
+000000f5 6173732c7074 
+000000fb 72636c617373 
+
+                                                                      Page 9
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+00000101 292070747274 
+00000107 797065202a63 
+0000010d 6f6e737400 
+00000112 01              217 	.byte	1
+00000113 3b              218 	.byte	59
+00000114 503246554e43    219 	.strz	"P2FUNC(rettype,ptrclass,fctname) rettype (*fctname)"
+0000011a 287265747479 
+00000120 70652c707472 
+00000126 636c6173732c 
+0000012c 6663746e616d 
+00000132 652920726574 
+00000138 747970652028 
+0000013e 2a6663746e61 
+00000144 6d652900 
+00000148 01              220 	.byte	1
+00000149 3d              221 	.byte	61
+0000014a 434f4e535428    222 	.strz	"CONST(type,memclass) const type"
+00000150 747970652c6d 
+00000156 656d636c6173 
+0000015c 732920636f6e 
+00000162 737420747970 
+00000168 6500 
+0000016a 01              223 	.byte	1
+0000016b 3e              224 	.byte	62
+0000016c 564152287661    225 	.strz	"VAR(vartype,memclass) vartype"
+00000172 72747970652c 
+00000178 6d656d636c61 
+0000017e 737329207661 
+00000184 727479706500 
+0000018a 04              226 	.byte	4
+0000018b 04              227 	.byte	4
+0000018c 03              228 	.byte	3
+0000018d 03              229 	.byte	3
+0000018e 07              230 	.byte	7
+0000018f 03              231 	.byte	3
+00000190 06              232 	.byte	6
+00000191 08              233 	.byte	8
+00000192 03              234 	.byte	3
+00000193 04              235 	.byte	4
+00000194 09              236 	.byte	9
+00000195 03              237 	.byte	3
+00000196 04              238 	.byte	4
+00000197 0a              239 	.byte	10
+00000198 04              240 	.byte	4
+00000199 04              241 	.byte	4
+0000019a 03              242 	.byte	3
+0000019b 05              243 	.byte	5
+0000019c 0b              244 	.byte	11
+0000019d 01              245 	.byte	1
+0000019e 1f              246 	.byte	31
+0000019f 44434d5f4346    247 	.strz	"DCM_CFG_ON 1u"
+000001a5 475f4f4e2031 
+000001ab 7500 
+000001ad 01              248 	.byte	1
+000001ae 20              249 	.byte	32
+000001af 44434d5f4346    250 	.strz	"DCM_CFG_OFF 0u"
+000001b5 475f4f464620 
+000001bb 307500 
+000001be 01              251 	.byte	1
+000001bf 25              252 	.byte	37
+000001c0 44434d5f4346    253 	.strz	"DCM_CFG_RESTORING_ENABLED DCM_CFG_ON"
+
+                                                                      Page 10
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+000001c6 475f52455354 
+000001cc 4f52494e475f 
+000001d2 454e41424c45 
+000001d8 442044434d5f 
+000001de 4346475f4f4e 
+000001e4 00 
+000001e5 01              254 	.byte	1
+000001e6 28              255 	.byte	40
+000001e7 44434d5f4346    256 	.strz	"DCM_CFG_VERSION_INFO_API DCM_CFG_ON"
+000001ed 475f56455253 
+000001f3 494f4e5f494e 
+000001f9 464f5f415049 
+000001ff 2044434d5f43 
+00000205 46475f4f4e00 
+0000020b 01              257 	.byte	1
+0000020c 2b              258 	.byte	43
+0000020d 44434d5f4346    259 	.strz	"DCM_CFG_RBA_DIAGADAPT_SUPPORT_ENABLED DCM_CFG_OFF"
+00000213 475f5242415f 
+00000219 444941474144 
+0000021f 4150545f5355 
+00000225 50504f52545f 
+0000022b 454e41424c45 
+00000231 442044434d5f 
+00000237 4346475f4f46 
+0000023d 4600 
+0000023f 01              260 	.byte	1
+00000240 2f              261 	.byte	47
+00000241 44434d5f5041    262 	.strz	"DCM_PAGEDBUFFER_ENABLED DCM_CFG_OFF"
+00000247 474544425546 
+0000024d 4645525f454e 
+00000253 41424c454420 
+00000259 44434d5f4346 
+0000025f 475f4f464600 
+00000265 01              263 	.byte	1
+00000266 31              264 	.byte	49
+00000267 44434d5f4346    265 	.strz	"DCM_CFG_RTESUPPORT_ENABLED DCM_CFG_OFF"
+0000026d 475f52544553 
+00000273 5550504f5254 
+00000279 5f454e41424c 
+0000027f 45442044434d 
+00000285 5f4346475f4f 
+0000028b 464600 
+0000028e 01              266 	.byte	1
+0000028f 32              267 	.byte	50
+00000290 44434d5f4346    268 	.strz	"DCM_CFG_DSP_DDDISTORINGTONVRAM_ENABLED DCM_CFG_OFF"
+00000296 475f4453505f 
+0000029c 444444495354 
+000002a2 4f52494e4754 
+000002a8 4f4e5652414d 
+000002ae 5f454e41424c 
+000002b4 45442044434d 
+000002ba 5f4346475f4f 
+000002c0 464600 
+000002c3 01              269 	.byte	1
+000002c4 36              270 	.byte	54
+000002c5 44434d5f524f    271 	.strz	"DCM_ROE_ENABLED DCM_CFG_OFF"
+000002cb 455f454e4142 
+000002d1 4c4544204443 
+000002d7 4d5f4346475f 
+000002dd 4f464600 
+000002e1 01              272 	.byte	1
+
+                                                                      Page 11
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+000002e2 37              273 	.byte	55
+000002e3 44434d5f4346    274 	.strz	"DCM_CFG_ROETYPE2_ENABLED DCM_CFG_OFF"
+000002e9 475f524f4554 
+000002ef 595045325f45 
+000002f5 4e41424c4544 
+000002fb 2044434d5f43 
+00000301 46475f4f4646 
+00000307 00 
+00000308 01              275 	.byte	1
+00000309 3a              276 	.byte	58
+0000030a 44434d5f4346    277 	.strz	"DCM_CFG_DSPUDSSUPPORT_ENABLED DCM_CFG_ON"
+00000310 475f44535055 
+00000316 445353555050 
+0000031c 4f52545f454e 
+00000322 41424c454420 
+00000328 44434d5f4346 
+0000032e 475f4f4e00 
+00000333 01              278 	.byte	1
+00000334 4c              279 	.byte	76
+00000335 44434d5f4e55    280 	.strz	"DCM_NUM_COMM_CHANNEL 1"
+0000033b 4d5f434f4d4d 
+00000341 5f4348414e4e 
+00000347 454c203100 
+0000034c 01              281 	.byte	1
+0000034d 72              282 	.byte	114
+0000034e 44434d5f5354    283 	.strz	"DCM_START_SEC_VAR_CLEARED_8 "
+00000354 4152545f5345 
+0000035a 435f5641525f 
+00000360 434c45415245 
+00000366 445f382000 
+0000036b 03              284 	.byte	3
+0000036c 73              285 	.byte	115
+0000036d 0c              286 	.byte	12
+0000036e 01              287 	.byte	1
+0000036f 06              288 	.byte	6
+00000370 4d454d4d4150    289 	.strz	"MEMMAP_ERROR "
+00000376 5f4552524f52 
+0000037c 2000 
+0000037e 01              290 	.byte	1
+0000037f f301            291 	.byte	243,1
+00000381 4253575f5354    292 	.strz	"BSW_START_SEC_DEFAULT_RAM0_CLEARED_8 "
+00000387 4152545f5345 
+0000038d 435f44454641 
+00000393 554c545f5241 
+00000399 4d305f434c45 
+0000039f 415245445f38 
+000003a5 2000 
+000003a7 03              293 	.byte	3
+000003a8 f401            294 	.byte	244,1
+000003aa 0d              295 	.byte	13
+000003ab 01              296 	.byte	1
+000003ac 9805            297 	.byte	152,5
+000003ae 53544152545f    298 	.strz	"START_SEC_VAR_CLEARED_8 "
+000003b4 5345435f5641 
+000003ba 525f434c4541 
+000003c0 5245445f3820 
+000003c6 00 
+000003c7 03              299 	.byte	3
+000003c8 bb09            300 	.byte	187,9
+000003ca 0e              301 	.byte	14
+000003cb 01              302 	.byte	1
+
+                                                                      Page 12
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+000003cc 46              303 	.byte	70
+000003cd 53544152545f    304 	.strz	"START_SEC_VAR_ZERO_INIT_8BIT "
+000003d3 5345435f5641 
+000003d9 525f5a45524f 
+000003df 5f494e49545f 
+000003e5 384249542000 
+000003eb 01              305 	.byte	1
+000003ec e009            306 	.byte	224,9
+000003ee 5641525f5345    307 	.strz	"VAR_SEC_OPEN "
+000003f4 435f4f50454e 
+000003fa 2000 
+000003fc 04              308 	.byte	4
+000003fd 04              309 	.byte	4
+000003fe 01              310 	.byte	1
+000003ff f801            311 	.byte	248,1
+00000401 44434d5f5741    312 	.strz	"DCM_WAS_STARTED_SEC_VAR_CLEARED_8 "
+00000407 535f53544152 
+0000040d 5445445f5345 
+00000413 435f5641525f 
+00000419 434c45415245 
+0000041f 445f382000 
+00000424 04              313 	.byte	4
+00000425 01              314 	.byte	1
+00000426 76              315 	.byte	118
+00000427 44434d5f5354    316 	.strz	"DCM_STOP_SEC_VAR_CLEARED_8 "
+0000042d 4f505f534543 
+00000433 5f5641525f43 
+00000439 4c4541524544 
+0000043f 5f382000 
+00000443 03              317 	.byte	3
+00000444 77              318 	.byte	119
+00000445 0c              319 	.byte	12
+00000446 01              320 	.byte	1
+00000447 06              321 	.byte	6
+00000448 4d454d4d4150    322 	.strz	"MEMMAP_ERROR "
+0000044e 5f4552524f52 
+00000454 2000 
+00000456 01              323 	.byte	1
+00000457 ff01            324 	.byte	255,1
+00000459 4253575f5354    325 	.strz	"BSW_STOP_SEC_DEFAULT_RAM0_CLEARED_8 "
+0000045f 4f505f534543 
+00000465 5f4445464155 
+0000046b 4c545f52414d 
+00000471 305f434c4541 
+00000477 5245445f3820 
+0000047d 00 
+0000047e 03              326 	.byte	3
+0000047f 8002            327 	.byte	128,2
+00000481 0d              328 	.byte	13
+00000482 01              329 	.byte	1
+00000483 9b05            330 	.byte	155,5
+00000485 53544f505f53    331 	.strz	"STOP_SEC_VAR "
+0000048b 45435f564152 
+00000491 2000 
+00000493 03              332 	.byte	3
+00000494 bb09            333 	.byte	187,9
+00000496 0e              334 	.byte	14
+00000497 04              335 	.byte	4
+00000498 04              336 	.byte	4
+00000499 04              337 	.byte	4
+0000049a 01              338 	.byte	1
+
+                                                                      Page 13
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+0000049b 79              339 	.byte	121
+0000049c 44434d5f5354    340 	.strz	"DCM_START_SEC_VAR_CLEARED_16 "
+000004a2 4152545f5345 
+000004a8 435f5641525f 
+000004ae 434c45415245 
+000004b4 445f31362000 
+000004ba 03              341 	.byte	3
+000004bb 7a              342 	.byte	122
+000004bc 0c              343 	.byte	12
+000004bd 01              344 	.byte	1
+000004be 06              345 	.byte	6
+000004bf 4d454d4d4150    346 	.strz	"MEMMAP_ERROR "
+000004c5 5f4552524f52 
+000004cb 2000 
+000004cd 01              347 	.byte	1
+000004ce 8802            348 	.byte	136,2
+000004d0 4253575f5354    349 	.strz	"BSW_START_SEC_DEFAULT_RAM0_CLEARED_16 "
+000004d6 4152545f5345 
+000004dc 435f44454641 
+000004e2 554c545f5241 
+000004e8 4d305f434c45 
+000004ee 415245445f31 
+000004f4 362000 
+000004f7 03              350 	.byte	3
+000004f8 8902            351 	.byte	137,2
+000004fa 0d              352 	.byte	13
+000004fb 01              353 	.byte	1
+000004fc a405            354 	.byte	164,5
+000004fe 53544152545f    355 	.strz	"START_SEC_VAR_CLEARED_16 "
+00000504 5345435f5641 
+0000050a 525f434c4541 
+00000510 5245445f3136 
+00000516 2000 
+00000518 03              356 	.byte	3
+00000519 bb09            357 	.byte	187,9
+0000051b 0e              358 	.byte	14
+0000051c 01              359 	.byte	1
+0000051d 4a              360 	.byte	74
+0000051e 53544152545f    361 	.strz	"START_SEC_VAR_ZERO_INIT_16BIT "
+00000524 5345435f5641 
+0000052a 525f5a45524f 
+00000530 5f494e49545f 
+00000536 313642495420 
+0000053c 00 
+0000053d 01              362 	.byte	1
+0000053e e909            363 	.byte	233,9
+00000540 5641525f5345    364 	.strz	"VAR_SEC_OPEN "
+00000546 435f4f50454e 
+0000054c 2000 
+0000054e 04              365 	.byte	4
+0000054f 04              366 	.byte	4
+00000550 01              367 	.byte	1
+00000551 8d02            368 	.byte	141,2
+00000553 44434d5f5741    369 	.strz	"DCM_WAS_STARTED_SEC_VAR_CLEARED_16 "
+00000559 535f53544152 
+0000055f 5445445f5345 
+00000565 435f5641525f 
+0000056b 434c45415245 
+00000571 445f31362000 
+00000577 04              370 	.byte	4
+00000578 01              371 	.byte	1
+
+                                                                      Page 14
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+00000579 7d              372 	.byte	125
+0000057a 44434d5f5354    373 	.strz	"DCM_STOP_SEC_VAR_CLEARED_16 "
+00000580 4f505f534543 
+00000586 5f5641525f43 
+0000058c 4c4541524544 
+00000592 5f31362000 
+00000597 03              374 	.byte	3
+00000598 7e              375 	.byte	126
+00000599 0c              376 	.byte	12
+0000059a 01              377 	.byte	1
+0000059b 06              378 	.byte	6
+0000059c 4d454d4d4150    379 	.strz	"MEMMAP_ERROR "
+000005a2 5f4552524f52 
+000005a8 2000 
+000005aa 01              380 	.byte	1
+000005ab 9402            381 	.byte	148,2
+000005ad 4253575f5354    382 	.strz	"BSW_STOP_SEC_DEFAULT_RAM0_CLEARED_16 "
+000005b3 4f505f534543 
+000005b9 5f4445464155 
+000005bf 4c545f52414d 
+000005c5 305f434c4541 
+000005cb 5245445f3136 
+000005d1 2000 
+000005d3 03              383 	.byte	3
+000005d4 9502            384 	.byte	149,2
+000005d6 0d              385 	.byte	13
+000005d7 01              386 	.byte	1
+000005d8 a705            387 	.byte	167,5
+000005da 53544f505f53    388 	.strz	"STOP_SEC_VAR "
+000005e0 45435f564152 
+000005e6 2000 
+000005e8 03              389 	.byte	3
+000005e9 bb09            390 	.byte	187,9
+000005eb 0e              391 	.byte	14
+000005ec 04              392 	.byte	4
+000005ed 04              393 	.byte	4
+000005ee 04              394 	.byte	4
+000005ef 01              395 	.byte	1
+000005f0 8001            396 	.byte	128,1
+000005f2 44434d5f5354    397 	.strz	"DCM_START_SEC_VAR_CLEARED_32 "
+000005f8 4152545f5345 
+000005fe 435f5641525f 
+00000604 434c45415245 
+0000060a 445f33322000 
+00000610 03              398 	.byte	3
+00000611 8101            399 	.byte	129,1
+00000613 0c              400 	.byte	12
+00000614 01              401 	.byte	1
+00000615 06              402 	.byte	6
+00000616 4d454d4d4150    403 	.strz	"MEMMAP_ERROR "
+0000061c 5f4552524f52 
+00000622 2000 
+00000624 01              404 	.byte	1
+00000625 9d02            405 	.byte	157,2
+00000627 4253575f5354    406 	.strz	"BSW_START_SEC_DEFAULT_RAM0_CLEARED_32 "
+0000062d 4152545f5345 
+00000633 435f44454641 
+00000639 554c545f5241 
+0000063f 4d305f434c45 
+00000645 415245445f33 
+0000064b 322000 
+
+                                                                      Page 15
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+0000064e 03              407 	.byte	3
+0000064f 9e02            408 	.byte	158,2
+00000651 0d              409 	.byte	13
+00000652 01              410 	.byte	1
+00000653 b005            411 	.byte	176,5
+00000655 53544152545f    412 	.strz	"START_SEC_VAR_CLEARED_32 "
+0000065b 5345435f5641 
+00000661 525f434c4541 
+00000667 5245445f3332 
+0000066d 2000 
+0000066f 03              413 	.byte	3
+00000670 bb09            414 	.byte	187,9
+00000672 0e              415 	.byte	14
+00000673 01              416 	.byte	1
+00000674 4e              417 	.byte	78
+00000675 53544152545f    418 	.strz	"START_SEC_VAR_ZERO_INIT_32BIT "
+0000067b 5345435f5641 
+00000681 525f5a45524f 
+00000687 5f494e49545f 
+0000068d 333242495420 
+00000693 00 
+00000694 01              419 	.byte	1
+00000695 f209            420 	.byte	242,9
+00000697 5641525f5345    421 	.strz	"VAR_SEC_OPEN "
+0000069d 435f4f50454e 
+000006a3 2000 
+000006a5 04              422 	.byte	4
+000006a6 04              423 	.byte	4
+000006a7 01              424 	.byte	1
+000006a8 a202            425 	.byte	162,2
+000006aa 44434d5f5741    426 	.strz	"DCM_WAS_STARTED_SEC_VAR_CLEARED_32 "
+000006b0 535f53544152 
+000006b6 5445445f5345 
+000006bc 435f5641525f 
+000006c2 434c45415245 
+000006c8 445f33322000 
+000006ce 04              427 	.byte	4
+000006cf 01              428 	.byte	1
+000006d0 8401            429 	.byte	132,1
+000006d2 44434d5f5354    430 	.strz	"DCM_STOP_SEC_VAR_CLEARED_32 "
+000006d8 4f505f534543 
+000006de 5f5641525f43 
+000006e4 4c4541524544 
+000006ea 5f33322000 
+000006ef 03              431 	.byte	3
+000006f0 8501            432 	.byte	133,1
+000006f2 0c              433 	.byte	12
+000006f3 01              434 	.byte	1
+000006f4 06              435 	.byte	6
+000006f5 4d454d4d4150    436 	.strz	"MEMMAP_ERROR "
+000006fb 5f4552524f52 
+00000701 2000 
+00000703 01              437 	.byte	1
+00000704 a902            438 	.byte	169,2
+00000706 4253575f5354    439 	.strz	"BSW_STOP_SEC_DEFAULT_RAM0_CLEARED_32 "
+0000070c 4f505f534543 
+00000712 5f4445464155 
+00000718 4c545f52414d 
+0000071e 305f434c4541 
+00000724 5245445f3332 
+0000072a 2000 
+
+                                                                      Page 16
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+0000072c 03              440 	.byte	3
+0000072d aa02            441 	.byte	170,2
+0000072f 0d              442 	.byte	13
+00000730 01              443 	.byte	1
+00000731 b305            444 	.byte	179,5
+00000733 53544f505f53    445 	.strz	"STOP_SEC_VAR "
+00000739 45435f564152 
+0000073f 2000 
+00000741 03              446 	.byte	3
+00000742 bb09            447 	.byte	187,9
+00000744 0e              448 	.byte	14
+00000745 04              449 	.byte	4
+00000746 04              450 	.byte	4
+00000747 04              451 	.byte	4
+00000748 04              452 	.byte	4
+00000749 03              453 	.byte	3
+0000074a 06              454 	.byte	6
+0000074b 0f              455 	.byte	15
+0000074c 03              456 	.byte	3
+0000074d 06              457 	.byte	6
+0000074e 10              458 	.byte	16
+0000074f 03              459 	.byte	3
+00000750 06              460 	.byte	6
+00000751 11              461 	.byte	17
+00000752 04              462 	.byte	4
+00000753 04              463 	.byte	4
+00000754 04              464 	.byte	4
+00000755 03              465 	.byte	3
+00000756 07              466 	.byte	7
+00000757 12              467 	.byte	18
+00000758 01              468 	.byte	1
+00000759 bf02            469 	.byte	191,2
+0000075b 44434d5f5354    470 	.strz	"DCM_START_SEC_VAR_CLEARED_UNSPECIFIED "
+00000761 4152545f5345 
+00000767 435f5641525f 
+0000076d 434c45415245 
+00000773 445f554e5350 
+00000779 454349464945 
+0000077f 442000 
+00000782 03              471 	.byte	3
+00000783 c002            472 	.byte	192,2
+00000785 0c              473 	.byte	12
+00000786 01              474 	.byte	1
+00000787 06              475 	.byte	6
+00000788 4d454d4d4150    476 	.strz	"MEMMAP_ERROR "
+0000078e 5f4552524f52 
+00000794 2000 
+00000796 01              477 	.byte	1
+00000797 c901            478 	.byte	201,1
+00000799 4253575f5354    479 	.strz	"BSW_START_SEC_DEFAULT_RAM0_CLEARED_UNSPECIFIED "
+0000079f 4152545f5345 
+000007a5 435f44454641 
+000007ab 554c545f5241 
+000007b1 4d305f434c45 
+000007b7 415245445f55 
+000007bd 4e5350454349 
+000007c3 464945442000 
+000007c9 03              480 	.byte	3
+000007ca ca01            481 	.byte	202,1
+000007cc 0d              482 	.byte	13
+000007cd 01              483 	.byte	1
+
+                                                                      Page 17
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+000007ce 8a05            484 	.byte	138,5
+000007d0 53544152545f    485 	.strz	"START_SEC_VAR_CLEARED_UNSPECIFIED "
+000007d6 5345435f5641 
+000007dc 525f434c4541 
+000007e2 5245445f554e 
+000007e8 535045434946 
+000007ee 4945442000 
+000007f3 03              486 	.byte	3
+000007f4 bb09            487 	.byte	187,9
+000007f6 0e              488 	.byte	14
+000007f7 01              489 	.byte	1
+000007f8 56              490 	.byte	86
+000007f9 53544152545f    491 	.strz	"START_SEC_VAR_ZERO_INIT_UNSPECIFIED "
+000007ff 5345435f5641 
+00000805 525f5a45524f 
+0000080b 5f494e49545f 
+00000811 554e53504543 
+00000817 494649454420 
+0000081d 00 
+0000081e 01              492 	.byte	1
+0000081f 840a            493 	.byte	132,10
+00000821 5641525f5345    494 	.strz	"VAR_SEC_OPEN "
+00000827 435f4f50454e 
+0000082d 2000 
+0000082f 04              495 	.byte	4
+00000830 04              496 	.byte	4
+00000831 01              497 	.byte	1
+00000832 ce01            498 	.byte	206,1
+00000834 44434d5f5741    499 	.strz	"DCM_WAS_STARTED_SEC_VAR_CLEARED_UNSPECIFIED "
+0000083a 535f53544152 
+00000840 5445445f5345 
+00000846 435f5641525f 
+0000084c 434c45415245 
+00000852 445f554e5350 
+00000858 454349464945 
+0000085e 442000 
+00000861 04              500 	.byte	4
+00000862 01              501 	.byte	1
+00000863 c202            502 	.byte	194,2
+00000865 44434d5f5354    503 	.strz	"DCM_STOP_SEC_VAR_CLEARED_UNSPECIFIED "
+0000086b 4f505f534543 
+00000871 5f5641525f43 
+00000877 4c4541524544 
+0000087d 5f554e535045 
+00000883 434946494544 
+00000889 2000 
+0000088b 03              504 	.byte	3
+0000088c c302            505 	.byte	195,2
+0000088e 0c              506 	.byte	12
+0000088f 01              507 	.byte	1
+00000890 06              508 	.byte	6
+00000891 4d454d4d4150    509 	.strz	"MEMMAP_ERROR "
+00000897 5f4552524f52 
+0000089d 2000 
+0000089f 01              510 	.byte	1
+000008a0 d501            511 	.byte	213,1
+000008a2 4253575f5354    512 	.strz	"BSW_STOP_SEC_DEFAULT_RAM0_CLEARED_UNSPECIFIED "
+000008a8 4f505f534543 
+000008ae 5f4445464155 
+000008b4 4c545f52414d 
+000008ba 305f434c4541 
+
+                                                                      Page 18
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+000008c0 5245445f554e 
+000008c6 535045434946 
+000008cc 4945442000 
+000008d1 03              513 	.byte	3
+000008d2 d601            514 	.byte	214,1
+000008d4 0d              515 	.byte	13
+000008d5 01              516 	.byte	1
+000008d6 8d05            517 	.byte	141,5
+000008d8 53544f505f53    518 	.strz	"STOP_SEC_VAR "
+000008de 45435f564152 
+000008e4 2000 
+000008e6 03              519 	.byte	3
+000008e7 bb09            520 	.byte	187,9
+000008e9 0e              521 	.byte	14
+000008ea 04              522 	.byte	4
+000008eb 04              523 	.byte	4
+000008ec 04              524 	.byte	4
+000008ed 01              525 	.byte	1
+000008ee c502            526 	.byte	197,2
+000008f0 44434d5f5354    527 	.strz	"DCM_START_SEC_CONST_UNSPECIFIED "
+000008f6 4152545f5345 
+000008fc 435f434f4e53 
+00000902 545f554e5350 
+00000908 454349464945 
+0000090e 442000 
+00000911 03              528 	.byte	3
+00000912 c602            529 	.byte	198,2
+00000914 0c              530 	.byte	12
+00000915 01              531 	.byte	1
+00000916 06              532 	.byte	6
+00000917 4d454d4d4150    533 	.strz	"MEMMAP_ERROR "
+0000091d 5f4552524f52 
+00000923 2000 
+00000925 01              534 	.byte	1
+00000926 21              535 	.byte	33
+00000927 4253575f5354    536 	.strz	"BSW_START_SEC_DEFAULT_CONST_UNSPECIFIED "
+0000092d 4152545f5345 
+00000933 435f44454641 
+00000939 554c545f434f 
+0000093f 4e53545f554e 
+00000945 535045434946 
+0000094b 4945442000 
+00000950 03              537 	.byte	3
+00000951 22              538 	.byte	34
+00000952 0d              539 	.byte	13
+00000953 01              540 	.byte	1
+00000954 bc05            541 	.byte	188,5
+00000956 53544152545f    542 	.strz	"START_SEC_CONST_UNSPECIFIED "
+0000095c 5345435f434f 
+00000962 4e53545f554e 
+00000968 535045434946 
+0000096e 4945442000 
+00000973 03              543 	.byte	3
+00000974 bb09            544 	.byte	187,9
+00000976 0e              545 	.byte	14
+00000977 01              546 	.byte	1
+00000978 b408            547 	.byte	180,8
+0000097a 434f4e53545f    548 	.strz	"CONST_SEC_OPEN "
+00000980 5345435f4f50 
+00000986 454e2000 
+0000098a 04              549 	.byte	4
+
+                                                                      Page 19
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+0000098b 04              550 	.byte	4
+0000098c 01              551 	.byte	1
+0000098d 26              552 	.byte	38
+0000098e 44434d5f5741    553 	.strz	"DCM_WAS_STARTED_SEC_CONST_UNSPECIFIED "
+00000994 535f53544152 
+0000099a 5445445f5345 
+000009a0 435f434f4e53 
+000009a6 545f554e5350 
+000009ac 454349464945 
+000009b2 442000 
+000009b5 04              554 	.byte	4
+000009b6 01              555 	.byte	1
+000009b7 c802            556 	.byte	200,2
+000009b9 44434d5f5354    557 	.strz	"DCM_STOP_SEC_CONST_UNSPECIFIED "
+000009bf 4f505f534543 
+000009c5 5f434f4e5354 
+000009cb 5f554e535045 
+000009d1 434946494544 
+000009d7 2000 
+000009d9 03              558 	.byte	3
+000009da c902            559 	.byte	201,2
+000009dc 0c              560 	.byte	12
+000009dd 01              561 	.byte	1
+000009de 06              562 	.byte	6
+000009df 4d454d4d4150    563 	.strz	"MEMMAP_ERROR "
+000009e5 5f4552524f52 
+000009eb 2000 
+000009ed 01              564 	.byte	1
+000009ee 2d              565 	.byte	45
+000009ef 4253575f5354    566 	.strz	"BSW_STOP_SEC_DEFAULT_CONST_UNSPECIFIED "
+000009f5 4f505f534543 
+000009fb 5f4445464155 
+00000a01 4c545f434f4e 
+00000a07 53545f554e53 
+00000a0d 504543494649 
+00000a13 45442000 
+00000a17 03              567 	.byte	3
+00000a18 2e              568 	.byte	46
+00000a19 0d              569 	.byte	13
+00000a1a 01              570 	.byte	1
+00000a1b bf05            571 	.byte	191,5
+00000a1d 53544f505f53    572 	.strz	"STOP_SEC_CONST "
+00000a23 45435f434f4e 
+00000a29 53542000 
+00000a2d 03              573 	.byte	3
+00000a2e bb09            574 	.byte	187,9
+00000a30 0e              575 	.byte	14
+00000a31 04              576 	.byte	4
+00000a32 04              577 	.byte	4
+00000a33 04              578 	.byte	4
+00000a34 01              579 	.byte	1
+00000a35 db02            580 	.byte	219,2
+00000a37 44434d5f5354    581 	.strz	"DCM_START_SEC_CODE "
+00000a3d 4152545f5345 
+00000a43 435f434f4445 
+00000a49 2000 
+00000a4b 03              582 	.byte	3
+00000a4c dc02            583 	.byte	220,2
+00000a4e 0c              584 	.byte	12
+00000a4f 01              585 	.byte	1
+00000a50 06              586 	.byte	6
+
+                                                                      Page 20
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+00000a51 4d454d4d4150    587 	.strz	"MEMMAP_ERROR "
+00000a57 5f4552524f52 
+00000a5d 2000 
+00000a5f 01              588 	.byte	1
+00000a60 0c              589 	.byte	12
+00000a61 4253575f5354    590 	.strz	"BSW_START_SEC_DEFAULT_CODE "
+00000a67 4152545f5345 
+00000a6d 435f44454641 
+00000a73 554c545f434f 
+00000a79 44452000 
+00000a7d 03              591 	.byte	3
+00000a7e 0d              592 	.byte	13
+00000a7f 0d              593 	.byte	13
+00000a80 01              594 	.byte	1
+00000a81 d308            595 	.byte	211,8
+00000a83 53544152545f    596 	.strz	"START_SEC_CODE "
+00000a89 5345435f434f 
+00000a8f 44452000 
+00000a93 03              597 	.byte	3
+00000a94 bb09            598 	.byte	187,9
+00000a96 0e              599 	.byte	14
+00000a97 01              600 	.byte	1
+00000a98 f307            601 	.byte	243,7
+00000a9a 434f44455f53    602 	.strz	"CODE_SEC_OPEN "
+00000aa0 45435f4f5045 
+00000aa6 4e2000 
+00000aa9 04              603 	.byte	4
+00000aaa 04              604 	.byte	4
+00000aab 01              605 	.byte	1
+00000aac 11              606 	.byte	17
+00000aad 44434d5f5741    607 	.strz	"DCM_WAS_STARTED_SEC_ROM_CODE "
+00000ab3 535f53544152 
+00000ab9 5445445f5345 
+00000abf 435f524f4d5f 
+00000ac5 434f44452000 
+00000acb 04              608 	.byte	4
+00000acc 01              609 	.byte	1
+00000acd e202            610 	.byte	226,2
+00000acf 44434d5f5354    611 	.strz	"DCM_STOP_SEC_CODE "
+00000ad5 4f505f534543 
+00000adb 5f434f444520 
+00000ae1 00 
+00000ae2 03              612 	.byte	3
+00000ae3 e302            613 	.byte	227,2
+00000ae5 0c              614 	.byte	12
+00000ae6 01              615 	.byte	1
+00000ae7 06              616 	.byte	6
+00000ae8 4d454d4d4150    617 	.strz	"MEMMAP_ERROR "
+00000aee 5f4552524f52 
+00000af4 2000 
+00000af6 01              618 	.byte	1
+00000af7 18              619 	.byte	24
+00000af8 4253575f5354    620 	.strz	"BSW_STOP_SEC_DEFAULT_CODE "
+00000afe 4f505f534543 
+00000b04 5f4445464155 
+00000b0a 4c545f434f44 
+00000b10 452000 
+00000b13 03              621 	.byte	3
+00000b14 19              622 	.byte	25
+00000b15 0d              623 	.byte	13
+00000b16 01              624 	.byte	1
+
+                                                                      Page 21
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+00000b17 d608            625 	.byte	214,8
+00000b19 53544f505f53    626 	.strz	"STOP_SEC_CODE "
+00000b1f 45435f434f44 
+00000b25 452000 
+00000b28 03              627 	.byte	3
+00000b29 bb09            628 	.byte	187,9
+00000b2b 0e              629 	.byte	14
+00000b2c 04              630 	.byte	4
+00000b2d 04              631 	.byte	4
+00000b2e 04              632 	.byte	4
+00000b2f 01              633 	.byte	1
+00000b30 e502            634 	.byte	229,2
+00000b32 44434d5f5354    635 	.strz	"DCM_START_SEC_CODE "
+00000b38 4152545f5345 
+00000b3e 435f434f4445 
+00000b44 2000 
+00000b46 03              636 	.byte	3
+00000b47 e602            637 	.byte	230,2
+00000b49 0c              638 	.byte	12
+00000b4a 01              639 	.byte	1
+00000b4b 06              640 	.byte	6
+00000b4c 4d454d4d4150    641 	.strz	"MEMMAP_ERROR "
+00000b52 5f4552524f52 
+00000b58 2000 
+00000b5a 01              642 	.byte	1
+00000b5b 0c              643 	.byte	12
+00000b5c 4253575f5354    644 	.strz	"BSW_START_SEC_DEFAULT_CODE "
+00000b62 4152545f5345 
+00000b68 435f44454641 
+00000b6e 554c545f434f 
+00000b74 44452000 
+00000b78 03              645 	.byte	3
+00000b79 0d              646 	.byte	13
+00000b7a 0d              647 	.byte	13
+00000b7b 01              648 	.byte	1
+00000b7c d308            649 	.byte	211,8
+00000b7e 53544152545f    650 	.strz	"START_SEC_CODE "
+00000b84 5345435f434f 
+00000b8a 44452000 
+00000b8e 03              651 	.byte	3
+00000b8f bb09            652 	.byte	187,9
+00000b91 0e              653 	.byte	14
+00000b92 01              654 	.byte	1
+00000b93 f307            655 	.byte	243,7
+00000b95 434f44455f53    656 	.strz	"CODE_SEC_OPEN "
+00000b9b 45435f4f5045 
+00000ba1 4e2000 
+00000ba4 04              657 	.byte	4
+00000ba5 04              658 	.byte	4
+00000ba6 01              659 	.byte	1
+00000ba7 11              660 	.byte	17
+00000ba8 44434d5f5741    661 	.strz	"DCM_WAS_STARTED_SEC_ROM_CODE "
+00000bae 535f53544152 
+00000bb4 5445445f5345 
+00000bba 435f524f4d5f 
+00000bc0 434f44452000 
+00000bc6 04              662 	.byte	4
+00000bc7 01              663 	.byte	1
+00000bc8 e802            664 	.byte	232,2
+00000bca 44434d5f5354    665 	.strz	"DCM_STOP_SEC_CODE "
+00000bd0 4f505f534543 
+
+                                                                      Page 22
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+00000bd6 5f434f444520 
+00000bdc 00 
+00000bdd 03              666 	.byte	3
+00000bde e902            667 	.byte	233,2
+00000be0 0c              668 	.byte	12
+00000be1 01              669 	.byte	1
+00000be2 06              670 	.byte	6
+00000be3 4d454d4d4150    671 	.strz	"MEMMAP_ERROR "
+00000be9 5f4552524f52 
+00000bef 2000 
+00000bf1 01              672 	.byte	1
+00000bf2 18              673 	.byte	24
+00000bf3 4253575f5354    674 	.strz	"BSW_STOP_SEC_DEFAULT_CODE "
+00000bf9 4f505f534543 
+00000bff 5f4445464155 
+00000c05 4c545f434f44 
+00000c0b 452000 
+00000c0e 03              675 	.byte	3
+00000c0f 19              676 	.byte	25
+00000c10 0d              677 	.byte	13
+00000c11 01              678 	.byte	1
+00000c12 d608            679 	.byte	214,8
+00000c14 53544f505f53    680 	.strz	"STOP_SEC_CODE "
+00000c1a 45435f434f44 
+00000c20 452000 
+00000c23 03              681 	.byte	3
+00000c24 bb09            682 	.byte	187,9
+00000c26 0e              683 	.byte	14
+00000c27 04              684 	.byte	4
+00000c28 04              685 	.byte	4
+00000c29 04              686 	.byte	4
+00000c2a 01              687 	.byte	1
+00000c2b ec02            688 	.byte	236,2
+00000c2d 44434d5f5354    689 	.strz	"DCM_START_SEC_CODE "
+00000c33 4152545f5345 
+00000c39 435f434f4445 
+00000c3f 2000 
+00000c41 03              690 	.byte	3
+00000c42 ed02            691 	.byte	237,2
+00000c44 0c              692 	.byte	12
+00000c45 01              693 	.byte	1
+00000c46 06              694 	.byte	6
+00000c47 4d454d4d4150    695 	.strz	"MEMMAP_ERROR "
+00000c4d 5f4552524f52 
+00000c53 2000 
+00000c55 01              696 	.byte	1
+00000c56 0c              697 	.byte	12
+00000c57 4253575f5354    698 	.strz	"BSW_START_SEC_DEFAULT_CODE "
+00000c5d 4152545f5345 
+00000c63 435f44454641 
+00000c69 554c545f434f 
+00000c6f 44452000 
+00000c73 03              699 	.byte	3
+00000c74 0d              700 	.byte	13
+00000c75 0d              701 	.byte	13
+00000c76 01              702 	.byte	1
+00000c77 d308            703 	.byte	211,8
+00000c79 53544152545f    704 	.strz	"START_SEC_CODE "
+00000c7f 5345435f434f 
+00000c85 44452000 
+00000c89 03              705 	.byte	3
+
+                                                                      Page 23
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+00000c8a bb09            706 	.byte	187,9
+00000c8c 0e              707 	.byte	14
+00000c8d 01              708 	.byte	1
+00000c8e f307            709 	.byte	243,7
+00000c90 434f44455f53    710 	.strz	"CODE_SEC_OPEN "
+00000c96 45435f4f5045 
+00000c9c 4e2000 
+00000c9f 04              711 	.byte	4
+00000ca0 04              712 	.byte	4
+00000ca1 01              713 	.byte	1
+00000ca2 11              714 	.byte	17
+00000ca3 44434d5f5741    715 	.strz	"DCM_WAS_STARTED_SEC_ROM_CODE "
+00000ca9 535f53544152 
+00000caf 5445445f5345 
+00000cb5 435f524f4d5f 
+00000cbb 434f44452000 
+00000cc1 04              716 	.byte	4
+00000cc2 01              717 	.byte	1
+00000cc3 8303            718 	.byte	131,3
+00000cc5 44434d5f5354    719 	.strz	"DCM_STOP_SEC_CODE "
+00000ccb 4f505f534543 
+00000cd1 5f434f444520 
+00000cd7 00 
+00000cd8 03              720 	.byte	3
+00000cd9 8403            721 	.byte	132,3
+00000cdb 0c              722 	.byte	12
+00000cdc 01              723 	.byte	1
+00000cdd 06              724 	.byte	6
+00000cde 4d454d4d4150    725 	.strz	"MEMMAP_ERROR "
+00000ce4 5f4552524f52 
+00000cea 2000 
+00000cec 01              726 	.byte	1
+00000ced 18              727 	.byte	24
+00000cee 4253575f5354    728 	.strz	"BSW_STOP_SEC_DEFAULT_CODE "
+00000cf4 4f505f534543 
+00000cfa 5f4445464155 
+00000d00 4c545f434f44 
+00000d06 452000 
+00000d09 03              729 	.byte	3
+00000d0a 19              730 	.byte	25
+00000d0b 0d              731 	.byte	13
+00000d0c 01              732 	.byte	1
+00000d0d d608            733 	.byte	214,8
+00000d0f 53544f505f53    734 	.strz	"STOP_SEC_CODE "
+00000d15 45435f434f44 
+00000d1b 452000 
+00000d1e 03              735 	.byte	3
+00000d1f bb09            736 	.byte	187,9
+00000d21 0e              737 	.byte	14
+00000d22 04              738 	.byte	4
+00000d23 04              739 	.byte	4
+00000d24 04              740 	.byte	4
+00000d25 01              741 	.byte	1
+00000d26 8603            742 	.byte	134,3
+00000d28 44434d5f5354    743 	.strz	"DCM_START_SEC_VAR_INIT_UNSPECIFIED "
+00000d2e 4152545f5345 
+00000d34 435f5641525f 
+00000d3a 494e49545f55 
+00000d40 4e5350454349 
+00000d46 464945442000 
+00000d4c 03              744 	.byte	3
+
+                                                                      Page 24
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+00000d4d 8703            745 	.byte	135,3
+00000d4f 0c              746 	.byte	12
+00000d50 01              747 	.byte	1
+00000d51 06              748 	.byte	6
+00000d52 4d454d4d4150    749 	.strz	"MEMMAP_ERROR "
+00000d58 5f4552524f52 
+00000d5e 2000 
+00000d60 01              750 	.byte	1
+00000d61 9b03            751 	.byte	155,3
+00000d63 4253575f5354    752 	.strz	"BSW_START_SEC_DEFAULT_RAM0_INIT_UNSPECIFIED "
+00000d69 4152545f5345 
+00000d6f 435f44454641 
+00000d75 554c545f5241 
+00000d7b 4d305f494e49 
+00000d81 545f554e5350 
+00000d87 454349464945 
+00000d8d 442000 
+00000d90 03              753 	.byte	3
+00000d91 9c03            754 	.byte	156,3
+00000d93 0d              755 	.byte	13
+00000d94 01              756 	.byte	1
+00000d95 9105            757 	.byte	145,5
+00000d97 53544152545f    758 	.strz	"START_SEC_VAR_INIT_UNSPECIFIED "
+00000d9d 5345435f5641 
+00000da3 525f494e4954 
+00000da9 5f554e535045 
+00000daf 434946494544 
+00000db5 2000 
+00000db7 03              759 	.byte	3
+00000db8 bb09            760 	.byte	187,9
+00000dba 0e              761 	.byte	14
+00000dbb 01              762 	.byte	1
+00000dbc a109            763 	.byte	161,9
+00000dbe 5641525f5345    764 	.strz	"VAR_SEC_OPEN "
+00000dc4 435f4f50454e 
+00000dca 2000 
+00000dcc 04              765 	.byte	4
+00000dcd 04              766 	.byte	4
+00000dce 01              767 	.byte	1
+00000dcf a003            768 	.byte	160,3
+00000dd1 44434d5f5741    769 	.strz	"DCM_WAS_STARTED_SEC_VAR_INIT_UNSPECIFIED "
+00000dd7 535f53544152 
+00000ddd 5445445f5345 
+00000de3 435f5641525f 
+00000de9 494e49545f55 
+00000def 4e5350454349 
+00000df5 464945442000 
+00000dfb 04              770 	.byte	4
+00000dfc 01              771 	.byte	1
+00000dfd 8903            772 	.byte	137,3
+00000dff 44434d5f5354    773 	.strz	"DCM_STOP_SEC_VAR_INIT_UNSPECIFIED "
+00000e05 4f505f534543 
+00000e0b 5f5641525f49 
+00000e11 4e49545f554e 
+00000e17 535045434946 
+00000e1d 4945442000 
+00000e22 03              774 	.byte	3
+00000e23 8a03            775 	.byte	138,3
+00000e25 0c              776 	.byte	12
+00000e26 01              777 	.byte	1
+00000e27 06              778 	.byte	6
+
+                                                                      Page 25
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+00000e28 4d454d4d4150    779 	.strz	"MEMMAP_ERROR "
+00000e2e 5f4552524f52 
+00000e34 2000 
+00000e36 01              780 	.byte	1
+00000e37 a703            781 	.byte	167,3
+00000e39 4253575f5354    782 	.strz	"BSW_STOP_SEC_DEFAULT_RAM0_INIT_UNSPECIFIED "
+00000e3f 4f505f534543 
+00000e45 5f4445464155 
+00000e4b 4c545f52414d 
+00000e51 305f494e4954 
+00000e57 5f554e535045 
+00000e5d 434946494544 
+00000e63 2000 
+00000e65 03              783 	.byte	3
+00000e66 a803            784 	.byte	168,3
+00000e68 0d              785 	.byte	13
+00000e69 01              786 	.byte	1
+00000e6a 9405            787 	.byte	148,5
+00000e6c 53544f505f53    788 	.strz	"STOP_SEC_VAR "
+00000e72 45435f564152 
+00000e78 2000 
+00000e7a 03              789 	.byte	3
+00000e7b bb09            790 	.byte	187,9
+00000e7d 0e              791 	.byte	14
+00000e7e 04              792 	.byte	4
+00000e7f 04              793 	.byte	4
+00000e80 04              794 	.byte	4
+00000e81 01              795 	.byte	1
+00000e82 8c03            796 	.byte	140,3
+00000e84 44434d5f5354    797 	.strz	"DCM_START_SEC_CONST_8 "
+00000e8a 4152545f5345 
+00000e90 435f434f4e53 
+00000e96 545f382000 
+00000e9b 03              798 	.byte	3
+00000e9c 8d03            799 	.byte	141,3
+00000e9e 0c              800 	.byte	12
+00000e9f 01              801 	.byte	1
+00000ea0 06              802 	.byte	6
+00000ea1 4d454d4d4150    803 	.strz	"MEMMAP_ERROR "
+00000ea7 5f4552524f52 
+00000ead 2000 
+00000eaf 01              804 	.byte	1
+00000eb0 36              805 	.byte	54
+00000eb1 4253575f5354    806 	.strz	"BSW_START_SEC_DEFAULT_CONST_8 "
+00000eb7 4152545f5345 
+00000ebd 435f44454641 
+00000ec3 554c545f434f 
+00000ec9 4e53545f3820 
+00000ecf 00 
+00000ed0 03              807 	.byte	3
+00000ed1 37              808 	.byte	55
+00000ed2 0d              809 	.byte	13
+00000ed3 01              810 	.byte	1
+00000ed4 c305            811 	.byte	195,5
+00000ed6 53544152545f    812 	.strz	"START_SEC_CONST_8 "
+00000edc 5345435f434f 
+00000ee2 4e53545f3820 
+00000ee8 00 
+00000ee9 03              813 	.byte	3
+00000eea bb09            814 	.byte	187,9
+00000eec 0e              815 	.byte	14
+
+                                                                      Page 26
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+00000eed 01              816 	.byte	1
+00000eee 02              817 	.byte	2
+00000eef 53544152545f    818 	.strz	"START_SEC_CONST_8BIT "
+00000ef5 5345435f434f 
+00000efb 4e53545f3842 
+00000f01 49542000 
+00000f05 01              819 	.byte	1
+00000f06 8f08            820 	.byte	143,8
+00000f08 434f4e53545f    821 	.strz	"CONST_SEC_OPEN "
+00000f0e 5345435f4f50 
+00000f14 454e2000 
+00000f18 04              822 	.byte	4
+00000f19 04              823 	.byte	4
+00000f1a 01              824 	.byte	1
+00000f1b 3b              825 	.byte	59
+00000f1c 44434d5f5741    826 	.strz	"DCM_WAS_STARTED_SEC_CONST_8 "
+00000f22 535f53544152 
+00000f28 5445445f5345 
+00000f2e 435f434f4e53 
+00000f34 545f382000 
+00000f39 04              827 	.byte	4
+00000f3a 01              828 	.byte	1
+00000f3b 8f03            829 	.byte	143,3
+00000f3d 44434d5f5354    830 	.strz	"DCM_STOP_SEC_CONST_8 "
+00000f43 4f505f534543 
+00000f49 5f434f4e5354 
+00000f4f 5f382000 
+00000f53 03              831 	.byte	3
+00000f54 9003            832 	.byte	144,3
+00000f56 0c              833 	.byte	12
+00000f57 01              834 	.byte	1
+00000f58 06              835 	.byte	6
+00000f59 4d454d4d4150    836 	.strz	"MEMMAP_ERROR "
+00000f5f 5f4552524f52 
+00000f65 2000 
+00000f67 01              837 	.byte	1
+00000f68 42              838 	.byte	66
+00000f69 4253575f5354    839 	.strz	"BSW_STOP_SEC_DEFAULT_CONST_8 "
+00000f6f 4f505f534543 
+00000f75 5f4445464155 
+00000f7b 4c545f434f4e 
+00000f81 53545f382000 
+00000f87 03              840 	.byte	3
+00000f88 43              841 	.byte	67
+00000f89 0d              842 	.byte	13
+00000f8a 01              843 	.byte	1
+00000f8b c605            844 	.byte	198,5
+00000f8d 53544f505f53    845 	.strz	"STOP_SEC_CONST "
+00000f93 45435f434f4e 
+00000f99 53542000 
+00000f9d 03              846 	.byte	3
+00000f9e bb09            847 	.byte	187,9
+00000fa0 0e              848 	.byte	14
+00000fa1 04              849 	.byte	4
+00000fa2 04              850 	.byte	4
+00000fa3 04              851 	.byte	4
+00000fa4 04              852 	.byte	4
+00000fa5 03              853 	.byte	3
+00000fa6 0a              854 	.byte	10
+00000fa7 13              855 	.byte	19
+00000fa8 01              856 	.byte	1
+
+                                                                      Page 27
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+00000fa9 04              857 	.byte	4
+00000faa 44434d5f4346    858 	.strz	"DCM_CFG_DSP_DIAGNOSTICSESSIONCONTROL_ENABLED DCM_CFG_ON"
+00000fb0 475f4453505f 
+00000fb6 444941474e4f 
+00000fbc 535449435345 
+00000fc2 5353494f4e43 
+00000fc8 4f4e54524f4c 
+00000fce 5f454e41424c 
+00000fd4 45442044434d 
+00000fda 5f4346475f4f 
+00000fe0 4e00 
+00000fe2 01              859 	.byte	1
+00000fe3 06              860 	.byte	6
+00000fe4 44434d5f4346    861 	.strz	"DCM_CFG_DSP_SECURITYACCESS_ENABLED DCM_CFG_ON"
+00000fea 475f4453505f 
+00000ff0 534543555249 
+00000ff6 545941434345 
+00000ffc 53535f454e41 
+00001002 424c45442044 
+00001008 434d5f434647 
+0000100e 5f4f4e00 
+00001012 01              862 	.byte	1
+00001013 09              863 	.byte	9
+00001014 44434d5f4346    864 	.strz	"DCM_CFG_DSP_CONTROLDTCSETTING_ENABLED DCM_CFG_ON"
+0000101a 475f4453505f 
+00001020 434f4e54524f 
+00001026 4c4454435345 
+0000102c 5454494e475f 
+00001032 454e41424c45 
+00001038 442044434d5f 
+0000103e 4346475f4f4e 
+00001044 00 
+00001045 01              865 	.byte	1
+00001046 0a              866 	.byte	10
+00001047 44434d5f4346    867 	.strz	"DCM_CFG_DSP_CLEARDIAGNOSTICINFORMATION_ENABLED DCM_CFG_ON"
+0000104d 475f4453505f 
+00001053 434c45415244 
+00001059 4941474e4f53 
+0000105f 544943494e46 
+00001065 4f524d415449 
+0000106b 4f4e5f454e41 
+00001071 424c45442044 
+00001077 434d5f434647 
+0000107d 5f4f4e00 
+00001081 01              868 	.byte	1
+00001082 0b              869 	.byte	11
+00001083 44434d5f4346    870 	.strz	"DCM_CFG_DSP_ROUTINECONTROL_ENABLED DCM_CFG_ON"
+00001089 475f4453505f 
+0000108f 524f5554494e 
+00001095 45434f4e5452 
+0000109b 4f4c5f454e41 
+000010a1 424c45442044 
+000010a7 434d5f434647 
+000010ad 5f4f4e00 
+000010b1 01              871 	.byte	1
+000010b2 0c              872 	.byte	12
+000010b3 44434d5f4346    873 	.strz	"DCM_CFG_DSP_IOCBI_ENABLED DCM_CFG_OFF"
+000010b9 475f4453505f 
+000010bf 494f4342495f 
+000010c5 454e41424c45 
+000010cb 442044434d5f 
+
+                                                                      Page 28
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+000010d1 4346475f4f46 
+000010d7 4600 
+000010d9 01              874 	.byte	1
+000010da 0e              875 	.byte	14
+000010db 44434d5f4346    876 	.strz	"DCM_CFG_DSP_READDATABYIDENTIFIER_ENABLED DCM_CFG_ON"
+000010e1 475f4453505f 
+000010e7 524541444441 
+000010ed 544142594944 
+000010f3 454e54494649 
+000010f9 45525f454e41 
+000010ff 424c45442044 
+00001105 434d5f434647 
+0000110b 5f4f4e00 
+0000110f 01              877 	.byte	1
+00001110 0f              878 	.byte	15
+00001111 44434d5f4346    879 	.strz	"DCM_CFG_DSP_WRITEDATABYIDENTIFIER_ENABLED DCM_CFG_ON"
+00001117 475f4453505f 
+0000111d 575249544544 
+00001123 415441425949 
+00001129 44454e544946 
+0000112f 4945525f454e 
+00001135 41424c454420 
+0000113b 44434d5f4346 
+00001141 475f4f4e00 
+00001146 01              880 	.byte	1
+00001147 10              881 	.byte	16
+00001148 44434d5f4346    882 	.strz	"DCM_CFG_DSP_TRANSFERDATA_ENABLED DCM_CFG_ON"
+0000114e 475f4453505f 
+00001154 5452414e5346 
+0000115a 455244415441 
+00001160 5f454e41424c 
+00001166 45442044434d 
+0000116c 5f4346475f4f 
+00001172 4e00 
+00001174 01              883 	.byte	1
+00001175 23              884 	.byte	35
+00001176 44434d5f4346    885 	.strz	"DCM_CFG_DSP_DYNAMICALLYDEFINEIDENTIFIER_ENABLED DCM_CFG_OFF"
+0000117c 475f4453505f 
+00001182 44594e414d49 
+00001188 43414c4c5944 
+0000118e 4546494e4549 
+00001194 44454e544946 
+0000119a 4945525f454e 
+000011a0 41424c454420 
+000011a6 44434d5f4346 
+000011ac 475f4f464600 
+000011b2 01              886 	.byte	1
+000011b3 24              887 	.byte	36
+000011b4 44434d5f4346    888 	.strz	"DCM_CFG_DSP_COMMUNICATIONCONTROL_ENABLED DCM_CFG_ON"
+000011ba 475f4453505f 
+000011c0 434f4d4d554e 
+000011c6 49434154494f 
+000011cc 4e434f4e5452 
+000011d2 4f4c5f454e41 
+000011d8 424c45442044 
+000011de 434d5f434647 
+000011e4 5f4f4e00 
+000011e8 01              889 	.byte	1
+000011e9 28              890 	.byte	40
+000011ea 44434d5f4346    891 	.strz	"DCM_CFG_DSP_RESPONSEONEVENT_ENABLED DCM_CFG_OFF"
+000011f0 475f4453505f 
+
+                                                                      Page 29
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+000011f6 524553504f4e 
+000011fc 53454f4e4556 
+00001202 454e545f454e 
+00001208 41424c454420 
+0000120e 44434d5f4346 
+00001214 475f4f464600 
+0000121a 01              892 	.byte	1
+0000121b 2a              893 	.byte	42
+0000121c 44434d5f4346    894 	.strz	"DCM_CFG_DSP_READMEMORYBYADDRESS_ENABLED DCM_CFG_OFF"
+00001222 475f4453505f 
+00001228 524541444d45 
+0000122e 4d4f52594259 
+00001234 414444524553 
+0000123a 535f454e4142 
+00001240 4c4544204443 
+00001246 4d5f4346475f 
+0000124c 4f464600 
+00001250 01              895 	.byte	1
+00001251 2b              896 	.byte	43
+00001252 44434d5f4346    897 	.strz	"DCM_CFG_DSP_WRITEMEMORYBYADDRESS_ENABLED DCM_CFG_OFF"
+00001258 475f4453505f 
+0000125e 57524954454d 
+00001264 454d4f525942 
+0000126a 594144445245 
+00001270 53535f454e41 
+00001276 424c45442044 
+0000127c 434d5f434647 
+00001282 5f4f464600 
+00001287 01              898 	.byte	1
+00001288 2c              899 	.byte	44
+00001289 44434d5f4346    900 	.strz	"DCM_CFG_DSP_READDATABYPERIODICIDENTIFIER_ENABLED DCM_CFG_OFF"
+0000128f 475f4453505f 
+00001295 524541444441 
+0000129b 544142595045 
+000012a1 52494f444943 
+000012a7 4944454e5449 
+000012ad 464945525f45 
+000012b3 4e41424c4544 
+000012b9 2044434d5f43 
+000012bf 46475f4f4646 
+000012c5 00 
+000012c6 01              901 	.byte	1
+000012c7 2d              902 	.byte	45
+000012c8 44434d5f4346    903 	.strz	"DCM_CFG_DSP_READDTCINFORMATION_ENABLED DCM_CFG_ON"
+000012ce 475f4453505f 
+000012d4 524541444454 
+000012da 43494e464f52 
+000012e0 4d4154494f4e 
+000012e6 5f454e41424c 
+000012ec 45442044434d 
+000012f2 5f4346475f4f 
+000012f8 4e00 
+000012fa 01              904 	.byte	1
+000012fb 2f              905 	.byte	47
+000012fc 44434d5f4346    906 	.strz	"DCM_CFG_DSP_RDTCSUBFUNC_0x02_ENABLED DCM_CFG_ON"
+00001302 475f4453505f 
+00001308 524454435355 
+0000130e 4246554e435f 
+00001314 307830325f45 
+0000131a 4e41424c4544 
+00001320 2044434d5f43 
+
+                                                                      Page 30
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+00001326 46475f4f4e00 
+0000132c 01              907 	.byte	1
+0000132d 35              908 	.byte	53
+0000132e 44434d5f4346    909 	.strz	"DCM_CFG_DSP_RDTCSUBFUNC_0x08_ENABLED DCM_CFG_OFF"
+00001334 475f4453505f 
+0000133a 524454435355 
+00001340 4246554e435f 
+00001346 307830385f45 
+0000134c 4e41424c4544 
+00001352 2044434d5f43 
+00001358 46475f4f4646 
+0000135e 00 
+0000135f 01              910 	.byte	1
+00001360 37              911 	.byte	55
+00001361 44434d5f4346    912 	.strz	"DCM_CFG_DSP_RDTCSUBFUNC_0x0A_ENABLED DCM_CFG_ON"
+00001367 475f4453505f 
+0000136d 524454435355 
+00001373 4246554e435f 
+00001379 307830415f45 
+0000137f 4e41424c4544 
+00001385 2044434d5f43 
+0000138b 46475f4f4e00 
+00001391 01              913 	.byte	1
+00001392 3c              914 	.byte	60
+00001393 44434d5f4346    915 	.strz	"DCM_CFG_DSP_RDTCSUBFUNC_0x0F_ENABLED DCM_CFG_OFF"
+00001399 475f4453505f 
+0000139f 524454435355 
+000013a5 4246554e435f 
+000013ab 307830465f45 
+000013b1 4e41424c4544 
+000013b7 2044434d5f43 
+000013bd 46475f4f4646 
+000013c3 00 
+000013c4 01              916 	.byte	1
+000013c5 40              917 	.byte	64
+000013c6 44434d5f4346    918 	.strz	"DCM_CFG_DSP_RDTCSUBFUNC_0x13_ENABLED DCM_CFG_OFF"
+000013cc 475f4453505f 
+000013d2 524454435355 
+000013d8 4246554e435f 
+000013de 307831335f45 
+000013e4 4e41424c4544 
+000013ea 2044434d5f43 
+000013f0 46475f4f4646 
+000013f6 00 
+000013f7 01              919 	.byte	1
+000013f8 41              920 	.byte	65
+000013f9 44434d5f4346    921 	.strz	"DCM_CFG_DSP_RDTCSUBFUNC_0x14_ENABLED DCM_CFG_OFF"
+000013ff 475f4453505f 
+00001405 524454435355 
+0000140b 4246554e435f 
+00001411 307831345f45 
+00001417 4e41424c4544 
+0000141d 2044434d5f43 
+00001423 46475f4f4646 
+00001429 00 
+0000142a 01              922 	.byte	1
+0000142b 42              923 	.byte	66
+0000142c 44434d5f4346    924 	.strz	"DCM_CFG_DSP_RDTCSUBFUNC_0x15_ENABLED DCM_CFG_OFF"
+00001432 475f4453505f 
+00001438 524454435355 
+0000143e 4246554e435f 
+
+                                                                      Page 31
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+00001444 307831355f45 
+0000144a 4e41424c4544 
+00001450 2044434d5f43 
+00001456 46475f4f4646 
+0000145c 00 
+0000145d 01              925 	.byte	1
+0000145e 43              926 	.byte	67
+0000145f 44434d5f4346    927 	.strz	"DCM_CFG_DSP_RDTCSUBFUNC_0x17_ENABLED DCM_CFG_OFF"
+00001465 475f4453505f 
+0000146b 524454435355 
+00001471 4246554e435f 
+00001477 307831375f45 
+0000147d 4e41424c4544 
+00001483 2044434d5f43 
+00001489 46475f4f4646 
+0000148f 00 
+00001490 01              928 	.byte	1
+00001491 46              929 	.byte	70
+00001492 44434d5f4346    930 	.strz	"DCM_CFG_NUMRDTCSUBFUNC 5u"
+00001498 475f4e554d52 
+0000149e 445443535542 
+000014a4 46554e432035 
+000014aa 7500 
+000014ac 01              931 	.byte	1
+000014ad 4a              932 	.byte	74
+000014ae 44434d5f4346    933 	.strz	"DCM_CFG_DSP_CDI_CONDITIONCHECK_ENABLED DCM_CFG_OFF"
+000014b4 475f4453505f 
+000014ba 4344495f434f 
+000014c0 4e444954494f 
+000014c6 4e434845434b 
+000014cc 5f454e41424c 
+000014d2 45442044434d 
+000014d8 5f4346475f4f 
+000014de 464600 
+000014e1 01              934 	.byte	1
+000014e2 4b              935 	.byte	75
+000014e3 44434d5f4346    936 	.strz	"DCM_CFG_DSP_NUMSESSIONS 5u"
+000014e9 475f4453505f 
+000014ef 4e554d534553 
+000014f5 53494f4e5320 
+000014fb 357500 
+000014fe 01              937 	.byte	1
+000014ff 4d              938 	.byte	77
+00001500 44434d5f4346    939 	.strz	"DCM_CFG_DSP_SECA_ASP_ENABLED DCM_CFG_OFF"
+00001506 475f4453505f 
+0000150c 534543415f41 
+00001512 53505f454e41 
+00001518 424c45442044 
+0000151e 434d5f434647 
+00001524 5f4f464600 
+00001529 01              940 	.byte	1
+0000152a 4e              941 	.byte	78
+0000152b 44434d5f4346    942 	.strz	"DCM_CFG_DSP_NUMSECURITY 2u"
+00001531 475f4453505f 
+00001537 4e554d534543 
+0000153d 555249545920 
+00001543 327500 
+00001546 01              943 	.byte	1
+00001547 4f              944 	.byte	79
+00001548 44434d5f4346    945 	.strz	"DCM_CFG_DSP_USE_ASYNCH_FNC DCM_CFG_ON"
+0000154e 475f4453505f 
+
+                                                                      Page 32
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+00001554 5553455f4153 
+0000155a 594e43485f46 
+00001560 4e432044434d 
+00001566 5f4346475f4f 
+0000156c 4e00 
+0000156e 01              946 	.byte	1
+0000156f 50              947 	.byte	80
+00001570 44434d5f4346    948 	.strz	"DCM_CFG_DSP_USE_ASYNCH_CLIENT_SERVER DCM_CFG_OFF"
+00001576 475f4453505f 
+0000157c 5553455f4153 
+00001582 594e43485f43 
+00001588 4c49454e545f 
+0000158e 534552564552 
+00001594 2044434d5f43 
+0000159a 46475f4f4646 
+000015a0 00 
+000015a1 01              949 	.byte	1
+000015a2 5a              950 	.byte	90
+000015a3 44434d5f4346    951 	.strz	"DCM_CFG_DSP_SECA_ATTEMPT_COUNTER DCM_CFG_OFF"
+000015a9 475f4453505f 
+000015af 534543415f41 
+000015b5 5454454d5054 
+000015bb 5f434f554e54 
+000015c1 45522044434d 
+000015c7 5f4346475f4f 
+000015cd 464600 
+000015d0 01              952 	.byte	1
+000015d1 5b              953 	.byte	91
+000015d2 44434d5f4346    954 	.strz	"DCM_CFG_DSP_SECA_STORESEED DCM_CFG_OFF"
+000015d8 475f4453505f 
+000015de 534543415f53 
+000015e4 544f52455345 
+000015ea 45442044434d 
+000015f0 5f4346475f4f 
+000015f6 464600 
+000015f9 01              955 	.byte	1
+000015fa 7d              956 	.byte	125
+000015fb 44434d5f4346    957 	.strz	"DCM_CFG_DIDRANGE_EXTENSION DCM_CFG_OFF"
+00001601 475f44494452 
+00001607 414e47455f45 
+0000160d 5854454e5349 
+00001613 4f4e2044434d 
+00001619 5f4346475f4f 
+0000161f 464600 
+00001622 01              958 	.byte	1
+00001623 8d01            959 	.byte	141,1
+00001625 44434d5f4346    960 	.strz	"DCM_CFG_RDBIPAGEDBUFFERSUPPORT DCM_CFG_OFF"
+0000162b 475f52444249 
+00001631 504147454442 
+00001637 554646455253 
+0000163d 5550504f5254 
+00001643 2044434d5f43 
+00001649 46475f4f4646 
+0000164f 00 
+00001650 01              961 	.byte	1
+00001651 8e01            962 	.byte	142,1
+00001653 44434d5f4346    963 	.strz	"DCM_CFG_RDTCPAGEDBUFFERSUPPORT DCM_CFG_OFF"
+00001659 475f52445443 
+0000165f 504147454442 
+00001665 554646455253 
+0000166b 5550504f5254 
+
+                                                                      Page 33
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+00001671 2044434d5f43 
+00001677 46475f4f4646 
+0000167d 00 
+0000167e 01              964 	.byte	1
+0000167f 9501            965 	.byte	149,1
+00001681 44434d5f4346    966 	.strz	"DCM_CFG_NUM_SPECIFIC_SUBNETS 0x00"
+00001687 475f4e554d5f 
+0000168d 535045434946 
+00001693 49435f535542 
+00001699 4e4554532030 
+0000169f 78303000 
+000016a3 01              967 	.byte	1
+000016a4 9601            968 	.byte	150,1
+000016a6 44434d5f4346    969 	.strz	"DCM_CFG_NUM_ALLCHANNELS_MODE_INFO 1"
+000016ac 475f4e554d5f 
+000016b2 414c4c434841 
+000016b8 4e4e454c535f 
+000016be 4d4f44455f49 
+000016c4 4e464f203100 
+000016ca 01              970 	.byte	1
+000016cb 9701            971 	.byte	151,1
+000016cd 44434d5f4346    972 	.strz	"DCM_CFG_DSP_MODERULEFORCC DCM_CFG_OFF"
+000016d3 475f4453505f 
+000016d9 4d4f44455255 
+000016df 4c45464f5243 
+000016e5 432044434d5f 
+000016eb 4346475f4f46 
+000016f1 4600 
+000016f3 01              973 	.byte	1
+000016f4 9a01            974 	.byte	154,1
+000016f6 44434d5f4346    975 	.strz	"DCM_CFG_VIN_SUPPORTED DCM_CFG_ON"
+000016fc 475f56494e5f 
+00001702 535550504f52 
+00001708 544544204443 
+0000170e 4d5f4346475f 
+00001714 4f4e00 
+00001717 04              976 	.byte	4
+00001718 03              977 	.byte	3
+00001719 0b              978 	.byte	11
+0000171a 14              979 	.byte	20
+0000171b 01              980 	.byte	1
+0000171c 05              981 	.byte	5
+0000171d 44434d5f5354    982 	.strz	"DCM_START_SEC_CODE "
+00001723 4152545f5345 
+00001729 435f434f4445 
+0000172f 2000 
+00001731 03              983 	.byte	3
+00001732 06              984 	.byte	6
+00001733 0c              985 	.byte	12
+00001734 01              986 	.byte	1
+00001735 06              987 	.byte	6
+00001736 4d454d4d4150    988 	.strz	"MEMMAP_ERROR "
+0000173c 5f4552524f52 
+00001742 2000 
+00001744 01              989 	.byte	1
+00001745 0c              990 	.byte	12
+00001746 4253575f5354    991 	.strz	"BSW_START_SEC_DEFAULT_CODE "
+0000174c 4152545f5345 
+00001752 435f44454641 
+00001758 554c545f434f 
+0000175e 44452000 
+
+                                                                      Page 34
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+00001762 03              992 	.byte	3
+00001763 0d              993 	.byte	13
+00001764 0d              994 	.byte	13
+00001765 01              995 	.byte	1
+00001766 d308            996 	.byte	211,8
+00001768 53544152545f    997 	.strz	"START_SEC_CODE "
+0000176e 5345435f434f 
+00001774 44452000 
+00001778 03              998 	.byte	3
+00001779 bb09            999 	.byte	187,9
+0000177b 0e             1000 	.byte	14
+0000177c 01             1001 	.byte	1
+0000177d f307           1002 	.byte	243,7
+0000177f 434f44455f53   1003 	.strz	"CODE_SEC_OPEN "
+00001785 45435f4f5045 
+0000178b 4e2000 
+0000178e 04             1004 	.byte	4
+0000178f 04             1005 	.byte	4
+00001790 01             1006 	.byte	1
+00001791 11             1007 	.byte	17
+00001792 44434d5f5741   1008 	.strz	"DCM_WAS_STARTED_SEC_ROM_CODE "
+00001798 535f53544152 
+0000179e 5445445f5345 
+000017a4 435f524f4d5f 
+000017aa 434f44452000 
+000017b0 04             1009 	.byte	4
+000017b1 01             1010 	.byte	1
+000017b2 08             1011 	.byte	8
+000017b3 44434d5f5354   1012 	.strz	"DCM_STOP_SEC_CODE "
+000017b9 4f505f534543 
+000017bf 5f434f444520 
+000017c5 00 
+000017c6 03             1013 	.byte	3
+000017c7 09             1014 	.byte	9
+000017c8 0c             1015 	.byte	12
+000017c9 01             1016 	.byte	1
+000017ca 06             1017 	.byte	6
+000017cb 4d454d4d4150   1018 	.strz	"MEMMAP_ERROR "
+000017d1 5f4552524f52 
+000017d7 2000 
+000017d9 01             1019 	.byte	1
+000017da 18             1020 	.byte	24
+000017db 4253575f5354   1021 	.strz	"BSW_STOP_SEC_DEFAULT_CODE "
+000017e1 4f505f534543 
+000017e7 5f4445464155 
+000017ed 4c545f434f44 
+000017f3 452000 
+000017f6 03             1022 	.byte	3
+000017f7 19             1023 	.byte	25
+000017f8 0d             1024 	.byte	13
+000017f9 01             1025 	.byte	1
+000017fa d608           1026 	.byte	214,8
+000017fc 53544f505f53   1027 	.strz	"STOP_SEC_CODE "
+00001802 45435f434f44 
+00001808 452000 
+0000180b 03             1028 	.byte	3
+0000180c bb09           1029 	.byte	187,9
+0000180e 0e             1030 	.byte	14
+0000180f 04             1031 	.byte	4
+00001810 04             1032 	.byte	4
+00001811 04             1033 	.byte	4
+
+                                                                      Page 35
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+00001812 01             1034 	.byte	1
+00001813 0a             1035 	.byte	10
+00001814 44434d5f5354   1036 	.strz	"DCM_START_SEC_CODE "
+0000181a 4152545f5345 
+00001820 435f434f4445 
+00001826 2000 
+00001828 03             1037 	.byte	3
+00001829 0b             1038 	.byte	11
+0000182a 0c             1039 	.byte	12
+0000182b 01             1040 	.byte	1
+0000182c 06             1041 	.byte	6
+0000182d 4d454d4d4150   1042 	.strz	"MEMMAP_ERROR "
+00001833 5f4552524f52 
+00001839 2000 
+0000183b 01             1043 	.byte	1
+0000183c 0c             1044 	.byte	12
+0000183d 4253575f5354   1045 	.strz	"BSW_START_SEC_DEFAULT_CODE "
+00001843 4152545f5345 
+00001849 435f44454641 
+0000184f 554c545f434f 
+00001855 44452000 
+00001859 03             1046 	.byte	3
+0000185a 0d             1047 	.byte	13
+0000185b 0d             1048 	.byte	13
+0000185c 01             1049 	.byte	1
+0000185d d308           1050 	.byte	211,8
+0000185f 53544152545f   1051 	.strz	"START_SEC_CODE "
+00001865 5345435f434f 
+0000186b 44452000 
+0000186f 03             1052 	.byte	3
+00001870 bb09           1053 	.byte	187,9
+00001872 0e             1054 	.byte	14
+00001873 01             1055 	.byte	1
+00001874 f307           1056 	.byte	243,7
+00001876 434f44455f53   1057 	.strz	"CODE_SEC_OPEN "
+0000187c 45435f4f5045 
+00001882 4e2000 
+00001885 04             1058 	.byte	4
+00001886 04             1059 	.byte	4
+00001887 01             1060 	.byte	1
+00001888 11             1061 	.byte	17
+00001889 44434d5f5741   1062 	.strz	"DCM_WAS_STARTED_SEC_ROM_CODE "
+0000188f 535f53544152 
+00001895 5445445f5345 
+0000189b 435f524f4d5f 
+000018a1 434f44452000 
+000018a7 04             1063 	.byte	4
+000018a8 01             1064 	.byte	1
+000018a9 7c             1065 	.byte	124
+000018aa 44434d5f5354   1066 	.strz	"DCM_STOP_SEC_CODE "
+000018b0 4f505f534543 
+000018b6 5f434f444520 
+000018bc 00 
+000018bd 03             1067 	.byte	3
+000018be 7d             1068 	.byte	125
+000018bf 0c             1069 	.byte	12
+000018c0 01             1070 	.byte	1
+000018c1 06             1071 	.byte	6
+000018c2 4d454d4d4150   1072 	.strz	"MEMMAP_ERROR "
+000018c8 5f4552524f52 
+000018ce 2000 
+
+                                                                      Page 36
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+000018d0 01             1073 	.byte	1
+000018d1 18             1074 	.byte	24
+000018d2 4253575f5354   1075 	.strz	"BSW_STOP_SEC_DEFAULT_CODE "
+000018d8 4f505f534543 
+000018de 5f4445464155 
+000018e4 4c545f434f44 
+000018ea 452000 
+000018ed 03             1076 	.byte	3
+000018ee 19             1077 	.byte	25
+000018ef 0d             1078 	.byte	13
+000018f0 01             1079 	.byte	1
+000018f1 d608           1080 	.byte	214,8
+000018f3 53544f505f53   1081 	.strz	"STOP_SEC_CODE "
+000018f9 45435f434f44 
+000018ff 452000 
+00001902 03             1082 	.byte	3
+00001903 bb09           1083 	.byte	187,9
+00001905 0e             1084 	.byte	14
+00001906 04             1085 	.byte	4
+00001907 04             1086 	.byte	4
+00001908 04             1087 	.byte	4
+00001909 01             1088 	.byte	1
+0000190a 7f             1089 	.byte	127
+0000190b 44434d5f5354   1090 	.strz	"DCM_START_SEC_VAR_CLEARED_16 "
+00001911 4152545f5345 
+00001917 435f5641525f 
+0000191d 434c45415245 
+00001923 445f31362000 
+00001929 03             1091 	.byte	3
+0000192a 8001           1092 	.byte	128,1
+0000192c 0c             1093 	.byte	12
+0000192d 01             1094 	.byte	1
+0000192e 06             1095 	.byte	6
+0000192f 4d454d4d4150   1096 	.strz	"MEMMAP_ERROR "
+00001935 5f4552524f52 
+0000193b 2000 
+0000193d 01             1097 	.byte	1
+0000193e 8802           1098 	.byte	136,2
+00001940 4253575f5354   1099 	.strz	"BSW_START_SEC_DEFAULT_RAM0_CLEARED_16 "
+00001946 4152545f5345 
+0000194c 435f44454641 
+00001952 554c545f5241 
+00001958 4d305f434c45 
+0000195e 415245445f31 
+00001964 362000 
+00001967 03             1100 	.byte	3
+00001968 8902           1101 	.byte	137,2
+0000196a 0d             1102 	.byte	13
+0000196b 01             1103 	.byte	1
+0000196c a405           1104 	.byte	164,5
+0000196e 53544152545f   1105 	.strz	"START_SEC_VAR_CLEARED_16 "
+00001974 5345435f5641 
+0000197a 525f434c4541 
+00001980 5245445f3136 
+00001986 2000 
+00001988 03             1106 	.byte	3
+00001989 bb09           1107 	.byte	187,9
+0000198b 0e             1108 	.byte	14
+0000198c 01             1109 	.byte	1
+0000198d 4a             1110 	.byte	74
+0000198e 53544152545f   1111 	.strz	"START_SEC_VAR_ZERO_INIT_16BIT "
+
+                                                                      Page 37
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+00001994 5345435f5641 
+0000199a 525f5a45524f 
+000019a0 5f494e49545f 
+000019a6 313642495420 
+000019ac 00 
+000019ad 01             1112 	.byte	1
+000019ae e909           1113 	.byte	233,9
+000019b0 5641525f5345   1114 	.strz	"VAR_SEC_OPEN "
+000019b6 435f4f50454e 
+000019bc 2000 
+000019be 04             1115 	.byte	4
+000019bf 04             1116 	.byte	4
+000019c0 01             1117 	.byte	1
+000019c1 8d02           1118 	.byte	141,2
+000019c3 44434d5f5741   1119 	.strz	"DCM_WAS_STARTED_SEC_VAR_CLEARED_16 "
+000019c9 535f53544152 
+000019cf 5445445f5345 
+000019d5 435f5641525f 
+000019db 434c45415245 
+000019e1 445f31362000 
+000019e7 04             1120 	.byte	4
+000019e8 01             1121 	.byte	1
+000019e9 8201           1122 	.byte	130,1
+000019eb 44434d5f5354   1123 	.strz	"DCM_STOP_SEC_VAR_CLEARED_16 "
+000019f1 4f505f534543 
+000019f7 5f5641525f43 
+000019fd 4c4541524544 
+00001a03 5f31362000 
+00001a08 03             1124 	.byte	3
+00001a09 8301           1125 	.byte	131,1
+00001a0b 0c             1126 	.byte	12
+00001a0c 01             1127 	.byte	1
+00001a0d 06             1128 	.byte	6
+00001a0e 4d454d4d4150   1129 	.strz	"MEMMAP_ERROR "
+00001a14 5f4552524f52 
+00001a1a 2000 
+00001a1c 01             1130 	.byte	1
+00001a1d 9402           1131 	.byte	148,2
+00001a1f 4253575f5354   1132 	.strz	"BSW_STOP_SEC_DEFAULT_RAM0_CLEARED_16 "
+00001a25 4f505f534543 
+00001a2b 5f4445464155 
+00001a31 4c545f52414d 
+00001a37 305f434c4541 
+00001a3d 5245445f3136 
+00001a43 2000 
+00001a45 03             1133 	.byte	3
+00001a46 9502           1134 	.byte	149,2
+00001a48 0d             1135 	.byte	13
+00001a49 01             1136 	.byte	1
+00001a4a a705           1137 	.byte	167,5
+00001a4c 53544f505f53   1138 	.strz	"STOP_SEC_VAR "
+00001a52 45435f564152 
+00001a58 2000 
+00001a5a 03             1139 	.byte	3
+00001a5b bb09           1140 	.byte	187,9
+00001a5d 0e             1141 	.byte	14
+00001a5e 04             1142 	.byte	4
+00001a5f 04             1143 	.byte	4
+00001a60 04             1144 	.byte	4
+00001a61 01             1145 	.byte	1
+00001a62 8501           1146 	.byte	133,1
+
+                                                                      Page 38
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+00001a64 44434d5f5354   1147 	.strz	"DCM_START_SEC_VAR_CLEARED_32 "
+00001a6a 4152545f5345 
+00001a70 435f5641525f 
+00001a76 434c45415245 
+00001a7c 445f33322000 
+00001a82 03             1148 	.byte	3
+00001a83 8601           1149 	.byte	134,1
+00001a85 0c             1150 	.byte	12
+00001a86 01             1151 	.byte	1
+00001a87 06             1152 	.byte	6
+00001a88 4d454d4d4150   1153 	.strz	"MEMMAP_ERROR "
+00001a8e 5f4552524f52 
+00001a94 2000 
+00001a96 01             1154 	.byte	1
+00001a97 9d02           1155 	.byte	157,2
+00001a99 4253575f5354   1156 	.strz	"BSW_START_SEC_DEFAULT_RAM0_CLEARED_32 "
+00001a9f 4152545f5345 
+00001aa5 435f44454641 
+00001aab 554c545f5241 
+00001ab1 4d305f434c45 
+00001ab7 415245445f33 
+00001abd 322000 
+00001ac0 03             1157 	.byte	3
+00001ac1 9e02           1158 	.byte	158,2
+00001ac3 0d             1159 	.byte	13
+00001ac4 01             1160 	.byte	1
+00001ac5 b005           1161 	.byte	176,5
+00001ac7 53544152545f   1162 	.strz	"START_SEC_VAR_CLEARED_32 "
+00001acd 5345435f5641 
+00001ad3 525f434c4541 
+00001ad9 5245445f3332 
+00001adf 2000 
+00001ae1 03             1163 	.byte	3
+00001ae2 bb09           1164 	.byte	187,9
+00001ae4 0e             1165 	.byte	14
+00001ae5 01             1166 	.byte	1
+00001ae6 4e             1167 	.byte	78
+00001ae7 53544152545f   1168 	.strz	"START_SEC_VAR_ZERO_INIT_32BIT "
+00001aed 5345435f5641 
+00001af3 525f5a45524f 
+00001af9 5f494e49545f 
+00001aff 333242495420 
+00001b05 00 
+00001b06 01             1169 	.byte	1
+00001b07 f209           1170 	.byte	242,9
+00001b09 5641525f5345   1171 	.strz	"VAR_SEC_OPEN "
+00001b0f 435f4f50454e 
+00001b15 2000 
+00001b17 04             1172 	.byte	4
+00001b18 04             1173 	.byte	4
+00001b19 01             1174 	.byte	1
+00001b1a a202           1175 	.byte	162,2
+00001b1c 44434d5f5741   1176 	.strz	"DCM_WAS_STARTED_SEC_VAR_CLEARED_32 "
+00001b22 535f53544152 
+00001b28 5445445f5345 
+00001b2e 435f5641525f 
+00001b34 434c45415245 
+00001b3a 445f33322000 
+00001b40 04             1177 	.byte	4
+00001b41 01             1178 	.byte	1
+00001b42 8801           1179 	.byte	136,1
+
+                                                                      Page 39
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+00001b44 44434d5f5354   1180 	.strz	"DCM_STOP_SEC_VAR_CLEARED_32 "
+00001b4a 4f505f534543 
+00001b50 5f5641525f43 
+00001b56 4c4541524544 
+00001b5c 5f33322000 
+00001b61 03             1181 	.byte	3
+00001b62 8901           1182 	.byte	137,1
+00001b64 0c             1183 	.byte	12
+00001b65 01             1184 	.byte	1
+00001b66 06             1185 	.byte	6
+00001b67 4d454d4d4150   1186 	.strz	"MEMMAP_ERROR "
+00001b6d 5f4552524f52 
+00001b73 2000 
+00001b75 01             1187 	.byte	1
+00001b76 a902           1188 	.byte	169,2
+00001b78 4253575f5354   1189 	.strz	"BSW_STOP_SEC_DEFAULT_RAM0_CLEARED_32 "
+00001b7e 4f505f534543 
+00001b84 5f4445464155 
+00001b8a 4c545f52414d 
+00001b90 305f434c4541 
+00001b96 5245445f3332 
+00001b9c 2000 
+00001b9e 03             1190 	.byte	3
+00001b9f aa02           1191 	.byte	170,2
+00001ba1 0d             1192 	.byte	13
+00001ba2 01             1193 	.byte	1
+00001ba3 b305           1194 	.byte	179,5
+00001ba5 53544f505f53   1195 	.strz	"STOP_SEC_VAR "
+00001bab 45435f564152 
+00001bb1 2000 
+00001bb3 03             1196 	.byte	3
+00001bb4 bb09           1197 	.byte	187,9
+00001bb6 0e             1198 	.byte	14
+00001bb7 04             1199 	.byte	4
+00001bb8 04             1200 	.byte	4
+00001bb9 04             1201 	.byte	4
+00001bba 01             1202 	.byte	1
+00001bbb 8b01           1203 	.byte	139,1
+00001bbd 44434d5f5354   1204 	.strz	"DCM_START_SEC_VAR_CLEARED_8 "
+00001bc3 4152545f5345 
+00001bc9 435f5641525f 
+00001bcf 434c45415245 
+00001bd5 445f382000 
+00001bda 03             1205 	.byte	3
+00001bdb 8c01           1206 	.byte	140,1
+00001bdd 0c             1207 	.byte	12
+00001bde 01             1208 	.byte	1
+00001bdf 06             1209 	.byte	6
+00001be0 4d454d4d4150   1210 	.strz	"MEMMAP_ERROR "
+00001be6 5f4552524f52 
+00001bec 2000 
+00001bee 01             1211 	.byte	1
+00001bef f301           1212 	.byte	243,1
+00001bf1 4253575f5354   1213 	.strz	"BSW_START_SEC_DEFAULT_RAM0_CLEARED_8 "
+00001bf7 4152545f5345 
+00001bfd 435f44454641 
+00001c03 554c545f5241 
+00001c09 4d305f434c45 
+00001c0f 415245445f38 
+00001c15 2000 
+00001c17 03             1214 	.byte	3
+
+                                                                      Page 40
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+00001c18 f401           1215 	.byte	244,1
+00001c1a 0d             1216 	.byte	13
+00001c1b 01             1217 	.byte	1
+00001c1c 9805           1218 	.byte	152,5
+00001c1e 53544152545f   1219 	.strz	"START_SEC_VAR_CLEARED_8 "
+00001c24 5345435f5641 
+00001c2a 525f434c4541 
+00001c30 5245445f3820 
+00001c36 00 
+00001c37 03             1220 	.byte	3
+00001c38 bb09           1221 	.byte	187,9
+00001c3a 0e             1222 	.byte	14
+00001c3b 01             1223 	.byte	1
+00001c3c 46             1224 	.byte	70
+00001c3d 53544152545f   1225 	.strz	"START_SEC_VAR_ZERO_INIT_8BIT "
+00001c43 5345435f5641 
+00001c49 525f5a45524f 
+00001c4f 5f494e49545f 
+00001c55 384249542000 
+00001c5b 01             1226 	.byte	1
+00001c5c e009           1227 	.byte	224,9
+00001c5e 5641525f5345   1228 	.strz	"VAR_SEC_OPEN "
+00001c64 435f4f50454e 
+00001c6a 2000 
+00001c6c 04             1229 	.byte	4
+00001c6d 04             1230 	.byte	4
+00001c6e 01             1231 	.byte	1
+00001c6f f801           1232 	.byte	248,1
+00001c71 44434d5f5741   1233 	.strz	"DCM_WAS_STARTED_SEC_VAR_CLEARED_8 "
+00001c77 535f53544152 
+00001c7d 5445445f5345 
+00001c83 435f5641525f 
+00001c89 434c45415245 
+00001c8f 445f382000 
+00001c94 04             1234 	.byte	4
+00001c95 01             1235 	.byte	1
+00001c96 8e01           1236 	.byte	142,1
+00001c98 44434d5f5354   1237 	.strz	"DCM_STOP_SEC_VAR_CLEARED_8 "
+00001c9e 4f505f534543 
+00001ca4 5f5641525f43 
+00001caa 4c4541524544 
+00001cb0 5f382000 
+00001cb4 03             1238 	.byte	3
+00001cb5 8f01           1239 	.byte	143,1
+00001cb7 0c             1240 	.byte	12
+00001cb8 01             1241 	.byte	1
+00001cb9 06             1242 	.byte	6
+00001cba 4d454d4d4150   1243 	.strz	"MEMMAP_ERROR "
+00001cc0 5f4552524f52 
+00001cc6 2000 
+00001cc8 01             1244 	.byte	1
+00001cc9 ff01           1245 	.byte	255,1
+00001ccb 4253575f5354   1246 	.strz	"BSW_STOP_SEC_DEFAULT_RAM0_CLEARED_8 "
+00001cd1 4f505f534543 
+00001cd7 5f4445464155 
+00001cdd 4c545f52414d 
+00001ce3 305f434c4541 
+00001ce9 5245445f3820 
+00001cef 00 
+00001cf0 03             1247 	.byte	3
+00001cf1 8002           1248 	.byte	128,2
+
+                                                                      Page 41
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+00001cf3 0d             1249 	.byte	13
+00001cf4 01             1250 	.byte	1
+00001cf5 9b05           1251 	.byte	155,5
+00001cf7 53544f505f53   1252 	.strz	"STOP_SEC_VAR "
+00001cfd 45435f564152 
+00001d03 2000 
+00001d05 03             1253 	.byte	3
+00001d06 bb09           1254 	.byte	187,9
+00001d08 0e             1255 	.byte	14
+00001d09 04             1256 	.byte	4
+00001d0a 04             1257 	.byte	4
+00001d0b 04             1258 	.byte	4
+00001d0c 01             1259 	.byte	1
+00001d0d 9101           1260 	.byte	145,1
+00001d0f 44434d5f5354   1261 	.strz	"DCM_START_SEC_VAR_CLEARED_32 "
+00001d15 4152545f5345 
+00001d1b 435f5641525f 
+00001d21 434c45415245 
+00001d27 445f33322000 
+00001d2d 03             1262 	.byte	3
+00001d2e 9201           1263 	.byte	146,1
+00001d30 0c             1264 	.byte	12
+00001d31 01             1265 	.byte	1
+00001d32 06             1266 	.byte	6
+00001d33 4d454d4d4150   1267 	.strz	"MEMMAP_ERROR "
+00001d39 5f4552524f52 
+00001d3f 2000 
+00001d41 01             1268 	.byte	1
+00001d42 9d02           1269 	.byte	157,2
+00001d44 4253575f5354   1270 	.strz	"BSW_START_SEC_DEFAULT_RAM0_CLEARED_32 "
+00001d4a 4152545f5345 
+00001d50 435f44454641 
+00001d56 554c545f5241 
+00001d5c 4d305f434c45 
+00001d62 415245445f33 
+00001d68 322000 
+00001d6b 03             1271 	.byte	3
+00001d6c 9e02           1272 	.byte	158,2
+00001d6e 0d             1273 	.byte	13
+00001d6f 01             1274 	.byte	1
+00001d70 b005           1275 	.byte	176,5
+00001d72 53544152545f   1276 	.strz	"START_SEC_VAR_CLEARED_32 "
+00001d78 5345435f5641 
+00001d7e 525f434c4541 
+00001d84 5245445f3332 
+00001d8a 2000 
+00001d8c 03             1277 	.byte	3
+00001d8d bb09           1278 	.byte	187,9
+00001d8f 0e             1279 	.byte	14
+00001d90 01             1280 	.byte	1
+00001d91 4e             1281 	.byte	78
+00001d92 53544152545f   1282 	.strz	"START_SEC_VAR_ZERO_INIT_32BIT "
+00001d98 5345435f5641 
+00001d9e 525f5a45524f 
+00001da4 5f494e49545f 
+00001daa 333242495420 
+00001db0 00 
+00001db1 01             1283 	.byte	1
+00001db2 f209           1284 	.byte	242,9
+00001db4 5641525f5345   1285 	.strz	"VAR_SEC_OPEN "
+00001dba 435f4f50454e 
+
+                                                                      Page 42
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+00001dc0 2000 
+00001dc2 04             1286 	.byte	4
+00001dc3 04             1287 	.byte	4
+00001dc4 01             1288 	.byte	1
+00001dc5 a202           1289 	.byte	162,2
+00001dc7 44434d5f5741   1290 	.strz	"DCM_WAS_STARTED_SEC_VAR_CLEARED_32 "
+00001dcd 535f53544152 
+00001dd3 5445445f5345 
+00001dd9 435f5641525f 
+00001ddf 434c45415245 
+00001de5 445f33322000 
+00001deb 04             1291 	.byte	4
+00001dec 01             1292 	.byte	1
+00001ded 9401           1293 	.byte	148,1
+00001def 44434d5f5354   1294 	.strz	"DCM_STOP_SEC_VAR_CLEARED_32 "
+00001df5 4f505f534543 
+00001dfb 5f5641525f43 
+00001e01 4c4541524544 
+00001e07 5f33322000 
+00001e0c 03             1295 	.byte	3
+00001e0d 9501           1296 	.byte	149,1
+00001e0f 0c             1297 	.byte	12
+00001e10 01             1298 	.byte	1
+00001e11 06             1299 	.byte	6
+00001e12 4d454d4d4150   1300 	.strz	"MEMMAP_ERROR "
+00001e18 5f4552524f52 
+00001e1e 2000 
+00001e20 01             1301 	.byte	1
+00001e21 a902           1302 	.byte	169,2
+00001e23 4253575f5354   1303 	.strz	"BSW_STOP_SEC_DEFAULT_RAM0_CLEARED_32 "
+00001e29 4f505f534543 
+00001e2f 5f4445464155 
+00001e35 4c545f52414d 
+00001e3b 305f434c4541 
+00001e41 5245445f3332 
+00001e47 2000 
+00001e49 03             1304 	.byte	3
+00001e4a aa02           1305 	.byte	170,2
+00001e4c 0d             1306 	.byte	13
+00001e4d 01             1307 	.byte	1
+00001e4e b305           1308 	.byte	179,5
+00001e50 53544f505f53   1309 	.strz	"STOP_SEC_VAR "
+00001e56 45435f564152 
+00001e5c 2000 
+00001e5e 03             1310 	.byte	3
+00001e5f bb09           1311 	.byte	187,9
+00001e61 0e             1312 	.byte	14
+00001e62 04             1313 	.byte	4
+00001e63 04             1314 	.byte	4
+00001e64 04             1315 	.byte	4
+00001e65 01             1316 	.byte	1
+00001e66 9701           1317 	.byte	151,1
+00001e68 44434d5f5354   1318 	.strz	"DCM_START_SEC_VAR_CLEARED_16 "
+00001e6e 4152545f5345 
+00001e74 435f5641525f 
+00001e7a 434c45415245 
+00001e80 445f31362000 
+00001e86 03             1319 	.byte	3
+00001e87 9801           1320 	.byte	152,1
+00001e89 0c             1321 	.byte	12
+00001e8a 01             1322 	.byte	1
+
+                                                                      Page 43
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+00001e8b 06             1323 	.byte	6
+00001e8c 4d454d4d4150   1324 	.strz	"MEMMAP_ERROR "
+00001e92 5f4552524f52 
+00001e98 2000 
+00001e9a 01             1325 	.byte	1
+00001e9b 8802           1326 	.byte	136,2
+00001e9d 4253575f5354   1327 	.strz	"BSW_START_SEC_DEFAULT_RAM0_CLEARED_16 "
+00001ea3 4152545f5345 
+00001ea9 435f44454641 
+00001eaf 554c545f5241 
+00001eb5 4d305f434c45 
+00001ebb 415245445f31 
+00001ec1 362000 
+00001ec4 03             1328 	.byte	3
+00001ec5 8902           1329 	.byte	137,2
+00001ec7 0d             1330 	.byte	13
+00001ec8 01             1331 	.byte	1
+00001ec9 a405           1332 	.byte	164,5
+00001ecb 53544152545f   1333 	.strz	"START_SEC_VAR_CLEARED_16 "
+00001ed1 5345435f5641 
+00001ed7 525f434c4541 
+00001edd 5245445f3136 
+00001ee3 2000 
+00001ee5 03             1334 	.byte	3
+00001ee6 bb09           1335 	.byte	187,9
+00001ee8 0e             1336 	.byte	14
+00001ee9 01             1337 	.byte	1
+00001eea 4a             1338 	.byte	74
+00001eeb 53544152545f   1339 	.strz	"START_SEC_VAR_ZERO_INIT_16BIT "
+00001ef1 5345435f5641 
+00001ef7 525f5a45524f 
+00001efd 5f494e49545f 
+00001f03 313642495420 
+00001f09 00 
+00001f0a 01             1340 	.byte	1
+00001f0b e909           1341 	.byte	233,9
+00001f0d 5641525f5345   1342 	.strz	"VAR_SEC_OPEN "
+00001f13 435f4f50454e 
+00001f19 2000 
+00001f1b 04             1343 	.byte	4
+00001f1c 04             1344 	.byte	4
+00001f1d 01             1345 	.byte	1
+00001f1e 8d02           1346 	.byte	141,2
+00001f20 44434d5f5741   1347 	.strz	"DCM_WAS_STARTED_SEC_VAR_CLEARED_16 "
+00001f26 535f53544152 
+00001f2c 5445445f5345 
+00001f32 435f5641525f 
+00001f38 434c45415245 
+00001f3e 445f31362000 
+00001f44 04             1348 	.byte	4
+00001f45 01             1349 	.byte	1
+00001f46 9a01           1350 	.byte	154,1
+00001f48 44434d5f5354   1351 	.strz	"DCM_STOP_SEC_VAR_CLEARED_16 "
+00001f4e 4f505f534543 
+00001f54 5f5641525f43 
+00001f5a 4c4541524544 
+00001f60 5f31362000 
+00001f65 03             1352 	.byte	3
+00001f66 9b01           1353 	.byte	155,1
+00001f68 0c             1354 	.byte	12
+00001f69 01             1355 	.byte	1
+
+                                                                      Page 44
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+00001f6a 06             1356 	.byte	6
+00001f6b 4d454d4d4150   1357 	.strz	"MEMMAP_ERROR "
+00001f71 5f4552524f52 
+00001f77 2000 
+00001f79 01             1358 	.byte	1
+00001f7a 9402           1359 	.byte	148,2
+00001f7c 4253575f5354   1360 	.strz	"BSW_STOP_SEC_DEFAULT_RAM0_CLEARED_16 "
+00001f82 4f505f534543 
+00001f88 5f4445464155 
+00001f8e 4c545f52414d 
+00001f94 305f434c4541 
+00001f9a 5245445f3136 
+00001fa0 2000 
+00001fa2 03             1361 	.byte	3
+00001fa3 9502           1362 	.byte	149,2
+00001fa5 0d             1363 	.byte	13
+00001fa6 01             1364 	.byte	1
+00001fa7 a705           1365 	.byte	167,5
+00001fa9 53544f505f53   1366 	.strz	"STOP_SEC_VAR "
+00001faf 45435f564152 
+00001fb5 2000 
+00001fb7 03             1367 	.byte	3
+00001fb8 bb09           1368 	.byte	187,9
+00001fba 0e             1369 	.byte	14
+00001fbb 04             1370 	.byte	4
+00001fbc 04             1371 	.byte	4
+00001fbd 04             1372 	.byte	4
+00001fbe 01             1373 	.byte	1
+00001fbf 9d01           1374 	.byte	157,1
+00001fc1 44434d5f5354   1375 	.strz	"DCM_START_SEC_VAR_CLEARED_8 "
+00001fc7 4152545f5345 
+00001fcd 435f5641525f 
+00001fd3 434c45415245 
+00001fd9 445f382000 
+00001fde 03             1376 	.byte	3
+00001fdf 9e01           1377 	.byte	158,1
+00001fe1 0c             1378 	.byte	12
+00001fe2 01             1379 	.byte	1
+00001fe3 06             1380 	.byte	6
+00001fe4 4d454d4d4150   1381 	.strz	"MEMMAP_ERROR "
+00001fea 5f4552524f52 
+00001ff0 2000 
+00001ff2 01             1382 	.byte	1
+00001ff3 f301           1383 	.byte	243,1
+00001ff5 4253575f5354   1384 	.strz	"BSW_START_SEC_DEFAULT_RAM0_CLEARED_8 "
+00001ffb 4152545f5345 
+00002001 435f44454641 
+00002007 554c545f5241 
+0000200d 4d305f434c45 
+00002013 415245445f38 
+00002019 2000 
+0000201b 03             1385 	.byte	3
+0000201c f401           1386 	.byte	244,1
+0000201e 0d             1387 	.byte	13
+0000201f 01             1388 	.byte	1
+00002020 9805           1389 	.byte	152,5
+00002022 53544152545f   1390 	.strz	"START_SEC_VAR_CLEARED_8 "
+00002028 5345435f5641 
+0000202e 525f434c4541 
+00002034 5245445f3820 
+0000203a 00 
+
+                                                                      Page 45
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+0000203b 03             1391 	.byte	3
+0000203c bb09           1392 	.byte	187,9
+0000203e 0e             1393 	.byte	14
+0000203f 01             1394 	.byte	1
+00002040 46             1395 	.byte	70
+00002041 53544152545f   1396 	.strz	"START_SEC_VAR_ZERO_INIT_8BIT "
+00002047 5345435f5641 
+0000204d 525f5a45524f 
+00002053 5f494e49545f 
+00002059 384249542000 
+0000205f 01             1397 	.byte	1
+00002060 e009           1398 	.byte	224,9
+00002062 5641525f5345   1399 	.strz	"VAR_SEC_OPEN "
+00002068 435f4f50454e 
+0000206e 2000 
+00002070 04             1400 	.byte	4
+00002071 04             1401 	.byte	4
+00002072 01             1402 	.byte	1
+00002073 f801           1403 	.byte	248,1
+00002075 44434d5f5741   1404 	.strz	"DCM_WAS_STARTED_SEC_VAR_CLEARED_8 "
+0000207b 535f53544152 
+00002081 5445445f5345 
+00002087 435f5641525f 
+0000208d 434c45415245 
+00002093 445f382000 
+00002098 04             1405 	.byte	4
+00002099 01             1406 	.byte	1
+0000209a a001           1407 	.byte	160,1
+0000209c 44434d5f5354   1408 	.strz	"DCM_STOP_SEC_VAR_CLEARED_8 "
+000020a2 4f505f534543 
+000020a8 5f5641525f43 
+000020ae 4c4541524544 
+000020b4 5f382000 
+000020b8 03             1409 	.byte	3
+000020b9 a101           1410 	.byte	161,1
+000020bb 0c             1411 	.byte	12
+000020bc 01             1412 	.byte	1
+000020bd 06             1413 	.byte	6
+000020be 4d454d4d4150   1414 	.strz	"MEMMAP_ERROR "
+000020c4 5f4552524f52 
+000020ca 2000 
+000020cc 01             1415 	.byte	1
+000020cd ff01           1416 	.byte	255,1
+000020cf 4253575f5354   1417 	.strz	"BSW_STOP_SEC_DEFAULT_RAM0_CLEARED_8 "
+000020d5 4f505f534543 
+000020db 5f4445464155 
+000020e1 4c545f52414d 
+000020e7 305f434c4541 
+000020ed 5245445f3820 
+000020f3 00 
+000020f4 03             1418 	.byte	3
+000020f5 8002           1419 	.byte	128,2
+000020f7 0d             1420 	.byte	13
+000020f8 01             1421 	.byte	1
+000020f9 9b05           1422 	.byte	155,5
+000020fb 53544f505f53   1423 	.strz	"STOP_SEC_VAR "
+00002101 45435f564152 
+00002107 2000 
+00002109 03             1424 	.byte	3
+0000210a bb09           1425 	.byte	187,9
+0000210c 0e             1426 	.byte	14
+
+                                                                      Page 46
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+0000210d 04             1427 	.byte	4
+0000210e 04             1428 	.byte	4
+0000210f 04             1429 	.byte	4
+00002110 04             1430 	.byte	4
+00002111 03             1431 	.byte	3
+00002112 0c             1432 	.byte	12
+00002113 15             1433 	.byte	21
+00002114 03             1434 	.byte	3
+00002115 07             1435 	.byte	7
+00002116 16             1436 	.byte	22
+00002117 01             1437 	.byte	1
+00002118 0d             1438 	.byte	13
+00002119 44434d5f5354   1439 	.strz	"DCM_START_SEC_CONST_UNSPECIFIED "
+0000211f 4152545f5345 
+00002125 435f434f4e53 
+0000212b 545f554e5350 
+00002131 454349464945 
+00002137 442000 
+0000213a 03             1440 	.byte	3
+0000213b 0e             1441 	.byte	14
+0000213c 0c             1442 	.byte	12
+0000213d 01             1443 	.byte	1
+0000213e 06             1444 	.byte	6
+0000213f 4d454d4d4150   1445 	.strz	"MEMMAP_ERROR "
+00002145 5f4552524f52 
+0000214b 2000 
+0000214d 01             1446 	.byte	1
+0000214e 21             1447 	.byte	33
+0000214f 4253575f5354   1448 	.strz	"BSW_START_SEC_DEFAULT_CONST_UNSPECIFIED "
+00002155 4152545f5345 
+0000215b 435f44454641 
+00002161 554c545f434f 
+00002167 4e53545f554e 
+0000216d 535045434946 
+00002173 4945442000 
+00002178 03             1449 	.byte	3
+00002179 22             1450 	.byte	34
+0000217a 0d             1451 	.byte	13
+0000217b 01             1452 	.byte	1
+0000217c bc05           1453 	.byte	188,5
+0000217e 53544152545f   1454 	.strz	"START_SEC_CONST_UNSPECIFIED "
+00002184 5345435f434f 
+0000218a 4e53545f554e 
+00002190 535045434946 
+00002196 4945442000 
+0000219b 03             1455 	.byte	3
+0000219c bb09           1456 	.byte	187,9
+0000219e 0e             1457 	.byte	14
+0000219f 01             1458 	.byte	1
+000021a0 b408           1459 	.byte	180,8
+000021a2 434f4e53545f   1460 	.strz	"CONST_SEC_OPEN "
+000021a8 5345435f4f50 
+000021ae 454e2000 
+000021b2 04             1461 	.byte	4
+000021b3 04             1462 	.byte	4
+000021b4 01             1463 	.byte	1
+000021b5 26             1464 	.byte	38
+000021b6 44434d5f5741   1465 	.strz	"DCM_WAS_STARTED_SEC_CONST_UNSPECIFIED "
+000021bc 535f53544152 
+000021c2 5445445f5345 
+000021c8 435f434f4e53 
+
+                                                                      Page 47
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+000021ce 545f554e5350 
+000021d4 454349464945 
+000021da 442000 
+000021dd 04             1466 	.byte	4
+000021de 01             1467 	.byte	1
+000021df 10             1468 	.byte	16
+000021e0 44434d5f5354   1469 	.strz	"DCM_STOP_SEC_CONST_UNSPECIFIED "
+000021e6 4f505f534543 
+000021ec 5f434f4e5354 
+000021f2 5f554e535045 
+000021f8 434946494544 
+000021fe 2000 
+00002200 03             1470 	.byte	3
+00002201 11             1471 	.byte	17
+00002202 0c             1472 	.byte	12
+00002203 01             1473 	.byte	1
+00002204 06             1474 	.byte	6
+00002205 4d454d4d4150   1475 	.strz	"MEMMAP_ERROR "
+0000220b 5f4552524f52 
+00002211 2000 
+00002213 01             1476 	.byte	1
+00002214 2d             1477 	.byte	45
+00002215 4253575f5354   1478 	.strz	"BSW_STOP_SEC_DEFAULT_CONST_UNSPECIFIED "
+0000221b 4f505f534543 
+00002221 5f4445464155 
+00002227 4c545f434f4e 
+0000222d 53545f554e53 
+00002233 504543494649 
+00002239 45442000 
+0000223d 03             1479 	.byte	3
+0000223e 2e             1480 	.byte	46
+0000223f 0d             1481 	.byte	13
+00002240 01             1482 	.byte	1
+00002241 bf05           1483 	.byte	191,5
+00002243 53544f505f53   1484 	.strz	"STOP_SEC_CONST "
+00002249 45435f434f4e 
+0000224f 53542000 
+00002253 03             1485 	.byte	3
+00002254 bb09           1486 	.byte	187,9
+00002256 0e             1487 	.byte	14
+00002257 04             1488 	.byte	4
+00002258 04             1489 	.byte	4
+00002259 04             1490 	.byte	4
+0000225a 04             1491 	.byte	4
+0000225b 03             1492 	.byte	3
+0000225c 0b             1493 	.byte	11
+0000225d 17             1494 	.byte	23
+0000225e 01             1495 	.byte	1
+0000225f a801           1496 	.byte	168,1
+00002261 44434d5f5354   1497 	.strz	"DCM_START_SEC_VAR_CLEARED_32 "
+00002267 4152545f5345 
+0000226d 435f5641525f 
+00002273 434c45415245 
+00002279 445f33322000 
+0000227f 03             1498 	.byte	3
+00002280 a901           1499 	.byte	169,1
+00002282 0c             1500 	.byte	12
+00002283 01             1501 	.byte	1
+00002284 06             1502 	.byte	6
+00002285 4d454d4d4150   1503 	.strz	"MEMMAP_ERROR "
+0000228b 5f4552524f52 
+
+                                                                      Page 48
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+00002291 2000 
+00002293 01             1504 	.byte	1
+00002294 9d02           1505 	.byte	157,2
+00002296 4253575f5354   1506 	.strz	"BSW_START_SEC_DEFAULT_RAM0_CLEARED_32 "
+0000229c 4152545f5345 
+000022a2 435f44454641 
+000022a8 554c545f5241 
+000022ae 4d305f434c45 
+000022b4 415245445f33 
+000022ba 322000 
+000022bd 03             1507 	.byte	3
+000022be 9e02           1508 	.byte	158,2
+000022c0 0d             1509 	.byte	13
+000022c1 01             1510 	.byte	1
+000022c2 b005           1511 	.byte	176,5
+000022c4 53544152545f   1512 	.strz	"START_SEC_VAR_CLEARED_32 "
+000022ca 5345435f5641 
+000022d0 525f434c4541 
+000022d6 5245445f3332 
+000022dc 2000 
+000022de 03             1513 	.byte	3
+000022df bb09           1514 	.byte	187,9
+000022e1 0e             1515 	.byte	14
+000022e2 01             1516 	.byte	1
+000022e3 4e             1517 	.byte	78
+000022e4 53544152545f   1518 	.strz	"START_SEC_VAR_ZERO_INIT_32BIT "
+000022ea 5345435f5641 
+000022f0 525f5a45524f 
+000022f6 5f494e49545f 
+000022fc 333242495420 
+00002302 00 
+00002303 01             1519 	.byte	1
+00002304 f209           1520 	.byte	242,9
+00002306 5641525f5345   1521 	.strz	"VAR_SEC_OPEN "
+0000230c 435f4f50454e 
+00002312 2000 
+00002314 04             1522 	.byte	4
+00002315 04             1523 	.byte	4
+00002316 01             1524 	.byte	1
+00002317 a202           1525 	.byte	162,2
+00002319 44434d5f5741   1526 	.strz	"DCM_WAS_STARTED_SEC_VAR_CLEARED_32 "
+0000231f 535f53544152 
+00002325 5445445f5345 
+0000232b 435f5641525f 
+00002331 434c45415245 
+00002337 445f33322000 
+0000233d 04             1527 	.byte	4
+0000233e 01             1528 	.byte	1
+0000233f ad01           1529 	.byte	173,1
+00002341 44434d5f5354   1530 	.strz	"DCM_STOP_SEC_VAR_CLEARED_32 "
+00002347 4f505f534543 
+0000234d 5f5641525f43 
+00002353 4c4541524544 
+00002359 5f33322000 
+0000235e 03             1531 	.byte	3
+0000235f ae01           1532 	.byte	174,1
+00002361 0c             1533 	.byte	12
+00002362 01             1534 	.byte	1
+00002363 06             1535 	.byte	6
+00002364 4d454d4d4150   1536 	.strz	"MEMMAP_ERROR "
+0000236a 5f4552524f52 
+
+                                                                      Page 49
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+00002370 2000 
+00002372 01             1537 	.byte	1
+00002373 a902           1538 	.byte	169,2
+00002375 4253575f5354   1539 	.strz	"BSW_STOP_SEC_DEFAULT_RAM0_CLEARED_32 "
+0000237b 4f505f534543 
+00002381 5f4445464155 
+00002387 4c545f52414d 
+0000238d 305f434c4541 
+00002393 5245445f3332 
+00002399 2000 
+0000239b 03             1540 	.byte	3
+0000239c aa02           1541 	.byte	170,2
+0000239e 0d             1542 	.byte	13
+0000239f 01             1543 	.byte	1
+000023a0 b305           1544 	.byte	179,5
+000023a2 53544f505f53   1545 	.strz	"STOP_SEC_VAR "
+000023a8 45435f564152 
+000023ae 2000 
+000023b0 03             1546 	.byte	3
+000023b1 bb09           1547 	.byte	187,9
+000023b3 0e             1548 	.byte	14
+000023b4 04             1549 	.byte	4
+000023b5 04             1550 	.byte	4
+000023b6 04             1551 	.byte	4
+000023b7 01             1552 	.byte	1
+000023b8 af01           1553 	.byte	175,1
+000023ba 44434d5f5354   1554 	.strz	"DCM_START_SEC_CODE "
+000023c0 4152545f5345 
+000023c6 435f434f4445 
+000023cc 2000 
+000023ce 03             1555 	.byte	3
+000023cf b001           1556 	.byte	176,1
+000023d1 0c             1557 	.byte	12
+000023d2 01             1558 	.byte	1
+000023d3 06             1559 	.byte	6
+000023d4 4d454d4d4150   1560 	.strz	"MEMMAP_ERROR "
+000023da 5f4552524f52 
+000023e0 2000 
+000023e2 01             1561 	.byte	1
+000023e3 0c             1562 	.byte	12
+000023e4 4253575f5354   1563 	.strz	"BSW_START_SEC_DEFAULT_CODE "
+000023ea 4152545f5345 
+000023f0 435f44454641 
+000023f6 554c545f434f 
+000023fc 44452000 
+00002400 03             1564 	.byte	3
+00002401 0d             1565 	.byte	13
+00002402 0d             1566 	.byte	13
+00002403 01             1567 	.byte	1
+00002404 d308           1568 	.byte	211,8
+00002406 53544152545f   1569 	.strz	"START_SEC_CODE "
+0000240c 5345435f434f 
+00002412 44452000 
+00002416 03             1570 	.byte	3
+00002417 bb09           1571 	.byte	187,9
+00002419 0e             1572 	.byte	14
+0000241a 01             1573 	.byte	1
+0000241b f307           1574 	.byte	243,7
+0000241d 434f44455f53   1575 	.strz	"CODE_SEC_OPEN "
+00002423 45435f4f5045 
+00002429 4e2000 
+
+                                                                      Page 50
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+0000242c 04             1576 	.byte	4
+0000242d 04             1577 	.byte	4
+0000242e 01             1578 	.byte	1
+0000242f 11             1579 	.byte	17
+00002430 44434d5f5741   1580 	.strz	"DCM_WAS_STARTED_SEC_ROM_CODE "
+00002436 535f53544152 
+0000243c 5445445f5345 
+00002442 435f524f4d5f 
+00002448 434f44452000 
+0000244e 04             1581 	.byte	4
+0000244f 01             1582 	.byte	1
+00002450 b901           1583 	.byte	185,1
+00002452 44434d5f5354   1584 	.strz	"DCM_STOP_SEC_CODE "
+00002458 4f505f534543 
+0000245e 5f434f444520 
+00002464 00 
+00002465 03             1585 	.byte	3
+00002466 ba01           1586 	.byte	186,1
+00002468 0c             1587 	.byte	12
+00002469 01             1588 	.byte	1
+0000246a 06             1589 	.byte	6
+0000246b 4d454d4d4150   1590 	.strz	"MEMMAP_ERROR "
+00002471 5f4552524f52 
+00002477 2000 
+00002479 01             1591 	.byte	1
+0000247a 18             1592 	.byte	24
+0000247b 4253575f5354   1593 	.strz	"BSW_STOP_SEC_DEFAULT_CODE "
+00002481 4f505f534543 
+00002487 5f4445464155 
+0000248d 4c545f434f44 
+00002493 452000 
+00002496 03             1594 	.byte	3
+00002497 19             1595 	.byte	25
+00002498 0d             1596 	.byte	13
+00002499 01             1597 	.byte	1
+0000249a d608           1598 	.byte	214,8
+0000249c 53544f505f53   1599 	.strz	"STOP_SEC_CODE "
+000024a2 45435f434f44 
+000024a8 452000 
+000024ab 03             1600 	.byte	3
+000024ac bb09           1601 	.byte	187,9
+000024ae 0e             1602 	.byte	14
+000024af 04             1603 	.byte	4
+000024b0 04             1604 	.byte	4
+000024b1 04             1605 	.byte	4
+000024b2 01             1606 	.byte	1
+000024b3 bb01           1607 	.byte	187,1
+000024b5 44434d5f5354   1608 	.strz	"DCM_START_SEC_VAR_CLEARED_UNSPECIFIED "
+000024bb 4152545f5345 
+000024c1 435f5641525f 
+000024c7 434c45415245 
+000024cd 445f554e5350 
+000024d3 454349464945 
+000024d9 442000 
+000024dc 03             1609 	.byte	3
+000024dd bc01           1610 	.byte	188,1
+000024df 0c             1611 	.byte	12
+000024e0 01             1612 	.byte	1
+000024e1 06             1613 	.byte	6
+000024e2 4d454d4d4150   1614 	.strz	"MEMMAP_ERROR "
+000024e8 5f4552524f52 
+
+                                                                      Page 51
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+000024ee 2000 
+000024f0 01             1615 	.byte	1
+000024f1 c901           1616 	.byte	201,1
+000024f3 4253575f5354   1617 	.strz	"BSW_START_SEC_DEFAULT_RAM0_CLEARED_UNSPECIFIED "
+000024f9 4152545f5345 
+000024ff 435f44454641 
+00002505 554c545f5241 
+0000250b 4d305f434c45 
+00002511 415245445f55 
+00002517 4e5350454349 
+0000251d 464945442000 
+00002523 03             1618 	.byte	3
+00002524 ca01           1619 	.byte	202,1
+00002526 0d             1620 	.byte	13
+00002527 01             1621 	.byte	1
+00002528 8a05           1622 	.byte	138,5
+0000252a 53544152545f   1623 	.strz	"START_SEC_VAR_CLEARED_UNSPECIFIED "
+00002530 5345435f5641 
+00002536 525f434c4541 
+0000253c 5245445f554e 
+00002542 535045434946 
+00002548 4945442000 
+0000254d 03             1624 	.byte	3
+0000254e bb09           1625 	.byte	187,9
+00002550 0e             1626 	.byte	14
+00002551 01             1627 	.byte	1
+00002552 56             1628 	.byte	86
+00002553 53544152545f   1629 	.strz	"START_SEC_VAR_ZERO_INIT_UNSPECIFIED "
+00002559 5345435f5641 
+0000255f 525f5a45524f 
+00002565 5f494e49545f 
+0000256b 554e53504543 
+00002571 494649454420 
+00002577 00 
+00002578 01             1630 	.byte	1
+00002579 840a           1631 	.byte	132,10
+0000257b 5641525f5345   1632 	.strz	"VAR_SEC_OPEN "
+00002581 435f4f50454e 
+00002587 2000 
+00002589 04             1633 	.byte	4
+0000258a 04             1634 	.byte	4
+0000258b 01             1635 	.byte	1
+0000258c ce01           1636 	.byte	206,1
+0000258e 44434d5f5741   1637 	.strz	"DCM_WAS_STARTED_SEC_VAR_CLEARED_UNSPECIFIED "
+00002594 535f53544152 
+0000259a 5445445f5345 
+000025a0 435f5641525f 
+000025a6 434c45415245 
+000025ac 445f554e5350 
+000025b2 454349464945 
+000025b8 442000 
+000025bb 04             1638 	.byte	4
+000025bc 01             1639 	.byte	1
+000025bd bf01           1640 	.byte	191,1
+000025bf 44434d5f5354   1641 	.strz	"DCM_STOP_SEC_VAR_CLEARED_UNSPECIFIED "
+000025c5 4f505f534543 
+000025cb 5f5641525f43 
+000025d1 4c4541524544 
+000025d7 5f554e535045 
+000025dd 434946494544 
+000025e3 2000 
+
+                                                                      Page 52
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+000025e5 03             1642 	.byte	3
+000025e6 c001           1643 	.byte	192,1
+000025e8 0c             1644 	.byte	12
+000025e9 01             1645 	.byte	1
+000025ea 06             1646 	.byte	6
+000025eb 4d454d4d4150   1647 	.strz	"MEMMAP_ERROR "
+000025f1 5f4552524f52 
+000025f7 2000 
+000025f9 01             1648 	.byte	1
+000025fa d501           1649 	.byte	213,1
+000025fc 4253575f5354   1650 	.strz	"BSW_STOP_SEC_DEFAULT_RAM0_CLEARED_UNSPECIFIED "
+00002602 4f505f534543 
+00002608 5f4445464155 
+0000260e 4c545f52414d 
+00002614 305f434c4541 
+0000261a 5245445f554e 
+00002620 535045434946 
+00002626 4945442000 
+0000262b 03             1651 	.byte	3
+0000262c d601           1652 	.byte	214,1
+0000262e 0d             1653 	.byte	13
+0000262f 01             1654 	.byte	1
+00002630 8d05           1655 	.byte	141,5
+00002632 53544f505f53   1656 	.strz	"STOP_SEC_VAR "
+00002638 45435f564152 
+0000263e 2000 
+00002640 03             1657 	.byte	3
+00002641 bb09           1658 	.byte	187,9
+00002643 0e             1659 	.byte	14
+00002644 04             1660 	.byte	4
+00002645 04             1661 	.byte	4
+00002646 04             1662 	.byte	4
+00002647 01             1663 	.byte	1
+00002648 c101           1664 	.byte	193,1
+0000264a 44434d5f5354   1665 	.strz	"DCM_START_SEC_CONST_UNSPECIFIED "
+00002650 4152545f5345 
+00002656 435f434f4e53 
+0000265c 545f554e5350 
+00002662 454349464945 
+00002668 442000 
+0000266b 03             1666 	.byte	3
+0000266c c201           1667 	.byte	194,1
+0000266e 0c             1668 	.byte	12
+0000266f 01             1669 	.byte	1
+00002670 06             1670 	.byte	6
+00002671 4d454d4d4150   1671 	.strz	"MEMMAP_ERROR "
+00002677 5f4552524f52 
+0000267d 2000 
+0000267f 01             1672 	.byte	1
+00002680 21             1673 	.byte	33
+00002681 4253575f5354   1674 	.strz	"BSW_START_SEC_DEFAULT_CONST_UNSPECIFIED "
+00002687 4152545f5345 
+0000268d 435f44454641 
+00002693 554c545f434f 
+00002699 4e53545f554e 
+0000269f 535045434946 
+000026a5 4945442000 
+000026aa 03             1675 	.byte	3
+000026ab 22             1676 	.byte	34
+000026ac 0d             1677 	.byte	13
+000026ad 01             1678 	.byte	1
+
+                                                                      Page 53
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+000026ae bc05           1679 	.byte	188,5
+000026b0 53544152545f   1680 	.strz	"START_SEC_CONST_UNSPECIFIED "
+000026b6 5345435f434f 
+000026bc 4e53545f554e 
+000026c2 535045434946 
+000026c8 4945442000 
+000026cd 03             1681 	.byte	3
+000026ce bb09           1682 	.byte	187,9
+000026d0 0e             1683 	.byte	14
+000026d1 01             1684 	.byte	1
+000026d2 b408           1685 	.byte	180,8
+000026d4 434f4e53545f   1686 	.strz	"CONST_SEC_OPEN "
+000026da 5345435f4f50 
+000026e0 454e2000 
+000026e4 04             1687 	.byte	4
+000026e5 04             1688 	.byte	4
+000026e6 01             1689 	.byte	1
+000026e7 26             1690 	.byte	38
+000026e8 44434d5f5741   1691 	.strz	"DCM_WAS_STARTED_SEC_CONST_UNSPECIFIED "
+000026ee 535f53544152 
+000026f4 5445445f5345 
+000026fa 435f434f4e53 
+00002700 545f554e5350 
+00002706 454349464945 
+0000270c 442000 
+0000270f 04             1692 	.byte	4
+00002710 01             1693 	.byte	1
+00002711 c501           1694 	.byte	197,1
+00002713 44434d5f5354   1695 	.strz	"DCM_STOP_SEC_CONST_UNSPECIFIED "
+00002719 4f505f534543 
+0000271f 5f434f4e5354 
+00002725 5f554e535045 
+0000272b 434946494544 
+00002731 2000 
+00002733 03             1696 	.byte	3
+00002734 c601           1697 	.byte	198,1
+00002736 0c             1698 	.byte	12
+00002737 01             1699 	.byte	1
+00002738 06             1700 	.byte	6
+00002739 4d454d4d4150   1701 	.strz	"MEMMAP_ERROR "
+0000273f 5f4552524f52 
+00002745 2000 
+00002747 01             1702 	.byte	1
+00002748 2d             1703 	.byte	45
+00002749 4253575f5354   1704 	.strz	"BSW_STOP_SEC_DEFAULT_CONST_UNSPECIFIED "
+0000274f 4f505f534543 
+00002755 5f4445464155 
+0000275b 4c545f434f4e 
+00002761 53545f554e53 
+00002767 504543494649 
+0000276d 45442000 
+00002771 03             1705 	.byte	3
+00002772 2e             1706 	.byte	46
+00002773 0d             1707 	.byte	13
+00002774 01             1708 	.byte	1
+00002775 bf05           1709 	.byte	191,5
+00002777 53544f505f53   1710 	.strz	"STOP_SEC_CONST "
+0000277d 45435f434f4e 
+00002783 53542000 
+00002787 03             1711 	.byte	3
+00002788 bb09           1712 	.byte	187,9
+
+                                                                      Page 54
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+0000278a 0e             1713 	.byte	14
+0000278b 04             1714 	.byte	4
+0000278c 04             1715 	.byte	4
+0000278d 04             1716 	.byte	4
+0000278e 04             1717 	.byte	4
+0000278f 03             1718 	.byte	3
+00002790 0f             1719 	.byte	15
+00002791 18             1720 	.byte	24
+00002792 01             1721 	.byte	1
+00002793 18             1722 	.byte	24
+00002794 44434d5f5354   1723 	.strz	"DCM_START_SEC_CODE "
+0000279a 4152545f5345 
+000027a0 435f434f4445 
+000027a6 2000 
+000027a8 03             1724 	.byte	3
+000027a9 19             1725 	.byte	25
+000027aa 0c             1726 	.byte	12
+000027ab 01             1727 	.byte	1
+000027ac 06             1728 	.byte	6
+000027ad 4d454d4d4150   1729 	.strz	"MEMMAP_ERROR "
+000027b3 5f4552524f52 
+000027b9 2000 
+000027bb 01             1730 	.byte	1
+000027bc 0c             1731 	.byte	12
+000027bd 4253575f5354   1732 	.strz	"BSW_START_SEC_DEFAULT_CODE "
+000027c3 4152545f5345 
+000027c9 435f44454641 
+000027cf 554c545f434f 
+000027d5 44452000 
+000027d9 03             1733 	.byte	3
+000027da 0d             1734 	.byte	13
+000027db 0d             1735 	.byte	13
+000027dc 01             1736 	.byte	1
+000027dd d308           1737 	.byte	211,8
+000027df 53544152545f   1738 	.strz	"START_SEC_CODE "
+000027e5 5345435f434f 
+000027eb 44452000 
+000027ef 03             1739 	.byte	3
+000027f0 bb09           1740 	.byte	187,9
+000027f2 0e             1741 	.byte	14
+000027f3 01             1742 	.byte	1
+000027f4 f307           1743 	.byte	243,7
+000027f6 434f44455f53   1744 	.strz	"CODE_SEC_OPEN "
+000027fc 45435f4f5045 
+00002802 4e2000 
+00002805 04             1745 	.byte	4
+00002806 04             1746 	.byte	4
+00002807 01             1747 	.byte	1
+00002808 11             1748 	.byte	17
+00002809 44434d5f5741   1749 	.strz	"DCM_WAS_STARTED_SEC_ROM_CODE "
+0000280f 535f53544152 
+00002815 5445445f5345 
+0000281b 435f524f4d5f 
+00002821 434f44452000 
+00002827 04             1750 	.byte	4
+00002828 01             1751 	.byte	1
+00002829 21             1752 	.byte	33
+0000282a 44434d5f5354   1753 	.strz	"DCM_STOP_SEC_CODE "
+00002830 4f505f534543 
+00002836 5f434f444520 
+0000283c 00 
+
+                                                                      Page 55
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+0000283d 03             1754 	.byte	3
+0000283e 22             1755 	.byte	34
+0000283f 0c             1756 	.byte	12
+00002840 01             1757 	.byte	1
+00002841 06             1758 	.byte	6
+00002842 4d454d4d4150   1759 	.strz	"MEMMAP_ERROR "
+00002848 5f4552524f52 
+0000284e 2000 
+00002850 01             1760 	.byte	1
+00002851 18             1761 	.byte	24
+00002852 4253575f5354   1762 	.strz	"BSW_STOP_SEC_DEFAULT_CODE "
+00002858 4f505f534543 
+0000285e 5f4445464155 
+00002864 4c545f434f44 
+0000286a 452000 
+0000286d 03             1763 	.byte	3
+0000286e 19             1764 	.byte	25
+0000286f 0d             1765 	.byte	13
+00002870 01             1766 	.byte	1
+00002871 d608           1767 	.byte	214,8
+00002873 53544f505f53   1768 	.strz	"STOP_SEC_CODE "
+00002879 45435f434f44 
+0000287f 452000 
+00002882 03             1769 	.byte	3
+00002883 bb09           1770 	.byte	187,9
+00002885 0e             1771 	.byte	14
+00002886 04             1772 	.byte	4
+00002887 04             1773 	.byte	4
+00002888 04             1774 	.byte	4
+00002889 01             1775 	.byte	1
+0000288a 23             1776 	.byte	35
+0000288b 44434d5f5354   1777 	.strz	"DCM_START_SEC_CONST_UNSPECIFIED "
+00002891 4152545f5345 
+00002897 435f434f4e53 
+0000289d 545f554e5350 
+000028a3 454349464945 
+000028a9 442000 
+000028ac 03             1778 	.byte	3
+000028ad 24             1779 	.byte	36
+000028ae 0c             1780 	.byte	12
+000028af 01             1781 	.byte	1
+000028b0 06             1782 	.byte	6
+000028b1 4d454d4d4150   1783 	.strz	"MEMMAP_ERROR "
+000028b7 5f4552524f52 
+000028bd 2000 
+000028bf 01             1784 	.byte	1
+000028c0 21             1785 	.byte	33
+000028c1 4253575f5354   1786 	.strz	"BSW_START_SEC_DEFAULT_CONST_UNSPECIFIED "
+000028c7 4152545f5345 
+000028cd 435f44454641 
+000028d3 554c545f434f 
+000028d9 4e53545f554e 
+000028df 535045434946 
+000028e5 4945442000 
+000028ea 03             1787 	.byte	3
+000028eb 22             1788 	.byte	34
+000028ec 0d             1789 	.byte	13
+000028ed 01             1790 	.byte	1
+000028ee bc05           1791 	.byte	188,5
+000028f0 53544152545f   1792 	.strz	"START_SEC_CONST_UNSPECIFIED "
+000028f6 5345435f434f 
+
+                                                                      Page 56
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+000028fc 4e53545f554e 
+00002902 535045434946 
+00002908 4945442000 
+0000290d 03             1793 	.byte	3
+0000290e bb09           1794 	.byte	187,9
+00002910 0e             1795 	.byte	14
+00002911 01             1796 	.byte	1
+00002912 b408           1797 	.byte	180,8
+00002914 434f4e53545f   1798 	.strz	"CONST_SEC_OPEN "
+0000291a 5345435f4f50 
+00002920 454e2000 
+00002924 04             1799 	.byte	4
+00002925 04             1800 	.byte	4
+00002926 01             1801 	.byte	1
+00002927 26             1802 	.byte	38
+00002928 44434d5f5741   1803 	.strz	"DCM_WAS_STARTED_SEC_CONST_UNSPECIFIED "
+0000292e 535f53544152 
+00002934 5445445f5345 
+0000293a 435f434f4e53 
+00002940 545f554e5350 
+00002946 454349464945 
+0000294c 442000 
+0000294f 04             1804 	.byte	4
+00002950 01             1805 	.byte	1
+00002951 26             1806 	.byte	38
+00002952 44434d5f5354   1807 	.strz	"DCM_STOP_SEC_CONST_UNSPECIFIED "
+00002958 4f505f534543 
+0000295e 5f434f4e5354 
+00002964 5f554e535045 
+0000296a 434946494544 
+00002970 2000 
+00002972 03             1808 	.byte	3
+00002973 27             1809 	.byte	39
+00002974 0c             1810 	.byte	12
+00002975 01             1811 	.byte	1
+00002976 06             1812 	.byte	6
+00002977 4d454d4d4150   1813 	.strz	"MEMMAP_ERROR "
+0000297d 5f4552524f52 
+00002983 2000 
+00002985 01             1814 	.byte	1
+00002986 2d             1815 	.byte	45
+00002987 4253575f5354   1816 	.strz	"BSW_STOP_SEC_DEFAULT_CONST_UNSPECIFIED "
+0000298d 4f505f534543 
+00002993 5f4445464155 
+00002999 4c545f434f4e 
+0000299f 53545f554e53 
+000029a5 504543494649 
+000029ab 45442000 
+000029af 03             1817 	.byte	3
+000029b0 2e             1818 	.byte	46
+000029b1 0d             1819 	.byte	13
+000029b2 01             1820 	.byte	1
+000029b3 bf05           1821 	.byte	191,5
+000029b5 53544f505f53   1822 	.strz	"STOP_SEC_CONST "
+000029bb 45435f434f4e 
+000029c1 53542000 
+000029c5 03             1823 	.byte	3
+000029c6 bb09           1824 	.byte	187,9
+000029c8 0e             1825 	.byte	14
+000029c9 04             1826 	.byte	4
+000029ca 04             1827 	.byte	4
+
+                                                                      Page 57
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+000029cb 04             1828 	.byte	4
+000029cc 01             1829 	.byte	1
+000029cd 29             1830 	.byte	41
+000029ce 44434d5f5354   1831 	.strz	"DCM_START_SEC_CODE "
+000029d4 4152545f5345 
+000029da 435f434f4445 
+000029e0 2000 
+000029e2 03             1832 	.byte	3
+000029e3 2a             1833 	.byte	42
+000029e4 0c             1834 	.byte	12
+000029e5 01             1835 	.byte	1
+000029e6 06             1836 	.byte	6
+000029e7 4d454d4d4150   1837 	.strz	"MEMMAP_ERROR "
+000029ed 5f4552524f52 
+000029f3 2000 
+000029f5 01             1838 	.byte	1
+000029f6 0c             1839 	.byte	12
+000029f7 4253575f5354   1840 	.strz	"BSW_START_SEC_DEFAULT_CODE "
+000029fd 4152545f5345 
+00002a03 435f44454641 
+00002a09 554c545f434f 
+00002a0f 44452000 
+00002a13 03             1841 	.byte	3
+00002a14 0d             1842 	.byte	13
+00002a15 0d             1843 	.byte	13
+00002a16 01             1844 	.byte	1
+00002a17 d308           1845 	.byte	211,8
+00002a19 53544152545f   1846 	.strz	"START_SEC_CODE "
+00002a1f 5345435f434f 
+00002a25 44452000 
+00002a29 03             1847 	.byte	3
+00002a2a bb09           1848 	.byte	187,9
+00002a2c 0e             1849 	.byte	14
+00002a2d 01             1850 	.byte	1
+00002a2e f307           1851 	.byte	243,7
+00002a30 434f44455f53   1852 	.strz	"CODE_SEC_OPEN "
+00002a36 45435f4f5045 
+00002a3c 4e2000 
+00002a3f 04             1853 	.byte	4
+00002a40 04             1854 	.byte	4
+00002a41 01             1855 	.byte	1
+00002a42 11             1856 	.byte	17
+00002a43 44434d5f5741   1857 	.strz	"DCM_WAS_STARTED_SEC_ROM_CODE "
+00002a49 535f53544152 
+00002a4f 5445445f5345 
+00002a55 435f524f4d5f 
+00002a5b 434f44452000 
+00002a61 04             1858 	.byte	4
+00002a62 01             1859 	.byte	1
+00002a63 31             1860 	.byte	49
+00002a64 44434d5f5354   1861 	.strz	"DCM_STOP_SEC_CODE "
+00002a6a 4f505f534543 
+00002a70 5f434f444520 
+00002a76 00 
+00002a77 03             1862 	.byte	3
+00002a78 32             1863 	.byte	50
+00002a79 0c             1864 	.byte	12
+00002a7a 01             1865 	.byte	1
+00002a7b 06             1866 	.byte	6
+00002a7c 4d454d4d4150   1867 	.strz	"MEMMAP_ERROR "
+00002a82 5f4552524f52 
+
+                                                                      Page 58
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+00002a88 2000 
+00002a8a 01             1868 	.byte	1
+00002a8b 18             1869 	.byte	24
+00002a8c 4253575f5354   1870 	.strz	"BSW_STOP_SEC_DEFAULT_CODE "
+00002a92 4f505f534543 
+00002a98 5f4445464155 
+00002a9e 4c545f434f44 
+00002aa4 452000 
+00002aa7 03             1871 	.byte	3
+00002aa8 19             1872 	.byte	25
+00002aa9 0d             1873 	.byte	13
+00002aaa 01             1874 	.byte	1
+00002aab d608           1875 	.byte	214,8
+00002aad 53544f505f53   1876 	.strz	"STOP_SEC_CODE "
+00002ab3 45435f434f44 
+00002ab9 452000 
+00002abc 03             1877 	.byte	3
+00002abd bb09           1878 	.byte	187,9
+00002abf 0e             1879 	.byte	14
+00002ac0 04             1880 	.byte	4
+00002ac1 04             1881 	.byte	4
+00002ac2 04             1882 	.byte	4
+00002ac3 04             1883 	.byte	4
+00002ac4 03             1884 	.byte	3
+00002ac5 13             1885 	.byte	19
+00002ac6 19             1886 	.byte	25
+00002ac7 01             1887 	.byte	1
+00002ac8 22             1888 	.byte	34
+00002ac9 44434d5f5354   1889 	.strz	"DCM_START_SEC_CONST_UNSPECIFIED "
+00002acf 4152545f5345 
+00002ad5 435f434f4e53 
+00002adb 545f554e5350 
+00002ae1 454349464945 
+00002ae7 442000 
+00002aea 03             1890 	.byte	3
+00002aeb 23             1891 	.byte	35
+00002aec 0c             1892 	.byte	12
+00002aed 01             1893 	.byte	1
+00002aee 06             1894 	.byte	6
+00002aef 4d454d4d4150   1895 	.strz	"MEMMAP_ERROR "
+00002af5 5f4552524f52 
+00002afb 2000 
+00002afd 01             1896 	.byte	1
+00002afe 21             1897 	.byte	33
+00002aff 4253575f5354   1898 	.strz	"BSW_START_SEC_DEFAULT_CONST_UNSPECIFIED "
+00002b05 4152545f5345 
+00002b0b 435f44454641 
+00002b11 554c545f434f 
+00002b17 4e53545f554e 
+00002b1d 535045434946 
+00002b23 4945442000 
+00002b28 03             1899 	.byte	3
+00002b29 22             1900 	.byte	34
+00002b2a 0d             1901 	.byte	13
+00002b2b 01             1902 	.byte	1
+00002b2c bc05           1903 	.byte	188,5
+00002b2e 53544152545f   1904 	.strz	"START_SEC_CONST_UNSPECIFIED "
+00002b34 5345435f434f 
+00002b3a 4e53545f554e 
+00002b40 535045434946 
+00002b46 4945442000 
+
+                                                                      Page 59
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+00002b4b 03             1905 	.byte	3
+00002b4c bb09           1906 	.byte	187,9
+00002b4e 0e             1907 	.byte	14
+00002b4f 01             1908 	.byte	1
+00002b50 b408           1909 	.byte	180,8
+00002b52 434f4e53545f   1910 	.strz	"CONST_SEC_OPEN "
+00002b58 5345435f4f50 
+00002b5e 454e2000 
+00002b62 04             1911 	.byte	4
+00002b63 04             1912 	.byte	4
+00002b64 01             1913 	.byte	1
+00002b65 26             1914 	.byte	38
+00002b66 44434d5f5741   1915 	.strz	"DCM_WAS_STARTED_SEC_CONST_UNSPECIFIED "
+00002b6c 535f53544152 
+00002b72 5445445f5345 
+00002b78 435f434f4e53 
+00002b7e 545f554e5350 
+00002b84 454349464945 
+00002b8a 442000 
+00002b8d 04             1916 	.byte	4
+00002b8e 01             1917 	.byte	1
+00002b8f 26             1918 	.byte	38
+00002b90 44434d5f5354   1919 	.strz	"DCM_STOP_SEC_CONST_UNSPECIFIED "
+00002b96 4f505f534543 
+00002b9c 5f434f4e5354 
+00002ba2 5f554e535045 
+00002ba8 434946494544 
+00002bae 2000 
+00002bb0 03             1920 	.byte	3
+00002bb1 27             1921 	.byte	39
+00002bb2 0c             1922 	.byte	12
+00002bb3 01             1923 	.byte	1
+00002bb4 06             1924 	.byte	6
+00002bb5 4d454d4d4150   1925 	.strz	"MEMMAP_ERROR "
+00002bbb 5f4552524f52 
+00002bc1 2000 
+00002bc3 01             1926 	.byte	1
+00002bc4 2d             1927 	.byte	45
+00002bc5 4253575f5354   1928 	.strz	"BSW_STOP_SEC_DEFAULT_CONST_UNSPECIFIED "
+00002bcb 4f505f534543 
+00002bd1 5f4445464155 
+00002bd7 4c545f434f4e 
+00002bdd 53545f554e53 
+00002be3 504543494649 
+00002be9 45442000 
+00002bed 03             1929 	.byte	3
+00002bee 2e             1930 	.byte	46
+00002bef 0d             1931 	.byte	13
+00002bf0 01             1932 	.byte	1
+00002bf1 bf05           1933 	.byte	191,5
+00002bf3 53544f505f53   1934 	.strz	"STOP_SEC_CONST "
+00002bf9 45435f434f4e 
+00002bff 53542000 
+00002c03 03             1935 	.byte	3
+00002c04 bb09           1936 	.byte	187,9
+00002c06 0e             1937 	.byte	14
+00002c07 04             1938 	.byte	4
+00002c08 04             1939 	.byte	4
+00002c09 04             1940 	.byte	4
+00002c0a 01             1941 	.byte	1
+00002c0b 32             1942 	.byte	50
+
+                                                                      Page 60
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+00002c0c 44434d5f5354   1943 	.strz	"DCM_START_SEC_VAR_INIT_UNSPECIFIED "
+00002c12 4152545f5345 
+00002c18 435f5641525f 
+00002c1e 494e49545f55 
+00002c24 4e5350454349 
+00002c2a 464945442000 
+00002c30 03             1944 	.byte	3
+00002c31 33             1945 	.byte	51
+00002c32 0c             1946 	.byte	12
+00002c33 01             1947 	.byte	1
+00002c34 06             1948 	.byte	6
+00002c35 4d454d4d4150   1949 	.strz	"MEMMAP_ERROR "
+00002c3b 5f4552524f52 
+00002c41 2000 
+00002c43 01             1950 	.byte	1
+00002c44 9b03           1951 	.byte	155,3
+00002c46 4253575f5354   1952 	.strz	"BSW_START_SEC_DEFAULT_RAM0_INIT_UNSPECIFIED "
+00002c4c 4152545f5345 
+00002c52 435f44454641 
+00002c58 554c545f5241 
+00002c5e 4d305f494e49 
+00002c64 545f554e5350 
+00002c6a 454349464945 
+00002c70 442000 
+00002c73 03             1953 	.byte	3
+00002c74 9c03           1954 	.byte	156,3
+00002c76 0d             1955 	.byte	13
+00002c77 01             1956 	.byte	1
+00002c78 9105           1957 	.byte	145,5
+00002c7a 53544152545f   1958 	.strz	"START_SEC_VAR_INIT_UNSPECIFIED "
+00002c80 5345435f5641 
+00002c86 525f494e4954 
+00002c8c 5f554e535045 
+00002c92 434946494544 
+00002c98 2000 
+00002c9a 03             1959 	.byte	3
+00002c9b bb09           1960 	.byte	187,9
+00002c9d 0e             1961 	.byte	14
+00002c9e 01             1962 	.byte	1
+00002c9f a109           1963 	.byte	161,9
+00002ca1 5641525f5345   1964 	.strz	"VAR_SEC_OPEN "
+00002ca7 435f4f50454e 
+00002cad 2000 
+00002caf 04             1965 	.byte	4
+00002cb0 04             1966 	.byte	4
+00002cb1 01             1967 	.byte	1
+00002cb2 a003           1968 	.byte	160,3
+00002cb4 44434d5f5741   1969 	.strz	"DCM_WAS_STARTED_SEC_VAR_INIT_UNSPECIFIED "
+00002cba 535f53544152 
+00002cc0 5445445f5345 
+00002cc6 435f5641525f 
+00002ccc 494e49545f55 
+00002cd2 4e5350454349 
+00002cd8 464945442000 
+00002cde 04             1970 	.byte	4
+00002cdf 01             1971 	.byte	1
+00002ce0 36             1972 	.byte	54
+00002ce1 44434d5f5354   1973 	.strz	"DCM_STOP_SEC_VAR_INIT_UNSPECIFIED "
+00002ce7 4f505f534543 
+00002ced 5f5641525f49 
+00002cf3 4e49545f554e 
+
+                                                                      Page 61
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+00002cf9 535045434946 
+00002cff 4945442000 
+00002d04 03             1974 	.byte	3
+00002d05 37             1975 	.byte	55
+00002d06 0c             1976 	.byte	12
+00002d07 01             1977 	.byte	1
+00002d08 06             1978 	.byte	6
+00002d09 4d454d4d4150   1979 	.strz	"MEMMAP_ERROR "
+00002d0f 5f4552524f52 
+00002d15 2000 
+00002d17 01             1980 	.byte	1
+00002d18 a703           1981 	.byte	167,3
+00002d1a 4253575f5354   1982 	.strz	"BSW_STOP_SEC_DEFAULT_RAM0_INIT_UNSPECIFIED "
+00002d20 4f505f534543 
+00002d26 5f4445464155 
+00002d2c 4c545f52414d 
+00002d32 305f494e4954 
+00002d38 5f554e535045 
+00002d3e 434946494544 
+00002d44 2000 
+00002d46 03             1983 	.byte	3
+00002d47 a803           1984 	.byte	168,3
+00002d49 0d             1985 	.byte	13
+00002d4a 01             1986 	.byte	1
+00002d4b 9405           1987 	.byte	148,5
+00002d4d 53544f505f53   1988 	.strz	"STOP_SEC_VAR "
+00002d53 45435f564152 
+00002d59 2000 
+00002d5b 03             1989 	.byte	3
+00002d5c bb09           1990 	.byte	187,9
+00002d5e 0e             1991 	.byte	14
+00002d5f 04             1992 	.byte	4
+00002d60 04             1993 	.byte	4
+00002d61 04             1994 	.byte	4
+00002d62 04             1995 	.byte	4
+00002d63 03             1996 	.byte	3
+00002d64 17             1997 	.byte	23
+00002d65 1a             1998 	.byte	26
+00002d66 01             1999 	.byte	1
+00002d67 12             2000 	.byte	18
+00002d68 44434d5f5354   2001 	.strz	"DCM_START_SEC_CODE "
+00002d6e 4152545f5345 
+00002d74 435f434f4445 
+00002d7a 2000 
+00002d7c 03             2002 	.byte	3
+00002d7d 13             2003 	.byte	19
+00002d7e 0c             2004 	.byte	12
+00002d7f 01             2005 	.byte	1
+00002d80 06             2006 	.byte	6
+00002d81 4d454d4d4150   2007 	.strz	"MEMMAP_ERROR "
+00002d87 5f4552524f52 
+00002d8d 2000 
+00002d8f 01             2008 	.byte	1
+00002d90 0c             2009 	.byte	12
+00002d91 4253575f5354   2010 	.strz	"BSW_START_SEC_DEFAULT_CODE "
+00002d97 4152545f5345 
+00002d9d 435f44454641 
+00002da3 554c545f434f 
+00002da9 44452000 
+00002dad 03             2011 	.byte	3
+00002dae 0d             2012 	.byte	13
+
+                                                                      Page 62
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+00002daf 0d             2013 	.byte	13
+00002db0 01             2014 	.byte	1
+00002db1 d308           2015 	.byte	211,8
+00002db3 53544152545f   2016 	.strz	"START_SEC_CODE "
+00002db9 5345435f434f 
+00002dbf 44452000 
+00002dc3 03             2017 	.byte	3
+00002dc4 bb09           2018 	.byte	187,9
+00002dc6 0e             2019 	.byte	14
+00002dc7 01             2020 	.byte	1
+00002dc8 f307           2021 	.byte	243,7
+00002dca 434f44455f53   2022 	.strz	"CODE_SEC_OPEN "
+00002dd0 45435f4f5045 
+00002dd6 4e2000 
+00002dd9 04             2023 	.byte	4
+00002dda 04             2024 	.byte	4
+00002ddb 01             2025 	.byte	1
+00002ddc 11             2026 	.byte	17
+00002ddd 44434d5f5741   2027 	.strz	"DCM_WAS_STARTED_SEC_ROM_CODE "
+00002de3 535f53544152 
+00002de9 5445445f5345 
+00002def 435f524f4d5f 
+00002df5 434f44452000 
+00002dfb 04             2028 	.byte	4
+00002dfc 01             2029 	.byte	1
+00002dfd 16             2030 	.byte	22
+00002dfe 44434d5f5354   2031 	.strz	"DCM_STOP_SEC_CODE "
+00002e04 4f505f534543 
+00002e0a 5f434f444520 
+00002e10 00 
+00002e11 03             2032 	.byte	3
+00002e12 17             2033 	.byte	23
+00002e13 0c             2034 	.byte	12
+00002e14 01             2035 	.byte	1
+00002e15 06             2036 	.byte	6
+00002e16 4d454d4d4150   2037 	.strz	"MEMMAP_ERROR "
+00002e1c 5f4552524f52 
+00002e22 2000 
+00002e24 01             2038 	.byte	1
+00002e25 18             2039 	.byte	24
+00002e26 4253575f5354   2040 	.strz	"BSW_STOP_SEC_DEFAULT_CODE "
+00002e2c 4f505f534543 
+00002e32 5f4445464155 
+00002e38 4c545f434f44 
+00002e3e 452000 
+00002e41 03             2041 	.byte	3
+00002e42 19             2042 	.byte	25
+00002e43 0d             2043 	.byte	13
+00002e44 01             2044 	.byte	1
+00002e45 d608           2045 	.byte	214,8
+00002e47 53544f505f53   2046 	.strz	"STOP_SEC_CODE "
+00002e4d 45435f434f44 
+00002e53 452000 
+00002e56 03             2047 	.byte	3
+00002e57 bb09           2048 	.byte	187,9
+00002e59 0e             2049 	.byte	14
+00002e5a 04             2050 	.byte	4
+00002e5b 04             2051 	.byte	4
+00002e5c 04             2052 	.byte	4
+00002e5d 04             2053 	.byte	4
+00002e5e 03             2054 	.byte	3
+
+                                                                      Page 63
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+00002e5f 23             2055 	.byte	35
+00002e60 1b             2056 	.byte	27
+00002e61 04             2057 	.byte	4
+00002e62 01             2058 	.byte	1
+00002e63 26             2059 	.byte	38
+00002e64 44434d5f5354   2060 	.strz	"DCM_START_SEC_CODE "
+00002e6a 4152545f5345 
+00002e70 435f434f4445 
+00002e76 2000 
+00002e78 03             2061 	.byte	3
+00002e79 27             2062 	.byte	39
+00002e7a 0c             2063 	.byte	12
+00002e7b 01             2064 	.byte	1
+00002e7c 06             2065 	.byte	6
+00002e7d 4d454d4d4150   2066 	.strz	"MEMMAP_ERROR "
+00002e83 5f4552524f52 
+00002e89 2000 
+00002e8b 01             2067 	.byte	1
+00002e8c 0c             2068 	.byte	12
+00002e8d 4253575f5354   2069 	.strz	"BSW_START_SEC_DEFAULT_CODE "
+00002e93 4152545f5345 
+00002e99 435f44454641 
+00002e9f 554c545f434f 
+00002ea5 44452000 
+00002ea9 03             2070 	.byte	3
+00002eaa 0d             2071 	.byte	13
+00002eab 0d             2072 	.byte	13
+00002eac 01             2073 	.byte	1
+00002ead d308           2074 	.byte	211,8
+00002eaf 53544152545f   2075 	.strz	"START_SEC_CODE "
+00002eb5 5345435f434f 
+00002ebb 44452000 
+00002ebf 03             2076 	.byte	3
+00002ec0 bb09           2077 	.byte	187,9
+00002ec2 0e             2078 	.byte	14
+00002ec3 01             2079 	.byte	1
+00002ec4 f307           2080 	.byte	243,7
+00002ec6 434f44455f53   2081 	.strz	"CODE_SEC_OPEN "
+00002ecc 45435f4f5045 
+00002ed2 4e2000 
+00002ed5 04             2082 	.byte	4
+00002ed6 04             2083 	.byte	4
+00002ed7 01             2084 	.byte	1
+00002ed8 11             2085 	.byte	17
+00002ed9 44434d5f5741   2086 	.strz	"DCM_WAS_STARTED_SEC_ROM_CODE "
+00002edf 535f53544152 
+00002ee5 5445445f5345 
+00002eeb 435f524f4d5f 
+00002ef1 434f44452000 
+00002ef7 04             2087 	.byte	4
+00002ef8 01             2088 	.byte	1
+00002ef9 2a             2089 	.byte	42
+00002efa 44434d5f5354   2090 	.strz	"DCM_STOP_SEC_CODE "
+00002f00 4f505f534543 
+00002f06 5f434f444520 
+00002f0c 00 
+00002f0d 03             2091 	.byte	3
+00002f0e 2b             2092 	.byte	43
+00002f0f 0c             2093 	.byte	12
+00002f10 01             2094 	.byte	1
+00002f11 06             2095 	.byte	6
+
+                                                                      Page 64
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+00002f12 4d454d4d4150   2096 	.strz	"MEMMAP_ERROR "
+00002f18 5f4552524f52 
+00002f1e 2000 
+00002f20 01             2097 	.byte	1
+00002f21 18             2098 	.byte	24
+00002f22 4253575f5354   2099 	.strz	"BSW_STOP_SEC_DEFAULT_CODE "
+00002f28 4f505f534543 
+00002f2e 5f4445464155 
+00002f34 4c545f434f44 
+00002f3a 452000 
+00002f3d 03             2100 	.byte	3
+00002f3e 19             2101 	.byte	25
+00002f3f 0d             2102 	.byte	13
+00002f40 01             2103 	.byte	1
+00002f41 d608           2104 	.byte	214,8
+00002f43 53544f505f53   2105 	.strz	"STOP_SEC_CODE "
+00002f49 45435f434f44 
+00002f4f 452000 
+00002f52 03             2106 	.byte	3
+00002f53 bb09           2107 	.byte	187,9
+00002f55 0e             2108 	.byte	14
+00002f56 04             2109 	.byte	4
+00002f57 04             2110 	.byte	4
+00002f58 04             2111 	.byte	4
+00002f59 01             2112 	.byte	1
+00002f5a 9301           2113 	.byte	147,1
+00002f5c 44434d5f5354   2114 	.strz	"DCM_START_SEC_CODE "
+00002f62 4152545f5345 
+00002f68 435f434f4445 
+00002f6e 2000 
+00002f70 03             2115 	.byte	3
+00002f71 9401           2116 	.byte	148,1
+00002f73 0c             2117 	.byte	12
+00002f74 01             2118 	.byte	1
+00002f75 06             2119 	.byte	6
+00002f76 4d454d4d4150   2120 	.strz	"MEMMAP_ERROR "
+00002f7c 5f4552524f52 
+00002f82 2000 
+00002f84 01             2121 	.byte	1
+00002f85 0c             2122 	.byte	12
+00002f86 4253575f5354   2123 	.strz	"BSW_START_SEC_DEFAULT_CODE "
+00002f8c 4152545f5345 
+00002f92 435f44454641 
+00002f98 554c545f434f 
+00002f9e 44452000 
+00002fa2 03             2124 	.byte	3
+00002fa3 0d             2125 	.byte	13
+00002fa4 0d             2126 	.byte	13
+00002fa5 01             2127 	.byte	1
+00002fa6 d308           2128 	.byte	211,8
+00002fa8 53544152545f   2129 	.strz	"START_SEC_CODE "
+00002fae 5345435f434f 
+00002fb4 44452000 
+00002fb8 03             2130 	.byte	3
+00002fb9 bb09           2131 	.byte	187,9
+00002fbb 0e             2132 	.byte	14
+00002fbc 01             2133 	.byte	1
+00002fbd f307           2134 	.byte	243,7
+00002fbf 434f44455f53   2135 	.strz	"CODE_SEC_OPEN "
+00002fc5 45435f4f5045 
+00002fcb 4e2000 
+
+                                                                      Page 65
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+00002fce 04             2136 	.byte	4
+00002fcf 04             2137 	.byte	4
+00002fd0 01             2138 	.byte	1
+00002fd1 11             2139 	.byte	17
+00002fd2 44434d5f5741   2140 	.strz	"DCM_WAS_STARTED_SEC_ROM_CODE "
+00002fd8 535f53544152 
+00002fde 5445445f5345 
+00002fe4 435f524f4d5f 
+00002fea 434f44452000 
+00002ff0 04             2141 	.byte	4
+00002ff1 01             2142 	.byte	1
+00002ff2 c401           2143 	.byte	196,1
+00002ff4 44434d5f5354   2144 	.strz	"DCM_STOP_SEC_CODE "
+00002ffa 4f505f534543 
+00003000 5f434f444520 
+00003006 00 
+00003007 03             2145 	.byte	3
+00003008 c501           2146 	.byte	197,1
+0000300a 0c             2147 	.byte	12
+0000300b 01             2148 	.byte	1
+0000300c 06             2149 	.byte	6
+0000300d 4d454d4d4150   2150 	.strz	"MEMMAP_ERROR "
+00003013 5f4552524f52 
+00003019 2000 
+0000301b 01             2151 	.byte	1
+0000301c 18             2152 	.byte	24
+0000301d 4253575f5354   2153 	.strz	"BSW_STOP_SEC_DEFAULT_CODE "
+00003023 4f505f534543 
+00003029 5f4445464155 
+0000302f 4c545f434f44 
+00003035 452000 
+00003038 03             2154 	.byte	3
+00003039 19             2155 	.byte	25
+0000303a 0d             2156 	.byte	13
+0000303b 01             2157 	.byte	1
+0000303c d608           2158 	.byte	214,8
+0000303e 53544f505f53   2159 	.strz	"STOP_SEC_CODE "
+00003044 45435f434f44 
+0000304a 452000 
+0000304d 03             2160 	.byte	3
+0000304e bb09           2161 	.byte	187,9
+00003050 0e             2162 	.byte	14
+00003051 04             2163 	.byte	4
+00003052 04             2164 	.byte	4
+00003053 04             2165 	.byte	4
+00003054 01             2166 	.byte	1
+00003055 c901           2167 	.byte	201,1
+00003057 44434d5f5354   2168 	.strz	"DCM_START_SEC_CODE "
+0000305d 4152545f5345 
+00003063 435f434f4445 
+00003069 2000 
+0000306b 03             2169 	.byte	3
+0000306c ca01           2170 	.byte	202,1
+0000306e 0c             2171 	.byte	12
+0000306f 01             2172 	.byte	1
+00003070 06             2173 	.byte	6
+00003071 4d454d4d4150   2174 	.strz	"MEMMAP_ERROR "
+00003077 5f4552524f52 
+0000307d 2000 
+0000307f 01             2175 	.byte	1
+00003080 0c             2176 	.byte	12
+
+                                                                      Page 66
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+00003081 4253575f5354   2177 	.strz	"BSW_START_SEC_DEFAULT_CODE "
+00003087 4152545f5345 
+0000308d 435f44454641 
+00003093 554c545f434f 
+00003099 44452000 
+0000309d 03             2178 	.byte	3
+0000309e 0d             2179 	.byte	13
+0000309f 0d             2180 	.byte	13
+000030a0 01             2181 	.byte	1
+000030a1 d308           2182 	.byte	211,8
+000030a3 53544152545f   2183 	.strz	"START_SEC_CODE "
+000030a9 5345435f434f 
+000030af 44452000 
+000030b3 03             2184 	.byte	3
+000030b4 bb09           2185 	.byte	187,9
+000030b6 0e             2186 	.byte	14
+000030b7 01             2187 	.byte	1
+000030b8 f307           2188 	.byte	243,7
+000030ba 434f44455f53   2189 	.strz	"CODE_SEC_OPEN "
+000030c0 45435f4f5045 
+000030c6 4e2000 
+000030c9 04             2190 	.byte	4
+000030ca 04             2191 	.byte	4
+000030cb 01             2192 	.byte	1
+000030cc 11             2193 	.byte	17
+000030cd 44434d5f5741   2194 	.strz	"DCM_WAS_STARTED_SEC_ROM_CODE "
+000030d3 535f53544152 
+000030d9 5445445f5345 
+000030df 435f524f4d5f 
+000030e5 434f44452000 
+000030eb 04             2195 	.byte	4
+000030ec 01             2196 	.byte	1
+000030ed cc01           2197 	.byte	204,1
+000030ef 44434d5f5354   2198 	.strz	"DCM_STOP_SEC_CODE "
+000030f5 4f505f534543 
+000030fb 5f434f444520 
+00003101 00 
+00003102 03             2199 	.byte	3
+00003103 cd01           2200 	.byte	205,1
+00003105 0c             2201 	.byte	12
+00003106 01             2202 	.byte	1
+00003107 06             2203 	.byte	6
+00003108 4d454d4d4150   2204 	.strz	"MEMMAP_ERROR "
+0000310e 5f4552524f52 
+00003114 2000 
+00003116 01             2205 	.byte	1
+00003117 18             2206 	.byte	24
+00003118 4253575f5354   2207 	.strz	"BSW_STOP_SEC_DEFAULT_CODE "
+0000311e 4f505f534543 
+00003124 5f4445464155 
+0000312a 4c545f434f44 
+00003130 452000 
+00003133 03             2208 	.byte	3
+00003134 19             2209 	.byte	25
+00003135 0d             2210 	.byte	13
+00003136 01             2211 	.byte	1
+00003137 d608           2212 	.byte	214,8
+00003139 53544f505f53   2213 	.strz	"STOP_SEC_CODE "
+0000313f 45435f434f44 
+00003145 452000 
+00003148 03             2214 	.byte	3
+
+                                                                      Page 67
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+00003149 bb09           2215 	.byte	187,9
+0000314b 0e             2216 	.byte	14
+0000314c 04             2217 	.byte	4
+0000314d 04             2218 	.byte	4
+0000314e 04             2219 	.byte	4
+0000314f 04             2220 	.byte	4
+00003150 03             2221 	.byte	3
+00003151 0f             2222 	.byte	15
+00003152 1c             2223 	.byte	28
+00003153 01             2224 	.byte	1
+00003154 04             2225 	.byte	4
+00003155 44434d5f5354   2226 	.strz	"DCM_START_SEC_CODE "
+0000315b 4152545f5345 
+00003161 435f434f4445 
+00003167 2000 
+00003169 03             2227 	.byte	3
+0000316a 05             2228 	.byte	5
+0000316b 0c             2229 	.byte	12
+0000316c 01             2230 	.byte	1
+0000316d 06             2231 	.byte	6
+0000316e 4d454d4d4150   2232 	.strz	"MEMMAP_ERROR "
+00003174 5f4552524f52 
+0000317a 2000 
+0000317c 01             2233 	.byte	1
+0000317d 0c             2234 	.byte	12
+0000317e 4253575f5354   2235 	.strz	"BSW_START_SEC_DEFAULT_CODE "
+00003184 4152545f5345 
+0000318a 435f44454641 
+00003190 554c545f434f 
+00003196 44452000 
+0000319a 03             2236 	.byte	3
+0000319b 0d             2237 	.byte	13
+0000319c 0d             2238 	.byte	13
+0000319d 01             2239 	.byte	1
+0000319e d308           2240 	.byte	211,8
+000031a0 53544152545f   2241 	.strz	"START_SEC_CODE "
+000031a6 5345435f434f 
+000031ac 44452000 
+000031b0 03             2242 	.byte	3
+000031b1 bb09           2243 	.byte	187,9
+000031b3 0e             2244 	.byte	14
+000031b4 01             2245 	.byte	1
+000031b5 f307           2246 	.byte	243,7
+000031b7 434f44455f53   2247 	.strz	"CODE_SEC_OPEN "
+000031bd 45435f4f5045 
+000031c3 4e2000 
+000031c6 04             2248 	.byte	4
+000031c7 04             2249 	.byte	4
+000031c8 01             2250 	.byte	1
+000031c9 11             2251 	.byte	17
+000031ca 44434d5f5741   2252 	.strz	"DCM_WAS_STARTED_SEC_ROM_CODE "
+000031d0 535f53544152 
+000031d6 5445445f5345 
+000031dc 435f524f4d5f 
+000031e2 434f44452000 
+000031e8 04             2253 	.byte	4
+000031e9 01             2254 	.byte	1
+000031ea 3e             2255 	.byte	62
+000031eb 44434d5f5354   2256 	.strz	"DCM_STOP_SEC_CODE "
+000031f1 4f505f534543 
+000031f7 5f434f444520 
+
+                                                                      Page 68
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+000031fd 00 
+000031fe 03             2257 	.byte	3
+000031ff 3f             2258 	.byte	63
+00003200 0c             2259 	.byte	12
+00003201 01             2260 	.byte	1
+00003202 06             2261 	.byte	6
+00003203 4d454d4d4150   2262 	.strz	"MEMMAP_ERROR "
+00003209 5f4552524f52 
+0000320f 2000 
+00003211 01             2263 	.byte	1
+00003212 18             2264 	.byte	24
+00003213 4253575f5354   2265 	.strz	"BSW_STOP_SEC_DEFAULT_CODE "
+00003219 4f505f534543 
+0000321f 5f4445464155 
+00003225 4c545f434f44 
+0000322b 452000 
+0000322e 03             2266 	.byte	3
+0000322f 19             2267 	.byte	25
+00003230 0d             2268 	.byte	13
+00003231 01             2269 	.byte	1
+00003232 d608           2270 	.byte	214,8
+00003234 53544f505f53   2271 	.strz	"STOP_SEC_CODE "
+0000323a 45435f434f44 
+00003240 452000 
+00003243 03             2272 	.byte	3
+00003244 bb09           2273 	.byte	187,9
+00003246 0e             2274 	.byte	14
+00003247 04             2275 	.byte	4
+00003248 04             2276 	.byte	4
+00003249 04             2277 	.byte	4
+0000324a 04             2278 	.byte	4
+0000324b 01             2279 	.byte	1
+0000324c 13             2280 	.byte	19
+0000324d 44434d5f5052   2281 	.strz	"DCM_PRV_EXPORTAPI2LEGACY "
+00003253 565f4558504f 
+00003259 525441504932 
+0000325f 4c4547414359 
+00003265 2000 
+00003267 01             2282 	.byte	1
+00003268 1c             2283 	.byte	28
+00003269 44434d5f5354   2284 	.strz	"DCM_START_SEC_CODE "
+0000326f 4152545f5345 
+00003275 435f434f4445 
+0000327b 2000 
+0000327d 03             2285 	.byte	3
+0000327e 1d             2286 	.byte	29
+0000327f 0c             2287 	.byte	12
+00003280 01             2288 	.byte	1
+00003281 06             2289 	.byte	6
+00003282 4d454d4d4150   2290 	.strz	"MEMMAP_ERROR "
+00003288 5f4552524f52 
+0000328e 2000 
+00003290 01             2291 	.byte	1
+00003291 0c             2292 	.byte	12
+00003292 4253575f5354   2293 	.strz	"BSW_START_SEC_DEFAULT_CODE "
+00003298 4152545f5345 
+0000329e 435f44454641 
+000032a4 554c545f434f 
+000032aa 44452000 
+000032ae 03             2294 	.byte	3
+000032af 0d             2295 	.byte	13
+
+                                                                      Page 69
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+000032b0 0d             2296 	.byte	13
+000032b1 01             2297 	.byte	1
+000032b2 d308           2298 	.byte	211,8
+000032b4 53544152545f   2299 	.strz	"START_SEC_CODE "
+000032ba 5345435f434f 
+000032c0 44452000 
+000032c4 03             2300 	.byte	3
+000032c5 bb09           2301 	.byte	187,9
+000032c7 0e             2302 	.byte	14
+000032c8 01             2303 	.byte	1
+000032c9 f307           2304 	.byte	243,7
+000032cb 434f44455f53   2305 	.strz	"CODE_SEC_OPEN "
+000032d1 45435f4f5045 
+000032d7 4e2000 
+000032da 04             2306 	.byte	4
+000032db 04             2307 	.byte	4
+000032dc 01             2308 	.byte	1
+000032dd 11             2309 	.byte	17
+000032de 44434d5f5741   2310 	.strz	"DCM_WAS_STARTED_SEC_ROM_CODE "
+000032e4 535f53544152 
+000032ea 5445445f5345 
+000032f0 435f524f4d5f 
+000032f6 434f44452000 
+000032fc 04             2311 	.byte	4
+000032fd 01             2312 	.byte	1
+000032fe 1f             2313 	.byte	31
+000032ff 44434d5f5354   2314 	.strz	"DCM_STOP_SEC_CODE "
+00003305 4f505f534543 
+0000330b 5f434f444520 
+00003311 00 
+00003312 03             2315 	.byte	3
+00003313 20             2316 	.byte	32
+00003314 0c             2317 	.byte	12
+00003315 01             2318 	.byte	1
+00003316 06             2319 	.byte	6
+00003317 4d454d4d4150   2320 	.strz	"MEMMAP_ERROR "
+0000331d 5f4552524f52 
+00003323 2000 
+00003325 01             2321 	.byte	1
+00003326 18             2322 	.byte	24
+00003327 4253575f5354   2323 	.strz	"BSW_STOP_SEC_DEFAULT_CODE "
+0000332d 4f505f534543 
+00003333 5f4445464155 
+00003339 4c545f434f44 
+0000333f 452000 
+00003342 03             2324 	.byte	3
+00003343 19             2325 	.byte	25
+00003344 0d             2326 	.byte	13
+00003345 01             2327 	.byte	1
+00003346 d608           2328 	.byte	214,8
+00003348 53544f505f53   2329 	.strz	"STOP_SEC_CODE "
+0000334e 45435f434f44 
+00003354 452000 
+00003357 03             2330 	.byte	3
+00003358 bb09           2331 	.byte	187,9
+0000335a 0e             2332 	.byte	14
+0000335b 04             2333 	.byte	4
+0000335c 04             2334 	.byte	4
+0000335d 04             2335 	.byte	4
+0000335e 01             2336 	.byte	1
+0000335f 27             2337 	.byte	39
+
+                                                                      Page 70
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+00003360 44434d5f5354   2338 	.strz	"DCM_START_SEC_VAR_CLEARED_8 "
+00003366 4152545f5345 
+0000336c 435f5641525f 
+00003372 434c45415245 
+00003378 445f382000 
+0000337d 03             2339 	.byte	3
+0000337e 28             2340 	.byte	40
+0000337f 0c             2341 	.byte	12
+00003380 01             2342 	.byte	1
+00003381 06             2343 	.byte	6
+00003382 4d454d4d4150   2344 	.strz	"MEMMAP_ERROR "
+00003388 5f4552524f52 
+0000338e 2000 
+00003390 01             2345 	.byte	1
+00003391 f301           2346 	.byte	243,1
+00003393 4253575f5354   2347 	.strz	"BSW_START_SEC_DEFAULT_RAM0_CLEARED_8 "
+00003399 4152545f5345 
+0000339f 435f44454641 
+000033a5 554c545f5241 
+000033ab 4d305f434c45 
+000033b1 415245445f38 
+000033b7 2000 
+000033b9 03             2348 	.byte	3
+000033ba f401           2349 	.byte	244,1
+000033bc 0d             2350 	.byte	13
+000033bd 01             2351 	.byte	1
+000033be 9805           2352 	.byte	152,5
+000033c0 53544152545f   2353 	.strz	"START_SEC_VAR_CLEARED_8 "
+000033c6 5345435f5641 
+000033cc 525f434c4541 
+000033d2 5245445f3820 
+000033d8 00 
+000033d9 03             2354 	.byte	3
+000033da bb09           2355 	.byte	187,9
+000033dc 0e             2356 	.byte	14
+000033dd 01             2357 	.byte	1
+000033de 46             2358 	.byte	70
+000033df 53544152545f   2359 	.strz	"START_SEC_VAR_ZERO_INIT_8BIT "
+000033e5 5345435f5641 
+000033eb 525f5a45524f 
+000033f1 5f494e49545f 
+000033f7 384249542000 
+000033fd 01             2360 	.byte	1
+000033fe e009           2361 	.byte	224,9
+00003400 5641525f5345   2362 	.strz	"VAR_SEC_OPEN "
+00003406 435f4f50454e 
+0000340c 2000 
+0000340e 04             2363 	.byte	4
+0000340f 04             2364 	.byte	4
+00003410 01             2365 	.byte	1
+00003411 f801           2366 	.byte	248,1
+00003413 44434d5f5741   2367 	.strz	"DCM_WAS_STARTED_SEC_VAR_CLEARED_8 "
+00003419 535f53544152 
+0000341f 5445445f5345 
+00003425 435f5641525f 
+0000342b 434c45415245 
+00003431 445f382000 
+00003436 04             2368 	.byte	4
+00003437 01             2369 	.byte	1
+00003438 2a             2370 	.byte	42
+00003439 44434d5f5354   2371 	.strz	"DCM_STOP_SEC_VAR_CLEARED_8 "
+
+                                                                      Page 71
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_0000a801.s
+0000343f 4f505f534543 
+00003445 5f5641525f43 
+0000344b 4c4541524544 
+00003451 5f382000 
+00003455 03             2372 	.byte	3
+00003456 2b             2373 	.byte	43
+00003457 0c             2374 	.byte	12
+00003458 01             2375 	.byte	1
+00003459 06             2376 	.byte	6
+0000345a 4d454d4d4150   2377 	.strz	"MEMMAP_ERROR "
+00003460 5f4552524f52 
+00003466 2000 
+00003468 01             2378 	.byte	1
+00003469 ff01           2379 	.byte	255,1
+0000346b 4253575f5354   2380 	.strz	"BSW_STOP_SEC_DEFAULT_RAM0_CLEARED_8 "
+00003471 4f505f534543 
+00003477 5f4445464155 
+0000347d 4c545f52414d 
+00003483 305f434c4541 
+00003489 5245445f3820 
+0000348f 00 
+00003490 03             2381 	.byte	3
+00003491 8002           2382 	.byte	128,2
+00003493 0d             2383 	.byte	13
+00003494 01             2384 	.byte	1
+00003495 9b05           2385 	.byte	155,5
+00003497 53544f505f53   2386 	.strz	"STOP_SEC_VAR "
+0000349d 45435f564152 
+000034a3 2000 
+000034a5 03             2387 	.byte	3
+000034a6 bb09           2388 	.byte	187,9
+000034a8 0e             2389 	.byte	14
+000034a9 04             2390 	.byte	4
+000034aa 04             2391 	.byte	4
+000034ab 04             2392 	.byte	4
+000034ac 04             2393 	.byte	4
+000034ad 04             2394 	.byte	4
+000034ae 03             2395 	.byte	3
+000034af 06             2396 	.byte	6
+000034b0 1d             2397 	.byte	29
+000034b1 04             2398 	.byte	4
+000034b2 04             2399 	.byte	4
+000034b3 00             2400 	.byte	0
+                        2401 	.section	.debug_abbrev
+00000017 00             2402 	.byte	0
+                        2403 	.section	.debug_info
+                        2404 .Ldw_end:
+                        2405 .rh850_flags REGMODE32,DATA_ALIGN8,GP_FIX,EP_NONFIX,TP_FIX,REG2_RESERVE,G3K,GHS_MISALIGN,SDA_EXTRA_REGS_0

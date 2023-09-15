@@ -1,0 +1,2678 @@
+                                                                      Page 1
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00004a01.s
+Command Line: C:\ghs\comp_201517\ease850.exe -w -elf -b0 -I../source/common -I../source/ProjectCompiler -I../source/ProjectCfg -I../source/SwcApplTpms -I../source/SwcApplEcuM -I../source/SwcServiceBswM -I../source/SwcServiceEcuM -I../source/SwcServiceNvM -I../source/SwcServiceOs -I../source/SwcServiceStartUp -I../source/McalAdc -I../source/McalDio -I../source/McalGpt -I../source/McalMcu -I../source/McalWdg -I../source/wrappers -I../source/wrappers/McalAta -I../source/McalLin -I../source/McalCan -I../source/wrappers/OS -I../source/McalFls -I../source/EcuabFee -I../source/EcuabMemIf -I../source/wrappers/VStdLib -I../source/wrappers/Crc -I../source/wrappers/FBL_APPL -I../source/wrappers/NVM_MANAGER -I../source/wrappers/DEM_MANAGER -I../source/wrappers/RDC_MANAGER -I../source/wrappers/ENV_MANAGER -I../source/wrappers/SYS_MANAGER -I../source/wrappers/EcuabCanIf -I../source/EcuabCanTrcv -I../source/wrappers/SwcServiceCanSM -I../source/wrappers/SwcServiceCanTp -I../source/wrappers/SwcServiceCanTp_PreCompile -I../source/wrappers/SwcServiceCom -I../source/wrappers/SwcServiceComM -I../source/wrappers/SwcServiceDcm -I../source/wrappers/SwcServicePduR -I../source/wrappers/SwcServiceEcuM -I../source/wrappers/Bfx -I../source/wrappers/SwcServiceDem -I../source/SwcServiceCom -I../source/SwcServiceDet -I../source/SwcServiceFiM -I../source/SwcServicePduR -I../source/SwcServiceSchM -I../source/wrappers/LibAutosarDiag -I../source/wrappers/rba_BswSrv -IC:\ghs\comp_201517\lib\rh850 -cg_underscore -cpu=rh850g3k -no_v850_simd -rh850_fpsimd=none -nomacro -patch_dbo=C:\_ECU2\ECU_Rivian_A1\Target\repo_projects\pRealEcu\cR_LATEST\make\output\objects\Dem_EnvDid.dbo -source=Dem_EnvDid.c -o output\objects\gh_00004a01.o -list=output\list\Dem_EnvDid.lst C:\Users\nhuliyap\AppData\Local\Temp\gh_00004a01.s 
+Original File: C:\Users\nhuliyap\AppData\Local\Temp\gh_00004a01.s
+Source File: Dem_EnvDid.c
+Directory: C:\_ECU2\ECU_Rivian_A1\Target\repo_projects\pRealEcu\cR_LATEST\make
+Host OS: Windows
+EASE: Copyright (C) 1983-2015 Green Hills Software.  All Rights Reserved.
+Release: Compiler v2015.1.7
+Build Directory: [Directory] BTOWORKER6:c:/build_2015_1_bto/2015-10-21.2100-2015_1_bto/win32-comp-ecom
+Revision: [VCInfo] http://toolsvc/branches/release-branch-70-bto/src@544153 (built by build)
+Revision Date: Thu Oct 22 07:50:13 2015
+
+Release Date: Thu Oct 22 09:32:32 2015
+
+                           1 --Driver Command: ccv850 ../source/wrappers/SwcServiceDem/Dem_EnvDid.c
+                           2 --		-cpu=rh850 -fhard -ignore_callt_state_in_interrupts -large_sda
+                           3 --		-misalign_pack -nofarcalls -nofloatio -no_callt -Ogeneral
+                           4 --		-Onounroll -prepare_dispose -registermode=32 -reserve_r2 -sda=0
+                           5 --		-shorten_loads -Wshadow --brief_diagnostics --no_commons
+                           6 --		--no_wrap_diagnostics --prototype_errors --short_enum -list -G
+                           7 --		-dual_debug -dwarf -X5523 -lnk=-no_xda_modifications -D
+                           8 --		NOT_READY_FOR_TESTING_OR_DEPLOYMENT -D IBTCM_SW_ANPASSUNGEN -D
+                           9 --		BUILD_RIVIAN -c -inline_prologue -I../source/common
+                          10 --		-I../source/ProjectCompiler -I../source/ProjectCfg
+                          11 --		-I../source/SwcApplTpms -I../source/SwcApplEcuM
+                          12 --		-I../source/SwcServiceBswM -I../source/SwcServiceEcuM
+                          13 --		-I../source/SwcServiceNvM -I../source/SwcServiceOs
+                          14 --		-I../source/SwcServiceStartUp -I../source/McalAdc
+                          15 --		-I../source/McalDio -I../source/McalGpt -I../source/McalMcu
+                          16 --		-I../source/McalWdg -I../source/wrappers
+                          17 --		-I../source/wrappers/McalAta -I../source/McalLin
+                          18 --		-I../source/McalCan -I../source/wrappers/OS -I../source/McalFls
+                          19 --		-I../source/EcuabFee -I../source/EcuabMemIf
+                          20 --		-I../source/wrappers/VStdLib -I../source/wrappers
+                          21 --		-I../source/wrappers/Crc -I../source/wrappers/FBL_APPL
+                          22 --		-I../source/wrappers/NVM_MANAGER -I../source/wrappers/DEM_MANAGER
+                          23 --		-I../source/wrappers/RDC_MANAGER -I../source/wrappers/ENV_MANAGER
+                          24 --		-I../source/wrappers/SYS_MANAGER -I../source/wrappers/EcuabCanIf
+                          25 --		-I../source/EcuabCanTrcv -I../source/wrappers/SwcServiceCanSM
+                          26 --		-I../source/wrappers/SwcServiceCanTp
+                          27 --		-I../source/wrappers/SwcServiceCanTp_PreCompile
+                          28 --		-I../source/wrappers/SwcServiceCom
+                          29 --		-I../source/wrappers/SwcServiceComM
+                          30 --		-I../source/wrappers/SwcServiceDcm
+                          31 --		-I../source/wrappers/SwcServicePduR
+                          32 --		-I../source/wrappers/SwcServiceEcuM -I../source/wrappers/Bfx
+                          33 --		-I../source/wrappers/SwcServiceDem -I../source/SwcServiceCom
+                          34 --		-I../source/SwcServiceDet -I../source/SwcServiceFiM
+                          35 --		-I../source/SwcServicePduR -I../source/SwcServiceSchM
+                          36 --		-I../source/wrappers/LibAutosarDiag
+                          37 --		-I../source/wrappers/rba_BswSrv -object_dir=output/objects
+                          38 --		-list_dir=output/list
+                          39 --Source File:   ../source/wrappers/SwcServiceDem/Dem_EnvDid.c
+                          40 --Directory:     
+                          41 --		C:\_ECU2\ECU_Rivian_A1\Target\repo_projects\pRealEcu\cR_LATEST\make
+                          42 --Compile Date:  Fri Sep 15 14:06:11 2023
+                          43 --Host OS:       Win32
+                          44 --Version:       C-RH850 2015.1.7 RELEASE VERSION
+                          45 --Release:       Compiler v2015.1.7
+                          46 --Revision Date: Thu Oct 22 08:06:12 2015
+                          47 --Release Date:  Thu Oct 22 09:34:32 2015
+                          48 -- ecom  -g -w -OM
+                          49 
+                          50 	.section ".rodata","a"
+
+                                                                      Page 2
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00004a01.s
+                          51 	.align	4
+                          52 	.global	_Dem_Cfg_EnvDid
+00000000 0000             53 _Dem_Cfg_EnvDid:	.space	2
+00000002 0000             54 	.space	2
+00000004 0100010d         55 	.byte	1,0,1,13
+00000008 0200000d         56 	.byte	2,0,0,13
+0000000c 0300ff0c         57 	.byte	3,0,255,12
+00000010 0d000100         58 	.byte	13,0,1,0
+                          59 	.type	_Dem_Cfg_EnvDid,@object
+                          60 	.size	_Dem_Cfg_EnvDid,20
+                          61 	.global	_Dem_Cfg_EnvDid2DataElement
+00000014 0b03010a         62 _Dem_Cfg_EnvDid2DataElement:	.byte	11,3,1,10
+00000018 04050b01         63 	.byte	4,5,11,1
+0000001c 02060708         64 	.byte	2,6,7,8
+00000020 09               65 	.byte	9
+00000021 00               66 	.space	1
+00000022 0000             67 	.space	2
+                          68 	.type	_Dem_Cfg_EnvDid2DataElement,@object
+                          69 	.size	_Dem_Cfg_EnvDid2DataElement,16
+                          70 	.data
+                          71 	.ghsnote version,17
+                          72 	.ghsnote tools,3
+                          73 	.ghsnote options,144
+                          74 	.text
+                          75 ..bof.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake.5Coutput.5Cobjects.5CDem_EnvDid...43.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake..650448B3..0::
+                          76 ..eof.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake.5Coutput.5Cobjects.5CDem_EnvDid...43.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake..650448B3..0::
+                          77 	.section	.debug_info
+                          78 .Ldw_begin:
+00000000 ad010000         79 	.word	.Ldw_end-.Ldw_begin-4
+00000004 0200             80 	.byte	2,0
+00000006 00000000*        81 	.word	.Ldw_abbr_begin
+0000000a 04               82 	.byte	4
+                          83 	.section	.debug_abbrev
+                          84 .Ldw_abbr_begin:
+                          85 	.section	.debug_info
+0000000b 01               86 	.byte	1
+0000000c 00000000*        87 	.word	..bof.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake.5Coutput.5Cobjects.5CDem_EnvDid...43.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake..650448B3..0
+00000010 00000000*        88 	.word	..eof.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake.5Coutput.5Cobjects.5CDem_EnvDid...43.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_LATEST.5Cmake..650448B3..0
+00000014 2e2e2f736f75     89 	.strz	"../source/wrappers/SwcServiceDem/Dem_EnvDid.c"
+0000001a 7263652f7772 
+00000020 617070657273 
+00000026 2f5377635365 
+0000002c 727669636544 
+00000032 656d2f44656d 
+00000038 5f456e764469 
+0000003e 642e6300 
+00000042 433a5c5f4543     90 	.strz	"C:\\_ECU2\\ECU_Rivian_A1\\Target\\repo_projects\\pRealEcu\\cR_LATEST\\make"
+00000048 55325c454355 
+0000004e 5f5269766961 
+00000054 6e5f41315c54 
+0000005a 61726765745c 
+00000060 7265706f5f70 
+00000066 726f6a656374 
+0000006c 735c70526561 
+00000072 6c4563755c63 
+00000078 525f4c415445 
+0000007e 53545c6d616b 
+00000084 6500 
+00000086 474853204320     91 	.strz	"GHS C 2015.1.7 [dual]"
+0000008c 323031352e31 
+00000092 2e37205b6475 
+
+                                                                      Page 3
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00004a01.s
+00000098 616c5d00 
+0000009c 0100             92 	.byte	1,0
+0000009e 00000000*        93 	.word	.Ldw_line_begin
+000000a2 00000000*        94 	.word	.Ldw_macinfo_begin
+000000a6 00               95 	.byte	0
+                          96 
+                          97 	.section	.debug_abbrev
+00000000 01               98 	.byte	1
+00000001 11               99 	.byte	17
+00000002 01              100 	.byte	1
+00000003 1101            101 	.byte	17,1
+00000005 1201            102 	.byte	18,1
+00000007 0308            103 	.byte	3,8
+00000009 1b08            104 	.byte	27,8
+0000000b 2508            105 	.byte	37,8
+0000000d 1305            106 	.byte	19,5
+0000000f 1006            107 	.byte	16,6
+00000011 4306            108 	.byte	67,6
+00000013 420b            109 	.byte	66,11
+00000015 0000            110 	.byte	0,0
+                         111 
+                         112 	.section	.debug_line
+                         113 .Ldw_line_begin:
+00000000 81070000        114 	.word	.Ldw_line_end-.Ldw_line_begin-4
+00000004 0200            115 	.byte	2,0
+00000006 00000000*       116 	.word	.Ldw_lpro_end-.Ldw_lpro_begin
+                         117 .Ldw_lpro_begin:
+0000000a 01              118 	.byte	1
+0000000b 00              119 	.byte	0
+0000000c 00              120 	.byte	0
+0000000d 04              121 	.byte	4
+0000000e 0a              122 	.byte	10
+0000000f 000101          123 	.byte	0,1,1
+00000012 010100          124 	.byte	1,1,0
+00000015 000001          125 	.byte	0,0,1
+00000018 00              126 	.byte	0
+00000019 2e2e2f736f75    127 	.strz	"../source/wrappers/SwcServiceDem/Dem_EnvDid.c"
+0000001f 7263652f7772 
+00000025 617070657273 
+0000002b 2f5377635365 
+00000031 727669636544 
+00000037 656d2f44656d 
+0000003d 5f456e764469 
+00000043 642e6300 
+00000047 000000          128 	.byte	0,0,0
+0000004a 2e2e2f736f75    129 	.strz	"../source/common/Std_Types.hpp"
+00000050 7263652f636f 
+00000056 6d6d6f6e2f53 
+0000005c 74645f547970 
+00000062 65732e687070 
+00000068 00 
+00000069 000000          130 	.byte	0,0,0
+0000006c 2e2e2f736f75    131 	.strz	"../source/common/Platform_Types.hpp"
+00000072 7263652f636f 
+00000078 6d6d6f6e2f50 
+0000007e 6c6174666f72 
+00000084 6d5f54797065 
+0000008a 732e68707000 
+00000090 000000          132 	.byte	0,0,0
+00000093 2e2e2f736f75    133 	.strz	"../source/common/Compiler.hpp"
+00000099 7263652f636f 
+
+                                                                      Page 4
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00004a01.s
+0000009f 6d6d6f6e2f43 
+000000a5 6f6d70696c65 
+000000ab 722e68707000 
+000000b1 000000          134 	.byte	0,0,0
+000000b4 2e2e2f736f75    135 	.strz	"../source/ProjectCompiler/Compiler_Cfg.hpp"
+000000ba 7263652f5072 
+000000c0 6f6a65637443 
+000000c6 6f6d70696c65 
+000000cc 722f436f6d70 
+000000d2 696c65725f43 
+000000d8 66672e687070 
+000000de 00 
+000000df 000000          136 	.byte	0,0,0
+000000e2 2e2e2f736f75    137 	.strz	"../source/ProjectCompiler/CompilerCfg_SwcServiceOs.hpp"
+000000e8 7263652f5072 
+000000ee 6f6a65637443 
+000000f4 6f6d70696c65 
+000000fa 722f436f6d70 
+00000100 696c65724366 
+00000106 675f53776353 
+0000010c 657276696365 
+00000112 4f732e687070 
+00000118 00 
+00000119 000000          138 	.byte	0,0,0
+0000011c 2e2e2f736f75    139 	.strz	"../source/ProjectCfg/Dem_Cfg_EnvDid.hpp"
+00000122 7263652f5072 
+00000128 6f6a65637443 
+0000012e 66672f44656d 
+00000134 5f4366675f45 
+0000013a 6e764469642e 
+00000140 68707000 
+00000144 000000          140 	.byte	0,0,0
+00000147 2e2e2f736f75    141 	.strz	"../source/ProjectCfg/Dem_Cfg_EnvDataElement.hpp"
+0000014d 7263652f5072 
+00000153 6f6a65637443 
+00000159 66672f44656d 
+0000015f 5f4366675f45 
+00000165 6e7644617461 
+0000016b 456c656d656e 
+00000171 742e68707000 
+00000177 000000          142 	.byte	0,0,0
+0000017a 2e2e2f736f75    143 	.strz	"../source/wrappers/SwcServiceDem/Dem_EnvDid.hpp"
+00000180 7263652f7772 
+00000186 617070657273 
+0000018c 2f5377635365 
+00000192 727669636544 
+00000198 656d2f44656d 
+0000019e 5f456e764469 
+000001a4 642e68707000 
+000001aa 000000          144 	.byte	0,0,0
+000001ad 2e2e2f736f75    145 	.strz	"../source/wrappers/SwcServiceDem/Dem_Types.hpp"
+000001b3 7263652f7772 
+000001b9 617070657273 
+000001bf 2f5377635365 
+000001c5 727669636544 
+000001cb 656d2f44656d 
+000001d1 5f5479706573 
+000001d7 2e68707000 
+000001dc 000000          146 	.byte	0,0,0
+000001df 2e2e2f736f75    147 	.strz	"../source/ProjectCfg/Dem_Cfg.hpp"
+000001e5 7263652f5072 
+
+                                                                      Page 5
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00004a01.s
+000001eb 6f6a65637443 
+000001f1 66672f44656d 
+000001f7 5f4366672e68 
+000001fd 707000 
+00000200 000000          148 	.byte	0,0,0
+00000203 2e2e2f736f75    149 	.strz	"../source/ProjectCfg/Dem_Cfg_Client.hpp"
+00000209 7263652f5072 
+0000020f 6f6a65637443 
+00000215 66672f44656d 
+0000021b 5f4366675f43 
+00000221 6c69656e742e 
+00000227 68707000 
+0000022b 000000          150 	.byte	0,0,0
+0000022e 2e2e2f736f75    151 	.strz	"../source/wrappers/SwcServiceDem/Dem_ClientHandlingTypes.hpp"
+00000234 7263652f7772 
+0000023a 617070657273 
+00000240 2f5377635365 
+00000246 727669636544 
+0000024c 656d2f44656d 
+00000252 5f436c69656e 
+00000258 7448616e646c 
+0000025e 696e67547970 
+00000264 65732e687070 
+0000026a 00 
+0000026b 000000          152 	.byte	0,0,0
+0000026e 2e2e2f736f75    153 	.strz	"../source/ProjectCfg/Dem_Cfg_NodeId.hpp"
+00000274 7263652f5072 
+0000027a 6f6a65637443 
+00000280 66672f44656d 
+00000286 5f4366675f4e 
+0000028c 6f646549642e 
+00000292 68707000 
+00000296 000000          154 	.byte	0,0,0
+00000299 2e2e2f736f75    155 	.strz	"../source/ProjectCfg/Dem_Cfg_Version.hpp"
+0000029f 7263652f5072 
+000002a5 6f6a65637443 
+000002ab 66672f44656d 
+000002b1 5f4366675f56 
+000002b7 657273696f6e 
+000002bd 2e68707000 
+000002c2 000000          156 	.byte	0,0,0
+000002c5 2e2e2f736f75    157 	.strz	"../source/wrappers/Rte_Dem_Type.hpp"
+000002cb 7263652f7772 
+000002d1 617070657273 
+000002d7 2f5274655f44 
+000002dd 656d5f547970 
+000002e3 652e68707000 
+000002e9 000000          158 	.byte	0,0,0
+000002ec 2e2e2f736f75    159 	.strz	"../source/McalMcu/types.hpp"
+000002f2 7263652f4d63 
+000002f8 616c4d63752f 
+000002fe 74797065732e 
+00000304 68707000 
+00000308 000000          160 	.byte	0,0,0
+0000030b 2e2e2f736f75    161 	.strz	"../source/wrappers/SwcServiceDem/Dem_Array.hpp"
+00000311 7263652f7772 
+00000317 617070657273 
+0000031d 2f5377635365 
+00000323 727669636544 
+00000329 656d2f44656d 
+0000032f 5f4172726179 
+
+                                                                      Page 6
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00004a01.s
+00000335 2e68707000 
+0000033a 000000          162 	.byte	0,0,0
+0000033d 2e2e2f736f75    163 	.strz	"../source/ProjectCfg/Dem_Cfg_Main.hpp"
+00000343 7263652f5072 
+00000349 6f6a65637443 
+0000034f 66672f44656d 
+00000355 5f4366675f4d 
+0000035b 61696e2e6870 
+00000361 7000 
+00000363 000000          164 	.byte	0,0,0
+00000366 2e2e2f736f75    165 	.strz	"../source/wrappers/SwcServiceDem/Dem_EnvDataElement.hpp"
+0000036c 7263652f7772 
+00000372 617070657273 
+00000378 2f5377635365 
+0000037e 727669636544 
+00000384 656d2f44656d 
+0000038a 5f456e764461 
+00000390 7461456c656d 
+00000396 656e742e6870 
+0000039c 7000 
+0000039e 000000          166 	.byte	0,0,0
+000003a1 2e2e2f736f75    167 	.strz	"../source/wrappers/SwcServiceDem/Dem_Lib.hpp"
+000003a7 7263652f7772 
+000003ad 617070657273 
+000003b3 2f5377635365 
+000003b9 727669636544 
+000003bf 656d2f44656d 
+000003c5 5f4c69622e68 
+000003cb 707000 
+000003ce 000000          168 	.byte	0,0,0
+000003d1 2e2e2f736f75    169 	.strz	"../source/wrappers/SwcServiceDem/Dem_Lok_Det.hpp"
+000003d7 7263652f7772 
+000003dd 617070657273 
+000003e3 2f5377635365 
+000003e9 727669636544 
+000003ef 656d2f44656d 
+000003f5 5f4c6f6b5f44 
+000003fb 65742e687070 
+00000401 00 
+00000402 000000          170 	.byte	0,0,0
+00000405 2e2e2f736f75    171 	.strz	"../source/SwcServiceDet/Det.hpp"
+0000040b 7263652f5377 
+00000411 635365727669 
+00000417 63654465742f 
+0000041d 4465742e6870 
+00000423 7000 
+00000425 000000          172 	.byte	0,0,0
+00000428 2e2e2f736f75    173 	.strz	"../source/SwcServiceDet/Types_SwcServiceDet.hpp"
+0000042e 7263652f5377 
+00000434 635365727669 
+0000043a 63654465742f 
+00000440 54797065735f 
+00000446 537763536572 
+0000044c 766963654465 
+00000452 742e68707000 
+00000458 000000          174 	.byte	0,0,0
+0000045b 2e2e2f736f75    175 	.strz	"../source/wrappers/Rte_Det_Type.hpp"
+00000461 7263652f7772 
+00000467 617070657273 
+0000046d 2f5274655f44 
+00000473 65745f547970 
+
+                                                                      Page 7
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00004a01.s
+00000479 652e68707000 
+0000047f 000000          176 	.byte	0,0,0
+00000482 2e2e2f736f75    177 	.strz	"../source/ProjectCompiler/Det_MemMap.hpp"
+00000488 7263652f5072 
+0000048e 6f6a65637443 
+00000494 6f6d70696c65 
+0000049a 722f4465745f 
+000004a0 4d656d4d6170 
+000004a6 2e68707000 
+000004ab 000000          178 	.byte	0,0,0
+000004ae 2e2e2f736f75    179 	.strz	"../source/ProjectCompiler/Bsw_MemMap.hpp"
+000004b4 7263652f5072 
+000004ba 6f6a65637443 
+000004c0 6f6d70696c65 
+000004c6 722f4273775f 
+000004cc 4d656d4d6170 
+000004d2 2e68707000 
+000004d7 000000          180 	.byte	0,0,0
+000004da 2e2e2f736f75    181 	.strz	"../source/ProjectCompiler/MemMap_Common.hpp"
+000004e0 7263652f5072 
+000004e6 6f6a65637443 
+000004ec 6f6d70696c65 
+000004f2 722f4d656d4d 
+000004f8 61705f436f6d 
+000004fe 6d6f6e2e6870 
+00000504 7000 
+00000506 000000          182 	.byte	0,0,0
+00000509 2e2e2f736f75    183 	.strz	"../source/wrappers/LibAutosarDiag/rba_DiagLib_MemUtils.hpp"
+0000050f 7263652f7772 
+00000515 617070657273 
+0000051b 2f4c69624175 
+00000521 746f73617244 
+00000527 6961672f7262 
+0000052d 615f44696167 
+00000533 4c69625f4d65 
+00000539 6d5574696c73 
+0000053f 2e68707000 
+00000544 000000          184 	.byte	0,0,0
+00000547 2e2e2f736f75    185 	.strz	"../source/wrappers/rba_BswSrv/rba_BswSrv.hpp"
+0000054d 7263652f7772 
+00000553 617070657273 
+00000559 2f7262615f42 
+0000055f 73775372762f 
+00000565 7262615f4273 
+0000056b 775372762e68 
+00000571 707000 
+00000574 000000          186 	.byte	0,0,0
+00000577 2e2e2f736f75    187 	.strz	"../source/ProjectCompiler/rba_BswSrv_MemMap.hpp"
+0000057d 7263652f5072 
+00000583 6f6a65637443 
+00000589 6f6d70696c65 
+0000058f 722f7262615f 
+00000595 427377537276 
+0000059b 5f4d656d4d61 
+000005a1 702e68707000 
+000005a7 000000          188 	.byte	0,0,0
+000005aa 2e2e2f736f75    189 	.strz	"../source/wrappers/SwcServiceDem/Dem_InternalEnvData.hpp"
+000005b0 7263652f7772 
+000005b6 617070657273 
+000005bc 2f5377635365 
+000005c2 727669636544 
+
+                                                                      Page 8
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00004a01.s
+000005c8 656d2f44656d 
+000005ce 5f496e746572 
+000005d4 6e616c456e76 
+000005da 446174612e68 
+000005e0 707000 
+000005e3 000000          190 	.byte	0,0,0
+000005e6 2e2e2f736f75    191 	.strz	"../source/wrappers/SwcServiceDem/Dem_EvMemTypes.hpp"
+000005ec 7263652f7772 
+000005f2 617070657273 
+000005f8 2f5377635365 
+000005fe 727669636544 
+00000604 656d2f44656d 
+0000060a 5f45764d656d 
+00000610 54797065732e 
+00000616 68707000 
+0000061a 000000          192 	.byte	0,0,0
+0000061d 2e2e2f736f75    193 	.strz	"../source/ProjectCfg/Dem_Cfg_EvMem.hpp"
+00000623 7263652f5072 
+00000629 6f6a65637443 
+0000062f 66672f44656d 
+00000635 5f4366675f45 
+0000063b 764d656d2e68 
+00000641 707000 
+00000644 000000          194 	.byte	0,0,0
+00000647 2e2e2f736f75    195 	.strz	"../source/ProjectCfg/Dem_Cfg_DtcId.hpp"
+0000064d 7263652f5072 
+00000653 6f6a65637443 
+00000659 66672f44656d 
+0000065f 5f4366675f44 
+00000665 746349642e68 
+0000066b 707000 
+0000066e 000000          196 	.byte	0,0,0
+00000671 2e2e2f736f75    197 	.strz	"../source/ProjectCfg/Dem_Cfg_EventId.hpp"
+00000677 7263652f5072 
+0000067d 6f6a65637443 
+00000683 66672f44656d 
+00000689 5f4366675f45 
+0000068f 76656e744964 
+00000695 2e68707000 
+0000069a 000000          198 	.byte	0,0,0
+0000069d 2e2e2f736f75    199 	.strz	"../source/ProjectCfg/Dem_Cfg_Events.hpp"
+000006a3 7263652f5072 
+000006a9 6f6a65637443 
+000006af 66672f44656d 
+000006b5 5f4366675f45 
+000006bb 76656e74732e 
+000006c1 68707000 
+000006c5 000000          200 	.byte	0,0,0
+000006c8 2e2e2f736f75    201 	.strz	"../source/ProjectCfg/Dem_Cfg_EnvMain.hpp"
+000006ce 7263652f5072 
+000006d4 6f6a65637443 
+000006da 66672f44656d 
+000006e0 5f4366675f45 
+000006e6 6e764d61696e 
+000006ec 2e68707000 
+000006f1 000000          202 	.byte	0,0,0
+000006f4 2e2e2f736f75    203 	.strz	"../source/ProjectCfg/Dem_Cfg_DTCs.hpp"
+000006fa 7263652f5072 
+00000700 6f6a65637443 
+00000706 66672f44656d 
+0000070c 5f4366675f44 
+
+                                                                      Page 9
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00004a01.s
+00000712 5443732e6870 
+00000718 7000 
+0000071a 000000          204 	.byte	0,0,0
+0000071d 2e2e2f736f75    205 	.strz	"../source/ProjectCfg/Dem_Cfg_DTC_DataStructures.hpp"
+00000723 7263652f5072 
+00000729 6f6a65637443 
+0000072f 66672f44656d 
+00000735 5f4366675f44 
+0000073b 54435f446174 
+00000741 615374727563 
+00000747 74757265732e 
+0000074d 68707000 
+00000751 000000          206 	.byte	0,0,0
+00000754 2e2e2f736f75    207 	.strz	"../source/ProjectCompiler/Dem_Cfg_MemMap.hpp"
+0000075a 7263652f5072 
+00000760 6f6a65637443 
+00000766 6f6d70696c65 
+0000076c 722f44656d5f 
+00000772 4366675f4d65 
+00000778 6d4d61702e68 
+0000077e 707000 
+00000781 000000          208 	.byte	0,0,0
+00000784 00              209 	.byte	0
+                         210 .Ldw_lpro_end:
+                         211 	.section	.debug_macinfo
+                         212 .Ldw_macinfo_begin:
+                         213 	.section	.debug_info
+                         214 .LDW_47f6e00:
+000000a7 25              215 	.byte	37
+000000a8 756e7369676e    216 	.strz	"unsigned short"
+000000ae 65642073686f 
+000000b4 727400 
+000000b7 07              217 	.byte	7
+000000b8 02              218 	.byte	2
+                         219 
+                         220 	.section	.debug_abbrev
+00000017 25              221 	.byte	37
+00000018 24              222 	.byte	36
+00000019 00              223 	.byte	0
+0000001a 0308            224 	.byte	3,8
+0000001c 3e0b            225 	.byte	62,11
+0000001e 0b0b            226 	.byte	11,11
+00000020 0000            227 	.byte	0,0
+                         228 
+                         229 	.section	.debug_info
+                         230 .LDW_47f7308:
+000000b9 25              231 	.byte	37
+000000ba 756e7369676e    232 	.strz	"unsigned char"
+000000c0 656420636861 
+000000c6 7200 
+000000c8 08              233 	.byte	8
+000000c9 01              234 	.byte	1
+                         235 
+                         236 .LDW_4b37818:
+000000ca 29              237 	.byte	41
+000000cb 00000000*       238 	.word	.LDW_4b376b8
+                         239 
+                         240 	.section	.debug_abbrev
+00000022 29              241 	.byte	41
+00000023 26              242 	.byte	38
+00000024 00              243 	.byte	0
+
+                                                                      Page 10
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00004a01.s
+00000025 4910            244 	.byte	73,16
+00000027 0000            245 	.byte	0,0
+                         246 
+                         247 	.section	.debug_info
+                         248 .LDW_4ac9ea0:
+000000cf 25              249 	.byte	37
+000000d0 696e7400        250 	.strz	"int"
+000000d4 05              251 	.byte	5
+000000d5 04              252 	.byte	4
+                         253 
+                         254 .LDW_47df978:
+000000d6 3a              255 	.byte	58
+000000d7 00              256 	.byte	0
+000000d8 0e              257 	.byte	14
+000000d9 00000000*       258 	.word	.LDW_4b37818
+                         259 
+                         260 	.section	.debug_abbrev
+00000029 3a              261 	.byte	58
+0000002a 01              262 	.byte	1
+0000002b 01              263 	.byte	1
+0000002c 090b            264 	.byte	9,11
+0000002e 0b0f            265 	.byte	11,15
+00000030 4910            266 	.byte	73,16
+00000032 0000            267 	.byte	0,0
+                         268 
+                         269 	.section	.debug_info
+000000dd 32              270 	.byte	50
+000000de 00000000*       271 	.word	.LDW_4ac9ea0
+000000e2 04              272 	.byte	4
+000000e3 00              273 	.byte	0
+000000e4 0d              274 	.byte	13
+                         275 
+                         276 	.section	.debug_abbrev
+00000034 32              277 	.byte	50
+00000035 21              278 	.byte	33
+00000036 00              279 	.byte	0
+00000037 4910            280 	.byte	73,16
+00000039 0b0f            281 	.byte	11,15
+0000003b 220d            282 	.byte	34,13
+0000003d 2f0d            283 	.byte	47,13
+0000003f 0000            284 	.byte	0,0
+                         285 
+                         286 	.section	.debug_info
+000000e5 00              287 	.byte	0
+                         288 
+                         289 .LDW_4b6df40:
+000000e6 29              290 	.byte	41
+000000e7 00000000*       291 	.word	.LDW_4b6d5f8
+                         292 
+                         293 .LDW_47dfa00:
+000000eb 3a              294 	.byte	58
+000000ec 00              295 	.byte	0
+000000ed 14              296 	.byte	20
+000000ee 00000000*       297 	.word	.LDW_4b6df40
+                         298 
+000000f2 32              299 	.byte	50
+000000f3 00000000*       300 	.word	.LDW_4ac9ea0
+000000f7 04              301 	.byte	4
+000000f8 00              302 	.byte	0
+000000f9 04              303 	.byte	4
+                         304 
+
+                                                                      Page 11
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00004a01.s
+000000fa 00              305 	.byte	0
+                         306 
+                         307 .LDW_4b376b8:
+000000fb 28              308 	.byte	40
+000000fc 75696e743800    309 	.strz	"uint8"
+00000102 50              310 	.byte	80
+00000103 4b              311 	.byte	75
+00000104 03              312 	.byte	3
+00000105 00000000*       313 	.word	.LDW_47f7308
+                         314 
+                         315 	.section	.debug_abbrev
+00000041 28              316 	.byte	40
+00000042 16              317 	.byte	22
+00000043 00              318 	.byte	0
+00000044 0308            319 	.byte	3,8
+00000046 3b0f            320 	.byte	59,15
+00000048 390f            321 	.byte	57,15
+0000004a 3a0f            322 	.byte	58,15
+0000004c 4910            323 	.byte	73,16
+0000004e 0000            324 	.byte	0,0
+                         325 
+                         326 	.section	.debug_info
+                         327 .LDW_4ac86a8:
+00000109 28              328 	.byte	40
+0000010a 75696e743136    329 	.strz	"uint16"
+00000110 00 
+00000111 52              330 	.byte	82
+00000112 4a              331 	.byte	74
+00000113 03              332 	.byte	3
+00000114 00000000*       333 	.word	.LDW_47f6e00
+                         334 
+                         335 .LDW_4b6d7b0:
+00000118 41              336 	.byte	65
+00000119 0b              337 	.byte	11
+0000011a 0f              338 	.byte	15
+0000011b 09              339 	.byte	9
+0000011c 04              340 	.byte	4
+0000011d 01              341 	.byte	1
+                         342 
+                         343 	.section	.debug_abbrev
+00000050 41              344 	.byte	65
+00000051 13              345 	.byte	19
+00000052 01              346 	.byte	1
+00000053 3b0f            347 	.byte	59,15
+00000055 390f            348 	.byte	57,15
+00000057 3a0f            349 	.byte	58,15
+00000059 0b0f            350 	.byte	11,15
+0000005b 320b            351 	.byte	50,11
+0000005d 0000            352 	.byte	0,0
+                         353 
+                         354 	.section	.debug_info
+                         355 .LDW_4a90bc0:
+0000011e 23              356 	.byte	35
+0000011f 64617461456c    357 	.strz	"dataElementIndex"
+00000125 656d656e7449 
+0000012b 6e64657800 
+00000130 0c              358 	.byte	12
+00000131 0b              359 	.byte	11
+00000132 09              360 	.byte	9
+00000133 00000000*       361 	.word	.LDW_4ac86a8
+00000137 0223            362 	.byte	2,35
+
+                                                                      Page 12
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00004a01.s
+00000139 00              363 	.byte	0
+0000013a 01              364 	.byte	1
+                         365 
+                         366 	.section	.debug_abbrev
+0000005f 23              367 	.byte	35
+00000060 0d              368 	.byte	13
+00000061 00              369 	.byte	0
+00000062 0308            370 	.byte	3,8
+00000064 3b0f            371 	.byte	59,15
+00000066 390f            372 	.byte	57,15
+00000068 3a0f            373 	.byte	58,15
+0000006a 4910            374 	.byte	73,16
+0000006c 380a            375 	.byte	56,10
+0000006e 320b            376 	.byte	50,11
+00000070 0000            377 	.byte	0,0
+                         378 
+                         379 	.section	.debug_info
+                         380 .LDW_4a90ae8:
+0000013b 23              381 	.byte	35
+0000013c 6964656e7469    382 	.strz	"identifier"
+00000142 6669657200 
+00000147 0d              383 	.byte	13
+00000148 0b              384 	.byte	11
+00000149 09              385 	.byte	9
+0000014a 00000000*       386 	.word	.LDW_4ac86a8
+0000014e 0223            387 	.byte	2,35
+00000150 02              388 	.byte	2
+00000151 01              389 	.byte	1
+                         390 
+00000152 00              391 	.byte	0
+                         392 
+                         393 .LDW_4b6d5f8:
+00000153 28              394 	.byte	40
+00000154 44656d5f456e    395 	.strz	"Dem_EnvDid"
+0000015a 7644696400 
+0000015f 0e              396 	.byte	14
+00000160 02              397 	.byte	2
+00000161 09              398 	.byte	9
+00000162 00000000*       399 	.word	.LDW_4b6d7b0
+                         400 
+                         401 .LDW_4b6dcd8:
+00000166 04              402 	.byte	4
+00000167 44656d5f4366    403 	.strz	"Dem_Cfg_EnvDid2DataElement"
+0000016d 675f456e7644 
+00000173 696432446174 
+00000179 61456c656d65 
+0000017f 6e7400 
+00000182 09              404 	.byte	9
+00000183 0d              405 	.byte	13
+00000184 01              406 	.byte	1
+00000185 00000000*       407 	.word	.LDW_47df978
+00000189 01              408 	.byte	1
+0000018a 00              409 	.byte	0
+0000018b 0503            410 	.byte	5,3
+0000018d 00000000*       411 	.word	_Dem_Cfg_EnvDid2DataElement
+                         412 
+                         413 	.section	.debug_abbrev
+00000072 04              414 	.byte	4
+00000073 34              415 	.byte	52
+00000074 00              416 	.byte	0
+00000075 0308            417 	.byte	3,8
+
+                                                                      Page 13
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00004a01.s
+00000077 3b0f            418 	.byte	59,15
+00000079 390f            419 	.byte	57,15
+0000007b 3a0f            420 	.byte	58,15
+0000007d 4910            421 	.byte	73,16
+0000007f 3f0c            422 	.byte	63,12
+00000081 3c0c            423 	.byte	60,12
+00000083 020a            424 	.byte	2,10
+00000085 0000            425 	.byte	0,0
+                         426 
+                         427 	.section	.debug_info
+                         428 .LDW_4b6e2b0:
+00000191 04              429 	.byte	4
+00000192 44656d5f4366    430 	.strz	"Dem_Cfg_EnvDid"
+00000198 675f456e7644 
+0000019e 696400 
+000001a1 0a              431 	.byte	10
+000001a2 01              432 	.byte	1
+000001a3 01              433 	.byte	1
+000001a4 00000000*       434 	.word	.LDW_47dfa00
+000001a8 01              435 	.byte	1
+000001a9 00              436 	.byte	0
+000001aa 0503            437 	.byte	5,3
+000001ac 00000000*       438 	.word	_Dem_Cfg_EnvDid
+                         439 
+000001b0 00              440 	.byte	0
+                         441 
+                         442 	.section	.debug_line
+                         443 .Ldw_line_end:
+                         444 	.section	.debug_macinfo
+00000000 01              445 	.byte	1
+00000001 00              446 	.byte	0
+00000002 5f5f6768735f    447 	.strz	"__ghs__ 1"
+00000008 5f203100 
+0000000c 01              448 	.byte	1
+0000000d 00              449 	.byte	0
+0000000e 5f5f4c4c4f4e    450 	.strz	"__LLONG_BIT 64"
+00000014 475f42495420 
+0000001a 363400 
+0000001d 01              451 	.byte	1
+0000001e 00              452 	.byte	0
+0000001f 4e4f545f5245    453 	.strz	"NOT_READY_FOR_TESTING_OR_DEPLOYMENT 1"
+00000025 4144595f464f 
+0000002b 525f54455354 
+00000031 494e475f4f52 
+00000037 5f4445504c4f 
+0000003d 594d454e5420 
+00000043 3100 
+00000045 03              454 	.byte	3
+00000046 00              455 	.byte	0
+00000047 01              456 	.byte	1
+00000048 03              457 	.byte	3
+00000049 01              458 	.byte	1
+0000004a 02              459 	.byte	2
+0000004b 03              460 	.byte	3
+0000004c 1c              461 	.byte	28
+0000004d 03              462 	.byte	3
+0000004e 01              463 	.byte	1
+0000004f 3c              464 	.byte	60
+00000050 545255452031    465 	.strz	"TRUE 1u"
+00000056 7500 
+00000058 01              466 	.byte	1
+
+                                                                      Page 14
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00004a01.s
+00000059 40              467 	.byte	64
+0000005a 46414c534520    468 	.strz	"FALSE 0u"
+00000060 307500 
+00000063 04              469 	.byte	4
+00000064 03              470 	.byte	3
+00000065 1d              471 	.byte	29
+00000066 04              472 	.byte	4
+00000067 03              473 	.byte	3
+00000068 1b              474 	.byte	27
+00000069 05              475 	.byte	5
+0000006a 03              476 	.byte	3
+0000006b 54              477 	.byte	84
+0000006c 06              478 	.byte	6
+0000006d 04              479 	.byte	4
+0000006e 04              480 	.byte	4
+0000006f 01              481 	.byte	1
+00000070 2f              482 	.byte	47
+00000071 4e554c4c5f50    483 	.strz	"NULL_PTR ((void *)0)"
+00000077 545220282876 
+0000007d 6f6964202a29 
+00000083 302900 
+00000086 01              484 	.byte	1
+00000087 33              485 	.byte	51
+00000088 4c4f43414c5f    486 	.strz	"LOCAL_INLINE static inline"
+0000008e 494e4c494e45 
+00000094 207374617469 
+0000009a 6320696e6c69 
+000000a0 6e6500 
+000000a3 04              487 	.byte	4
+000000a4 01              488 	.byte	1
+000000a5 3c              489 	.byte	60
+000000a6 5354445f4f4e    490 	.strz	"STD_ON 1u"
+000000ac 20317500 
+000000b0 01              491 	.byte	1
+000000b1 3e              492 	.byte	62
+000000b2 455f4f4b2030    493 	.strz	"E_OK 0u"
+000000b8 7500 
+000000ba 01              494 	.byte	1
+000000bb 3f              495 	.byte	63
+000000bc 455f4e4f545f    496 	.strz	"E_NOT_OK 1u"
+000000c2 4f4b20317500 
+000000c8 04              497 	.byte	4
+000000c9 03              498 	.byte	3
+000000ca 03              499 	.byte	3
+000000cb 07              500 	.byte	7
+000000cc 01              501 	.byte	1
+000000cd 06              502 	.byte	6
+000000ce 44454d5f4346    503 	.byte	68,69,77,95,67,70,71,95,69,78,86,68,73,68,50,68,65,84,65,69,76,69,77,69,78,84,32,123,32,68,69,77,95,68,65,84,65,69,76,69,77,95,68,69,77,68,65,84,65,69,76,69,77,69,78,84,67,76,65,83,83
+000000d4 475f454e5644 
+000000da 494432444154 
+000000e0 41454c454d45 
+000000e6 4e54207b2044 
+000000ec 454d5f444154 
+000000f2 41454c454d5f 
+000000f8 44454d444154 
+000000fe 41454c454d45 
+00000104 4e54434c4153 
+0000010a 53 
+0000010b 5f5645484943    504 	.byte	95,86,69,72,73,67,76,69,83,80,69,69,68,44,32,68,69,77,95,68,65,84,65,69,76,69,77,95,68,69,77,68,65,84,65,69,76,69,77,69,78,84,67,76,65,83,83,95,69,78,71,73,78,69,83,80,69,69,68,44,32
+00000111 4c4553504545 
+00000117 442c2044454d 
+
+                                                                      Page 15
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00004a01.s
+0000011d 5f4441544145 
+00000123 4c454d5f4445 
+00000129 4d4441544145 
+0000012f 4c454d454e54 
+00000135 434c4153535f 
+0000013b 454e47494e45 
+00000141 53504545442c 
+00000147 20 
+00000148 44454d5f4441    505 	.byte	68,69,77,95,68,65,84,65,69,76,69,77,95,68,69,77,68,65,84,65,69,76,69,77,69,78,84,67,76,65,83,83,95,65,77,66,73,69,78,84,84,69,77,80,69,82,65,84,85,82,69,44,32,68,69,77,95,68,65,84,65
+0000014e 5441454c454d 
+00000154 5f44454d4441 
+0000015a 5441454c454d 
+00000160 454e54434c41 
+00000166 53535f414d42 
+0000016c 49454e545445 
+00000172 4d5045524154 
+00000178 5552452c2044 
+0000017e 454d5f444154 
+00000184 41 
+00000185 454c454d5f44    506 	.byte	69,76,69,77,95,68,69,77,68,65,84,65,69,76,69,77,69,78,84,67,76,65,83,83,95,86,69,72,73,67,76,69,77,79,68,69,44,32,68,69,77,95,68,65,84,65,69,76,69,77,95,68,69,77,68,65,84,65,69,76,69
+0000018b 454d44415441 
+00000191 454c454d454e 
+00000197 54434c415353 
+0000019d 5f5645484943 
+000001a3 4c454d4f4445 
+000001a9 2c2044454d5f 
+000001af 44415441454c 
+000001b5 454d5f44454d 
+000001bb 44415441454c 
+000001c1 45 
+000001c2 4d454e54434c    507 	.byte	77,69,78,84,67,76,65,83,83,95,72,86,83,79,67,44,32,68,69,77,95,68,65,84,65,69,76,69,77,95,68,69,77,68,65,84,65,69,76,69,77,69,78,84,67,76,65,83,83,95,76,86,66,65,84,84,69,82,89,86,79
+000001c8 4153535f4856 
+000001ce 534f432c2044 
+000001d4 454d5f444154 
+000001da 41454c454d5f 
+000001e0 44454d444154 
+000001e6 41454c454d45 
+000001ec 4e54434c4153 
+000001f2 535f4c564241 
+000001f8 545445525956 
+000001fe 4f 
+000001ff 4c544147452c    508 	.byte	76,84,65,71,69,44,32,68,69,77,95,68,65,84,65,69,76,69,77,95,68,69,77,68,65,84,65,69,76,69,77,69,78,84,67,76,65,83,83,95,86,69,72,73,67,76,69,83,80,69,69,68,44,32,68,69,77,95,68,65,84
+00000205 2044454d5f44 
+0000020b 415441454c45 
+00000211 4d5f44454d44 
+00000217 415441454c45 
+0000021d 4d454e54434c 
+00000223 4153535f5645 
+00000229 4849434c4553 
+0000022f 504545442c20 
+00000235 44454d5f4441 
+0000023b 54 
+0000023c 41454c454d5f    509 	.byte	65,69,76,69,77,95,68,69,77,68,65,84,65,69,76,69,77,69,78,84,67,76,65,83,83,95,65,77,66,73,69,78,84,84,69,77,80,69,82,65,84,85,82,69,44,32,68,69,77,95,68,65,84,65,69,76,69,77,95,68,69
+00000242 44454d444154 
+00000248 41454c454d45 
+0000024e 4e54434c4153 
+00000254 535f414d4249 
+0000025a 454e5454454d 
+00000260 504552415455 
+00000266 52452c204445 
+0000026c 4d5f44415441 
+
+                                                                      Page 16
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00004a01.s
+00000272 454c454d5f44 
+00000278 45 
+00000279 4d4441544145    510 	.byte	77,68,65,84,65,69,76,69,77,69,78,84,67,76,65,83,83,95,69,67,85,77,79,68,69,95,82,79,65,68,77,79,68,69,95,76,76,83,84,65,84,85,83,44,32,68,69,77,95,68,65,84,65,69,76,69,77,95,68,69,77
+0000027f 4c454d454e54 
+00000285 434c4153535f 
+0000028b 4543554d4f44 
+00000291 455f524f4144 
+00000297 4d4f44455f4c 
+0000029d 4c5354415455 
+000002a3 532c2044454d 
+000002a9 5f4441544145 
+000002af 4c454d5f4445 
+000002b5 4d 
+000002b6 44415441454c    511 	.byte	68,65,84,65,69,76,69,77,69,78,84,67,76,65,83,83,95,79,67,67,68,65,84,69,44,32,68,69,77,95,68,65,84,65,69,76,69,77,95,68,69,77,68,65,84,65,69,76,69,77,69,78,84,67,76,65,83,83,95,79,67
+000002bc 454d454e5443 
+000002c2 4c4153535f4f 
+000002c8 434344415445 
+000002ce 2c2044454d5f 
+000002d4 44415441454c 
+000002da 454d5f44454d 
+000002e0 44415441454c 
+000002e6 454d454e5443 
+000002ec 4c4153535f4f 
+000002f2 43 
+000002f3 4354494d452c    512 	.byte	67,84,73,77,69,44,32,68,69,77,95,68,65,84,65,69,76,69,77,95,68,69,77,68,65,84,65,69,76,69,77,69,78,84,67,76,65,83,83,95,84,73,82,69,80,82,69,83,83,44,32,68,69,77,95,68,65,84,65,69,76
+000002f9 2044454d5f44 
+000002ff 415441454c45 
+00000305 4d5f44454d44 
+0000030b 415441454c45 
+00000311 4d454e54434c 
+00000317 4153535f5449 
+0000031d 524550524553 
+00000323 532c2044454d 
+00000329 5f4441544145 
+0000032f 4c 
+00000330 454d5f44454d    513 	.byte	69,77,95,68,69,77,68,65,84,65,69,76,69,77,69,78,84,67,76,65,83,83,95,84,73,82,69,84,69,77,80,44,32,48,32,125,0
+00000336 44415441454c 
+0000033c 454d454e5443 
+00000342 4c4153535f54 
+00000348 49524554454d 
+0000034e 502c2030207d 
+00000354 00 
+00000355 01              514 	.byte	1
+00000356 14              515 	.byte	20
+00000357 44454d5f4346    516 	.strz	"DEM_CFG_ENVDID { { 0, 0 } ,{ 1, 3329 } ,{ 2, 3328 } ,{ 3, 3327 } ,{ 13, 1 }}"
+0000035d 475f454e5644 
+00000363 4944207b207b 
+00000369 20302c203020 
+0000036f 7d202c7b2031 
+00000375 2c2033333239 
+0000037b 207d202c7b20 
+00000381 322c20333332 
+00000387 38207d202c7b 
+0000038d 20332c203333 
+00000393 3237207d202c 
+00000399 7b2031332c20 
+0000039f 31207d7d00 
+000003a4 01              517 	.byte	1
+000003a5 1d              518 	.byte	29
+000003a6 44454d5f4346    519 	.strz	"DEM_CFG_ENVDID_ARRAYLENGTH (4+1)"
+000003ac 475f454e5644 
+
+                                                                      Page 17
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00004a01.s
+000003b2 49445f415252 
+000003b8 41594c454e47 
+000003be 54482028342b 
+000003c4 312900 
+000003c7 04              520 	.byte	4
+000003c8 03              521 	.byte	3
+000003c9 04              522 	.byte	4
+000003ca 08              523 	.byte	8
+000003cb 01              524 	.byte	1
+000003cc 04              525 	.byte	4
+000003cd 44454d5f4346    526 	.strz	"DEM_CFG_ENV_DATAELEMENTS_EXTERN_AVAILABILITY STD_ON"
+000003d3 475f454e565f 
+000003d9 44415441454c 
+000003df 454d454e5453 
+000003e5 5f4558544552 
+000003eb 4e5f41564149 
+000003f1 4c4142494c49 
+000003f7 545920535444 
+000003fd 5f4f4e00 
+00000401 01              527 	.byte	1
+00000402 05              528 	.byte	5
+00000403 44454d5f4346    529 	.strz	"DEM_CFG_ENV_DATAELEMENTS_INTERN_AVAILABILITY STD_ON"
+00000409 475f454e565f 
+0000040f 44415441454c 
+00000415 454d454e5453 
+0000041b 5f494e544552 
+00000421 4e5f41564149 
+00000427 4c4142494c49 
+0000042d 545920535444 
+00000433 5f4f4e00 
+00000437 01              530 	.byte	1
+00000438 06              531 	.byte	6
+00000439 44454d5f4346    532 	.strz	"DEM_CFG_READDEM_AGINGCTR_UPCNT_SUPPORTED TRUE"
+0000043f 475f52454144 
+00000445 44454d5f4147 
+0000044b 494e47435452 
+00000451 5f5550434e54 
+00000457 5f535550504f 
+0000045d 525445442054 
+00000463 52554500 
+00000467 01              533 	.byte	1
+00000468 07              534 	.byte	7
+00000469 44454d5f4346    535 	.strz	"DEM_CFG_READDEM_AGINGCTR_DOWNCNT_SUPPORTED FALSE"
+0000046f 475f52454144 
+00000475 44454d5f4147 
+0000047b 494e47435452 
+00000481 5f444f574e43 
+00000487 4e545f535550 
+0000048d 504f52544544 
+00000493 2046414c5345 
+00000499 00 
+0000049a 01              536 	.byte	1
+0000049b 08              537 	.byte	8
+0000049c 44454d5f4346    538 	.strz	"DEM_CFG_READDEM_OCCCTR_SUPPORTED FALSE"
+000004a2 475f52454144 
+000004a8 44454d5f4f43 
+000004ae 434354525f53 
+000004b4 5550504f5254 
+000004ba 45442046414c 
+000004c0 534500 
+000004c3 01              539 	.byte	1
+
+                                                                      Page 18
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00004a01.s
+000004c4 09              540 	.byte	9
+000004c5 44454d5f4346    541 	.strz	"DEM_CFG_READDEM_OVFLIND_SUPPORTED FALSE"
+000004cb 475f52454144 
+000004d1 44454d5f4f56 
+000004d7 464c494e445f 
+000004dd 535550504f52 
+000004e3 544544204641 
+000004e9 4c534500 
+000004ed 01              542 	.byte	1
+000004ee 0a              543 	.byte	10
+000004ef 44454d5f4346    544 	.strz	"DEM_CFG_READDEM_SIGNIFICANCE_SUPPORTED FALSE"
+000004f5 475f52454144 
+000004fb 44454d5f5349 
+00000501 474e49464943 
+00000507 414e43455f53 
+0000050d 5550504f5254 
+00000513 45442046414c 
+00000519 534500 
+0000051c 01              545 	.byte	1
+0000051d 0b              546 	.byte	11
+0000051e 44454d5f4346    547 	.strz	"DEM_CFG_READDEM_DEBUG0_SUPPORTED FALSE"
+00000524 475f52454144 
+0000052a 44454d5f4445 
+00000530 425547305f53 
+00000536 5550504f5254 
+0000053c 45442046414c 
+00000542 534500 
+00000545 01              548 	.byte	1
+00000546 0c              549 	.byte	12
+00000547 44454d5f4346    550 	.strz	"DEM_CFG_READDEM_DEBUG1_SUPPORTED FALSE"
+0000054d 475f52454144 
+00000553 44454d5f4445 
+00000559 425547315f53 
+0000055f 5550504f5254 
+00000565 45442046414c 
+0000056b 534500 
+0000056e 01              551 	.byte	1
+0000056f 0d              552 	.byte	13
+00000570 44454d5f4346    553 	.strz	"DEM_CFG_READDEM_EVENT_ID_SUPPORTED FALSE"
+00000576 475f52454144 
+0000057c 44454d5f4556 
+00000582 454e545f4944 
+00000588 5f535550504f 
+0000058e 525445442046 
+00000594 414c534500 
+00000599 01              554 	.byte	1
+0000059a 0e              555 	.byte	14
+0000059b 44454d5f4346    556 	.strz	"DEM_CFG_READDEM_CURRENT_FDC_SUPPORTED FALSE"
+000005a1 475f52454144 
+000005a7 44454d5f4355 
+000005ad 5252454e545f 
+000005b3 4644435f5355 
+000005b9 50504f525445 
+000005bf 442046414c53 
+000005c5 4500 
+000005c7 01              557 	.byte	1
+000005c8 0f              558 	.byte	15
+000005c9 44454d5f4346    559 	.strz	"DEM_CFG_READDEM_MAX_FDC_DURING_CURRENT_CYCLE_SUPPORTED FALSE"
+000005cf 475f52454144 
+000005d5 44454d5f4d41 
+000005db 585f4644435f 
+
+                                                                      Page 19
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00004a01.s
+000005e1 445552494e47 
+000005e7 5f4355525245 
+000005ed 4e545f435943 
+000005f3 4c455f535550 
+000005f9 504f52544544 
+000005ff 2046414c5345 
+00000605 00 
+00000606 01              560 	.byte	1
+00000607 10              561 	.byte	16
+00000608 44454d5f4346    562 	.strz	"DEM_CFG_READDEM_MAX_FDC_SINCE_LAST_CLEAR_SUPPORTED FALSE"
+0000060e 475f52454144 
+00000614 44454d5f4d41 
+0000061a 585f4644435f 
+00000620 53494e43455f 
+00000626 4c4153545f43 
+0000062c 4c4541525f53 
+00000632 5550504f5254 
+00000638 45442046414c 
+0000063e 534500 
+00000641 01              563 	.byte	1
+00000642 11              564 	.byte	17
+00000643 44454d5f4346    565 	.strz	"DEM_CFG_READDEM_CYCLES_SINCE_FIRST_FAILED_SUPPORTED FALSE"
+00000649 475f52454144 
+0000064f 44454d5f4359 
+00000655 434c45535f53 
+0000065b 494e43455f46 
+00000661 495253545f46 
+00000667 41494c45445f 
+0000066d 535550504f52 
+00000673 544544204641 
+00000679 4c534500 
+0000067d 01              566 	.byte	1
+0000067e 12              567 	.byte	18
+0000067f 44454d5f4346    568 	.strz	"DEM_CFG_READDEM_CYCLES_SINCE_LAST_FAILED_SUPPORTED FALSE"
+00000685 475f52454144 
+0000068b 44454d5f4359 
+00000691 434c45535f53 
+00000697 494e43455f4c 
+0000069d 4153545f4641 
+000006a3 494c45445f53 
+000006a9 5550504f5254 
+000006af 45442046414c 
+000006b5 534500 
+000006b8 01              569 	.byte	1
+000006b9 13              570 	.byte	19
+000006ba 44454d5f4346    571 	.strz	"DEM_CFG_READDEM_CYCLES_SINCE_LAST_FAILED_EXCLUDING_TNC_SUPPORTED FALSE"
+000006c0 475f52454144 
+000006c6 44454d5f4359 
+000006cc 434c45535f53 
+000006d2 494e43455f4c 
+000006d8 4153545f4641 
+000006de 494c45445f45 
+000006e4 58434c554449 
+000006ea 4e475f544e43 
+000006f0 5f535550504f 
+000006f6 525445442046 
+000006fc 414c534500 
+00000701 01              572 	.byte	1
+00000702 14              573 	.byte	20
+00000703 44454d5f4346    574 	.strz	"DEM_CFG_READDEM_FAILED_CYCLES_SUPPORTED FALSE"
+00000709 475f52454144 
+
+                                                                      Page 20
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00004a01.s
+0000070f 44454d5f4641 
+00000715 494c45445f43 
+0000071b 59434c45535f 
+00000721 535550504f52 
+00000727 544544204641 
+0000072d 4c534500 
+00000731 01              575 	.byte	1
+00000732 18              576 	.byte	24
+00000733 44454d5f4441    577 	.strz	"DEM_DATAELEM_DEMDATAELEMENTCLASS_AMBIENTTEMPERATURE 1"
+00000739 5441454c454d 
+0000073f 5f44454d4441 
+00000745 5441454c454d 
+0000074b 454e54434c41 
+00000751 53535f414d42 
+00000757 49454e545445 
+0000075d 4d5045524154 
+00000763 555245203100 
+00000769 01              578 	.byte	1
+0000076a 19              579 	.byte	25
+0000076b 44454d5f4441    580 	.strz	"DEM_DATAELEM_DEMDATAELEMENTCLASS_ECUMODE_ROADMODE_LLSTATUS 2"
+00000771 5441454c454d 
+00000777 5f44454d4441 
+0000077d 5441454c454d 
+00000783 454e54434c41 
+00000789 53535f454355 
+0000078f 4d4f44455f52 
+00000795 4f41444d4f44 
+0000079b 455f4c4c5354 
+000007a1 415455532032 
+000007a7 00 
+000007a8 01              581 	.byte	1
+000007a9 1a              582 	.byte	26
+000007aa 44454d5f4441    583 	.strz	"DEM_DATAELEM_DEMDATAELEMENTCLASS_ENGINESPEED 3"
+000007b0 5441454c454d 
+000007b6 5f44454d4441 
+000007bc 5441454c454d 
+000007c2 454e54434c41 
+000007c8 53535f454e47 
+000007ce 494e45535045 
+000007d4 4544203300 
+000007d9 01              584 	.byte	1
+000007da 1b              585 	.byte	27
+000007db 44454d5f4441    586 	.strz	"DEM_DATAELEM_DEMDATAELEMENTCLASS_HVSOC 4"
+000007e1 5441454c454d 
+000007e7 5f44454d4441 
+000007ed 5441454c454d 
+000007f3 454e54434c41 
+000007f9 53535f485653 
+000007ff 4f43203400 
+00000804 01              587 	.byte	1
+00000805 1c              588 	.byte	28
+00000806 44454d5f4441    589 	.strz	"DEM_DATAELEM_DEMDATAELEMENTCLASS_LVBATTERYVOLTAGE 5"
+0000080c 5441454c454d 
+00000812 5f44454d4441 
+00000818 5441454c454d 
+0000081e 454e54434c41 
+00000824 53535f4c5642 
+0000082a 415454455259 
+00000830 564f4c544147 
+00000836 45203500 
+0000083a 01              590 	.byte	1
+
+                                                                      Page 21
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00004a01.s
+0000083b 1d              591 	.byte	29
+0000083c 44454d5f4441    592 	.strz	"DEM_DATAELEM_DEMDATAELEMENTCLASS_OCCDATE 6"
+00000842 5441454c454d 
+00000848 5f44454d4441 
+0000084e 5441454c454d 
+00000854 454e54434c41 
+0000085a 53535f4f4343 
+00000860 444154452036 
+00000866 00 
+00000867 01              593 	.byte	1
+00000868 1e              594 	.byte	30
+00000869 44454d5f4441    595 	.strz	"DEM_DATAELEM_DEMDATAELEMENTCLASS_OCCTIME 7"
+0000086f 5441454c454d 
+00000875 5f44454d4441 
+0000087b 5441454c454d 
+00000881 454e54434c41 
+00000887 53535f4f4343 
+0000088d 54494d452037 
+00000893 00 
+00000894 01              596 	.byte	1
+00000895 1f              597 	.byte	31
+00000896 44454d5f4441    598 	.strz	"DEM_DATAELEM_DEMDATAELEMENTCLASS_TIREPRESS 8"
+0000089c 5441454c454d 
+000008a2 5f44454d4441 
+000008a8 5441454c454d 
+000008ae 454e54434c41 
+000008b4 53535f544952 
+000008ba 455052455353 
+000008c0 203800 
+000008c3 01              599 	.byte	1
+000008c4 20              600 	.byte	32
+000008c5 44454d5f4441    601 	.strz	"DEM_DATAELEM_DEMDATAELEMENTCLASS_TIRETEMP 9"
+000008cb 5441454c454d 
+000008d1 5f44454d4441 
+000008d7 5441454c454d 
+000008dd 454e54434c41 
+000008e3 53535f544952 
+000008e9 4554454d5020 
+000008ef 3900 
+000008f1 01              602 	.byte	1
+000008f2 21              603 	.byte	33
+000008f3 44454d5f4441    604 	.strz	"DEM_DATAELEM_DEMDATAELEMENTCLASS_VEHICLEMODE 10"
+000008f9 5441454c454d 
+000008ff 5f44454d4441 
+00000905 5441454c454d 
+0000090b 454e54434c41 
+00000911 53535f564548 
+00000917 49434c454d4f 
+0000091d 444520313000 
+00000923 01              605 	.byte	1
+00000924 22              606 	.byte	34
+00000925 44454d5f4441    607 	.strz	"DEM_DATAELEM_DEMDATAELEMENTCLASS_VEHICLESPEED 11"
+0000092b 5441454c454d 
+00000931 5f44454d4441 
+00000937 5441454c454d 
+0000093d 454e54434c41 
+00000943 53535f564548 
+00000949 49434c455350 
+0000094f 454544203131 
+00000955 00 
+00000956 01              608 	.byte	1
+
+                                                                      Page 22
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00004a01.s
+00000957 35              609 	.byte	53
+00000958 44454d5f4346    610 	.strz	"DEM_CFG_ENV_DATAELEMENTS_ARRAYLENGTH (12+1)"
+0000095e 475f454e565f 
+00000964 44415441454c 
+0000096a 454d454e5453 
+00000970 5f4152524159 
+00000976 4c454e475448 
+0000097c 202831322b31 
+00000982 2900 
+00000984 04              611 	.byte	4
+00000985 03              612 	.byte	3
+00000986 05              613 	.byte	5
+00000987 09              614 	.byte	9
+00000988 03              615 	.byte	3
+00000989 06              616 	.byte	6
+0000098a 0a              617 	.byte	10
+0000098b 01              618 	.byte	1
+0000098c 02              619 	.byte	2
+0000098d 44454d5f5459    620 	.strz	"DEM_TYPES_H "
+00000993 5045535f4820 
+00000999 00 
+0000099a 03              621 	.byte	3
+0000099b 04              622 	.byte	4
+0000099c 0b              623 	.byte	11
+0000099d 01              624 	.byte	1
+0000099e 04              625 	.byte	4
+0000099f 44454d5f4346    626 	.strz	"DEM_CFG_OBD_OFF 0"
+000009a5 475f4f42445f 
+000009ab 4f4646203000 
+000009b1 01              627 	.byte	1
+000009b2 05              628 	.byte	5
+000009b3 44454d5f4346    629 	.strz	"DEM_CFG_OBD_ON 1"
+000009b9 475f4f42445f 
+000009bf 4f4e203100 
+000009c4 01              630 	.byte	1
+000009c5 06              631 	.byte	6
+000009c6 44454d5f4346    632 	.strz	"DEM_CFG_OBD DEM_CFG_OBD_OFF"
+000009cc 475f4f424420 
+000009d2 44454d5f4346 
+000009d8 475f4f42445f 
+000009de 4f464600 
+000009e2 01              633 	.byte	1
+000009e3 07              634 	.byte	7
+000009e4 44454d5f4346    635 	.strz	"DEM_CFG_J1939DCM_OFF 0"
+000009ea 475f4a313933 
+000009f0 3944434d5f4f 
+000009f6 4646203000 
+000009fb 01              636 	.byte	1
+000009fc 09              637 	.byte	9
+000009fd 44454d5f4346    638 	.strz	"DEM_CFG_J1939DCM DEM_CFG_J1939DCM_OFF"
+00000a03 475f4a313933 
+00000a09 3944434d2044 
+00000a0f 454d5f434647 
+00000a15 5f4a31393339 
+00000a1b 44434d5f4f46 
+00000a21 4600 
+00000a23 01              639 	.byte	1
+00000a24 35              640 	.byte	53
+00000a25 44454d5f4346    641 	.strz	"DEM_CFG_DEBUGDATA_OFF 0"
+00000a2b 475f44454255 
+00000a31 47444154415f 
+
+                                                                      Page 23
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00004a01.s
+00000a37 4f4646203000 
+00000a3d 01              642 	.byte	1
+00000a3e 37              643 	.byte	55
+00000a3f 44454d5f4346    644 	.strz	"DEM_CFG_DEBUGDATA_32BIT (0+4)"
+00000a45 475f44454255 
+00000a4b 47444154415f 
+00000a51 333242495420 
+00000a57 28302b342900 
+00000a5d 01              645 	.byte	1
+00000a5e 38              646 	.byte	56
+00000a5f 44454d5f4346    647 	.strz	"DEM_CFG_DEBUGDATA DEM_CFG_DEBUGDATA_32BIT"
+00000a65 475f44454255 
+00000a6b 474441544120 
+00000a71 44454d5f4346 
+00000a77 475f44454255 
+00000a7d 47444154415f 
+00000a83 333242495400 
+00000a89 04              648 	.byte	4
+00000a8a 03              649 	.byte	3
+00000a8b 05              650 	.byte	5
+00000a8c 0c              651 	.byte	12
+00000a8d 03              652 	.byte	3
+00000a8e 04              653 	.byte	4
+00000a8f 0d              654 	.byte	13
+00000a90 03              655 	.byte	3
+00000a91 06              656 	.byte	6
+00000a92 0a              657 	.byte	10
+00000a93 04              658 	.byte	4
+00000a94 01              659 	.byte	1
+00000a95 22              660 	.byte	34
+00000a96 44454d5f494e    661 	.strz	"DEM_INVALID_DTC 0xAA000000u"
+00000a9c 56414c49445f 
+00000aa2 445443203078 
+00000aa8 414130303030 
+00000aae 30307500 
+00000ab2 04              662 	.byte	4
+00000ab3 04              663 	.byte	4
+00000ab4 03              664 	.byte	3
+00000ab5 06              665 	.byte	6
+00000ab6 0e              666 	.byte	14
+00000ab7 01              667 	.byte	1
+00000ab8 05              668 	.byte	5
+00000ab9 44454d5f4e4f    669 	.strz	"DEM_NODEID_COUNT 6u"
+00000abf 444549445f43 
+00000ac5 4f554e542036 
+00000acb 7500 
+00000acd 01              670 	.byte	1
+00000ace 06              671 	.byte	6
+00000acf 44454d5f4e4f    672 	.strz	"DEM_NODEID_ARRAYLENGTH (DEM_NODEID_COUNT+1u)"
+00000ad5 444549445f41 
+00000adb 525241594c45 
+00000ae1 4e4754482028 
+00000ae7 44454d5f4e4f 
+00000aed 444549445f43 
+00000af3 4f554e542b31 
+00000af9 752900 
+00000afc 04              673 	.byte	4
+00000afd 03              674 	.byte	3
+00000afe 07              675 	.byte	7
+00000aff 0f              676 	.byte	15
+00000b00 01              677 	.byte	1
+
+                                                                      Page 24
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00004a01.s
+00000b01 08              678 	.byte	8
+00000b02 44454d5f4d4f    679 	.strz	"DEM_MODULE_ID 54"
+00000b08 44554c455f49 
+00000b0e 4420353400 
+00000b13 01              680 	.byte	1
+00000b14 0a              681 	.byte	10
+00000b15 44454d5f494e    682 	.strz	"DEM_INSTANCE_ID 0"
+00000b1b 5354414e4345 
+00000b21 5f4944203000 
+00000b27 04              683 	.byte	4
+00000b28 03              684 	.byte	3
+00000b29 08              685 	.byte	8
+00000b2a 10              686 	.byte	16
+00000b2b 03              687 	.byte	3
+00000b2c 06              688 	.byte	6
+00000b2d 11              689 	.byte	17
+00000b2e 04              690 	.byte	4
+00000b2f 04              691 	.byte	4
+00000b30 01              692 	.byte	1
+00000b31 0e              693 	.byte	14
+00000b32 44454d5f494e    694 	.strz	"DEM_INLINE LOCAL_INLINE"
+00000b38 4c494e45204c 
+00000b3e 4f43414c5f49 
+00000b44 4e4c494e4500 
+00000b4a 01              695 	.byte	1
+00000b4b 10              696 	.byte	16
+00000b4c 44454d5f455f    697 	.strz	"DEM_E_NO_DTC_AVAILABLE 2"
+00000b52 4e4f5f445443 
+00000b58 5f415641494c 
+00000b5e 41424c452032 
+00000b64 00 
+00000b65 01              698 	.byte	1
+00000b66 12              699 	.byte	18
+00000b67 455f4e4f5f44    700 	.strz	"E_NO_DTC_AVAILABLE DEM_E_NO_DTC_AVAILABLE"
+00000b6d 54435f415641 
+00000b73 494c41424c45 
+00000b79 2044454d5f45 
+00000b7f 5f4e4f5f4454 
+00000b85 435f41564149 
+00000b8b 4c41424c4500 
+00000b91 01              701 	.byte	1
+00000b92 19              702 	.byte	25
+00000b93 44454d5f455f    703 	.strz	"DEM_E_NO_FDC_AVAILABLE 3"
+00000b99 4e4f5f464443 
+00000b9f 5f415641494c 
+00000ba5 41424c452033 
+00000bab 00 
+00000bac 01              704 	.byte	1
+00000bad 1b              705 	.byte	27
+00000bae 455f4e4f5f46    706 	.strz	"E_NO_FDC_AVAILABLE DEM_E_NO_FDC_AVAILABLE"
+00000bb4 44435f415641 
+00000bba 494c41424c45 
+00000bc0 2044454d5f45 
+00000bc6 5f4e4f5f4644 
+00000bcc 435f41564149 
+00000bd2 4c41424c4500 
+00000bd8 04              707 	.byte	4
+00000bd9 03              708 	.byte	3
+00000bda 07              709 	.byte	7
+00000bdb 12              710 	.byte	18
+00000bdc 03              711 	.byte	3
+
+                                                                      Page 25
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00004a01.s
+00000bdd 04              712 	.byte	4
+00000bde 13              713 	.byte	19
+00000bdf 01              714 	.byte	1
+00000be0 06              715 	.byte	6
+00000be1 44454d5f4346    716 	.strz	"DEM_CFG_BUILDTARGET_ECU 1"
+00000be7 475f4255494c 
+00000bed 445441524745 
+00000bf3 545f45435520 
+00000bf9 3100 
+00000bfb 01              717 	.byte	1
+00000bfc 07              718 	.byte	7
+00000bfd 44454d5f4346    719 	.strz	"DEM_CFG_BUILDTARGET_DEMTESTSUITE 2"
+00000c03 475f4255494c 
+00000c09 445441524745 
+00000c0f 545f44454d54 
+00000c15 455354535549 
+00000c1b 5445203200 
+00000c20 01              720 	.byte	1
+00000c21 10              721 	.byte	16
+00000c22 44454d5f4346    722 	.strz	"DEM_CFG_BUILDTARGET DEM_CFG_BUILDTARGET_ECU"
+00000c28 475f4255494c 
+00000c2e 445441524745 
+00000c34 542044454d5f 
+00000c3a 4346475f4255 
+00000c40 494c44544152 
+00000c46 4745545f4543 
+00000c4c 5500 
+00000c4e 01              723 	.byte	1
+00000c4f 17              724 	.byte	23
+00000c50 44454d5f4346    725 	.strz	"DEM_CFG_DEVERRORDETECT_ON STD_ON"
+00000c56 475f44455645 
+00000c5c 52524f524445 
+00000c62 544543545f4f 
+00000c68 4e205354445f 
+00000c6e 4f4e00 
+00000c71 01              726 	.byte	1
+00000c72 18              727 	.byte	24
+00000c73 44454d5f4346    728 	.strz	"DEM_CFG_DEVERRORDETECT DEM_CFG_DEVERRORDETECT_ON"
+00000c79 475f44455645 
+00000c7f 52524f524445 
+00000c85 544543542044 
+00000c8b 454d5f434647 
+00000c91 5f4445564552 
+00000c97 524f52444554 
+00000c9d 4543545f4f4e 
+00000ca3 00 
+00000ca4 04              729 	.byte	4
+00000ca5 01              730 	.byte	1
+00000ca6 0a              731 	.byte	10
+00000ca7 44454d5f4152    732 	.strz	"DEM_ARRAY_DECLARE_CONST(TYPE,NAME,SIZE) extern const TYPE NAME[SIZE]"
+00000cad 5241595f4445 
+00000cb3 434c4152455f 
+00000cb9 434f4e535428 
+00000cbf 545950452c4e 
+00000cc5 414d452c5349 
+00000ccb 5a4529206578 
+00000cd1 7465726e2063 
+00000cd7 6f6e73742054 
+00000cdd 595045204e41 
+00000ce3 4d455b53495a 
+00000ce9 455d00 
+
+                                                                      Page 26
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00004a01.s
+00000cec 01              733 	.byte	1
+00000ced 0c              734 	.byte	12
+00000cee 44454d5f4152    735 	.strz	"DEM_ARRAY_DEFINE_CONST(TYPE,NAME,SIZE,INITVALUE) const TYPE NAME[SIZE] = INITVALUE"
+00000cf4 5241595f4445 
+00000cfa 46494e455f43 
+00000d00 4f4e53542854 
+00000d06 5950452c4e41 
+00000d0c 4d452c53495a 
+00000d12 452c494e4954 
+00000d18 56414c554529 
+00000d1e 20636f6e7374 
+00000d24 205459504520 
+00000d2a 4e414d455b53 
+00000d30 495a455d203d 
+00000d36 20494e495456 
+00000d3c 414c554500 
+00000d41 04              736 	.byte	4
+00000d42 03              737 	.byte	3
+00000d43 08              738 	.byte	8
+00000d44 14              739 	.byte	20
+00000d45 03              740 	.byte	3
+00000d46 06              741 	.byte	6
+00000d47 15              742 	.byte	21
+00000d48 03              743 	.byte	3
+00000d49 05              744 	.byte	5
+00000d4a 16              745 	.byte	22
+00000d4b 03              746 	.byte	3
+00000d4c 07              747 	.byte	7
+00000d4d 17              748 	.byte	23
+00000d4e 03              749 	.byte	3
+00000d4f 04              750 	.byte	4
+00000d50 18              751 	.byte	24
+00000d51 03              752 	.byte	3
+00000d52 04              753 	.byte	4
+00000d53 19              754 	.byte	25
+00000d54 04              755 	.byte	4
+00000d55 04              756 	.byte	4
+00000d56 01              757 	.byte	1
+00000d57 08              758 	.byte	8
+00000d58 4445545f4346    759 	.strz	"DET_CFG_CHECK_API_CONSISTENCY TRUE"
+00000d5e 475f43484543 
+00000d64 4b5f4150495f 
+00000d6a 434f4e534953 
+00000d70 54454e435920 
+00000d76 5452554500 
+00000d7b 01              760 	.byte	1
+00000d7c 0a              761 	.byte	10
+00000d7d 4445545f5354    762 	.strz	"DET_START_SEC_ROM_CODE "
+00000d83 4152545f5345 
+00000d89 435f524f4d5f 
+00000d8f 434f44452000 
+00000d95 03              763 	.byte	3
+00000d96 0b              764 	.byte	11
+00000d97 1a              765 	.byte	26
+00000d98 01              766 	.byte	1
+00000d99 06              767 	.byte	6
+00000d9a 4d454d4d4150    768 	.strz	"MEMMAP_ERROR "
+00000da0 5f4552524f52 
+00000da6 2000 
+00000da8 01              769 	.byte	1
+00000da9 51              770 	.byte	81
+
+                                                                      Page 27
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00004a01.s
+00000daa 4253575f5354    771 	.strz	"BSW_START_SEC_DEFAULT_CODE "
+00000db0 4152545f5345 
+00000db6 435f44454641 
+00000dbc 554c545f434f 
+00000dc2 44452000 
+00000dc6 03              772 	.byte	3
+00000dc7 52              773 	.byte	82
+00000dc8 1b              774 	.byte	27
+00000dc9 01              775 	.byte	1
+00000dca d308            776 	.byte	211,8
+00000dcc 53544152545f    777 	.strz	"START_SEC_CODE "
+00000dd2 5345435f434f 
+00000dd8 44452000 
+00000ddc 03              778 	.byte	3
+00000ddd bb09            779 	.byte	187,9
+00000ddf 1c              780 	.byte	28
+00000de0 01              781 	.byte	1
+00000de1 f307            782 	.byte	243,7
+00000de3 434f44455f53    783 	.strz	"CODE_SEC_OPEN "
+00000de9 45435f4f5045 
+00000def 4e2000 
+00000df2 04              784 	.byte	4
+00000df3 04              785 	.byte	4
+00000df4 01              786 	.byte	1
+00000df5 56              787 	.byte	86
+00000df6 4445545f5741    788 	.strz	"DET_WAS_STARTED_SEC_ROM_CODE "
+00000dfc 535f53544152 
+00000e02 5445445f5345 
+00000e08 435f524f4d5f 
+00000e0e 434f44452000 
+00000e14 04              789 	.byte	4
+00000e15 01              790 	.byte	1
+00000e16 20              791 	.byte	32
+00000e17 4445545f5354    792 	.strz	"DET_STOP_SEC_ROM_CODE "
+00000e1d 4f505f534543 
+00000e23 5f524f4d5f43 
+00000e29 4f44452000 
+00000e2e 03              793 	.byte	3
+00000e2f 21              794 	.byte	33
+00000e30 1a              795 	.byte	26
+00000e31 01              796 	.byte	1
+00000e32 06              797 	.byte	6
+00000e33 4d454d4d4150    798 	.strz	"MEMMAP_ERROR "
+00000e39 5f4552524f52 
+00000e3f 2000 
+00000e41 01              799 	.byte	1
+00000e42 5e              800 	.byte	94
+00000e43 4253575f5354    801 	.strz	"BSW_STOP_SEC_DEFAULT_CODE "
+00000e49 4f505f534543 
+00000e4f 5f4445464155 
+00000e55 4c545f434f44 
+00000e5b 452000 
+00000e5e 03              802 	.byte	3
+00000e5f 5f              803 	.byte	95
+00000e60 1b              804 	.byte	27
+00000e61 01              805 	.byte	1
+00000e62 d608            806 	.byte	214,8
+00000e64 53544f505f53    807 	.strz	"STOP_SEC_CODE "
+00000e6a 45435f434f44 
+00000e70 452000 
+00000e73 03              808 	.byte	3
+
+                                                                      Page 28
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00004a01.s
+00000e74 bb09            809 	.byte	187,9
+00000e76 1c              810 	.byte	28
+00000e77 04              811 	.byte	4
+00000e78 04              812 	.byte	4
+00000e79 04              813 	.byte	4
+00000e7a 04              814 	.byte	4
+00000e7b 01              815 	.byte	1
+00000e7c 08              816 	.byte	8
+00000e7d 44454d5f4445    817 	.strz	"DEM_DET(APIID,ERRORID) Det_ReportError(DEM_MODULE_ID,DEM_INSTANCE_ID,APIID,ERRORID)"
+00000e83 542841504949 
+00000e89 442c4552524f 
+00000e8f 524944292044 
+00000e95 65745f526570 
+00000e9b 6f7274457272 
+00000ea1 6f722844454d 
+00000ea7 5f4d4f44554c 
+00000ead 455f49442c44 
+00000eb3 454d5f494e53 
+00000eb9 54414e43455f 
+00000ebf 49442c415049 
+00000ec5 49442c455252 
+00000ecb 4f5249442900 
+00000ed1 01              818 	.byte	1
+00000ed2 13              819 	.byte	19
+00000ed3 44454d5f4153    820 	.strz	"DEM_ASSERT(C,APIID,ERRORID) do { if(!(C)) { DEM_DET(APIID,ERRORID); }}while(0)"
+00000ed9 534552542843 
+00000edf 2c4150494944 
+00000ee5 2c4552524f52 
+00000eeb 49442920646f 
+00000ef1 207b20696628 
+00000ef7 212843292920 
+00000efd 7b2044454d5f 
+00000f03 444554284150 
+00000f09 4949442c4552 
+00000f0f 524f52494429 
+00000f15 3b207d7d7768 
+00000f1b 696c65283029 
+00000f21 00 
+00000f22 01              821 	.byte	1
+00000f23 1b              822 	.byte	27
+00000f24 44454d5f455f    823 	.strz	"DEM_E_NODATAAVAILABLE 0x30"
+00000f2a 4e4f44415441 
+00000f30 415641494c41 
+00000f36 424c45203078 
+00000f3c 333000 
+00000f3f 01              824 	.byte	1
+00000f40 52              825 	.byte	82
+00000f41 44454d5f4445    826 	.strz	"DEM_DET_APIID_ENVDARETRIEVE 0xA2"
+00000f47 545f41504949 
+00000f4d 445f454e5644 
+00000f53 415245545249 
+00000f59 455645203078 
+00000f5f 413200 
+00000f62 01              827 	.byte	1
+00000f63 57              828 	.byte	87
+00000f64 44454d5f4445    829 	.strz	"DEM_DET_APIID_ENVDACAPTURE 0xA7"
+00000f6a 545f41504949 
+00000f70 445f454e5644 
+00000f76 414341505455 
+00000f7c 524520307841 
+00000f82 3700 
+
+                                                                      Page 29
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00004a01.s
+00000f84 01              830 	.byte	1
+00000f85 58              831 	.byte	88
+00000f86 44454d5f4445    832 	.strz	"DEM_DET_APIID_ENVDASKIP 0xA8"
+00000f8c 545f41504949 
+00000f92 445f454e5644 
+00000f98 41534b495020 
+00000f9e 3078413800 
+00000fa3 01              833 	.byte	1
+00000fa4 59              834 	.byte	89
+00000fa5 44454d5f4445    835 	.strz	"DEM_DET_APIID_ENVDAUPDATE 0xA9"
+00000fab 545f41504949 
+00000fb1 445f454e5644 
+00000fb7 415550444154 
+00000fbd 452030784139 
+00000fc3 00 
+00000fc4 04              836 	.byte	4
+00000fc5 03              837 	.byte	3
+00000fc6 06              838 	.byte	6
+00000fc7 1d              839 	.byte	29
+00000fc8 03              840 	.byte	3
+00000fc9 04              841 	.byte	4
+00000fca 1e              842 	.byte	30
+00000fcb 01              843 	.byte	1
+00000fcc 10              844 	.byte	16
+00000fcd 5242415f4253    845 	.strz	"RBA_BSWSRV_START_SEC_CODE "
+00000fd3 575352565f53 
+00000fd9 544152545f53 
+00000fdf 45435f434f44 
+00000fe5 452000 
+00000fe8 03              846 	.byte	3
+00000fe9 11              847 	.byte	17
+00000fea 1f              848 	.byte	31
+00000feb 01              849 	.byte	1
+00000fec 37              850 	.byte	55
+00000fed 4253575f5354    851 	.strz	"BSW_START_SEC_DEFAULT_CODE "
+00000ff3 4152545f5345 
+00000ff9 435f44454641 
+00000fff 554c545f434f 
+00001005 44452000 
+00001009 03              852 	.byte	3
+0000100a 38              853 	.byte	56
+0000100b 1b              854 	.byte	27
+0000100c 01              855 	.byte	1
+0000100d d308            856 	.byte	211,8
+0000100f 53544152545f    857 	.strz	"START_SEC_CODE "
+00001015 5345435f434f 
+0000101b 44452000 
+0000101f 03              858 	.byte	3
+00001020 bb09            859 	.byte	187,9
+00001022 1c              860 	.byte	28
+00001023 01              861 	.byte	1
+00001024 f307            862 	.byte	243,7
+00001026 434f44455f53    863 	.strz	"CODE_SEC_OPEN "
+0000102c 45435f4f5045 
+00001032 4e2000 
+00001035 04              864 	.byte	4
+00001036 04              865 	.byte	4
+00001037 04              866 	.byte	4
+00001038 01              867 	.byte	1
+00001039 15              868 	.byte	21
+0000103a 5242415f4253    869 	.strz	"RBA_BSWSRV_STOP_SEC_CODE "
+
+                                                                      Page 30
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00004a01.s
+00001040 575352565f53 
+00001046 544f505f5345 
+0000104c 435f434f4445 
+00001052 2000 
+00001054 03              870 	.byte	3
+00001055 16              871 	.byte	22
+00001056 1f              872 	.byte	31
+00001057 01              873 	.byte	1
+00001058 3b              874 	.byte	59
+00001059 4253575f5354    875 	.strz	"BSW_STOP_SEC_DEFAULT_CODE "
+0000105f 4f505f534543 
+00001065 5f4445464155 
+0000106b 4c545f434f44 
+00001071 452000 
+00001074 03              876 	.byte	3
+00001075 3c              877 	.byte	60
+00001076 1b              878 	.byte	27
+00001077 01              879 	.byte	1
+00001078 d608            880 	.byte	214,8
+0000107a 53544f505f53    881 	.strz	"STOP_SEC_CODE "
+00001080 45435f434f44 
+00001086 452000 
+00001089 03              882 	.byte	3
+0000108a bb09            883 	.byte	187,9
+0000108c 1c              884 	.byte	28
+0000108d 04              885 	.byte	4
+0000108e 04              886 	.byte	4
+0000108f 04              887 	.byte	4
+00001090 04              888 	.byte	4
+00001091 01              889 	.byte	1
+00001092 06              890 	.byte	6
+00001093 5242415f4449    891 	.strz	"RBA_DIAGLIB_MEMCPY(xDest_p,xSrc_pc,numBytes_u32) rba_DiagLib_MemUtils_MemCpy((uint8*)(xDest_p),(const uint8*)(xSrc_pc),(uint32)(numBytes_u32))"
+00001099 41474c49425f 
+0000109f 4d454d435059 
+000010a5 287844657374 
+000010ab 5f702c785372 
+000010b1 635f70632c6e 
+000010b7 756d42797465 
+000010bd 735f75333229 
+000010c3 207262615f44 
+000010c9 6961674c6962 
+000010cf 5f4d656d5574 
+000010d5 696c735f4d65 
+000010db 6d4370792828 
+000010e1 75696e74382a 
+000010e7 292878446573 
+000010ed 745f70292c28 
+000010f3 636f6e737420 
+000010f9 75696e74382a 
+000010ff 292878537263 
+00001105 5f7063292c28 
+0000110b 75696e743332 
+00001111 29286e756d42 
+00001117 797465735f75 
+0000111d 3332292900 
+00001122 01              892 	.byte	1
+00001123 07              893 	.byte	7
+00001124 5242415f4449    894 	.strz	"RBA_DIAGLIB_MEMSET(xDest_p,xPattern_u32,numBytes_u32) rba_DiagLib_MemUtils_MemSet((uint8*)(xDest_p),(sint32)(xPattern_u32),(uint32)(numBytes_u32))"
+0000112a 41474c49425f 
+00001130 4d454d534554 
+00001136 287844657374 
+
+                                                                      Page 31
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00004a01.s
+0000113c 5f702c785061 
+00001142 747465726e5f 
+00001148 7533322c6e75 
+0000114e 6d4279746573 
+00001154 5f7533322920 
+0000115a 7262615f4469 
+00001160 61674c69625f 
+00001166 4d656d557469 
+0000116c 6c735f4d656d 
+00001172 536574282875 
+00001178 696e74382a29 
+0000117e 287844657374 
+00001184 5f70292c2873 
+0000118a 696e74333229 
+00001190 287850617474 
+00001196 65726e5f7533 
+0000119c 32292c287569 
+000011a2 6e7433322928 
+000011a8 6e756d427974 
+000011ae 65735f753332 
+000011b4 292900 
+000011b7 04              895 	.byte	4
+000011b8 01              896 	.byte	1
+000011b9 0b              897 	.byte	11
+000011ba 44454d5f4d45    898 	.strz	"DEM_MEMCPY RBA_DIAGLIB_MEMCPY"
+000011c0 4d4350592052 
+000011c6 42415f444941 
+000011cc 474c49425f4d 
+000011d2 454d43505900 
+000011d8 01              899 	.byte	1
+000011d9 0c              900 	.byte	12
+000011da 44454d5f4d45    901 	.strz	"DEM_MEMSET RBA_DIAGLIB_MEMSET"
+000011e0 4d5345542052 
+000011e6 42415f444941 
+000011ec 474c49425f4d 
+000011f2 454d53455400 
+000011f8 01              902 	.byte	1
+000011f9 0e              903 	.byte	14
+000011fa 44454d5f4153    904 	.strz	"DEM_ASSERT_RANGECHECK(CONDITION) do {}while(0)"
+00001200 534552545f52 
+00001206 414e47454348 
+0000120c 45434b28434f 
+00001212 4e444954494f 
+00001218 4e2920646f20 
+0000121e 7b7d7768696c 
+00001224 6528302900 
+00001229 04              905 	.byte	4
+0000122a 03              906 	.byte	3
+0000122b 08              907 	.byte	8
+0000122c 20              908 	.byte	32
+0000122d 03              909 	.byte	3
+0000122e 07              910 	.byte	7
+0000122f 21              911 	.byte	33
+00001230 03              912 	.byte	3
+00001231 07              913 	.byte	7
+00001232 22              914 	.byte	34
+00001233 03              915 	.byte	3
+00001234 07              916 	.byte	7
+00001235 23              917 	.byte	35
+00001236 03              918 	.byte	3
+00001237 06              919 	.byte	6
+
+                                                                      Page 32
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00004a01.s
+00001238 24              920 	.byte	36
+00001239 04              921 	.byte	4
+0000123a 01              922 	.byte	1
+0000123b 08              923 	.byte	8
+0000123c 44454d5f4346    924 	.strz	"DEM_CFG_EVCOMB_DISABLED 1u"
+00001242 475f4556434f 
+00001248 4d425f444953 
+0000124e 41424c454420 
+00001254 317500 
+00001257 01              925 	.byte	1
+00001258 0b              926 	.byte	11
+00001259 44454d5f4346    927 	.strz	"DEM_CFG_EVCOMB DEM_CFG_EVCOMB_DISABLED"
+0000125f 475f4556434f 
+00001265 4d422044454d 
+0000126b 5f4346475f45 
+00001271 56434f4d425f 
+00001277 44495341424c 
+0000127d 454400 
+00001280 04              928 	.byte	4
+00001281 03              929 	.byte	3
+00001282 08              930 	.byte	8
+00001283 25              931 	.byte	37
+00001284 01              932 	.byte	1
+00001285 50              933 	.byte	80
+00001286 44454d5f4346    934 	.strz	"DEM_CFG_TFSLC_RESET_AFTER_AGING_AND_DISPLACEMENT FALSE"
+0000128c 475f5446534c 
+00001292 435f52455345 
+00001298 545f41465445 
+0000129e 525f4147494e 
+000012a4 475f414e445f 
+000012aa 444953504c41 
+000012b0 43454d454e54 
+000012b6 2046414c5345 
+000012bc 00 
+000012bd 04              935 	.byte	4
+000012be 01              936 	.byte	1
+000012bf 1d              937 	.byte	29
+000012c0 44454d5f4346    938 	.strz	"DEM_CFG_EVMEM_EXTENDED_DATA_SUPPORTED FALSE"
+000012c6 475f45564d45 
+000012cc 4d5f45585445 
+000012d2 4e4445445f44 
+000012d8 4154415f5355 
+000012de 50504f525445 
+000012e4 442046414c53 
+000012ea 4500 
+000012ec 01              939 	.byte	1
+000012ed 22              940 	.byte	34
+000012ee 44454d5f4346    941 	.strz	"DEM_CFG_EVMEM_FREEZE_FRAME_SUPPORTED TRUE"
+000012f4 475f45564d45 
+000012fa 4d5f46524545 
+00001300 5a455f465241 
+00001306 4d455f535550 
+0000130c 504f52544544 
+00001312 205452554500 
+00001318 01              942 	.byte	1
+00001319 2c              943 	.byte	44
+0000131a 44454d5f4346    944 	.strz	"DEM_CFG_MAX_NUMBER_EVENT_ENTRY_SECONDARY 0u"
+00001320 475f4d41585f 
+00001326 4e554d424552 
+0000132c 5f4556454e54 
+00001332 5f454e545259 
+
+                                                                      Page 33
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00004a01.s
+00001338 5f5345434f4e 
+0000133e 444152592030 
+00001344 7500 
+00001346 01              945 	.byte	1
+00001347 30              946 	.byte	48
+00001348 44454d5f4346    947 	.strz	"DEM_CFG_MAX_NUMBER_EVENT_ENTRY_MIRROR 0u"
+0000134e 475f4d41585f 
+00001354 4e554d424552 
+0000135a 5f4556454e54 
+00001360 5f454e545259 
+00001366 5f4d4952524f 
+0000136c 5220307500 
+00001371 01              948 	.byte	1
+00001372 36              949 	.byte	54
+00001373 44454d5f4346    950 	.strz	"DEM_CFG_EVMEM_MIRROR_MEMORY_DTC_STATUS_STORED FALSE"
+00001379 475f45564d45 
+0000137f 4d5f4d495252 
+00001385 4f525f4d454d 
+0000138b 4f52595f4454 
+00001391 435f53544154 
+00001397 55535f53544f 
+0000139d 524544204641 
+000013a3 4c534500 
+000013a7 01              951 	.byte	1
+000013a8 38              952 	.byte	56
+000013a9 44454d5f4346    953 	.strz	"DEM_CFG_EVMEM_SHADOW_MEMORY_SUPPORTED FALSE"
+000013af 475f45564d45 
+000013b5 4d5f53484144 
+000013bb 4f575f4d454d 
+000013c1 4f52595f5355 
+000013c7 50504f525445 
+000013cd 442046414c53 
+000013d3 4500 
+000013d5 01              954 	.byte	1
+000013d6 3b              955 	.byte	59
+000013d7 44454d5f4346    956 	.strz	"DEM_CFG_EVMEM_SHADOW_ENTRIES_VISIBLE FALSE"
+000013dd 475f45564d45 
+000013e3 4d5f53484144 
+000013e9 4f575f454e54 
+000013ef 524945535f56 
+000013f5 495349424c45 
+000013fb 2046414c5345 
+00001401 00 
+00001402 01              957 	.byte	1
+00001403 4b              958 	.byte	75
+00001404 44454d5f4346    959 	.strz	"DEM_CFG_EVMEM_AGING_COUNTER_SUPPORTED TRUE"
+0000140a 475f45564d45 
+00001410 4d5f4147494e 
+00001416 475f434f554e 
+0000141c 5445525f5355 
+00001422 50504f525445 
+00001428 442054525545 
+0000142e 00 
+0000142f 01              960 	.byte	1
+00001430 52              961 	.byte	82
+00001431 44454d5f4346    962 	.strz	"DEM_CFG_EVMEM_AGING_COUNTER_MAX 0xFF"
+00001437 475f45564d45 
+0000143d 4d5f4147494e 
+00001443 475f434f554e 
+00001449 5445525f4d41 
+0000144f 582030784646 
+
+                                                                      Page 34
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00004a01.s
+00001455 00 
+00001456 01              963 	.byte	1
+00001457 54              964 	.byte	84
+00001458 44454d5f4346    965 	.strz	"DEM_CFG_EVMEM_OCCURRENCE_COUNTER_SUPPORTED TRUE"
+0000145e 475f45564d45 
+00001464 4d5f4f434355 
+0000146a 5252454e4345 
+00001470 5f434f554e54 
+00001476 45525f535550 
+0000147c 504f52544544 
+00001482 205452554500 
+00001488 01              966 	.byte	1
+00001489 5c              967 	.byte	92
+0000148a 44454d5f4346    968 	.strz	"DEM_CFG_EVMEM_PROJECT_EXTENSION FALSE"
+00001490 475f45564d45 
+00001496 4d5f50524f4a 
+0000149c 4543545f4558 
+000014a2 54454e53494f 
+000014a8 4e2046414c53 
+000014ae 4500 
+000014b0 01              969 	.byte	1
+000014b1 5e              970 	.byte	94
+000014b2 44454d5f4346    971 	.strz	"DEM_CFG_EVMEM_READ_FROM_DIFFERENT_TASK FALSE"
+000014b8 475f45564d45 
+000014be 4d5f52454144 
+000014c4 5f46524f4d5f 
+000014ca 444946464552 
+000014d0 454e545f5441 
+000014d6 534b2046414c 
+000014dc 534500 
+000014df 01              972 	.byte	1
+000014e0 63              973 	.byte	99
+000014e1 44454d5f4346    974 	.strz	"DEM_CFG_EVMEM_DEBUG_BITFIELDS FALSE"
+000014e7 475f45564d45 
+000014ed 4d5f44454255 
+000014f3 475f42495446 
+000014f9 49454c445320 
+000014ff 46414c534500 
+00001505 01              975 	.byte	1
+00001506 70              976 	.byte	112
+00001507 44454d5f4346    977 	.strz	"DEM_CFG_EVMEM_OCCURRENCE_COUNTER_MAX 0xFFu"
+0000150d 475f45564d45 
+00001513 4d5f4f434355 
+00001519 5252454e4345 
+0000151f 5f434f554e54 
+00001525 45525f4d4158 
+0000152b 203078464675 
+00001531 00 
+00001532 01              978 	.byte	1
+00001533 9801            979 	.byte	152,1
+00001535 44454d5f4346    980 	.strz	"DEM_CFG_EVMEM_MIRROR_MEMORY_SUPPORTED FALSE"
+0000153b 475f45564d45 
+00001541 4d5f4d495252 
+00001547 4f525f4d454d 
+0000154d 4f52595f5355 
+00001553 50504f525445 
+00001559 442046414c53 
+0000155f 4500 
+00001561 04              981 	.byte	4
+00001562 03              982 	.byte	3
+00001563 08              983 	.byte	8
+
+                                                                      Page 35
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00004a01.s
+00001564 26              984 	.byte	38
+00001565 01              985 	.byte	1
+00001566 08              986 	.byte	8
+00001567 44454d5f4346    987 	.strz	"DEM_CFG_ENVMINSIZE_OF_MULTIPLE_RAWENVDATA (32u + 0u + 0u)"
+0000156d 475f454e564d 
+00001573 494e53495a45 
+00001579 5f4f465f4d55 
+0000157f 4c5449504c45 
+00001585 5f524157454e 
+0000158b 564441544120 
+00001591 28333275202b 
+00001597 203075202b20 
+0000159d 30752900 
+000015a1 04              988 	.byte	4
+000015a2 03              989 	.byte	3
+000015a3 0b              990 	.byte	11
+000015a4 27              991 	.byte	39
+000015a5 01              992 	.byte	1
+000015a6 08              993 	.byte	8
+000015a7 44454d5f4346    994 	.strz	"DEM_CFG_REPORT_CHRONOLOGICAL_ORDER_HOOKS_ENABLED FALSE"
+000015ad 475f5245504f 
+000015b3 52545f434852 
+000015b9 4f4e4f4c4f47 
+000015bf 4943414c5f4f 
+000015c5 524445525f48 
+000015cb 4f4f4b535f45 
+000015d1 4e41424c4544 
+000015d7 2046414c5345 
+000015dd 00 
+000015de 04              995 	.byte	4
+000015df 03              996 	.byte	3
+000015e0 0d              997 	.byte	13
+000015e1 28              998 	.byte	40
+000015e2 01              999 	.byte	1
+000015e3 17             1000 	.byte	23
+000015e4 44454d5f5354   1001 	.strz	"DEM_START_SEC_ROM_CONST "
+000015ea 4152545f5345 
+000015f0 435f524f4d5f 
+000015f6 434f4e535420 
+000015fc 00 
+000015fd 03             1002 	.byte	3
+000015fe 18             1003 	.byte	24
+000015ff 29             1004 	.byte	41
+00001600 01             1005 	.byte	1
+00001601 06             1006 	.byte	6
+00001602 44454d5f4d45   1007 	.strz	"DEM_MEMMAP_ERROR "
+00001608 4d4d41505f45 
+0000160e 52524f522000 
+00001614 01             1008 	.byte	1
+00001615 3a             1009 	.byte	58
+00001616 4253575f5354   1010 	.strz	"BSW_START_SEC_CONST_UNSPECIFIED "
+0000161c 4152545f5345 
+00001622 435f434f4e53 
+00001628 545f554e5350 
+0000162e 454349464945 
+00001634 442000 
+00001637 03             1011 	.byte	3
+00001638 3b             1012 	.byte	59
+00001639 1b             1013 	.byte	27
+0000163a 01             1014 	.byte	1
+0000163b f005           1015 	.byte	240,5
+
+                                                                      Page 36
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00004a01.s
+0000163d 53544152545f   1016 	.strz	"START_SEC_CONST_UNSPECIFIED "
+00001643 5345435f434f 
+00001649 4e53545f554e 
+0000164f 535045434946 
+00001655 4945442000 
+0000165a 03             1017 	.byte	3
+0000165b bb09           1018 	.byte	187,9
+0000165d 1c             1019 	.byte	28
+0000165e 01             1020 	.byte	1
+0000165f b408           1021 	.byte	180,8
+00001661 434f4e53545f   1022 	.strz	"CONST_SEC_OPEN "
+00001667 5345435f4f50 
+0000166d 454e2000 
+00001671 04             1023 	.byte	4
+00001672 04             1024 	.byte	4
+00001673 01             1025 	.byte	1
+00001674 3f             1026 	.byte	63
+00001675 44454d5f5741   1027 	.strz	"DEM_WAS_STARTED_SEC_ROM_CONST "
+0000167b 535f53544152 
+00001681 5445445f5345 
+00001687 435f524f4d5f 
+0000168d 434f4e535420 
+00001693 00 
+00001694 04             1028 	.byte	4
+00001695 01             1029 	.byte	1
+00001696 1a             1030 	.byte	26
+00001697 44454d5f5354   1031 	.strz	"DEM_STOP_SEC_ROM_CONST "
+0000169d 4f505f534543 
+000016a3 5f524f4d5f43 
+000016a9 4f4e53542000 
+000016af 03             1032 	.byte	3
+000016b0 1b             1033 	.byte	27
+000016b1 29             1034 	.byte	41
+000016b2 01             1035 	.byte	1
+000016b3 06             1036 	.byte	6
+000016b4 44454d5f4d45   1037 	.strz	"DEM_MEMMAP_ERROR "
+000016ba 4d4d41505f45 
+000016c0 52524f522000 
+000016c6 01             1038 	.byte	1
+000016c7 47             1039 	.byte	71
+000016c8 4253575f5354   1040 	.strz	"BSW_STOP_SEC_CONST_UNSPECIFIED "
+000016ce 4f505f534543 
+000016d4 5f434f4e5354 
+000016da 5f554e535045 
+000016e0 434946494544 
+000016e6 2000 
+000016e8 03             1041 	.byte	3
+000016e9 48             1042 	.byte	72
+000016ea 1b             1043 	.byte	27
+000016eb 01             1044 	.byte	1
+000016ec f405           1045 	.byte	244,5
+000016ee 53544f505f53   1046 	.strz	"STOP_SEC_CONST "
+000016f4 45435f434f4e 
+000016fa 53542000 
+000016fe 03             1047 	.byte	3
+000016ff bb09           1048 	.byte	187,9
+00001701 1c             1049 	.byte	28
+00001702 04             1050 	.byte	4
+00001703 04             1051 	.byte	4
+00001704 04             1052 	.byte	4
+00001705 04             1053 	.byte	4
+
+                                                                      Page 37
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00004a01.s
+00001706 04             1054 	.byte	4
+00001707 04             1055 	.byte	4
+00001708 01             1056 	.byte	1
+00001709 24             1057 	.byte	36
+0000170a 44454d5f5354   1058 	.strz	"DEM_START_SEC_ROM_CONST "
+00001710 4152545f5345 
+00001716 435f524f4d5f 
+0000171c 434f4e535420 
+00001722 00 
+00001723 03             1059 	.byte	3
+00001724 25             1060 	.byte	37
+00001725 29             1061 	.byte	41
+00001726 01             1062 	.byte	1
+00001727 06             1063 	.byte	6
+00001728 44454d5f4d45   1064 	.strz	"DEM_MEMMAP_ERROR "
+0000172e 4d4d41505f45 
+00001734 52524f522000 
+0000173a 01             1065 	.byte	1
+0000173b 3a             1066 	.byte	58
+0000173c 4253575f5354   1067 	.strz	"BSW_START_SEC_CONST_UNSPECIFIED "
+00001742 4152545f5345 
+00001748 435f434f4e53 
+0000174e 545f554e5350 
+00001754 454349464945 
+0000175a 442000 
+0000175d 03             1068 	.byte	3
+0000175e 3b             1069 	.byte	59
+0000175f 1b             1070 	.byte	27
+00001760 01             1071 	.byte	1
+00001761 f005           1072 	.byte	240,5
+00001763 53544152545f   1073 	.strz	"START_SEC_CONST_UNSPECIFIED "
+00001769 5345435f434f 
+0000176f 4e53545f554e 
+00001775 535045434946 
+0000177b 4945442000 
+00001780 03             1074 	.byte	3
+00001781 bb09           1075 	.byte	187,9
+00001783 1c             1076 	.byte	28
+00001784 01             1077 	.byte	1
+00001785 b408           1078 	.byte	180,8
+00001787 434f4e53545f   1079 	.strz	"CONST_SEC_OPEN "
+0000178d 5345435f4f50 
+00001793 454e2000 
+00001797 04             1080 	.byte	4
+00001798 04             1081 	.byte	4
+00001799 01             1082 	.byte	1
+0000179a 3f             1083 	.byte	63
+0000179b 44454d5f5741   1084 	.strz	"DEM_WAS_STARTED_SEC_ROM_CONST "
+000017a1 535f53544152 
+000017a7 5445445f5345 
+000017ad 435f524f4d5f 
+000017b3 434f4e535420 
+000017b9 00 
+000017ba 04             1085 	.byte	4
+000017bb 01             1086 	.byte	1
+000017bc 27             1087 	.byte	39
+000017bd 44454d5f5354   1088 	.strz	"DEM_STOP_SEC_ROM_CONST "
+000017c3 4f505f534543 
+000017c9 5f524f4d5f43 
+000017cf 4f4e53542000 
+000017d5 03             1089 	.byte	3
+
+                                                                      Page 38
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00004a01.s
+000017d6 28             1090 	.byte	40
+000017d7 29             1091 	.byte	41
+000017d8 01             1092 	.byte	1
+000017d9 06             1093 	.byte	6
+000017da 44454d5f4d45   1094 	.strz	"DEM_MEMMAP_ERROR "
+000017e0 4d4d41505f45 
+000017e6 52524f522000 
+000017ec 01             1095 	.byte	1
+000017ed 47             1096 	.byte	71
+000017ee 4253575f5354   1097 	.strz	"BSW_STOP_SEC_CONST_UNSPECIFIED "
+000017f4 4f505f534543 
+000017fa 5f434f4e5354 
+00001800 5f554e535045 
+00001806 434946494544 
+0000180c 2000 
+0000180e 03             1098 	.byte	3
+0000180f 48             1099 	.byte	72
+00001810 1b             1100 	.byte	27
+00001811 01             1101 	.byte	1
+00001812 f405           1102 	.byte	244,5
+00001814 53544f505f53   1103 	.strz	"STOP_SEC_CONST "
+0000181a 45435f434f4e 
+00001820 53542000 
+00001824 03             1104 	.byte	3
+00001825 bb09           1105 	.byte	187,9
+00001827 1c             1106 	.byte	28
+00001828 04             1107 	.byte	4
+00001829 04             1108 	.byte	4
+0000182a 04             1109 	.byte	4
+0000182b 01             1110 	.byte	1
+0000182c 9301           1111 	.byte	147,1
+0000182e 44454d5f5354   1112 	.strz	"DEM_START_SEC_ROM_CODE "
+00001834 4152545f5345 
+0000183a 435f524f4d5f 
+00001840 434f44452000 
+00001846 03             1113 	.byte	3
+00001847 9401           1114 	.byte	148,1
+00001849 29             1115 	.byte	41
+0000184a 01             1116 	.byte	1
+0000184b 06             1117 	.byte	6
+0000184c 44454d5f4d45   1118 	.strz	"DEM_MEMMAP_ERROR "
+00001852 4d4d41505f45 
+00001858 52524f522000 
+0000185e 01             1119 	.byte	1
+0000185f 51             1120 	.byte	81
+00001860 4253575f5354   1121 	.strz	"BSW_START_SEC_CODE "
+00001866 4152545f5345 
+0000186c 435f434f4445 
+00001872 2000 
+00001874 03             1122 	.byte	3
+00001875 52             1123 	.byte	82
+00001876 1b             1124 	.byte	27
+00001877 01             1125 	.byte	1
+00001878 da08           1126 	.byte	218,8
+0000187a 53544152545f   1127 	.strz	"START_SEC_CODE "
+00001880 5345435f434f 
+00001886 44452000 
+0000188a 03             1128 	.byte	3
+0000188b bb09           1129 	.byte	187,9
+0000188d 1c             1130 	.byte	28
+0000188e 01             1131 	.byte	1
+
+                                                                      Page 39
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00004a01.s
+0000188f f307           1132 	.byte	243,7
+00001891 434f44455f53   1133 	.strz	"CODE_SEC_OPEN "
+00001897 45435f4f5045 
+0000189d 4e2000 
+000018a0 04             1134 	.byte	4
+000018a1 04             1135 	.byte	4
+000018a2 01             1136 	.byte	1
+000018a3 56             1137 	.byte	86
+000018a4 44454d5f5741   1138 	.strz	"DEM_WAS_STARTED_SEC_ROM_CODE "
+000018aa 535f53544152 
+000018b0 5445445f5345 
+000018b6 435f524f4d5f 
+000018bc 434f44452000 
+000018c2 04             1139 	.byte	4
+000018c3 01             1140 	.byte	1
+000018c4 d301           1141 	.byte	211,1
+000018c6 44454d5f5354   1142 	.strz	"DEM_STOP_SEC_ROM_CODE "
+000018cc 4f505f534543 
+000018d2 5f524f4d5f43 
+000018d8 4f44452000 
+000018dd 03             1143 	.byte	3
+000018de d401           1144 	.byte	212,1
+000018e0 29             1145 	.byte	41
+000018e1 01             1146 	.byte	1
+000018e2 06             1147 	.byte	6
+000018e3 44454d5f4d45   1148 	.strz	"DEM_MEMMAP_ERROR "
+000018e9 4d4d41505f45 
+000018ef 52524f522000 
+000018f5 01             1149 	.byte	1
+000018f6 5e             1150 	.byte	94
+000018f7 4253575f5354   1151 	.strz	"BSW_STOP_SEC_CODE "
+000018fd 4f505f534543 
+00001903 5f434f444520 
+00001909 00 
+0000190a 03             1152 	.byte	3
+0000190b 5f             1153 	.byte	95
+0000190c 1b             1154 	.byte	27
+0000190d 01             1155 	.byte	1
+0000190e de08           1156 	.byte	222,8
+00001910 53544f505f53   1157 	.strz	"STOP_SEC_CODE "
+00001916 45435f434f44 
+0000191c 452000 
+0000191f 03             1158 	.byte	3
+00001920 bb09           1159 	.byte	187,9
+00001922 1c             1160 	.byte	28
+00001923 04             1161 	.byte	4
+00001924 04             1162 	.byte	4
+00001925 04             1163 	.byte	4
+00001926 04             1164 	.byte	4
+00001927 01             1165 	.byte	1
+00001928 0f             1166 	.byte	15
+00001929 44454d5f5354   1167 	.strz	"DEM_START_SEC_ROM_CONST "
+0000192f 4152545f5345 
+00001935 435f524f4d5f 
+0000193b 434f4e535420 
+00001941 00 
+00001942 03             1168 	.byte	3
+00001943 10             1169 	.byte	16
+00001944 29             1170 	.byte	41
+00001945 01             1171 	.byte	1
+00001946 06             1172 	.byte	6
+
+                                                                      Page 40
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00004a01.s
+00001947 44454d5f4d45   1173 	.strz	"DEM_MEMMAP_ERROR "
+0000194d 4d4d41505f45 
+00001953 52524f522000 
+00001959 01             1174 	.byte	1
+0000195a 3a             1175 	.byte	58
+0000195b 4253575f5354   1176 	.strz	"BSW_START_SEC_CONST_UNSPECIFIED "
+00001961 4152545f5345 
+00001967 435f434f4e53 
+0000196d 545f554e5350 
+00001973 454349464945 
+00001979 442000 
+0000197c 03             1177 	.byte	3
+0000197d 3b             1178 	.byte	59
+0000197e 1b             1179 	.byte	27
+0000197f 01             1180 	.byte	1
+00001980 f005           1181 	.byte	240,5
+00001982 53544152545f   1182 	.strz	"START_SEC_CONST_UNSPECIFIED "
+00001988 5345435f434f 
+0000198e 4e53545f554e 
+00001994 535045434946 
+0000199a 4945442000 
+0000199f 03             1183 	.byte	3
+000019a0 bb09           1184 	.byte	187,9
+000019a2 1c             1185 	.byte	28
+000019a3 01             1186 	.byte	1
+000019a4 b408           1187 	.byte	180,8
+000019a6 434f4e53545f   1188 	.strz	"CONST_SEC_OPEN "
+000019ac 5345435f4f50 
+000019b2 454e2000 
+000019b6 04             1189 	.byte	4
+000019b7 04             1190 	.byte	4
+000019b8 01             1191 	.byte	1
+000019b9 3f             1192 	.byte	63
+000019ba 44454d5f5741   1193 	.strz	"DEM_WAS_STARTED_SEC_ROM_CONST "
+000019c0 535f53544152 
+000019c6 5445445f5345 
+000019cc 435f524f4d5f 
+000019d2 434f4e535420 
+000019d8 00 
+000019d9 04             1194 	.byte	4
+000019da 01             1195 	.byte	1
+000019db 13             1196 	.byte	19
+000019dc 44454d5f5354   1197 	.strz	"DEM_STOP_SEC_ROM_CONST "
+000019e2 4f505f534543 
+000019e8 5f524f4d5f43 
+000019ee 4f4e53542000 
+000019f4 03             1198 	.byte	3
+000019f5 14             1199 	.byte	20
+000019f6 29             1200 	.byte	41
+000019f7 01             1201 	.byte	1
+000019f8 06             1202 	.byte	6
+000019f9 44454d5f4d45   1203 	.strz	"DEM_MEMMAP_ERROR "
+000019ff 4d4d41505f45 
+00001a05 52524f522000 
+00001a0b 01             1204 	.byte	1
+00001a0c 47             1205 	.byte	71
+00001a0d 4253575f5354   1206 	.strz	"BSW_STOP_SEC_CONST_UNSPECIFIED "
+00001a13 4f505f534543 
+00001a19 5f434f4e5354 
+00001a1f 5f554e535045 
+00001a25 434946494544 
+
+                                                                      Page 41
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00004a01.s
+00001a2b 2000 
+00001a2d 03             1207 	.byte	3
+00001a2e 48             1208 	.byte	72
+00001a2f 1b             1209 	.byte	27
+00001a30 01             1210 	.byte	1
+00001a31 f405           1211 	.byte	244,5
+00001a33 53544f505f53   1212 	.strz	"STOP_SEC_CONST "
+00001a39 45435f434f4e 
+00001a3f 53542000 
+00001a43 03             1213 	.byte	3
+00001a44 bb09           1214 	.byte	187,9
+00001a46 1c             1215 	.byte	28
+00001a47 04             1216 	.byte	4
+00001a48 04             1217 	.byte	4
+00001a49 04             1218 	.byte	4
+00001a4a 04             1219 	.byte	4
+00001a4b 01             1220 	.byte	1
+00001a4c 07             1221 	.byte	7
+00001a4d 44454d5f5354   1222 	.strz	"DEM_START_SEC_ROM_CONST "
+00001a53 4152545f5345 
+00001a59 435f524f4d5f 
+00001a5f 434f4e535420 
+00001a65 00 
+00001a66 03             1223 	.byte	3
+00001a67 08             1224 	.byte	8
+00001a68 29             1225 	.byte	41
+00001a69 01             1226 	.byte	1
+00001a6a 06             1227 	.byte	6
+00001a6b 44454d5f4d45   1228 	.strz	"DEM_MEMMAP_ERROR "
+00001a71 4d4d41505f45 
+00001a77 52524f522000 
+00001a7d 01             1229 	.byte	1
+00001a7e 3a             1230 	.byte	58
+00001a7f 4253575f5354   1231 	.strz	"BSW_START_SEC_CONST_UNSPECIFIED "
+00001a85 4152545f5345 
+00001a8b 435f434f4e53 
+00001a91 545f554e5350 
+00001a97 454349464945 
+00001a9d 442000 
+00001aa0 03             1232 	.byte	3
+00001aa1 3b             1233 	.byte	59
+00001aa2 1b             1234 	.byte	27
+00001aa3 01             1235 	.byte	1
+00001aa4 f005           1236 	.byte	240,5
+00001aa6 53544152545f   1237 	.strz	"START_SEC_CONST_UNSPECIFIED "
+00001aac 5345435f434f 
+00001ab2 4e53545f554e 
+00001ab8 535045434946 
+00001abe 4945442000 
+00001ac3 03             1238 	.byte	3
+00001ac4 bb09           1239 	.byte	187,9
+00001ac6 1c             1240 	.byte	28
+00001ac7 01             1241 	.byte	1
+00001ac8 b408           1242 	.byte	180,8
+00001aca 434f4e53545f   1243 	.strz	"CONST_SEC_OPEN "
+00001ad0 5345435f4f50 
+00001ad6 454e2000 
+00001ada 04             1244 	.byte	4
+00001adb 04             1245 	.byte	4
+00001adc 01             1246 	.byte	1
+00001add 3f             1247 	.byte	63
+
+                                                                      Page 42
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00004a01.s
+00001ade 44454d5f5741   1248 	.strz	"DEM_WAS_STARTED_SEC_ROM_CONST "
+00001ae4 535f53544152 
+00001aea 5445445f5345 
+00001af0 435f524f4d5f 
+00001af6 434f4e535420 
+00001afc 00 
+00001afd 04             1249 	.byte	4
+00001afe 01             1250 	.byte	1
+00001aff 0b             1251 	.byte	11
+00001b00 44454d5f5354   1252 	.strz	"DEM_STOP_SEC_ROM_CONST "
+00001b06 4f505f534543 
+00001b0c 5f524f4d5f43 
+00001b12 4f4e53542000 
+00001b18 03             1253 	.byte	3
+00001b19 0c             1254 	.byte	12
+00001b1a 29             1255 	.byte	41
+00001b1b 01             1256 	.byte	1
+00001b1c 06             1257 	.byte	6
+00001b1d 44454d5f4d45   1258 	.strz	"DEM_MEMMAP_ERROR "
+00001b23 4d4d41505f45 
+00001b29 52524f522000 
+00001b2f 01             1259 	.byte	1
+00001b30 47             1260 	.byte	71
+00001b31 4253575f5354   1261 	.strz	"BSW_STOP_SEC_CONST_UNSPECIFIED "
+00001b37 4f505f534543 
+00001b3d 5f434f4e5354 
+00001b43 5f554e535045 
+00001b49 434946494544 
+00001b4f 2000 
+00001b51 03             1262 	.byte	3
+00001b52 48             1263 	.byte	72
+00001b53 1b             1264 	.byte	27
+00001b54 01             1265 	.byte	1
+00001b55 f405           1266 	.byte	244,5
+00001b57 53544f505f53   1267 	.strz	"STOP_SEC_CONST "
+00001b5d 45435f434f4e 
+00001b63 53542000 
+00001b67 03             1268 	.byte	3
+00001b68 bb09           1269 	.byte	187,9
+00001b6a 1c             1270 	.byte	28
+00001b6b 04             1271 	.byte	4
+00001b6c 04             1272 	.byte	4
+00001b6d 04             1273 	.byte	4
+00001b6e 04             1274 	.byte	4
+00001b6f 00             1275 	.byte	0
+                        1276 	.section	.debug_abbrev
+00000087 00             1277 	.byte	0
+                        1278 	.section	.debug_info
+                        1279 .Ldw_end:
+                        1280 .rh850_flags REGMODE32,DATA_ALIGN8,GP_FIX,EP_NONFIX,TP_FIX,REG2_RESERVE,G3K,GHS_MISALIGN,SDA_EXTRA_REGS_0

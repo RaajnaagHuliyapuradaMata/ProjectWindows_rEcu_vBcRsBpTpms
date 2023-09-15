@@ -1,0 +1,3292 @@
+                                                                      Page 1
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+Command Line: C:\ghs\comp_201517\ease850.exe -w -elf -b0 -I../source/common -I../source/ProjectCompiler -I../source/ProjectCfg -I../source/SwcApplTpms -I../source/SwcApplEcuM -I../source/SwcServiceBswM -I../source/SwcServiceEcuM -I../source/SwcServiceNvM -I../source/SwcServiceOs -I../source/SwcServiceStartUp -I../source/McalAdc -I../source/McalDio -I../source/McalGpt -I../source/McalMcu -I../source/McalWdg -I../source/wrappers -I../source/wrappers/McalAta -I../source/McalLin -I../source/McalCan -I../source/wrappers/OS -I../source/McalFls -I../source/EcuabFee -I../source/EcuabMemIf -I../source/wrappers/VStdLib -I../source/wrappers/Crc -I../source/wrappers/FBL_APPL -I../source/wrappers/NVM_MANAGER -I../source/wrappers/DEM_MANAGER -I../source/wrappers/RDC_MANAGER -I../source/wrappers/ENV_MANAGER -I../source/wrappers/SYS_MANAGER -I../source/wrappers/EcuabCanIf -I../source/EcuabCanTrcv -I../source/wrappers/SwcServiceCanSM -I../source/wrappers/SwcServiceCanTp -I../source/wrappers/SwcServiceCanTp_PreCompile -I../source/wrappers/SwcServiceCom -I../source/wrappers/SwcServiceComM -I../source/wrappers/SwcServiceDcm -I../source/wrappers/SwcServicePduR -I../source/wrappers/SwcServiceEcuM -I../source/wrappers/Bfx -I../source/wrappers/SwcServiceDem -I../source/SwcServiceCom -I../source/SwcServiceDet -I../source/SwcServiceFiM -I../source/SwcServicePduR -I../source/SwcServiceSchM -I../source/wrappers/LibAutosarDiag -I../source/wrappers/rba_BswSrv -IC:\ghs\comp_201517\lib\rh850 -cg_underscore -cpu=rh850g3k -no_v850_simd -rh850_fpsimd=none -nomacro -patch_dbo=C:\_ECU2\ECU_Rivian_A1\Target\repo_projects\pRealEcu\cR_R2023.09.15\make\output\objects\FiM_Permission.dbo -source=FiM_Permission.c -o output\objects\gh_00002b81.o -list=output\list\FiM_Permission.lst C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s 
+Original File: C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+Source File: FiM_Permission.c
+Directory: C:\_ECU2\ECU_Rivian_A1\Target\repo_projects\pRealEcu\cR_R2023.09.15\make
+Host OS: Windows
+EASE: Copyright (C) 1983-2015 Green Hills Software.  All Rights Reserved.
+Release: Compiler v2015.1.7
+Build Directory: [Directory] BTOWORKER6:c:/build_2015_1_bto/2015-10-21.2100-2015_1_bto/win32-comp-ecom
+Revision: [VCInfo] http://toolsvc/branches/release-branch-70-bto/src@544153 (built by build)
+Revision Date: Thu Oct 22 07:50:13 2015
+
+Release Date: Thu Oct 22 09:32:32 2015
+
+                           1 --Driver Command: ccv850 ../source/SwcServiceFiM/FiM_Permission.c -cpu=rh850
+                           2 --		-fhard -ignore_callt_state_in_interrupts -large_sda
+                           3 --		-misalign_pack -nofarcalls -nofloatio -no_callt -Ogeneral
+                           4 --		-Onounroll -prepare_dispose -registermode=32 -reserve_r2 -sda=0
+                           5 --		-shorten_loads -Wshadow --brief_diagnostics --no_commons
+                           6 --		--no_wrap_diagnostics --prototype_errors --short_enum -list -G
+                           7 --		-dual_debug -dwarf -X5523 -lnk=-no_xda_modifications -D
+                           8 --		NOT_READY_FOR_TESTING_OR_DEPLOYMENT -D IBTCM_SW_ANPASSUNGEN -D
+                           9 --		BUILD_RIVIAN -c -inline_prologue -I../source/common
+                          10 --		-I../source/ProjectCompiler -I../source/ProjectCfg
+                          11 --		-I../source/SwcApplTpms -I../source/SwcApplEcuM
+                          12 --		-I../source/SwcServiceBswM -I../source/SwcServiceEcuM
+                          13 --		-I../source/SwcServiceNvM -I../source/SwcServiceOs
+                          14 --		-I../source/SwcServiceStartUp -I../source/McalAdc
+                          15 --		-I../source/McalDio -I../source/McalGpt -I../source/McalMcu
+                          16 --		-I../source/McalWdg -I../source/wrappers
+                          17 --		-I../source/wrappers/McalAta -I../source/McalLin
+                          18 --		-I../source/McalCan -I../source/wrappers/OS -I../source/McalFls
+                          19 --		-I../source/EcuabFee -I../source/EcuabMemIf
+                          20 --		-I../source/wrappers/VStdLib -I../source/wrappers
+                          21 --		-I../source/wrappers/Crc -I../source/wrappers/FBL_APPL
+                          22 --		-I../source/wrappers/NVM_MANAGER -I../source/wrappers/DEM_MANAGER
+                          23 --		-I../source/wrappers/RDC_MANAGER -I../source/wrappers/ENV_MANAGER
+                          24 --		-I../source/wrappers/SYS_MANAGER -I../source/wrappers/EcuabCanIf
+                          25 --		-I../source/EcuabCanTrcv -I../source/wrappers/SwcServiceCanSM
+                          26 --		-I../source/wrappers/SwcServiceCanTp
+                          27 --		-I../source/wrappers/SwcServiceCanTp_PreCompile
+                          28 --		-I../source/wrappers/SwcServiceCom
+                          29 --		-I../source/wrappers/SwcServiceComM
+                          30 --		-I../source/wrappers/SwcServiceDcm
+                          31 --		-I../source/wrappers/SwcServicePduR
+                          32 --		-I../source/wrappers/SwcServiceEcuM -I../source/wrappers/Bfx
+                          33 --		-I../source/wrappers/SwcServiceDem -I../source/SwcServiceCom
+                          34 --		-I../source/SwcServiceDet -I../source/SwcServiceFiM
+                          35 --		-I../source/SwcServicePduR -I../source/SwcServiceSchM
+                          36 --		-I../source/wrappers/LibAutosarDiag
+                          37 --		-I../source/wrappers/rba_BswSrv -object_dir=output/objects
+                          38 --		-list_dir=output/list
+                          39 --Source File:   ../source/SwcServiceFiM/FiM_Permission.c
+                          40 --Directory:     
+                          41 --		C:\_ECU2\ECU_Rivian_A1\Target\repo_projects\pRealEcu\cR_R2023.09.15\make
+                          42 --Compile Date:  Fri Sep 15 15:29:36 2023
+                          43 --Host OS:       Win32
+                          44 --Version:       C-RH850 2015.1.7 RELEASE VERSION
+                          45 --Release:       Compiler v2015.1.7
+                          46 --Revision Date: Thu Oct 22 08:06:12 2015
+                          47 --Release Date:  Thu Oct 22 09:34:32 2015
+                          48 -- ecom  -g -w -OM
+                          49 	.text
+                          50 ..bof.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_R2023.2E09.2E15.5Cmake.5Coutput.5Cobjects.5CFiM_Permission...43.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_R2023.2E09.2E15.5Cmake..65045C40..0::
+
+                                                                      Page 2
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+                          51 	.align	2
+                          52 ..gh.f.f.1.e.0:
+                          53 	.type	..gh.f.f.1.e.0,@object
+                          54 	.size	..gh.f.f.1.e.0,0
+                          55 	.global	_FiM_GetFunctionPermission
+                          56 _FiM_GetFunctionPermission:
+00000000 8007e130         57 	prepare	{r26,r27,r28,r29,r31},0
+00000004 06e8             58 	mov	r6,r29
+00000006 9d00             59 	zxb	r29
+00000008 07e0             60 	mov	r7,r28
+                          61 --	    .bf
+                          62 .LDW01:
+0000000a 40860000*        63 	movhi	hi(_FiM_StatusInitialized_b),zero,r16
+0000000e 90870100*        64 	ld.bu	lo(_FiM_StatusInitialized_b)[r16],r16
+                          65 --line13
+                          66 ..lin.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_R2023.2E09.2E15.5Cmake.5Coutput.5Cobjects.5CFiM_Permission.1::
+                          67 .LDWlin1:
+00000012 01da             68 	mov	1,r27
+00000014 3a0600000000*    69 	mov	_FiM_DemInitStatus_b,r26
+0000001a e081             70 	cmp	zero,r16
+0000001c a21d*            71 	be	.L133
+0000001e 9a970100         72 	ld.bu	0[r26],r18
+00000022 e091             73 	cmp	zero,r18
+00000024 d21d*            74 	be	.L128
+00000026 1d7effff         75 	addi	-1,r29,r15
+0000002a aa1d*            76 	bne	.L128
+0000002c e039             77 	cmp	zero,r7
+0000002e 821d*            78 	be	.L128
+                          79 --line20
+                          80 ..lin.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_R2023.2E09.2E15.5Cmake.5Coutput.5Cobjects.5CFiM_Permission.2::
+                          81 .LDWlin2:
+00000030 e0076001         82 	di
+00000034 3e0600000000*    83 	mov	_FiM_FIdStatusCounter_auo,ep
+0000003a ddf1             84 	add	r29,ep
+0000003c 6068             85 	sld.bu	0[ep],r13
+0000003e e069             86 	cmp	zero,r13
+00000040 e28f0000         87 	setfe	r17
+00000044 e0876001         88 	ei
+00000048 478f0000         89 	st.b	r17,0[r7]
+                          90 --line21
+                          91 ..lin.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_R2023.2E09.2E15.5Cmake.5Coutput.5Cobjects.5CFiM_Permission.3::
+                          92 .LDWlin3:
+0000004c 0fd8             93 	mov	r15,r27
+0000004e d525*            94 	br	.L127
+                          95 .L133:
+                          96 --line26
+                          97 ..lin.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_R2023.2E09.2E15.5Cmake.5Coutput.5Cobjects.5CFiM_Permission.4::
+                          98 .LDWlin4:
+00000050 0b32             99 	mov	11,r6
+00000052 1038            100 	mov	r16,r7
+00000054 1b40            101 	mov	r27,r8
+00000056 204eb400        102 	movea	180,zero,r9
+                         103 	jarl	_Det_ReportError,lp
+                         103 <EXPANSION BEGIN>
+                         103 jarl22 _Det_ReportError , lp 
+0000005a 80ff0000*       103 <EXPANSION END>
+                         104 .L128:
+                         105 --line28
+                         106 ..lin.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_R2023.2E09.2E15.5Cmake.5Coutput.5Cobjects.5CFiM_Permission.5::
+                         107 .LDWlin5:
+0000005e 9a670100        108 	ld.bu	0[r26],r12
+
+                                                                      Page 3
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+00000062 e061            109 	cmp	zero,r12
+00000064 8a0d*           110 	bne	.L135
+                         111 --line30
+                         112 ..lin.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_R2023.2E09.2E15.5Cmake.5Coutput.5Cobjects.5CFiM_Permission.6::
+                         113 .LDWlin6:
+00000066 0b32            114 	mov	11,r6
+00000068 0c38            115 	mov	r12,r7
+0000006a 1b40            116 	mov	r27,r8
+0000006c 204eb700        117 	movea	183,zero,r9
+                         118 	jarl	_Det_ReportError,lp
+                         118 <EXPANSION BEGIN>
+                         118 jarl22 _Det_ReportError , lp 
+00000070 80ff0000*       118 <EXPANSION END>
+                         119 .L135:
+                         120 --line32
+                         121 ..lin.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_R2023.2E09.2E15.5Cmake.5Coutput.5Cobjects.5CFiM_Permission.7::
+                         122 .LDWlin7:
+00000074 61ea            123 	cmp	1,r29
+00000076 bb05*           124 	bh	.L147
+00000078 e0e9            125 	cmp	zero,r29
+0000007a fa05*           126 	bne	.L142
+                         127 .L147:
+                         128 --line34
+                         129 ..lin.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_R2023.2E09.2E15.5Cmake.5Coutput.5Cobjects.5CFiM_Permission.8::
+                         130 .LDWlin8:
+0000007c 0b32            131 	mov	11,r6
+0000007e 003a            132 	mov	0,r7
+00000080 1b40            133 	mov	r27,r8
+00000082 024a            134 	mov	2,r9
+                         135 	jarl	_Det_ReportError,lp
+                         135 <EXPANSION BEGIN>
+                         135 jarl22 _Det_ReportError , lp 
+00000084 80ff0000*       135 <EXPANSION END>
+                         136 .L142:
+                         137 --line36
+                         138 ..lin.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_R2023.2E09.2E15.5Cmake.5Coutput.5Cobjects.5CFiM_Permission.9::
+                         139 .LDWlin9:
+00000088 e0e1            140 	cmp	zero,r28
+0000008a fa05*           141 	bne	.L127
+                         142 --line38
+                         143 ..lin.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_R2023.2E09.2E15.5Cmake.5Coutput.5Cobjects.5CFiM_Permission.10::
+                         144 .LDWlin10:
+0000008c 0b32            145 	mov	11,r6
+0000008e 1c38            146 	mov	r28,r7
+00000090 1b40            147 	mov	r27,r8
+00000092 044a            148 	mov	4,r9
+                         149 	jarl	_Det_ReportError,lp
+                         149 <EXPANSION BEGIN>
+                         149 jarl22 _Det_ReportError , lp 
+00000094 80ff0000*       149 <EXPANSION END>
+                         150 .L127:
+                         151 --line42
+                         152 ..lin.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_R2023.2E09.2E15.5Cmake.5Coutput.5Cobjects.5CFiM_Permission.11::
+                         153 .LDWlin11:
+00000098 1b50            154 	mov	r27,r10
+                         155 --	    .ef
+                         156 .LDW11:
+0000009a 4006ff30        157 	dispose	0,{r26,r27,r28,r29,r31},[lp]
+                         158 	.global	___ghs_eofn_FiM_GetFunctionPermission
+                         159 ___ghs_eofn_FiM_GetFunctionPermission:
+                         160 	.type	_FiM_GetFunctionPermission,@function
+
+                                                                      Page 4
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+                         161 	.size	_FiM_GetFunctionPermission,.-_FiM_GetFunctionPermission
+                         162 	.align	2
+                         163 --_retVal	r27	local
+                         164 --_isDemInitialized	r18	local
+                         165 --_FiM_PermissionStatus	r17	local
+                         166 
+                         167 --_FID	r29	param
+                         168 --_Permission	r28	param
+                         169 
+                         170 	.section ".bss","awb"
+                         171 .L311:
+                         172 	.type	.L311,@object
+                         173 	.size	.L311,0
+                         174 	.data
+                         175 	.text
+                         176 	.align	2
+                         177 --_FiM_StatusInitialized_b	_FiM_StatusInitialized_b	import
+                         178 --_FiM_DemInitStatus_b	_FiM_DemInitStatus_b	import
+                         179 --_FiM_FIdStatusCounter_auo	_FiM_FIdStatusCounter_auo	import
+                         180 
+                         181 	.data
+                         182 	.ghsnote version,17
+                         183 	.ghsnote tools,3
+                         184 	.ghsnote options,144
+                         185 	.text
+                         186 	.align	2
+                         187 ..eof.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_R2023.2E09.2E15.5Cmake.5Coutput.5Cobjects.5CFiM_Permission...43.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_R2023.2E09.2E15.5Cmake..65045C40..0::
+                         188 	.section	.debug_info
+                         189 .Ldw_begin:
+00000000 48040000        190 	.word	.Ldw_end-.Ldw_begin-4
+00000004 0200            191 	.byte	2,0
+00000006 00000000*       192 	.word	.Ldw_abbr_begin
+0000000a 04              193 	.byte	4
+                         194 	.section	.debug_abbrev
+                         195 .Ldw_abbr_begin:
+                         196 	.section	.debug_info
+0000000b 01              197 	.byte	1
+0000000c 00000000*       198 	.word	..bof.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_R2023.2E09.2E15.5Cmake.5Coutput.5Cobjects.5CFiM_Permission...43.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_R2023.2E09.2E15.5Cmake..65045C40..0
+00000010 00000000*       199 	.word	..eof.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_R2023.2E09.2E15.5Cmake.5Coutput.5Cobjects.5CFiM_Permission...43.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcR_R2023.2E09.2E15.5Cmake..65045C40..0
+00000014 2e2e2f736f75    200 	.strz	"../source/SwcServiceFiM/FiM_Permission.c"
+0000001a 7263652f5377 
+00000020 635365727669 
+00000026 636546694d2f 
+0000002c 46694d5f5065 
+00000032 726d69737369 
+00000038 6f6e2e6300 
+0000003d 433a5c5f4543    201 	.strz	"C:\\_ECU2\\ECU_Rivian_A1\\Target\\repo_projects\\pRealEcu\\cR_R2023.09.15\\make"
+00000043 55325c454355 
+00000049 5f5269766961 
+0000004f 6e5f41315c54 
+00000055 61726765745c 
+0000005b 7265706f5f70 
+00000061 726f6a656374 
+00000067 735c70526561 
+0000006d 6c4563755c63 
+00000073 525f52323032 
+00000079 332e30392e31 
+0000007f 355c6d616b65 
+00000085 00 
+00000086 474853204320    202 	.strz	"GHS C 2015.1.7 [dual]"
+0000008c 323031352e31 
+
+                                                                      Page 5
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+00000092 2e37205b6475 
+00000098 616c5d00 
+0000009c 0100            203 	.byte	1,0
+0000009e 00000000*       204 	.word	.Ldw_line_begin
+000000a2 00000000*       205 	.word	.Ldw_macinfo_begin
+000000a6 00              206 	.byte	0
+                         207 
+                         208 	.section	.debug_abbrev
+00000000 01              209 	.byte	1
+00000001 11              210 	.byte	17
+00000002 01              211 	.byte	1
+00000003 1101            212 	.byte	17,1
+00000005 1201            213 	.byte	18,1
+00000007 0308            214 	.byte	3,8
+00000009 1b08            215 	.byte	27,8
+0000000b 2508            216 	.byte	37,8
+0000000d 1305            217 	.byte	19,5
+0000000f 1006            218 	.byte	16,6
+00000011 4306            219 	.byte	67,6
+00000013 420b            220 	.byte	66,11
+00000015 0000            221 	.byte	0,0
+                         222 
+                         223 	.section	.debug_line
+                         224 .Ldw_line_begin:
+00000000 41070000        225 	.word	.Ldw_line_end-.Ldw_line_begin-4
+00000004 0200            226 	.byte	2,0
+00000006 00000000*       227 	.word	.Ldw_lpro_end-.Ldw_lpro_begin
+                         228 .Ldw_lpro_begin:
+0000000a 01              229 	.byte	1
+0000000b 00              230 	.byte	0
+0000000c 00              231 	.byte	0
+0000000d 04              232 	.byte	4
+0000000e 0a              233 	.byte	10
+0000000f 000101          234 	.byte	0,1,1
+00000012 010100          235 	.byte	1,1,0
+00000015 000001          236 	.byte	0,0,1
+00000018 00              237 	.byte	0
+00000019 2e2e2f736f75    238 	.strz	"../source/SwcServiceFiM/FiM_Permission.c"
+0000001f 7263652f5377 
+00000025 635365727669 
+0000002b 636546694d2f 
+00000031 46694d5f5065 
+00000037 726d69737369 
+0000003d 6f6e2e6300 
+00000042 000000          239 	.byte	0,0,0
+00000045 2e2e2f736f75    240 	.strz	"../source/common/Std_Types.hpp"
+0000004b 7263652f636f 
+00000051 6d6d6f6e2f53 
+00000057 74645f547970 
+0000005d 65732e687070 
+00000063 00 
+00000064 000000          241 	.byte	0,0,0
+00000067 2e2e2f736f75    242 	.strz	"../source/common/Platform_Types.hpp"
+0000006d 7263652f636f 
+00000073 6d6d6f6e2f50 
+00000079 6c6174666f72 
+0000007f 6d5f54797065 
+00000085 732e68707000 
+0000008b 000000          243 	.byte	0,0,0
+0000008e 2e2e2f736f75    244 	.strz	"../source/common/Compiler.hpp"
+00000094 7263652f636f 
+
+                                                                      Page 6
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+0000009a 6d6d6f6e2f43 
+000000a0 6f6d70696c65 
+000000a6 722e68707000 
+000000ac 000000          245 	.byte	0,0,0
+000000af 2e2e2f736f75    246 	.strz	"../source/ProjectCompiler/Compiler_Cfg.hpp"
+000000b5 7263652f5072 
+000000bb 6f6a65637443 
+000000c1 6f6d70696c65 
+000000c7 722f436f6d70 
+000000cd 696c65725f43 
+000000d3 66672e687070 
+000000d9 00 
+000000da 000000          247 	.byte	0,0,0
+000000dd 2e2e2f736f75    248 	.strz	"../source/ProjectCompiler/CompilerCfg_SwcServiceOs.hpp"
+000000e3 7263652f5072 
+000000e9 6f6a65637443 
+000000ef 6f6d70696c65 
+000000f5 722f436f6d70 
+000000fb 696c65724366 
+00000101 675f53776353 
+00000107 657276696365 
+0000010d 4f732e687070 
+00000113 00 
+00000114 000000          249 	.byte	0,0,0
+00000117 2e2e2f736f75    250 	.strz	"../source/SwcServiceFiM/infSwcServiceFiMSwcApplEcuM.hpp"
+0000011d 7263652f5377 
+00000123 635365727669 
+00000129 636546694d2f 
+0000012f 696e66537763 
+00000135 536572766963 
+0000013b 6546694d5377 
+00000141 634170706c45 
+00000147 63754d2e6870 
+0000014d 7000 
+0000014f 000000          251 	.byte	0,0,0
+00000152 2e2e2f736f75    252 	.strz	"../source/SwcServiceFiM/FiM_Priv_Data.hpp"
+00000158 7263652f5377 
+0000015e 635365727669 
+00000164 636546694d2f 
+0000016a 46694d5f5072 
+00000170 69765f446174 
+00000176 612e68707000 
+0000017c 000000          253 	.byte	0,0,0
+0000017f 2e2e2f736f75    254 	.strz	"../source/ProjectCfg/FiM_Cfg_Fids.hpp"
+00000185 7263652f5072 
+0000018b 6f6a65637443 
+00000191 66672f46694d 
+00000197 5f4366675f46 
+0000019d 6964732e6870 
+000001a3 7000 
+000001a5 000000          255 	.byte	0,0,0
+000001a8 2e2e2f736f75    256 	.strz	"../source/SwcServiceFiM/FiM_Types.hpp"
+000001ae 7263652f5377 
+000001b4 635365727669 
+000001ba 636546694d2f 
+000001c0 46694d5f5479 
+000001c6 7065732e6870 
+000001cc 7000 
+000001ce 000000          257 	.byte	0,0,0
+000001d1 2e2e2f736f75    258 	.strz	"../source/wrappers/Rte_FiM_Type.hpp"
+000001d7 7263652f7772 
+
+                                                                      Page 7
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+000001dd 617070657273 
+000001e3 2f5274655f46 
+000001e9 694d5f547970 
+000001ef 652e68707000 
+000001f5 000000          259 	.byte	0,0,0
+000001f8 2e2e2f736f75    260 	.strz	"../source/McalMcu/types.hpp"
+000001fe 7263652f4d63 
+00000204 616c4d63752f 
+0000020a 74797065732e 
+00000210 68707000 
+00000214 000000          261 	.byte	0,0,0
+00000217 2e2e2f736f75    262 	.strz	"../source/ProjectCfg/FiM_Cfg.hpp"
+0000021d 7263652f5072 
+00000223 6f6a65637443 
+00000229 66672f46694d 
+0000022f 5f4366672e68 
+00000235 707000 
+00000238 000000          263 	.byte	0,0,0
+0000023b 2e2e2f736f75    264 	.strz	"../source/SwcServiceFiM/FiM_Det.hpp"
+00000241 7263652f5377 
+00000247 635365727669 
+0000024d 636546694d2f 
+00000253 46694d5f4465 
+00000259 742e68707000 
+0000025f 000000          265 	.byte	0,0,0
+00000262 2e2e2f736f75    266 	.strz	"../source/SwcServiceDet/Det.hpp"
+00000268 7263652f5377 
+0000026e 635365727669 
+00000274 63654465742f 
+0000027a 4465742e6870 
+00000280 7000 
+00000282 000000          267 	.byte	0,0,0
+00000285 2e2e2f736f75    268 	.strz	"../source/SwcServiceDet/Types_SwcServiceDet.hpp"
+0000028b 7263652f5377 
+00000291 635365727669 
+00000297 63654465742f 
+0000029d 54797065735f 
+000002a3 537763536572 
+000002a9 766963654465 
+000002af 742e68707000 
+000002b5 000000          269 	.byte	0,0,0
+000002b8 2e2e2f736f75    270 	.strz	"../source/wrappers/Rte_Det_Type.hpp"
+000002be 7263652f7772 
+000002c4 617070657273 
+000002ca 2f5274655f44 
+000002d0 65745f547970 
+000002d6 652e68707000 
+000002dc 000000          271 	.byte	0,0,0
+000002df 2e2e2f736f75    272 	.strz	"../source/ProjectCompiler/Det_MemMap.hpp"
+000002e5 7263652f5072 
+000002eb 6f6a65637443 
+000002f1 6f6d70696c65 
+000002f7 722f4465745f 
+000002fd 4d656d4d6170 
+00000303 2e68707000 
+00000308 000000          273 	.byte	0,0,0
+0000030b 2e2e2f736f75    274 	.strz	"../source/ProjectCompiler/Bsw_MemMap.hpp"
+00000311 7263652f5072 
+00000317 6f6a65637443 
+0000031d 6f6d70696c65 
+00000323 722f4273775f 
+
+                                                                      Page 8
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+00000329 4d656d4d6170 
+0000032f 2e68707000 
+00000334 000000          275 	.byte	0,0,0
+00000337 2e2e2f736f75    276 	.strz	"../source/ProjectCompiler/MemMap_Common.hpp"
+0000033d 7263652f5072 
+00000343 6f6a65637443 
+00000349 6f6d70696c65 
+0000034f 722f4d656d4d 
+00000355 61705f436f6d 
+0000035b 6d6f6e2e6870 
+00000361 7000 
+00000363 000000          277 	.byte	0,0,0
+00000366 2e2e2f736f75    278 	.strz	"../source/SwcServiceFiM/FiM_Utils.hpp"
+0000036c 7263652f5377 
+00000372 635365727669 
+00000378 636546694d2f 
+0000037e 46694d5f5574 
+00000384 696c732e6870 
+0000038a 7000 
+0000038c 000000          279 	.byte	0,0,0
+0000038f 2e2e2f736f75    280 	.strz	"../source/wrappers/LibAutosarDiag/rba_DiagLib_MemUtils.hpp"
+00000395 7263652f7772 
+0000039b 617070657273 
+000003a1 2f4c69624175 
+000003a7 746f73617244 
+000003ad 6961672f7262 
+000003b3 615f44696167 
+000003b9 4c69625f4d65 
+000003bf 6d5574696c73 
+000003c5 2e68707000 
+000003ca 000000          281 	.byte	0,0,0
+000003cd 2e2e2f736f75    282 	.strz	"../source/wrappers/rba_BswSrv/rba_BswSrv.hpp"
+000003d3 7263652f7772 
+000003d9 617070657273 
+000003df 2f7262615f42 
+000003e5 73775372762f 
+000003eb 7262615f4273 
+000003f1 775372762e68 
+000003f7 707000 
+000003fa 000000          283 	.byte	0,0,0
+000003fd 2e2e2f736f75    284 	.strz	"../source/ProjectCompiler/rba_BswSrv_MemMap.hpp"
+00000403 7263652f5072 
+00000409 6f6a65637443 
+0000040f 6f6d70696c65 
+00000415 722f7262615f 
+0000041b 427377537276 
+00000421 5f4d656d4d61 
+00000427 702e68707000 
+0000042d 000000          285 	.byte	0,0,0
+00000430 2e2e2f736f75    286 	.strz	"../source/ProjectCompiler/FiM_MemMap.hpp"
+00000436 7263652f5072 
+0000043c 6f6a65637443 
+00000442 6f6d70696c65 
+00000448 722f46694d5f 
+0000044e 4d656d4d6170 
+00000454 2e68707000 
+00000459 000000          287 	.byte	0,0,0
+0000045c 2e2e2f736f75    288 	.strz	"../source/ProjectCfg/FiM_Cfg_Version.hpp"
+00000462 7263652f5072 
+00000468 6f6a65637443 
+0000046e 66672f46694d 
+
+                                                                      Page 9
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+00000474 5f4366675f56 
+0000047a 657273696f6e 
+00000480 2e68707000 
+00000485 000000          289 	.byte	0,0,0
+00000488 2e2e2f736f75    290 	.strz	"../source/ProjectCfg/CfgSwcServiceFiM.hpp"
+0000048e 7263652f5072 
+00000494 6f6a65637443 
+0000049a 66672f436667 
+000004a0 537763536572 
+000004a6 766963654669 
+000004ac 4d2e68707000 
+000004b2 000000          291 	.byte	0,0,0
+000004b5 2e2e2f736f75    292 	.strz	"../source/SwcServiceFiM/FiM.hpp"
+000004bb 7263652f5377 
+000004c1 635365727669 
+000004c7 636546694d2f 
+000004cd 46694d2e6870 
+000004d3 7000 
+000004d5 000000          293 	.byte	0,0,0
+000004d8 2e2e2f736f75    294 	.strz	"../source/wrappers/SwcServiceDem/Dem_Types.hpp"
+000004de 7263652f7772 
+000004e4 617070657273 
+000004ea 2f5377635365 
+000004f0 727669636544 
+000004f6 656d2f44656d 
+000004fc 5f5479706573 
+00000502 2e68707000 
+00000507 000000          295 	.byte	0,0,0
+0000050a 2e2e2f736f75    296 	.strz	"../source/ProjectCfg/Dem_Cfg.hpp"
+00000510 7263652f5072 
+00000516 6f6a65637443 
+0000051c 66672f44656d 
+00000522 5f4366672e68 
+00000528 707000 
+0000052b 000000          297 	.byte	0,0,0
+0000052e 2e2e2f736f75    298 	.strz	"../source/ProjectCfg/Dem_Cfg_Client.hpp"
+00000534 7263652f5072 
+0000053a 6f6a65637443 
+00000540 66672f44656d 
+00000546 5f4366675f43 
+0000054c 6c69656e742e 
+00000552 68707000 
+00000556 000000          299 	.byte	0,0,0
+00000559 2e2e2f736f75    300 	.strz	"../source/wrappers/SwcServiceDem/Dem_ClientHandlingTypes.hpp"
+0000055f 7263652f7772 
+00000565 617070657273 
+0000056b 2f5377635365 
+00000571 727669636544 
+00000577 656d2f44656d 
+0000057d 5f436c69656e 
+00000583 7448616e646c 
+00000589 696e67547970 
+0000058f 65732e687070 
+00000595 00 
+00000596 000000          301 	.byte	0,0,0
+00000599 2e2e2f736f75    302 	.strz	"../source/ProjectCfg/Dem_Cfg_NodeId.hpp"
+0000059f 7263652f5072 
+000005a5 6f6a65637443 
+000005ab 66672f44656d 
+000005b1 5f4366675f4e 
+000005b7 6f646549642e 
+
+                                                                      Page 10
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+000005bd 68707000 
+000005c1 000000          303 	.byte	0,0,0
+000005c4 2e2e2f736f75    304 	.strz	"../source/ProjectCfg/Dem_Cfg_Version.hpp"
+000005ca 7263652f5072 
+000005d0 6f6a65637443 
+000005d6 66672f44656d 
+000005dc 5f4366675f56 
+000005e2 657273696f6e 
+000005e8 2e68707000 
+000005ed 000000          305 	.byte	0,0,0
+000005f0 2e2e2f736f75    306 	.strz	"../source/wrappers/Rte_Dem_Type.hpp"
+000005f6 7263652f7772 
+000005fc 617070657273 
+00000602 2f5274655f44 
+00000608 656d5f547970 
+0000060e 652e68707000 
+00000614 000000          307 	.byte	0,0,0
+00000617 2e2e2f736f75    308 	.strz	"../source/ProjectCfg/FiM_Cfg_PbCfg.hpp"
+0000061d 7263652f5072 
+00000623 6f6a65637443 
+00000629 66672f46694d 
+0000062f 5f4366675f50 
+00000635 624366672e68 
+0000063b 707000 
+0000063e 000000          309 	.byte	0,0,0
+00000641 2e2e2f736f75    310 	.strz	"../source/SwcServiceFiM/FiM_Status.hpp"
+00000647 7263652f5377 
+0000064d 635365727669 
+00000653 636546694d2f 
+00000659 46694d5f5374 
+0000065f 617475732e68 
+00000665 707000 
+00000668 000000          311 	.byte	0,0,0
+0000066b 2e2e2f736f75    312 	.strz	"../source/ProjectCfg/FiM_Cfg_SchM.hpp"
+00000671 7263652f5072 
+00000677 6f6a65637443 
+0000067d 66672f46694d 
+00000683 5f4366675f53 
+00000689 63684d2e6870 
+0000068f 7000 
+00000691 000000          313 	.byte	0,0,0
+00000694 2e2e2f736f75    314 	.strz	"../source/wrappers/Rte_FiM.hpp"
+0000069a 7263652f7772 
+000006a0 617070657273 
+000006a6 2f5274655f46 
+000006ac 694d2e687070 
+000006b2 00 
+000006b3 000000          315 	.byte	0,0,0
+000006b6 00              316 	.byte	0
+                         317 .Ldw_lpro_end:
+                         318 	.section	.debug_macinfo
+                         319 .Ldw_macinfo_begin:
+                         320 	.section	.debug_frame
+                         321 .LDW_4d1d200:
+00000000 00000000*       322 	.word	.LDW_unq_2-.LDW_unq_1
+                         323 .LDW_unq_1:
+00000004 ffffffff        324 	.byte	255,255,255,255
+00000008 01              325 	.byte	1
+00000009 00              326 	.byte	0
+0000000a 01              327 	.byte	1
+0000000b 01              328 	.byte	1
+
+                                                                      Page 11
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+0000000c 1f              329 	.byte	31
+0000000d 0c              330 	.byte	12
+0000000e 03              331 	.byte	3
+0000000f 00              332 	.byte	0
+00000010 07              333 	.byte	7
+00000011 00              334 	.byte	0
+00000012 07              335 	.byte	7
+00000013 01              336 	.byte	1
+00000014 07              337 	.byte	7
+00000015 02              338 	.byte	2
+00000016 07              339 	.byte	7
+00000017 03              340 	.byte	3
+00000018 07              341 	.byte	7
+00000019 04              342 	.byte	4
+0000001a 07              343 	.byte	7
+0000001b 05              344 	.byte	5
+0000001c 07              345 	.byte	7
+0000001d 06              346 	.byte	6
+0000001e 07              347 	.byte	7
+0000001f 07              348 	.byte	7
+00000020 07              349 	.byte	7
+00000021 08              350 	.byte	8
+00000022 07              351 	.byte	7
+00000023 09              352 	.byte	9
+00000024 07              353 	.byte	7
+00000025 0a              354 	.byte	10
+00000026 07              355 	.byte	7
+00000027 0b              356 	.byte	11
+00000028 07              357 	.byte	7
+00000029 0c              358 	.byte	12
+0000002a 07              359 	.byte	7
+0000002b 0d              360 	.byte	13
+0000002c 07              361 	.byte	7
+0000002d 0e              362 	.byte	14
+0000002e 07              363 	.byte	7
+0000002f 0f              364 	.byte	15
+00000030 07              365 	.byte	7
+00000031 10              366 	.byte	16
+00000032 07              367 	.byte	7
+00000033 11              368 	.byte	17
+00000034 07              369 	.byte	7
+00000035 12              370 	.byte	18
+00000036 07              371 	.byte	7
+00000037 13              372 	.byte	19
+00000038 08              373 	.byte	8
+00000039 14              374 	.byte	20
+0000003a 08              375 	.byte	8
+0000003b 15              376 	.byte	21
+0000003c 08              377 	.byte	8
+0000003d 16              378 	.byte	22
+0000003e 08              379 	.byte	8
+0000003f 17              380 	.byte	23
+00000040 08              381 	.byte	8
+00000041 18              382 	.byte	24
+00000042 08              383 	.byte	8
+00000043 19              384 	.byte	25
+00000044 08              385 	.byte	8
+00000045 1a              386 	.byte	26
+00000046 08              387 	.byte	8
+00000047 1b              388 	.byte	27
+00000048 08              389 	.byte	8
+
+                                                                      Page 12
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+00000049 1c              390 	.byte	28
+0000004a 08              391 	.byte	8
+0000004b 1d              392 	.byte	29
+0000004c 07              393 	.byte	7
+0000004d 1e              394 	.byte	30
+0000004e 08              395 	.byte	8
+0000004f 1f              396 	.byte	31
+00000050 07              397 	.byte	7
+00000051 20              398 	.byte	32
+00000052 07              399 	.byte	7
+00000053 21              400 	.byte	33
+00000054 07              401 	.byte	7
+00000055 22              402 	.byte	34
+00000056 07              403 	.byte	7
+00000057 23              404 	.byte	35
+00000058 07              405 	.byte	7
+00000059 24              406 	.byte	36
+0000005a 07              407 	.byte	7
+0000005b 25              408 	.byte	37
+0000005c 07              409 	.byte	7
+0000005d 26              410 	.byte	38
+0000005e 07              411 	.byte	7
+0000005f 27              412 	.byte	39
+00000060 07              413 	.byte	7
+00000061 28              414 	.byte	40
+00000062 07              415 	.byte	7
+00000063 29              416 	.byte	41
+00000064 07              417 	.byte	7
+00000065 2a              418 	.byte	42
+00000066 07              419 	.byte	7
+00000067 2b              420 	.byte	43
+00000068 07              421 	.byte	7
+00000069 2c              422 	.byte	44
+0000006a 07              423 	.byte	7
+0000006b 2d              424 	.byte	45
+0000006c 07              425 	.byte	7
+0000006d 2e              426 	.byte	46
+0000006e 07              427 	.byte	7
+0000006f 2f              428 	.byte	47
+00000070 07              429 	.byte	7
+00000071 30              430 	.byte	48
+00000072 07              431 	.byte	7
+00000073 31              432 	.byte	49
+00000074 07              433 	.byte	7
+00000075 32              434 	.byte	50
+00000076 07              435 	.byte	7
+00000077 33              436 	.byte	51
+00000078 07              437 	.byte	7
+00000079 34              438 	.byte	52
+0000007a 07              439 	.byte	7
+0000007b 35              440 	.byte	53
+0000007c 07              441 	.byte	7
+0000007d 36              442 	.byte	54
+0000007e 07              443 	.byte	7
+0000007f 37              444 	.byte	55
+00000080 07              445 	.byte	7
+00000081 38              446 	.byte	56
+00000082 07              447 	.byte	7
+00000083 39              448 	.byte	57
+00000084 07              449 	.byte	7
+00000085 3a              450 	.byte	58
+
+                                                                      Page 13
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+00000086 07              451 	.byte	7
+00000087 3b              452 	.byte	59
+00000088 07              453 	.byte	7
+00000089 3c              454 	.byte	60
+0000008a 07              455 	.byte	7
+0000008b 3d              456 	.byte	61
+0000008c 07              457 	.byte	7
+0000008d 3e              458 	.byte	62
+0000008e 07              459 	.byte	7
+0000008f 3f              460 	.byte	63
+                         461 .LDW_unq_2:
+                         462 	.section	.debug_info
+                         463 .LDW_16b6e80:
+000000a7 25              464 	.byte	37
+000000a8 756e7369676e    465 	.strz	"unsigned short"
+000000ae 65642073686f 
+000000b4 727400 
+000000b7 07              466 	.byte	7
+000000b8 02              467 	.byte	2
+                         468 
+                         469 	.section	.debug_abbrev
+00000017 25              470 	.byte	37
+00000018 24              471 	.byte	36
+00000019 00              472 	.byte	0
+0000001a 0308            473 	.byte	3,8
+0000001c 3e0b            474 	.byte	62,11
+0000001e 0b0b            475 	.byte	11,11
+00000020 0000            476 	.byte	0,0
+                         477 
+                         478 	.section	.debug_info
+                         479 .LDW_16b6e10:
+000000b9 25              480 	.byte	37
+000000ba 756e7369676e    481 	.strz	"unsigned char"
+000000c0 656420636861 
+000000c6 7200 
+000000c8 08              482 	.byte	8
+000000c9 01              483 	.byte	1
+                         484 
+                         485 .LDW_4c023e0:
+000000ca 2f              486 	.byte	47
+000000cb 00000000*       487 	.word	.LDW_4bff4c0
+                         488 
+                         489 	.section	.debug_abbrev
+00000022 2f              490 	.byte	47
+00000023 0f              491 	.byte	15
+00000024 00              492 	.byte	0
+00000025 4910            493 	.byte	73,16
+00000027 0000            494 	.byte	0,0
+                         495 
+                         496 	.section	.debug_info
+                         497 .LDW_4c01ea0:
+000000cf 45              498 	.byte	69
+000000d0 01              499 	.byte	1
+                         500 
+                         501 	.section	.debug_abbrev
+00000029 45              502 	.byte	69
+0000002a 15              503 	.byte	21
+0000002b 01              504 	.byte	1
+0000002c 270c            505 	.byte	39,12
+0000002e 0000            506 	.byte	0,0
+                         507 
+
+                                                                      Page 14
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+                         508 	.section	.debug_info
+                         509 .LDW_4ba7a08:
+000000d1 12              510 	.byte	18
+000000d2 00000000*       511 	.word	.LDW_4bec548
+000000d6 00              512 	.byte	0
+                         513 
+                         514 	.section	.debug_abbrev
+00000030 12              515 	.byte	18
+00000031 05              516 	.byte	5
+00000032 00              517 	.byte	0
+00000033 4910            518 	.byte	73,16
+00000035 4b0c            519 	.byte	75,12
+00000037 0000            520 	.byte	0,0
+                         521 
+                         522 	.section	.debug_info
+                         523 .LDW_4ba7c78:
+000000d7 12              524 	.byte	18
+000000d8 00000000*       525 	.word	.LDW_4bec548
+000000dc 00              526 	.byte	0
+                         527 
+000000dd 00              528 	.byte	0
+                         529 
+                         530 .LDW_4c02290:
+000000de 44              531 	.byte	68
+000000df 00000000*       532 	.word	.LDW_4bff4c0
+000000e3 01              533 	.byte	1
+                         534 
+                         535 	.section	.debug_abbrev
+00000039 44              536 	.byte	68
+0000003a 15              537 	.byte	21
+0000003b 01              538 	.byte	1
+0000003c 4910            539 	.byte	73,16
+0000003e 270c            540 	.byte	39,12
+00000040 0000            541 	.byte	0,0
+                         542 
+                         543 	.section	.debug_info
+000000e4 00              544 	.byte	0
+                         545 
+                         546 .LDW_4c02418:
+000000e5 44              547 	.byte	68
+000000e6 00000000*       548 	.word	.LDW_4bff4c0
+000000ea 01              549 	.byte	1
+                         550 
+000000eb 00              551 	.byte	0
+                         552 
+                         553 .LDW_4c01f48:
+000000ec 45              554 	.byte	69
+000000ed 01              555 	.byte	1
+                         556 
+000000ee 00              557 	.byte	0
+                         558 
+                         559 .LDW_4c01f80:
+000000ef 45              560 	.byte	69
+000000f0 01              561 	.byte	1
+                         562 
+000000f1 00              563 	.byte	0
+                         564 
+                         565 .LDW_4c02028:
+000000f2 44              566 	.byte	68
+000000f3 00000000*       567 	.word	.LDW_4bff4c0
+000000f7 01              568 	.byte	1
+
+                                                                      Page 15
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+                         569 
+                         570 .LDW_4ba8248:
+000000f8 12              571 	.byte	18
+000000f9 00000000*       572 	.word	.LDW_4c04ae0
+000000fd 00              573 	.byte	0
+                         574 
+000000fe 00              575 	.byte	0
+                         576 
+                         577 .LDW_4c025a0:
+000000ff 44              578 	.byte	68
+00000100 00000000*       579 	.word	.LDW_4c04928
+00000104 01              580 	.byte	1
+                         581 
+                         582 .LDW_4ba7738:
+00000105 12              583 	.byte	18
+00000106 00000000*       584 	.word	.LDW_4c04ae0
+0000010a 00              585 	.byte	0
+                         586 
+                         587 .LDW_4ba73d8:
+0000010b 12              588 	.byte	18
+0000010c 00000000*       589 	.word	.LDW_4c023e0
+00000110 00              590 	.byte	0
+                         591 
+00000111 00              592 	.byte	0
+                         593 
+                         594 .LDW_4b80160:
+00000112 25              595 	.byte	37
+00000113 696e7400        596 	.strz	"int"
+00000117 05              597 	.byte	5
+00000118 04              598 	.byte	4
+                         599 
+                         600 .LDW_4b80b38:
+00000119 3a              601 	.byte	58
+0000011a 00              602 	.byte	0
+0000011b 02              603 	.byte	2
+0000011c 00000000*       604 	.word	.LDW_4c04878
+                         605 
+                         606 	.section	.debug_abbrev
+00000042 3a              607 	.byte	58
+00000043 01              608 	.byte	1
+00000044 01              609 	.byte	1
+00000045 090b            610 	.byte	9,11
+00000047 0b0f            611 	.byte	11,15
+00000049 4910            612 	.byte	73,16
+0000004b 0000            613 	.byte	0,0
+                         614 
+                         615 	.section	.debug_info
+00000120 32              616 	.byte	50
+00000121 00000000*       617 	.word	.LDW_4b80160
+00000125 04              618 	.byte	4
+00000126 00              619 	.byte	0
+00000127 01              620 	.byte	1
+                         621 
+                         622 	.section	.debug_abbrev
+0000004d 32              623 	.byte	50
+0000004e 21              624 	.byte	33
+0000004f 00              625 	.byte	0
+00000050 4910            626 	.byte	73,16
+00000052 0b0f            627 	.byte	11,15
+00000054 220d            628 	.byte	34,13
+00000056 2f0d            629 	.byte	47,13
+
+                                                                      Page 16
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+00000058 0000            630 	.byte	0,0
+                         631 
+                         632 	.section	.debug_info
+00000128 00              633 	.byte	0
+                         634 
+                         635 .LDW_4b80208:
+00000129 44              636 	.byte	68
+0000012a 00000000*       637 	.word	.LDW_4c04928
+0000012e 01              638 	.byte	1
+                         639 
+                         640 .LDW_4ba73a8:
+0000012f 12              641 	.byte	18
+00000130 00000000*       642 	.word	.LDW_16feed8
+00000134 00              643 	.byte	0
+                         644 
+                         645 .LDW_4ba74c8:
+00000135 12              646 	.byte	18
+00000136 00000000*       647 	.word	.LDW_4bec548
+0000013a 00              648 	.byte	0
+                         649 
+                         650 .LDW_4ba74f8:
+0000013b 12              651 	.byte	18
+0000013c 00000000*       652 	.word	.LDW_4bec548
+00000140 00              653 	.byte	0
+                         654 
+                         655 .LDW_4ba7768:
+00000141 12              656 	.byte	18
+00000142 00000000*       657 	.word	.LDW_4bec548
+00000146 00              658 	.byte	0
+                         659 
+00000147 00              660 	.byte	0
+                         661 
+                         662 .LDW_4bff4c0:
+00000148 28              663 	.byte	40
+00000149 626f6f6c6561    664 	.strz	"boolean"
+0000014f 6e00 
+00000151 4e              665 	.byte	78
+00000152 49              666 	.byte	73
+00000153 03              667 	.byte	3
+00000154 00000000*       668 	.word	.LDW_16b6e10
+                         669 
+                         670 	.section	.debug_abbrev
+0000005a 28              671 	.byte	40
+0000005b 16              672 	.byte	22
+0000005c 00              673 	.byte	0
+0000005d 0308            674 	.byte	3,8
+0000005f 3b0f            675 	.byte	59,15
+00000061 390f            676 	.byte	57,15
+00000063 3a0f            677 	.byte	58,15
+00000065 4910            678 	.byte	73,16
+00000067 0000            679 	.byte	0,0
+                         680 
+                         681 	.section	.debug_info
+                         682 .LDW_4bec548:
+00000158 28              683 	.byte	40
+00000159 75696e743800    684 	.strz	"uint8"
+0000015f 50              685 	.byte	80
+00000160 4b              686 	.byte	75
+00000161 03              687 	.byte	3
+00000162 00000000*       688 	.word	.LDW_16b6e10
+                         689 
+
+                                                                      Page 17
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+                         690 .LDW_16feed8:
+00000166 28              691 	.byte	40
+00000167 75696e743136    692 	.strz	"uint16"
+0000016d 00 
+0000016e 52              693 	.byte	82
+0000016f 4a              694 	.byte	74
+00000170 03              695 	.byte	3
+00000171 00000000*       696 	.word	.LDW_16b6e80
+                         697 
+                         698 .LDW_4c04928:
+00000175 28              699 	.byte	40
+00000176 5374645f5265    700 	.strz	"Std_ReturnType"
+0000017c 7475726e5479 
+00000182 706500 
+00000185 4e              701 	.byte	78
+00000186 0f              702 	.byte	15
+00000187 02              703 	.byte	2
+00000188 00000000*       704 	.word	.LDW_4bec548
+                         705 
+                         706 .LDW_4c04ae0:
+0000018c 28              707 	.byte	40
+0000018d 46694d5f4675    708 	.strz	"FiM_FunctionIdType"
+00000193 6e6374696f6e 
+00000199 496454797065 
+0000019f 00 
+000001a0 08              709 	.byte	8
+000001a1 0f              710 	.byte	15
+000001a2 0b              711 	.byte	11
+000001a3 00000000*       712 	.word	.LDW_4bec548
+                         713 
+                         714 .LDW_4c04878:
+000001a7 28              715 	.byte	40
+000001a8 46694d5f4649    716 	.strz	"FiM_FIdStatusCounterType"
+000001ae 645374617475 
+000001b4 73436f756e74 
+000001ba 657254797065 
+000001c0 00 
+000001c1 11              717 	.byte	17
+000001c2 0f              718 	.byte	15
+000001c3 08              719 	.byte	8
+000001c4 00000000*       720 	.word	.LDW_4bec548
+                         721 
+                         722 .LDW_4c607e0:
+000001c8 05              723 	.byte	5
+000001c9 46694d5f5374    724 	.strz	"FiM_StatusInitialized_b"
+000001cf 61747573496e 
+000001d5 697469616c69 
+000001db 7a65645f6200 
+000001e1 0b              725 	.byte	11
+000001e2 10              726 	.byte	16
+000001e3 07              727 	.byte	7
+000001e4 00000000*       728 	.word	.LDW_4bff4c0
+000001e8 01              729 	.byte	1
+000001e9 01              730 	.byte	1
+                         731 
+                         732 	.section	.debug_abbrev
+00000069 05              733 	.byte	5
+0000006a 34              734 	.byte	52
+0000006b 00              735 	.byte	0
+0000006c 0308            736 	.byte	3,8
+0000006e 3b0f            737 	.byte	59,15
+
+                                                                      Page 18
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+00000070 390f            738 	.byte	57,15
+00000072 3a0f            739 	.byte	58,15
+00000074 4910            740 	.byte	73,16
+00000076 3f0c            741 	.byte	63,12
+00000078 3c0c            742 	.byte	60,12
+0000007a 0000            743 	.byte	0,0
+                         744 
+                         745 	.section	.debug_info
+                         746 .LDW_4c60470:
+000001ea 05              747 	.byte	5
+000001eb 46694d5f4465    748 	.strz	"FiM_DemInitStatus_b"
+000001f1 6d496e697453 
+000001f7 74617475735f 
+000001fd 6200 
+000001ff 0c              749 	.byte	12
+00000200 10              750 	.byte	16
+00000201 07              751 	.byte	7
+00000202 00000000*       752 	.word	.LDW_4bff4c0
+00000206 01              753 	.byte	1
+00000207 01              754 	.byte	1
+                         755 
+                         756 .LDW_4c60998:
+00000208 05              757 	.byte	5
+00000209 46694d5f4649    758 	.strz	"FiM_FIdStatusCounter_auo"
+0000020f 645374617475 
+00000215 73436f756e74 
+0000021b 65725f61756f 
+00000221 00 
+00000222 21              759 	.byte	33
+00000223 21              760 	.byte	33
+00000224 25              761 	.byte	37
+00000225 00000000*       762 	.word	.LDW_4b80b38
+00000229 01              763 	.byte	1
+0000022a 01              764 	.byte	1
+                         765 
+                         766 .LDW_4bc2da0:
+0000022b 16              767 	.byte	22
+0000022c 4465745f5265    768 	.strz	"Det_ReportError"
+00000232 706f72744572 
+00000238 726f7200 
+0000023c 1b              769 	.byte	27
+0000023d 10              770 	.byte	16
+0000023e 0f              771 	.byte	15
+0000023f 00000000*       772 	.word	.LDW_4c04928
+00000243 01              773 	.byte	1
+00000244 00              774 	.byte	0
+00000245 01              775 	.byte	1
+00000246 01              776 	.byte	1
+00000247 00              777 	.byte	0
+00000248 01              778 	.byte	1
+                         779 
+                         780 	.section	.debug_abbrev
+0000007c 16              781 	.byte	22
+0000007d 2e              782 	.byte	46
+0000007e 01              783 	.byte	1
+0000007f 0308            784 	.byte	3,8
+00000081 3b0f            785 	.byte	59,15
+00000083 390f            786 	.byte	57,15
+00000085 3a0f            787 	.byte	58,15
+00000087 4910            788 	.byte	73,16
+00000089 3c0c            789 	.byte	60,12
+
+                                                                      Page 19
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+0000008b 200b            790 	.byte	32,11
+0000008d 3f0c            791 	.byte	63,12
+0000008f 320b            792 	.byte	50,11
+00000091 4c0b            793 	.byte	76,11
+00000093 270c            794 	.byte	39,12
+00000095 0000            795 	.byte	0,0
+                         796 
+                         797 	.section	.debug_info
+00000249 00              798 	.byte	0
+                         799 
+                         800 .LDW_4bc25e8:
+0000024a 15              801 	.byte	21
+0000024b 46494d5f5052    802 	.strz	"FIM_PRIV_DET_ERROR"
+00000251 49565f444554 
+00000257 5f4552524f52 
+0000025d 00 
+0000025e 2b              803 	.byte	43
+0000025f 13              804 	.byte	19
+00000260 0e              805 	.byte	14
+00000261 00              806 	.byte	0
+00000262 03              807 	.byte	3
+00000263 00              808 	.byte	0
+00000264 01              809 	.byte	1
+00000265 00              810 	.byte	0
+00000266 01              811 	.byte	1
+                         812 
+                         813 	.section	.debug_abbrev
+00000097 15              814 	.byte	21
+00000098 2e              815 	.byte	46
+00000099 01              816 	.byte	1
+0000009a 0308            817 	.byte	3,8
+0000009c 3b0f            818 	.byte	59,15
+0000009e 390f            819 	.byte	57,15
+000000a0 3a0f            820 	.byte	58,15
+000000a2 3c0c            821 	.byte	60,12
+000000a4 200b            822 	.byte	32,11
+000000a6 3f0c            823 	.byte	63,12
+000000a8 320b            824 	.byte	50,11
+000000aa 4c0b            825 	.byte	76,11
+000000ac 270c            826 	.byte	39,12
+000000ae 0000            827 	.byte	0,0
+                         828 
+                         829 	.section	.debug_info
+                         830 .LDW_4c050b8:
+00000267 10              831 	.byte	16
+00000268 46694d5f4170    832 	.strz	"FiM_ApiId"
+0000026e 69496400 
+00000272 2b              833 	.byte	43
+00000273 2c              834 	.byte	44
+00000274 0e              835 	.byte	14
+00000275 00000000*       836 	.word	.LDW_4bec548
+00000279 00              837 	.byte	0
+                         838 
+                         839 	.section	.debug_abbrev
+000000b0 10              840 	.byte	16
+000000b1 05              841 	.byte	5
+000000b2 00              842 	.byte	0
+000000b3 0308            843 	.byte	3,8
+000000b5 3b0f            844 	.byte	59,15
+000000b7 390f            845 	.byte	57,15
+000000b9 3a0f            846 	.byte	58,15
+
+                                                                      Page 20
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+000000bb 4910            847 	.byte	73,16
+000000bd 4b0c            848 	.byte	75,12
+000000bf 0000            849 	.byte	0,0
+                         850 
+                         851 	.section	.debug_info
+                         852 .LDW_4c05168:
+0000027a 10              853 	.byte	16
+0000027b 46694d5f4572    854 	.strz	"FiM_ErrorId"
+00000281 726f72496400 
+00000287 2b              855 	.byte	43
+00000288 3d              856 	.byte	61
+00000289 0e              857 	.byte	14
+0000028a 00000000*       858 	.word	.LDW_4bec548
+0000028e 00              859 	.byte	0
+                         860 
+                         861 .LDW_4ba7b88:
+0000028f 20              862 	.byte	32
+                         863 
+                         864 	.section	.debug_abbrev
+000000c1 20              865 	.byte	32
+000000c2 0b              866 	.byte	11
+000000c3 01              867 	.byte	1
+000000c4 0000            868 	.byte	0,0
+                         869 
+                         870 	.section	.debug_info
+00000290 00              871 	.byte	0
+                         872 
+00000291 00              873 	.byte	0
+                         874 
+                         875 .LDW_4bc2680:
+00000292 16              876 	.byte	22
+00000293 46694d5f5072    877 	.strz	"FiM_Priv_GetStatusInitialized"
+00000299 69765f476574 
+0000029f 537461747573 
+000002a5 496e69746961 
+000002ab 6c697a656400 
+000002b1 1c              878 	.byte	28
+000002b2 16              879 	.byte	22
+000002b3 07              880 	.byte	7
+000002b4 00000000*       881 	.word	.LDW_4bff4c0
+000002b8 00              882 	.byte	0
+000002b9 03              883 	.byte	3
+000002ba 00              884 	.byte	0
+000002bb 01              885 	.byte	1
+000002bc 00              886 	.byte	0
+000002bd 01              887 	.byte	1
+                         888 
+                         889 .LDW_4ba7a38:
+000002be 20              890 	.byte	32
+                         891 
+000002bf 00              892 	.byte	0
+                         893 
+000002c0 00              894 	.byte	0
+                         895 
+                         896 .LDW_4bc27b0:
+000002c1 16              897 	.byte	22
+000002c2 46694d5f5072    898 	.strz	"FiM_Priv_IsDemInitCalled"
+000002c8 69765f497344 
+000002ce 656d496e6974 
+000002d4 43616c6c6564 
+000002da 00 
+
+                                                                      Page 21
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+000002db 24              899 	.byte	36
+000002dc 16              900 	.byte	22
+000002dd 07              901 	.byte	7
+000002de 00000000*       902 	.word	.LDW_4bff4c0
+000002e2 00              903 	.byte	0
+000002e3 03              904 	.byte	3
+000002e4 00              905 	.byte	0
+000002e5 01              906 	.byte	1
+000002e6 00              907 	.byte	0
+000002e7 01              908 	.byte	1
+                         909 
+                         910 .LDW_4ba7af8:
+000002e8 20              911 	.byte	32
+                         912 
+000002e9 00              913 	.byte	0
+                         914 
+000002ea 00              915 	.byte	0
+                         916 
+                         917 .LDW_4bc2aa8:
+000002eb 15              918 	.byte	21
+000002ec 5363684d5f45    919 	.strz	"SchM_Enter_FiM_Status_NoNest"
+000002f2 6e7465725f46 
+000002f8 694d5f537461 
+000002fe 7475735f4e6f 
+00000304 4e65737400 
+00000309 30              920 	.byte	48
+0000030a 22              921 	.byte	34
+0000030b 26              922 	.byte	38
+0000030c 00              923 	.byte	0
+0000030d 03              924 	.byte	3
+0000030e 00              925 	.byte	0
+0000030f 01              926 	.byte	1
+00000310 00              927 	.byte	0
+00000311 01              928 	.byte	1
+                         929 
+                         930 .LDW_4ba81b8:
+00000312 20              931 	.byte	32
+                         932 
+00000313 00              933 	.byte	0
+                         934 
+00000314 00              935 	.byte	0
+                         936 
+                         937 .LDW_4bc3130:
+00000315 15              938 	.byte	21
+00000316 5363684d5f45    939 	.strz	"SchM_Exit_FiM_Status_NoNest"
+0000031c 7869745f4669 
+00000322 4d5f53746174 
+00000328 75735f4e6f4e 
+0000032e 65737400 
+00000332 34              940 	.byte	52
+00000333 22              941 	.byte	34
+00000334 26              942 	.byte	38
+00000335 00              943 	.byte	0
+00000336 03              944 	.byte	3
+00000337 00              945 	.byte	0
+00000338 01              946 	.byte	1
+00000339 00              947 	.byte	0
+0000033a 01              948 	.byte	1
+                         949 
+                         950 .LDW_4ba7f18:
+0000033b 20              951 	.byte	32
+
+                                                                      Page 22
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+                         952 
+0000033c 00              953 	.byte	0
+                         954 
+0000033d 00              955 	.byte	0
+                         956 
+                         957 .LDW_4bc2f68:
+0000033e 16              958 	.byte	22
+0000033f 46694d5f5072    959 	.strz	"FiM_Priv_FIdGetPermission"
+00000345 69765f464964 
+0000034b 476574506572 
+00000351 6d697373696f 
+00000357 6e00 
+00000359 36              960 	.byte	54
+0000035a 16              961 	.byte	22
+0000035b 25              962 	.byte	37
+0000035c 00000000*       963 	.word	.LDW_4bff4c0
+00000360 00              964 	.byte	0
+00000361 03              965 	.byte	3
+00000362 00              966 	.byte	0
+00000363 01              967 	.byte	1
+00000364 00              968 	.byte	0
+00000365 01              969 	.byte	1
+                         970 
+                         971 .LDW_4c048d0:
+00000366 10              972 	.byte	16
+00000367 46496400        973 	.strz	"FId"
+0000036b 36              974 	.byte	54
+0000036c 43              975 	.byte	67
+0000036d 25              976 	.byte	37
+0000036e 00000000*       977 	.word	.LDW_4c04ae0
+00000372 00              978 	.byte	0
+                         979 
+                         980 .LDW_4ba80f8:
+00000373 20              981 	.byte	32
+                         982 
+                         983 .LDW_4c05008:
+00000374 05              984 	.byte	5
+00000375 46694d5f5065    985 	.strz	"FiM_PermissionStatus"
+0000037b 726d69737369 
+00000381 6f6e53746174 
+00000387 757300 
+0000038a 38              986 	.byte	56
+0000038b 0c              987 	.byte	12
+0000038c 25              988 	.byte	37
+0000038d 00000000*       989 	.word	.LDW_4bff4c0
+00000391 00              990 	.byte	0
+00000392 00              991 	.byte	0
+                         992 
+00000393 00              993 	.byte	0
+                         994 
+00000394 00              995 	.byte	0
+                         996 
+                         997 .LDW_4bc2bd8:
+00000395 14              998 	.byte	20
+00000396 46694d5f4765    999 	.strz	"FiM_GetFunctionPermission"
+0000039c 7446756e6374 
+000003a2 696f6e506572 
+000003a8 6d697373696f 
+000003ae 6e00 
+000003b0 0b             1000 	.byte	11
+000003b1 10             1001 	.byte	16
+
+                                                                      Page 23
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+000003b2 01             1002 	.byte	1
+000003b3 00000000*      1003 	.word	.LDW_4c04928
+000003b7 00000000*      1004 	.word	_FiM_GetFunctionPermission
+000003bb 00000000*      1005 	.word	___ghs_eofn_FiM_GetFunctionPermission
+000003bf 0153           1006 	.byte	1,83
+000003c1 828080e00b     1007 	.byte	130,128,128,224,11
+000003c6 14             1008 	.byte	20
+000003c7 03             1009 	.byte	3
+000003c8 14             1010 	.byte	20
+000003c9 00             1011 	.byte	0
+000003ca 00             1012 	.byte	0
+000003cb 00             1013 	.byte	0
+000003cc 01             1014 	.byte	1
+000003cd 01             1015 	.byte	1
+000003ce 00             1016 	.byte	0
+000003cf 01             1017 	.byte	1
+                        1018 
+                        1019 	.section	.debug_abbrev
+000000c6 14             1020 	.byte	20
+000000c7 2e             1021 	.byte	46
+000000c8 01             1022 	.byte	1
+000000c9 0308           1023 	.byte	3,8
+000000cb 3b0f           1024 	.byte	59,15
+000000cd 390f           1025 	.byte	57,15
+000000cf 3a0f           1026 	.byte	58,15
+000000d1 4910           1027 	.byte	73,16
+000000d3 1101           1028 	.byte	17,1
+000000d5 1201           1029 	.byte	18,1
+000000d7 400a           1030 	.byte	64,10
+000000d9 8341           1031 	.byte	131,65
+000000db 0f             1032 	.byte	15
+000000dc 8741           1033 	.byte	135,65
+000000de 0d             1034 	.byte	13
+000000df 8541           1035 	.byte	133,65
+000000e1 0f             1036 	.byte	15
+000000e2 8641           1037 	.byte	134,65
+000000e4 0d             1038 	.byte	13
+000000e5 9241           1039 	.byte	146,65
+000000e7 0f             1040 	.byte	15
+000000e8 3c0c           1041 	.byte	60,12
+000000ea 200b           1042 	.byte	32,11
+000000ec 3f0c           1043 	.byte	63,12
+000000ee 320b           1044 	.byte	50,11
+000000f0 4c0b           1045 	.byte	76,11
+000000f2 270c           1046 	.byte	39,12
+000000f4 0000           1047 	.byte	0,0
+                        1048 
+                        1049 	.section	.debug_frame
+                        1050 .LDW_4cb1178:
+00000090 00000000*      1051 	.word	.LDW_unq_4-.LDW_unq_3
+                        1052 .LDW_unq_3:
+00000094 00000000*      1053 	.word	.LDW_4d1d200
+00000098 00000000*      1054 	.word	_FiM_GetFunctionPermission
+0000009c 00000000*      1055 	.word	___ghs_eofn_FiM_GetFunctionPermission-_FiM_GetFunctionPermission
+000000a0 44             1056 	.byte	68
+000000a1 9f             1057 	.byte	159
+000000a2 00             1058 	.byte	0
+000000a3 40             1059 	.byte	64
+000000a4 9d             1060 	.byte	157
+000000a5 04             1061 	.byte	4
+000000a6 40             1062 	.byte	64
+
+                                                                      Page 24
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+000000a7 9c             1063 	.byte	156
+000000a8 08             1064 	.byte	8
+000000a9 40             1065 	.byte	64
+000000aa 9b             1066 	.byte	155
+000000ab 0c             1067 	.byte	12
+000000ac 40             1068 	.byte	64
+000000ad 9a             1069 	.byte	154
+000000ae 10             1070 	.byte	16
+000000af 01             1071 	.byte	1
+000000b0 00000000*      1072 	.word	.LDW11
+                        1073 .LDW_unq_4:
+                        1074 	.section	.debug_line
+000006b7 000502         1075 	.byte	0,5,2
+000006ba 00000000*      1076 	.word	_FiM_GetFunctionPermission
+000006be 03             1077 	.byte	3
+000006bf 0b             1078 	.byte	11
+000006c0 02             1079 	.byte	2
+000006c1 00             1080 	.byte	0
+000006c2 01             1081 	.byte	1
+000006c3 06             1082 	.byte	6
+000006c4 03             1083 	.byte	3
+000006c5 05             1084 	.byte	5
+000006c6 02             1085 	.byte	2
+000006c7 0a             1086 	.byte	10
+000006c8 01             1087 	.byte	1
+000006c9 000502         1088 	.byte	0,5,2
+000006cc 00000000*      1089 	.word	.LDWlin1
+000006d0 03             1090 	.byte	3
+000006d1 7c             1091 	.byte	124
+000006d2 02             1092 	.byte	2
+000006d3 00             1093 	.byte	0
+000006d4 01             1094 	.byte	1
+000006d5 15             1095 	.byte	21
+000006d6 000502         1096 	.byte	0,5,2
+000006d9 00000000*      1097 	.word	.LDWlin2
+000006dd 0d             1098 	.byte	13
+000006de 0b             1099 	.byte	11
+000006df 000502         1100 	.byte	0,5,2
+000006e2 00000000*      1101 	.word	.LDWlin3
+000006e6 0b             1102 	.byte	11
+000006e7 000502         1103 	.byte	0,5,2
+000006ea 00000000*      1104 	.word	.LDWlin4
+000006ee 0b             1105 	.byte	11
+000006ef 0b             1106 	.byte	11
+000006f0 0b             1107 	.byte	11
+000006f1 0b             1108 	.byte	11
+000006f2 0b             1109 	.byte	11
+000006f3 000502         1110 	.byte	0,5,2
+000006f6 00000000*      1111 	.word	.LDWlin5
+000006fa 0b             1112 	.byte	11
+000006fb 02             1113 	.byte	2
+000006fc 00             1114 	.byte	0
+000006fd 0b             1115 	.byte	11
+000006fe 000502         1116 	.byte	0,5,2
+00000701 00000000*      1117 	.word	.LDWlin6
+00000705 0b             1118 	.byte	11
+00000706 0b             1119 	.byte	11
+00000707 000502         1120 	.byte	0,5,2
+0000070a 00000000*      1121 	.word	.LDWlin7
+0000070e 0b             1122 	.byte	11
+0000070f 02             1123 	.byte	2
+
+                                                                      Page 25
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+00000710 00             1124 	.byte	0
+00000711 0b             1125 	.byte	11
+00000712 000502         1126 	.byte	0,5,2
+00000715 00000000*      1127 	.word	.LDWlin8
+00000719 0b             1128 	.byte	11
+0000071a 0b             1129 	.byte	11
+0000071b 000502         1130 	.byte	0,5,2
+0000071e 00000000*      1131 	.word	.LDWlin9
+00000722 0b             1132 	.byte	11
+00000723 02             1133 	.byte	2
+00000724 00             1134 	.byte	0
+00000725 0b             1135 	.byte	11
+00000726 000502         1136 	.byte	0,5,2
+00000729 00000000*      1137 	.word	.LDWlin10
+0000072d 0b             1138 	.byte	11
+0000072e 0b             1139 	.byte	11
+0000072f 000502         1140 	.byte	0,5,2
+00000732 00000000*      1141 	.word	.LDWlin11
+00000736 0b             1142 	.byte	11
+00000737 02             1143 	.byte	2
+00000738 00             1144 	.byte	0
+00000739 0b             1145 	.byte	11
+0000073a 02             1146 	.byte	2
+0000073b 00             1147 	.byte	0
+0000073c 0c             1148 	.byte	12
+0000073d 06             1149 	.byte	6
+0000073e 02             1150 	.byte	2
+0000073f 02             1151 	.byte	2
+00000740 02             1152 	.byte	2
+00000741 04             1153 	.byte	4
+00000742 000101         1154 	.byte	0,1,1
+                        1155 	.section	.debug_info
+                        1156 .LDW_4c049d8:
+000003d0 0f             1157 	.byte	15
+000003d1 46494400       1158 	.strz	"FID"
+000003d5 0b             1159 	.byte	11
+000003d6 3d             1160 	.byte	61
+000003d7 01             1161 	.byte	1
+000003d8 00000000*      1162 	.word	.LDW_4c04ae0
+000003dc 00             1163 	.byte	0
+000003dd 016d           1164 	.byte	1,109
+                        1165 
+                        1166 	.section	.debug_abbrev
+000000f6 0f             1167 	.byte	15
+000000f7 05             1168 	.byte	5
+000000f8 00             1169 	.byte	0
+000000f9 0308           1170 	.byte	3,8
+000000fb 3b0f           1171 	.byte	59,15
+000000fd 390f           1172 	.byte	57,15
+000000ff 3a0f           1173 	.byte	58,15
+00000101 4910           1174 	.byte	73,16
+00000103 4b0c           1175 	.byte	75,12
+00000105 020a           1176 	.byte	2,10
+00000107 0000           1177 	.byte	0,0
+                        1178 
+                        1179 	.section	.debug_info
+                        1180 .LDW_4c04cf0:
+000003df 0f             1181 	.byte	15
+000003e0 5065726d6973   1182 	.strz	"Permission"
+000003e6 73696f6e00 
+000003eb 0b             1183 	.byte	11
+
+                                                                      Page 26
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+000003ec 4b             1184 	.byte	75
+000003ed 01             1185 	.byte	1
+000003ee 00000000*      1186 	.word	.LDW_4c023e0
+000003f2 00             1187 	.byte	0
+000003f3 016c           1188 	.byte	1,108
+                        1189 
+                        1190 .LDW_4ba7378:
+000003f5 1d             1191 	.byte	29
+000003f6 00000000*      1192 	.word	.LDW01
+000003fa 00000000*      1193 	.word	.LDW11
+                        1194 
+                        1195 	.section	.debug_abbrev
+00000109 1d             1196 	.byte	29
+0000010a 0b             1197 	.byte	11
+0000010b 01             1198 	.byte	1
+0000010c 1101           1199 	.byte	17,1
+0000010e 1201           1200 	.byte	18,1
+00000110 0000           1201 	.byte	0,0
+                        1202 
+                        1203 	.section	.debug_info
+                        1204 .LDW_4c04f00:
+000003fe 04             1205 	.byte	4
+000003ff 72657456616c   1206 	.strz	"retVal"
+00000405 00 
+00000406 0d             1207 	.byte	13
+00000407 14             1208 	.byte	20
+00000408 01             1209 	.byte	1
+00000409 00000000*      1210 	.word	.LDW_4c04928
+0000040d 00             1211 	.byte	0
+0000040e 00             1212 	.byte	0
+0000040f 016b           1213 	.byte	1,107
+                        1214 
+                        1215 	.section	.debug_abbrev
+00000112 04             1216 	.byte	4
+00000113 34             1217 	.byte	52
+00000114 00             1218 	.byte	0
+00000115 0308           1219 	.byte	3,8
+00000117 3b0f           1220 	.byte	59,15
+00000119 390f           1221 	.byte	57,15
+0000011b 3a0f           1222 	.byte	58,15
+0000011d 4910           1223 	.byte	73,16
+0000011f 3f0c           1224 	.byte	63,12
+00000121 3c0c           1225 	.byte	60,12
+00000123 020a           1226 	.byte	2,10
+00000125 0000           1227 	.byte	0,0
+                        1228 
+                        1229 	.section	.debug_info
+                        1230 .LDW_4c04d48:
+00000411 05             1231 	.byte	5
+00000412 697346696d49   1232 	.strz	"isFimInitialized"
+00000418 6e697469616c 
+0000041e 697a656400 
+00000423 0f             1233 	.byte	15
+00000424 0c             1234 	.byte	12
+00000425 01             1235 	.byte	1
+00000426 00000000*      1236 	.word	.LDW_4bff4c0
+0000042a 00             1237 	.byte	0
+0000042b 00             1238 	.byte	0
+                        1239 
+                        1240 .LDW_4c04f58:
+0000042c 04             1241 	.byte	4
+
+                                                                      Page 27
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+0000042d 697344656d49   1242 	.strz	"isDemInitialized"
+00000433 6e697469616c 
+00000439 697a656400 
+0000043e 10             1243 	.byte	16
+0000043f 0c             1244 	.byte	12
+00000440 01             1245 	.byte	1
+00000441 00000000*      1246 	.word	.LDW_4bff4c0
+00000445 00             1247 	.byte	0
+00000446 00             1248 	.byte	0
+00000447 0162           1249 	.byte	1,98
+                        1250 
+00000449 00             1251 	.byte	0
+                        1252 
+0000044a 00             1253 	.byte	0
+                        1254 
+0000044b 00             1255 	.byte	0
+                        1256 
+                        1257 	.section	.debug_line
+                        1258 .Ldw_line_end:
+                        1259 	.section	.debug_macinfo
+00000000 01             1260 	.byte	1
+00000001 00             1261 	.byte	0
+00000002 5f5f6768735f   1262 	.strz	"__ghs__ 1"
+00000008 5f203100 
+0000000c 01             1263 	.byte	1
+0000000d 00             1264 	.byte	0
+0000000e 5f5f4c4c4f4e   1265 	.strz	"__LLONG_BIT 64"
+00000014 475f42495420 
+0000001a 363400 
+0000001d 01             1266 	.byte	1
+0000001e 00             1267 	.byte	0
+0000001f 4e4f545f5245   1268 	.strz	"NOT_READY_FOR_TESTING_OR_DEPLOYMENT 1"
+00000025 4144595f464f 
+0000002b 525f54455354 
+00000031 494e475f4f52 
+00000037 5f4445504c4f 
+0000003d 594d454e5420 
+00000043 3100 
+00000045 03             1269 	.byte	3
+00000046 00             1270 	.byte	0
+00000047 01             1271 	.byte	1
+00000048 03             1272 	.byte	3
+00000049 01             1273 	.byte	1
+0000004a 02             1274 	.byte	2
+0000004b 03             1275 	.byte	3
+0000004c 1c             1276 	.byte	28
+0000004d 03             1277 	.byte	3
+0000004e 01             1278 	.byte	1
+0000004f 3c             1279 	.byte	60
+00000050 545255452031   1280 	.strz	"TRUE 1u"
+00000056 7500 
+00000058 01             1281 	.byte	1
+00000059 40             1282 	.byte	64
+0000005a 46414c534520   1283 	.strz	"FALSE 0u"
+00000060 307500 
+00000063 04             1284 	.byte	4
+00000064 03             1285 	.byte	3
+00000065 1d             1286 	.byte	29
+00000066 04             1287 	.byte	4
+00000067 03             1288 	.byte	3
+00000068 1b             1289 	.byte	27
+
+                                                                      Page 28
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+00000069 05             1290 	.byte	5
+0000006a 03             1291 	.byte	3
+0000006b 54             1292 	.byte	84
+0000006c 06             1293 	.byte	6
+0000006d 04             1294 	.byte	4
+0000006e 04             1295 	.byte	4
+0000006f 01             1296 	.byte	1
+00000070 2f             1297 	.byte	47
+00000071 4e554c4c5f50   1298 	.strz	"NULL_PTR ((void *)0)"
+00000077 545220282876 
+0000007d 6f6964202a29 
+00000083 302900 
+00000086 01             1299 	.byte	1
+00000087 33             1300 	.byte	51
+00000088 4c4f43414c5f   1301 	.strz	"LOCAL_INLINE static inline"
+0000008e 494e4c494e45 
+00000094 207374617469 
+0000009a 6320696e6c69 
+000000a0 6e6500 
+000000a3 01             1302 	.byte	1
+000000a4 34             1303 	.byte	52
+000000a5 46554e432872   1304 	.strz	"FUNC(rettype,memclass) rettype"
+000000ab 657474797065 
+000000b1 2c6d656d636c 
+000000b7 617373292072 
+000000bd 657474797065 
+000000c3 00 
+000000c4 04             1305 	.byte	4
+000000c5 01             1306 	.byte	1
+000000c6 3e             1307 	.byte	62
+000000c7 455f4f4b2030   1308 	.strz	"E_OK 0u"
+000000cd 7500 
+000000cf 01             1309 	.byte	1
+000000d0 3f             1310 	.byte	63
+000000d1 455f4e4f545f   1311 	.strz	"E_NOT_OK 1u"
+000000d7 4f4b20317500 
+000000dd 04             1312 	.byte	4
+000000de 03             1313 	.byte	3
+000000df 03             1314 	.byte	3
+000000e0 07             1315 	.byte	7
+000000e1 03             1316 	.byte	3
+000000e2 04             1317 	.byte	4
+000000e3 08             1318 	.byte	8
+000000e4 03             1319 	.byte	3
+000000e5 06             1320 	.byte	6
+000000e6 09             1321 	.byte	9
+000000e7 03             1322 	.byte	3
+000000e8 1b             1323 	.byte	27
+000000e9 0a             1324 	.byte	10
+000000ea 03             1325 	.byte	3
+000000eb 04             1326 	.byte	4
+000000ec 0b             1327 	.byte	11
+000000ed 03             1328 	.byte	3
+000000ee 06             1329 	.byte	6
+000000ef 0c             1330 	.byte	12
+000000f0 04             1331 	.byte	4
+000000f1 04             1332 	.byte	4
+000000f2 04             1333 	.byte	4
+000000f3 01             1334 	.byte	1
+000000f4 21             1335 	.byte	33
+000000f5 46494d5f4346   1336 	.strz	"FIM_CFG_NUMBEROFFIDS (1)"
+
+                                                                      Page 29
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+000000fb 475f4e554d42 
+00000101 45524f464649 
+00000107 445320283129 
+0000010d 00 
+0000010e 04             1337 	.byte	4
+0000010f 03             1338 	.byte	3
+00000110 07             1339 	.byte	7
+00000111 0d             1340 	.byte	13
+00000112 01             1341 	.byte	1
+00000113 20             1342 	.byte	32
+00000114 46494d5f4346   1343 	.strz	"FIM_CFG_ON 1"
+0000011a 475f4f4e2031 
+00000120 00 
+00000121 01             1344 	.byte	1
+00000122 21             1345 	.byte	33
+00000123 46494d5f4346   1346 	.strz	"FIM_CFG_OFF 0"
+00000129 475f4f464620 
+0000012f 3000 
+00000131 01             1347 	.byte	1
+00000132 22             1348 	.byte	34
+00000133 46494d5f4346   1349 	.strz	"FIM_CFG_VERSION_INFO_API FIM_CFG_OFF"
+00000139 475f56455253 
+0000013f 494f4e5f494e 
+00000145 464f5f415049 
+0000014b 2046494d5f43 
+00000151 46475f4f4646 
+00000157 00 
+00000158 01             1350 	.byte	1
+00000159 23             1351 	.byte	35
+0000015a 46494d5f4346   1352 	.strz	"FIM_CFG_SERVICE07_VISIBLE_ERROR_API FIM_CFG_OFF"
+00000160 475f53455256 
+00000166 49434530375f 
+0000016c 56495349424c 
+00000172 455f4552524f 
+00000178 525f41504920 
+0000017e 46494d5f4346 
+00000184 475f4f464600 
+0000018a 01             1353 	.byte	1
+0000018b 24             1354 	.byte	36
+0000018c 46494d5f4346   1355 	.strz	"FIM_CFG_DEV_ERROR_DETECT FIM_CFG_ON"
+00000192 475f4445565f 
+00000198 4552524f525f 
+0000019e 444554454354 
+000001a4 2046494d5f43 
+000001aa 46475f4f4e00 
+000001b0 01             1356 	.byte	1
+000001b1 25             1357 	.byte	37
+000001b2 46494d5f4346   1358 	.strz	"FIM_CFG_DEM_TRIGGERFIMREPORTS FIM_CFG_ON"
+000001b8 475f44454d5f 
+000001be 545249474745 
+000001c4 5246494d5245 
+000001ca 504f52545320 
+000001d0 46494d5f4346 
+000001d6 475f4f4e00 
+000001db 01             1359 	.byte	1
+000001dc 29             1360 	.byte	41
+000001dd 46494d5f4346   1361 	.strz	"FIM_CFG_MAXIMUM_LINKS_PER_FID_CALC 2"
+000001e3 475f4d415849 
+000001e9 4d554d5f4c49 
+000001ef 4e4b535f5045 
+000001f5 525f4649445f 
+
+                                                                      Page 30
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+000001fb 43414c432032 
+00000201 00 
+00000202 01             1362 	.byte	1
+00000203 2d             1363 	.byte	45
+00000204 46494d5f4346   1364 	.strz	"FIM_CFG_CHECK_API_CONSISTENCY TRUE"
+0000020a 475f43484543 
+00000210 4b5f4150495f 
+00000216 434f4e534953 
+0000021c 54454e435920 
+00000222 5452554500 
+00000227 04             1365 	.byte	4
+00000228 01             1366 	.byte	1
+00000229 0a             1367 	.byte	10
+0000022a 46494d5f4346   1368 	.strz	"FIM_CFG_LAST_FAILED 1u"
+00000230 475f4c415354 
+00000236 5f4641494c45 
+0000023c 4420317500 
+00000241 01             1369 	.byte	1
+00000242 0b             1370 	.byte	11
+00000243 46494d5f4346   1371 	.strz	"FIM_CFG_NOT_TESTED 2u"
+00000249 475f4e4f545f 
+0000024f 544553544544 
+00000255 20327500 
+00000259 01             1372 	.byte	1
+0000025a 0c             1373 	.byte	12
+0000025b 46494d5f4346   1374 	.strz	"FIM_CFG_TESTED 3u"
+00000261 475f54455354 
+00000267 454420337500 
+0000026d 01             1375 	.byte	1
+0000026e 0d             1376 	.byte	13
+0000026f 46494d5f4346   1377 	.strz	"FIM_CFG_TESTED_AND_FAILED 4u"
+00000275 475f54455354 
+0000027b 45445f414e44 
+00000281 5f4641494c45 
+00000287 4420347500 
+0000028c 01             1378 	.byte	1
+0000028d 0e             1379 	.byte	14
+0000028e 46494d5f4346   1380 	.strz	"FIM_CFG_FAILED_OR_NOT_TESTED 5u"
+00000294 475f4641494c 
+0000029a 45445f4f525f 
+000002a0 4e4f545f5445 
+000002a6 535445442035 
+000002ac 7500 
+000002ae 01             1381 	.byte	1
+000002af 12             1382 	.byte	18
+000002b0 46494d5f4346   1383 	.strz	"FIM_CFG_STATUSCOUNTERMAX 0xFF"
+000002b6 475f53544154 
+000002bc 5553434f554e 
+000002c2 5445524d4158 
+000002c8 203078464600 
+000002ce 04             1384 	.byte	4
+000002cf 03             1385 	.byte	3
+000002d0 05             1386 	.byte	5
+000002d1 0e             1387 	.byte	14
+000002d2 03             1388 	.byte	3
+000002d3 07             1389 	.byte	7
+000002d4 0f             1390 	.byte	15
+000002d5 03             1391 	.byte	3
+000002d6 04             1392 	.byte	4
+000002d7 10             1393 	.byte	16
+000002d8 03             1394 	.byte	3
+
+                                                                      Page 31
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+000002d9 04             1395 	.byte	4
+000002da 11             1396 	.byte	17
+000002db 04             1397 	.byte	4
+000002dc 04             1398 	.byte	4
+000002dd 01             1399 	.byte	1
+000002de 08             1400 	.byte	8
+000002df 4445545f4346   1401 	.strz	"DET_CFG_CHECK_API_CONSISTENCY TRUE"
+000002e5 475f43484543 
+000002eb 4b5f4150495f 
+000002f1 434f4e534953 
+000002f7 54454e435920 
+000002fd 5452554500 
+00000302 01             1402 	.byte	1
+00000303 0a             1403 	.byte	10
+00000304 4445545f5354   1404 	.strz	"DET_START_SEC_ROM_CODE "
+0000030a 4152545f5345 
+00000310 435f524f4d5f 
+00000316 434f44452000 
+0000031c 03             1405 	.byte	3
+0000031d 0b             1406 	.byte	11
+0000031e 12             1407 	.byte	18
+0000031f 01             1408 	.byte	1
+00000320 06             1409 	.byte	6
+00000321 4d454d4d4150   1410 	.strz	"MEMMAP_ERROR "
+00000327 5f4552524f52 
+0000032d 2000 
+0000032f 01             1411 	.byte	1
+00000330 51             1412 	.byte	81
+00000331 4253575f5354   1413 	.strz	"BSW_START_SEC_DEFAULT_CODE "
+00000337 4152545f5345 
+0000033d 435f44454641 
+00000343 554c545f434f 
+00000349 44452000 
+0000034d 03             1414 	.byte	3
+0000034e 52             1415 	.byte	82
+0000034f 13             1416 	.byte	19
+00000350 01             1417 	.byte	1
+00000351 d308           1418 	.byte	211,8
+00000353 53544152545f   1419 	.strz	"START_SEC_CODE "
+00000359 5345435f434f 
+0000035f 44452000 
+00000363 03             1420 	.byte	3
+00000364 bb09           1421 	.byte	187,9
+00000366 14             1422 	.byte	20
+00000367 01             1423 	.byte	1
+00000368 f307           1424 	.byte	243,7
+0000036a 434f44455f53   1425 	.strz	"CODE_SEC_OPEN "
+00000370 45435f4f5045 
+00000376 4e2000 
+00000379 04             1426 	.byte	4
+0000037a 04             1427 	.byte	4
+0000037b 01             1428 	.byte	1
+0000037c 56             1429 	.byte	86
+0000037d 4445545f5741   1430 	.strz	"DET_WAS_STARTED_SEC_ROM_CODE "
+00000383 535f53544152 
+00000389 5445445f5345 
+0000038f 435f524f4d5f 
+00000395 434f44452000 
+0000039b 04             1431 	.byte	4
+0000039c 01             1432 	.byte	1
+0000039d 20             1433 	.byte	32
+
+                                                                      Page 32
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+0000039e 4445545f5354   1434 	.strz	"DET_STOP_SEC_ROM_CODE "
+000003a4 4f505f534543 
+000003aa 5f524f4d5f43 
+000003b0 4f44452000 
+000003b5 03             1435 	.byte	3
+000003b6 21             1436 	.byte	33
+000003b7 12             1437 	.byte	18
+000003b8 01             1438 	.byte	1
+000003b9 06             1439 	.byte	6
+000003ba 4d454d4d4150   1440 	.strz	"MEMMAP_ERROR "
+000003c0 5f4552524f52 
+000003c6 2000 
+000003c8 01             1441 	.byte	1
+000003c9 5e             1442 	.byte	94
+000003ca 4253575f5354   1443 	.strz	"BSW_STOP_SEC_DEFAULT_CODE "
+000003d0 4f505f534543 
+000003d6 5f4445464155 
+000003dc 4c545f434f44 
+000003e2 452000 
+000003e5 03             1444 	.byte	3
+000003e6 5f             1445 	.byte	95
+000003e7 13             1446 	.byte	19
+000003e8 01             1447 	.byte	1
+000003e9 d608           1448 	.byte	214,8
+000003eb 53544f505f53   1449 	.strz	"STOP_SEC_CODE "
+000003f1 45435f434f44 
+000003f7 452000 
+000003fa 03             1450 	.byte	3
+000003fb bb09           1451 	.byte	187,9
+000003fd 14             1452 	.byte	20
+000003fe 04             1453 	.byte	4
+000003ff 04             1454 	.byte	4
+00000400 04             1455 	.byte	4
+00000401 04             1456 	.byte	4
+00000402 03             1457 	.byte	3
+00000403 0a             1458 	.byte	10
+00000404 15             1459 	.byte	21
+00000405 03             1460 	.byte	3
+00000406 08             1461 	.byte	8
+00000407 16             1462 	.byte	22
+00000408 03             1463 	.byte	3
+00000409 04             1464 	.byte	4
+0000040a 17             1465 	.byte	23
+0000040b 01             1466 	.byte	1
+0000040c 10             1467 	.byte	16
+0000040d 5242415f4253   1468 	.strz	"RBA_BSWSRV_START_SEC_CODE "
+00000413 575352565f53 
+00000419 544152545f53 
+0000041f 45435f434f44 
+00000425 452000 
+00000428 03             1469 	.byte	3
+00000429 11             1470 	.byte	17
+0000042a 18             1471 	.byte	24
+0000042b 01             1472 	.byte	1
+0000042c 37             1473 	.byte	55
+0000042d 4253575f5354   1474 	.strz	"BSW_START_SEC_DEFAULT_CODE "
+00000433 4152545f5345 
+00000439 435f44454641 
+0000043f 554c545f434f 
+00000445 44452000 
+00000449 03             1475 	.byte	3
+
+                                                                      Page 33
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+0000044a 38             1476 	.byte	56
+0000044b 13             1477 	.byte	19
+0000044c 01             1478 	.byte	1
+0000044d d308           1479 	.byte	211,8
+0000044f 53544152545f   1480 	.strz	"START_SEC_CODE "
+00000455 5345435f434f 
+0000045b 44452000 
+0000045f 03             1481 	.byte	3
+00000460 bb09           1482 	.byte	187,9
+00000462 14             1483 	.byte	20
+00000463 01             1484 	.byte	1
+00000464 f307           1485 	.byte	243,7
+00000466 434f44455f53   1486 	.strz	"CODE_SEC_OPEN "
+0000046c 45435f4f5045 
+00000472 4e2000 
+00000475 04             1487 	.byte	4
+00000476 04             1488 	.byte	4
+00000477 04             1489 	.byte	4
+00000478 01             1490 	.byte	1
+00000479 15             1491 	.byte	21
+0000047a 5242415f4253   1492 	.strz	"RBA_BSWSRV_STOP_SEC_CODE "
+00000480 575352565f53 
+00000486 544f505f5345 
+0000048c 435f434f4445 
+00000492 2000 
+00000494 03             1493 	.byte	3
+00000495 16             1494 	.byte	22
+00000496 18             1495 	.byte	24
+00000497 01             1496 	.byte	1
+00000498 3b             1497 	.byte	59
+00000499 4253575f5354   1498 	.strz	"BSW_STOP_SEC_DEFAULT_CODE "
+0000049f 4f505f534543 
+000004a5 5f4445464155 
+000004ab 4c545f434f44 
+000004b1 452000 
+000004b4 03             1499 	.byte	3
+000004b5 3c             1500 	.byte	60
+000004b6 13             1501 	.byte	19
+000004b7 01             1502 	.byte	1
+000004b8 d608           1503 	.byte	214,8
+000004ba 53544f505f53   1504 	.strz	"STOP_SEC_CODE "
+000004c0 45435f434f44 
+000004c6 452000 
+000004c9 03             1505 	.byte	3
+000004ca bb09           1506 	.byte	187,9
+000004cc 14             1507 	.byte	20
+000004cd 04             1508 	.byte	4
+000004ce 04             1509 	.byte	4
+000004cf 04             1510 	.byte	4
+000004d0 04             1511 	.byte	4
+000004d1 04             1512 	.byte	4
+000004d2 01             1513 	.byte	1
+000004d3 0c             1514 	.byte	12
+000004d4 46494d5f5553   1515 	.strz	"FIM_USE_VAR(P) ((void)(P))"
+000004da 455f56415228 
+000004e0 502920282876 
+000004e6 6f6964292850 
+000004ec 292900 
+000004ef 01             1516 	.byte	1
+000004f0 0e             1517 	.byte	14
+000004f1 46494d5f5052   1518 	.strz	"FIM_PRIV_MIN(a,b) ( ((a) < (b)) ? (a) : (b) )"
+
+                                                                      Page 34
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+000004f7 49565f4d494e 
+000004fd 28612c622920 
+00000503 282028286129 
+00000509 203c20286229 
+0000050f 29203f202861 
+00000515 29203a202862 
+0000051b 29202900 
+0000051f 01             1519 	.byte	1
+00000520 11             1520 	.byte	17
+00000521 46494d5f4c41   1521 	.strz	"FIM_LAST_FAILED_MASK 0x01u"
+00000527 53545f464149 
+0000052d 4c45445f4d41 
+00000533 534b20307830 
+00000539 317500 
+0000053c 01             1522 	.byte	1
+0000053d 12             1523 	.byte	18
+0000053e 46494d5f4c41   1524 	.strz	"FIM_LAST_FAILED_VALUE 0x01u"
+00000544 53545f464149 
+0000054a 4c45445f5641 
+00000550 4c5545203078 
+00000556 30317500 
+0000055a 01             1525 	.byte	1
+0000055b 13             1526 	.byte	19
+0000055c 46494d5f4e4f   1527 	.strz	"FIM_NOT_TESTED_MASK 0x40u"
+00000562 545f54455354 
+00000568 45445f4d4153 
+0000056e 4b2030783430 
+00000574 7500 
+00000576 01             1528 	.byte	1
+00000577 14             1529 	.byte	20
+00000578 46494d5f4e4f   1530 	.strz	"FIM_NOT_TESTED_VALUE 0x40u"
+0000057e 545f54455354 
+00000584 45445f56414c 
+0000058a 554520307834 
+00000590 307500 
+00000593 01             1531 	.byte	1
+00000594 15             1532 	.byte	21
+00000595 46494d5f5445   1533 	.strz	"FIM_TESTED_MASK 0x40u"
+0000059b 535445445f4d 
+000005a1 41534b203078 
+000005a7 34307500 
+000005ab 01             1534 	.byte	1
+000005ac 16             1535 	.byte	22
+000005ad 46494d5f5445   1536 	.strz	"FIM_TESTED_VALUE 0x00u"
+000005b3 535445445f56 
+000005b9 414c55452030 
+000005bf 7830307500 
+000005c4 01             1537 	.byte	1
+000005c5 17             1538 	.byte	23
+000005c6 46494d5f5445   1539 	.strz	"FIM_TESTED_AND_FAILED_MASK 0x41u"
+000005cc 535445445f41 
+000005d2 4e445f464149 
+000005d8 4c45445f4d41 
+000005de 534b20307834 
+000005e4 317500 
+000005e7 01             1540 	.byte	1
+000005e8 18             1541 	.byte	24
+000005e9 46494d5f5445   1542 	.strz	"FIM_TESTED_AND_FAILED_VALUE 0x01u"
+000005ef 535445445f41 
+000005f5 4e445f464149 
+000005fb 4c45445f5641 
+
+                                                                      Page 35
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+00000601 4c5545203078 
+00000607 30317500 
+0000060b 01             1543 	.byte	1
+0000060c 22             1544 	.byte	34
+0000060d 46494d5f5052   1545 	.strz	"FIM_PRIV_ENTERLOCK_STATUS() SchM_Enter_FiM_Status_NoNest()"
+00000613 49565f454e54 
+00000619 45524c4f434b 
+0000061f 5f5354415455 
+00000625 532829205363 
+0000062b 684d5f456e74 
+00000631 65725f46694d 
+00000637 5f5374617475 
+0000063d 735f4e6f4e65 
+00000643 7374282900 
+00000648 01             1546 	.byte	1
+00000649 23             1547 	.byte	35
+0000064a 46494d5f5052   1548 	.strz	"FIM_PRIV_EXITLOCK_STATUS() SchM_Exit_FiM_Status_NoNest()"
+00000650 49565f455849 
+00000656 544c4f434b5f 
+0000065c 535441545553 
+00000662 282920536368 
+00000668 4d5f45786974 
+0000066e 5f46694d5f53 
+00000674 74617475735f 
+0000067a 4e6f4e657374 
+00000680 282900 
+00000683 01             1549 	.byte	1
+00000684 25             1550 	.byte	37
+00000685 46494d5f5354   1551 	.strz	"FIM_START_SEC_ROM_CODE "
+0000068b 4152545f5345 
+00000691 435f524f4d5f 
+00000697 434f44452000 
+0000069d 03             1552 	.byte	3
+0000069e 26             1553 	.byte	38
+0000069f 19             1554 	.byte	25
+000006a0 01             1555 	.byte	1
+000006a1 06             1556 	.byte	6
+000006a2 4d454d4d4150   1557 	.strz	"MEMMAP_ERROR "
+000006a8 5f4552524f52 
+000006ae 2000 
+000006b0 01             1558 	.byte	1
+000006b1 51             1559 	.byte	81
+000006b2 4253575f5354   1560 	.strz	"BSW_START_SEC_DEFAULT_CODE "
+000006b8 4152545f5345 
+000006be 435f44454641 
+000006c4 554c545f434f 
+000006ca 44452000 
+000006ce 03             1561 	.byte	3
+000006cf 52             1562 	.byte	82
+000006d0 13             1563 	.byte	19
+000006d1 01             1564 	.byte	1
+000006d2 d308           1565 	.byte	211,8
+000006d4 53544152545f   1566 	.strz	"START_SEC_CODE "
+000006da 5345435f434f 
+000006e0 44452000 
+000006e4 03             1567 	.byte	3
+000006e5 bb09           1568 	.byte	187,9
+000006e7 14             1569 	.byte	20
+000006e8 01             1570 	.byte	1
+000006e9 f307           1571 	.byte	243,7
+000006eb 434f44455f53   1572 	.strz	"CODE_SEC_OPEN "
+
+                                                                      Page 36
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+000006f1 45435f4f5045 
+000006f7 4e2000 
+000006fa 04             1573 	.byte	4
+000006fb 04             1574 	.byte	4
+000006fc 01             1575 	.byte	1
+000006fd 56             1576 	.byte	86
+000006fe 46494d5f5741   1577 	.strz	"FIM_WAS_STARTED_SEC_ROM_CODE "
+00000704 535f53544152 
+0000070a 5445445f5345 
+00000710 435f524f4d5f 
+00000716 434f44452000 
+0000071c 04             1578 	.byte	4
+0000071d 01             1579 	.byte	1
+0000071e 69             1580 	.byte	105
+0000071f 46494d5f5354   1581 	.strz	"FIM_STOP_SEC_ROM_CODE "
+00000725 4f505f534543 
+0000072b 5f524f4d5f43 
+00000731 4f44452000 
+00000736 03             1582 	.byte	3
+00000737 6a             1583 	.byte	106
+00000738 19             1584 	.byte	25
+00000739 01             1585 	.byte	1
+0000073a 06             1586 	.byte	6
+0000073b 4d454d4d4150   1587 	.strz	"MEMMAP_ERROR "
+00000741 5f4552524f52 
+00000747 2000 
+00000749 01             1588 	.byte	1
+0000074a 5e             1589 	.byte	94
+0000074b 4253575f5354   1590 	.strz	"BSW_STOP_SEC_DEFAULT_CODE "
+00000751 4f505f534543 
+00000757 5f4445464155 
+0000075d 4c545f434f44 
+00000763 452000 
+00000766 03             1591 	.byte	3
+00000767 5f             1592 	.byte	95
+00000768 13             1593 	.byte	19
+00000769 01             1594 	.byte	1
+0000076a d608           1595 	.byte	214,8
+0000076c 53544f505f53   1596 	.strz	"STOP_SEC_CODE "
+00000772 45435f434f44 
+00000778 452000 
+0000077b 03             1597 	.byte	3
+0000077c bb09           1598 	.byte	187,9
+0000077e 14             1599 	.byte	20
+0000077f 04             1600 	.byte	4
+00000780 04             1601 	.byte	4
+00000781 04             1602 	.byte	4
+00000782 04             1603 	.byte	4
+00000783 03             1604 	.byte	3
+00000784 0b             1605 	.byte	11
+00000785 1a             1606 	.byte	26
+00000786 01             1607 	.byte	1
+00000787 20             1608 	.byte	32
+00000788 46494d5f4d4f   1609 	.strz	"FIM_MODULE_ID 11"
+0000078e 44554c455f49 
+00000794 4420313100 
+00000799 01             1610 	.byte	1
+0000079a 21             1611 	.byte	33
+0000079b 46494d5f494e   1612 	.strz	"FIM_INSTANCE_ID 0"
+000007a1 5354414e4345 
+000007a7 5f4944203000 
+
+                                                                      Page 37
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+000007ad 04             1613 	.byte	4
+000007ae 01             1614 	.byte	1
+000007af 0e             1615 	.byte	14
+000007b0 46494d5f4745   1616 	.strz	"FIM_GETFUNCTIONPERMISSION_ID 0x01"
+000007b6 5446554e4354 
+000007bc 494f4e504552 
+000007c2 4d495353494f 
+000007c8 4e5f49442030 
+000007ce 78303100 
+000007d2 01             1617 	.byte	1
+000007d3 17             1618 	.byte	23
+000007d4 46494d5f5052   1619 	.strz	"FIM_PRIV_FIDCOUNTDEC_ID 0xB4"
+000007da 49565f464944 
+000007e0 434f554e5444 
+000007e6 45435f494420 
+000007ec 3078423400 
+000007f1 01             1620 	.byte	1
+000007f2 1b             1621 	.byte	27
+000007f3 46494d5f455f   1622 	.strz	"FIM_E_FID_OUT_OF_RANGE 0x02"
+000007f9 4649445f4f55 
+000007ff 545f4f465f52 
+00000805 414e47452030 
+0000080b 78303200 
+0000080f 01             1623 	.byte	1
+00000810 1d             1624 	.byte	29
+00000811 46494d5f455f   1625 	.strz	"FIM_E_PARAM_POINTER 0x04"
+00000817 504152414d5f 
+0000081d 504f494e5445 
+00000823 522030783034 
+00000829 00 
+0000082a 01             1626 	.byte	1
+0000082b 21             1627 	.byte	33
+0000082c 46494d5f455f   1628 	.strz	"FIM_E_FID_COUNTERNEGATIVE 0xB1"
+00000832 4649445f434f 
+00000838 554e5445524e 
+0000083e 454741544956 
+00000844 452030784231 
+0000084a 00 
+0000084b 01             1629 	.byte	1
+0000084c 24             1630 	.byte	36
+0000084d 46494d5f455f   1631 	.strz	"FIM_E_NOT_INITIALIZED 0xB4"
+00000853 4e4f545f494e 
+00000859 495449414c49 
+0000085f 5a4544203078 
+00000865 423400 
+00000868 01             1632 	.byte	1
+00000869 27             1633 	.byte	39
+0000086a 46494d5f455f   1634 	.strz	"FIM_E_DEMINIT_NOT_CALLED 0xB7"
+00000870 44454d494e49 
+00000876 545f4e4f545f 
+0000087c 43414c4c4544 
+00000882 203078423700 
+00000888 04             1635 	.byte	4
+00000889 03             1636 	.byte	3
+0000088a 07             1637 	.byte	7
+0000088b 1b             1638 	.byte	27
+0000088c 04             1639 	.byte	4
+0000088d 01             1640 	.byte	1
+0000088e 09             1641 	.byte	9
+0000088f 46494d5f5354   1642 	.strz	"FIM_START_SEC_RAM_CLEARED "
+00000895 4152545f5345 
+
+                                                                      Page 38
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+0000089b 435f52414d5f 
+000008a1 434c45415245 
+000008a7 442000 
+000008aa 03             1643 	.byte	3
+000008ab 0a             1644 	.byte	10
+000008ac 19             1645 	.byte	25
+000008ad 01             1646 	.byte	1
+000008ae 06             1647 	.byte	6
+000008af 4d454d4d4150   1648 	.strz	"MEMMAP_ERROR "
+000008b5 5f4552524f52 
+000008bb 2000 
+000008bd 01             1649 	.byte	1
+000008be 0c             1650 	.byte	12
+000008bf 4253575f5354   1651 	.strz	"BSW_START_SEC_DEFAULT_RAM0_CLEARED_UNSPECIFIED "
+000008c5 4152545f5345 
+000008cb 435f44454641 
+000008d1 554c545f5241 
+000008d7 4d305f434c45 
+000008dd 415245445f55 
+000008e3 4e5350454349 
+000008e9 464945442000 
+000008ef 03             1652 	.byte	3
+000008f0 0d             1653 	.byte	13
+000008f1 13             1654 	.byte	19
+000008f2 01             1655 	.byte	1
+000008f3 8a05           1656 	.byte	138,5
+000008f5 53544152545f   1657 	.strz	"START_SEC_VAR_CLEARED_UNSPECIFIED "
+000008fb 5345435f5641 
+00000901 525f434c4541 
+00000907 5245445f554e 
+0000090d 535045434946 
+00000913 4945442000 
+00000918 03             1658 	.byte	3
+00000919 bb09           1659 	.byte	187,9
+0000091b 14             1660 	.byte	20
+0000091c 01             1661 	.byte	1
+0000091d 56             1662 	.byte	86
+0000091e 53544152545f   1663 	.strz	"START_SEC_VAR_ZERO_INIT_UNSPECIFIED "
+00000924 5345435f5641 
+0000092a 525f5a45524f 
+00000930 5f494e49545f 
+00000936 554e53504543 
+0000093c 494649454420 
+00000942 00 
+00000943 01             1664 	.byte	1
+00000944 840a           1665 	.byte	132,10
+00000946 5641525f5345   1666 	.strz	"VAR_SEC_OPEN "
+0000094c 435f4f50454e 
+00000952 2000 
+00000954 04             1667 	.byte	4
+00000955 04             1668 	.byte	4
+00000956 01             1669 	.byte	1
+00000957 11             1670 	.byte	17
+00000958 46494d5f5741   1671 	.strz	"FIM_WAS_STARTED_SEC_RAM_CLEARED "
+0000095e 535f53544152 
+00000964 5445445f5345 
+0000096a 435f52414d5f 
+00000970 434c45415245 
+00000976 442000 
+00000979 04             1672 	.byte	4
+0000097a 01             1673 	.byte	1
+
+                                                                      Page 39
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+0000097b 0d             1674 	.byte	13
+0000097c 46494d5f5354   1675 	.strz	"FIM_STOP_SEC_RAM_CLEARED "
+00000982 4f505f534543 
+00000988 5f52414d5f43 
+0000098e 4c4541524544 
+00000994 2000 
+00000996 03             1676 	.byte	3
+00000997 0e             1677 	.byte	14
+00000998 19             1678 	.byte	25
+00000999 01             1679 	.byte	1
+0000099a 06             1680 	.byte	6
+0000099b 4d454d4d4150   1681 	.strz	"MEMMAP_ERROR "
+000009a1 5f4552524f52 
+000009a7 2000 
+000009a9 01             1682 	.byte	1
+000009aa 19             1683 	.byte	25
+000009ab 4253575f5354   1684 	.strz	"BSW_STOP_SEC_DEFAULT_RAM0_CLEARED_UNSPECIFIED "
+000009b1 4f505f534543 
+000009b7 5f4445464155 
+000009bd 4c545f52414d 
+000009c3 305f434c4541 
+000009c9 5245445f554e 
+000009cf 535045434946 
+000009d5 4945442000 
+000009da 03             1685 	.byte	3
+000009db 1a             1686 	.byte	26
+000009dc 13             1687 	.byte	19
+000009dd 01             1688 	.byte	1
+000009de 8d05           1689 	.byte	141,5
+000009e0 53544f505f53   1690 	.strz	"STOP_SEC_VAR "
+000009e6 45435f564152 
+000009ec 2000 
+000009ee 03             1691 	.byte	3
+000009ef bb09           1692 	.byte	187,9
+000009f1 14             1693 	.byte	20
+000009f2 04             1694 	.byte	4
+000009f3 04             1695 	.byte	4
+000009f4 04             1696 	.byte	4
+000009f5 01             1697 	.byte	1
+000009f6 10             1698 	.byte	16
+000009f7 46494d5f5354   1699 	.strz	"FIM_START_SEC_RAM_INIT "
+000009fd 4152545f5345 
+00000a03 435f52414d5f 
+00000a09 494e49542000 
+00000a0f 03             1700 	.byte	3
+00000a10 11             1701 	.byte	17
+00000a11 19             1702 	.byte	25
+00000a12 01             1703 	.byte	1
+00000a13 06             1704 	.byte	6
+00000a14 4d454d4d4150   1705 	.strz	"MEMMAP_ERROR "
+00000a1a 5f4552524f52 
+00000a20 2000 
+00000a22 01             1706 	.byte	1
+00000a23 23             1707 	.byte	35
+00000a24 4253575f5354   1708 	.strz	"BSW_START_SEC_DEFAULT_RAM0_INIT_UNSPECIFIED "
+00000a2a 4152545f5345 
+00000a30 435f44454641 
+00000a36 554c545f5241 
+00000a3c 4d305f494e49 
+00000a42 545f554e5350 
+00000a48 454349464945 
+
+                                                                      Page 40
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+00000a4e 442000 
+00000a51 03             1709 	.byte	3
+00000a52 24             1710 	.byte	36
+00000a53 13             1711 	.byte	19
+00000a54 01             1712 	.byte	1
+00000a55 9105           1713 	.byte	145,5
+00000a57 53544152545f   1714 	.strz	"START_SEC_VAR_INIT_UNSPECIFIED "
+00000a5d 5345435f5641 
+00000a63 525f494e4954 
+00000a69 5f554e535045 
+00000a6f 434946494544 
+00000a75 2000 
+00000a77 03             1715 	.byte	3
+00000a78 bb09           1716 	.byte	187,9
+00000a7a 14             1717 	.byte	20
+00000a7b 01             1718 	.byte	1
+00000a7c a109           1719 	.byte	161,9
+00000a7e 5641525f5345   1720 	.strz	"VAR_SEC_OPEN "
+00000a84 435f4f50454e 
+00000a8a 2000 
+00000a8c 04             1721 	.byte	4
+00000a8d 04             1722 	.byte	4
+00000a8e 01             1723 	.byte	1
+00000a8f 28             1724 	.byte	40
+00000a90 46494d5f5741   1725 	.strz	"FIM_WAS_STARTED_SEC_RAM_INIT "
+00000a96 535f53544152 
+00000a9c 5445445f5345 
+00000aa2 435f52414d5f 
+00000aa8 494e49542000 
+00000aae 04             1726 	.byte	4
+00000aaf 01             1727 	.byte	1
+00000ab0 13             1728 	.byte	19
+00000ab1 46494d5f5354   1729 	.strz	"FIM_STOP_SEC_RAM_INIT "
+00000ab7 4f505f534543 
+00000abd 5f52414d5f49 
+00000ac3 4e49542000 
+00000ac8 03             1730 	.byte	3
+00000ac9 14             1731 	.byte	20
+00000aca 19             1732 	.byte	25
+00000acb 01             1733 	.byte	1
+00000acc 06             1734 	.byte	6
+00000acd 4d454d4d4150   1735 	.strz	"MEMMAP_ERROR "
+00000ad3 5f4552524f52 
+00000ad9 2000 
+00000adb 01             1736 	.byte	1
+00000adc 30             1737 	.byte	48
+00000add 4253575f5354   1738 	.strz	"BSW_STOP_SEC_DEFAULT_RAM0_INIT_UNSPECIFIED "
+00000ae3 4f505f534543 
+00000ae9 5f4445464155 
+00000aef 4c545f52414d 
+00000af5 305f494e4954 
+00000afb 5f554e535045 
+00000b01 434946494544 
+00000b07 2000 
+00000b09 03             1739 	.byte	3
+00000b0a 31             1740 	.byte	49
+00000b0b 13             1741 	.byte	19
+00000b0c 01             1742 	.byte	1
+00000b0d 9405           1743 	.byte	148,5
+00000b0f 53544f505f53   1744 	.strz	"STOP_SEC_VAR "
+00000b15 45435f564152 
+
+                                                                      Page 41
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+00000b1b 2000 
+00000b1d 03             1745 	.byte	3
+00000b1e bb09           1746 	.byte	187,9
+00000b20 14             1747 	.byte	20
+00000b21 04             1748 	.byte	4
+00000b22 04             1749 	.byte	4
+00000b23 04             1750 	.byte	4
+00000b24 01             1751 	.byte	1
+00000b25 16             1752 	.byte	22
+00000b26 46494d5f5354   1753 	.strz	"FIM_START_SEC_ROM_CODE "
+00000b2c 4152545f5345 
+00000b32 435f524f4d5f 
+00000b38 434f44452000 
+00000b3e 03             1754 	.byte	3
+00000b3f 17             1755 	.byte	23
+00000b40 19             1756 	.byte	25
+00000b41 01             1757 	.byte	1
+00000b42 06             1758 	.byte	6
+00000b43 4d454d4d4150   1759 	.strz	"MEMMAP_ERROR "
+00000b49 5f4552524f52 
+00000b4f 2000 
+00000b51 01             1760 	.byte	1
+00000b52 51             1761 	.byte	81
+00000b53 4253575f5354   1762 	.strz	"BSW_START_SEC_DEFAULT_CODE "
+00000b59 4152545f5345 
+00000b5f 435f44454641 
+00000b65 554c545f434f 
+00000b6b 44452000 
+00000b6f 03             1763 	.byte	3
+00000b70 52             1764 	.byte	82
+00000b71 13             1765 	.byte	19
+00000b72 01             1766 	.byte	1
+00000b73 d308           1767 	.byte	211,8
+00000b75 53544152545f   1768 	.strz	"START_SEC_CODE "
+00000b7b 5345435f434f 
+00000b81 44452000 
+00000b85 03             1769 	.byte	3
+00000b86 bb09           1770 	.byte	187,9
+00000b88 14             1771 	.byte	20
+00000b89 01             1772 	.byte	1
+00000b8a f307           1773 	.byte	243,7
+00000b8c 434f44455f53   1774 	.strz	"CODE_SEC_OPEN "
+00000b92 45435f4f5045 
+00000b98 4e2000 
+00000b9b 04             1775 	.byte	4
+00000b9c 04             1776 	.byte	4
+00000b9d 01             1777 	.byte	1
+00000b9e 56             1778 	.byte	86
+00000b9f 46494d5f5741   1779 	.strz	"FIM_WAS_STARTED_SEC_ROM_CODE "
+00000ba5 535f53544152 
+00000bab 5445445f5345 
+00000bb1 435f524f4d5f 
+00000bb7 434f44452000 
+00000bbd 04             1780 	.byte	4
+00000bbe 01             1781 	.byte	1
+00000bbf 27             1782 	.byte	39
+00000bc0 46494d5f5354   1783 	.strz	"FIM_STOP_SEC_ROM_CODE "
+00000bc6 4f505f534543 
+00000bcc 5f524f4d5f43 
+00000bd2 4f44452000 
+00000bd7 03             1784 	.byte	3
+
+                                                                      Page 42
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+00000bd8 28             1785 	.byte	40
+00000bd9 19             1786 	.byte	25
+00000bda 01             1787 	.byte	1
+00000bdb 06             1788 	.byte	6
+00000bdc 4d454d4d4150   1789 	.strz	"MEMMAP_ERROR "
+00000be2 5f4552524f52 
+00000be8 2000 
+00000bea 01             1790 	.byte	1
+00000beb 5e             1791 	.byte	94
+00000bec 4253575f5354   1792 	.strz	"BSW_STOP_SEC_DEFAULT_CODE "
+00000bf2 4f505f534543 
+00000bf8 5f4445464155 
+00000bfe 4c545f434f44 
+00000c04 452000 
+00000c07 03             1793 	.byte	3
+00000c08 5f             1794 	.byte	95
+00000c09 13             1795 	.byte	19
+00000c0a 01             1796 	.byte	1
+00000c0b d608           1797 	.byte	214,8
+00000c0d 53544f505f53   1798 	.strz	"STOP_SEC_CODE "
+00000c13 45435f434f44 
+00000c19 452000 
+00000c1c 03             1799 	.byte	3
+00000c1d bb09           1800 	.byte	187,9
+00000c1f 14             1801 	.byte	20
+00000c20 04             1802 	.byte	4
+00000c21 04             1803 	.byte	4
+00000c22 04             1804 	.byte	4
+00000c23 04             1805 	.byte	4
+00000c24 03             1806 	.byte	3
+00000c25 04             1807 	.byte	4
+00000c26 1c             1808 	.byte	28
+00000c27 03             1809 	.byte	3
+00000c28 05             1810 	.byte	5
+00000c29 1d             1811 	.byte	29
+00000c2a 01             1812 	.byte	1
+00000c2b 02             1813 	.byte	2
+00000c2c 44454d5f5459   1814 	.strz	"DEM_TYPES_H "
+00000c32 5045535f4820 
+00000c38 00 
+00000c39 03             1815 	.byte	3
+00000c3a 04             1816 	.byte	4
+00000c3b 1e             1817 	.byte	30
+00000c3c 01             1818 	.byte	1
+00000c3d 04             1819 	.byte	4
+00000c3e 44454d5f4346   1820 	.strz	"DEM_CFG_OBD_OFF 0"
+00000c44 475f4f42445f 
+00000c4a 4f4646203000 
+00000c50 01             1821 	.byte	1
+00000c51 05             1822 	.byte	5
+00000c52 44454d5f4346   1823 	.strz	"DEM_CFG_OBD_ON 1"
+00000c58 475f4f42445f 
+00000c5e 4f4e203100 
+00000c63 01             1824 	.byte	1
+00000c64 06             1825 	.byte	6
+00000c65 44454d5f4346   1826 	.strz	"DEM_CFG_OBD DEM_CFG_OBD_OFF"
+00000c6b 475f4f424420 
+00000c71 44454d5f4346 
+00000c77 475f4f42445f 
+00000c7d 4f464600 
+00000c81 01             1827 	.byte	1
+
+                                                                      Page 43
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+00000c82 07             1828 	.byte	7
+00000c83 44454d5f4346   1829 	.strz	"DEM_CFG_J1939DCM_OFF 0"
+00000c89 475f4a313933 
+00000c8f 3944434d5f4f 
+00000c95 4646203000 
+00000c9a 01             1830 	.byte	1
+00000c9b 09             1831 	.byte	9
+00000c9c 44454d5f4346   1832 	.strz	"DEM_CFG_J1939DCM DEM_CFG_J1939DCM_OFF"
+00000ca2 475f4a313933 
+00000ca8 3944434d2044 
+00000cae 454d5f434647 
+00000cb4 5f4a31393339 
+00000cba 44434d5f4f46 
+00000cc0 4600 
+00000cc2 01             1833 	.byte	1
+00000cc3 35             1834 	.byte	53
+00000cc4 44454d5f4346   1835 	.strz	"DEM_CFG_DEBUGDATA_OFF 0"
+00000cca 475f44454255 
+00000cd0 47444154415f 
+00000cd6 4f4646203000 
+00000cdc 01             1836 	.byte	1
+00000cdd 37             1837 	.byte	55
+00000cde 44454d5f4346   1838 	.strz	"DEM_CFG_DEBUGDATA_32BIT (0+4)"
+00000ce4 475f44454255 
+00000cea 47444154415f 
+00000cf0 333242495420 
+00000cf6 28302b342900 
+00000cfc 01             1839 	.byte	1
+00000cfd 38             1840 	.byte	56
+00000cfe 44454d5f4346   1841 	.strz	"DEM_CFG_DEBUGDATA DEM_CFG_DEBUGDATA_32BIT"
+00000d04 475f44454255 
+00000d0a 474441544120 
+00000d10 44454d5f4346 
+00000d16 475f44454255 
+00000d1c 47444154415f 
+00000d22 333242495400 
+00000d28 04             1842 	.byte	4
+00000d29 03             1843 	.byte	3
+00000d2a 05             1844 	.byte	5
+00000d2b 1f             1845 	.byte	31
+00000d2c 03             1846 	.byte	3
+00000d2d 04             1847 	.byte	4
+00000d2e 20             1848 	.byte	32
+00000d2f 03             1849 	.byte	3
+00000d30 06             1850 	.byte	6
+00000d31 1d             1851 	.byte	29
+00000d32 04             1852 	.byte	4
+00000d33 04             1853 	.byte	4
+00000d34 04             1854 	.byte	4
+00000d35 03             1855 	.byte	3
+00000d36 06             1856 	.byte	6
+00000d37 21             1857 	.byte	33
+00000d38 01             1858 	.byte	1
+00000d39 05             1859 	.byte	5
+00000d3a 44454d5f4e4f   1860 	.strz	"DEM_NODEID_COUNT 6u"
+00000d40 444549445f43 
+00000d46 4f554e542036 
+00000d4c 7500 
+00000d4e 01             1861 	.byte	1
+00000d4f 06             1862 	.byte	6
+00000d50 44454d5f4e4f   1863 	.strz	"DEM_NODEID_ARRAYLENGTH (DEM_NODEID_COUNT+1u)"
+
+                                                                      Page 44
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+00000d56 444549445f41 
+00000d5c 525241594c45 
+00000d62 4e4754482028 
+00000d68 44454d5f4e4f 
+00000d6e 444549445f43 
+00000d74 4f554e542b31 
+00000d7a 752900 
+00000d7d 04             1864 	.byte	4
+00000d7e 03             1865 	.byte	3
+00000d7f 07             1866 	.byte	7
+00000d80 22             1867 	.byte	34
+00000d81 04             1868 	.byte	4
+00000d82 03             1869 	.byte	3
+00000d83 08             1870 	.byte	8
+00000d84 23             1871 	.byte	35
+00000d85 04             1872 	.byte	4
+00000d86 01             1873 	.byte	1
+00000d87 10             1874 	.byte	16
+00000d88 44454d5f455f   1875 	.strz	"DEM_E_NO_DTC_AVAILABLE 2"
+00000d8e 4e4f5f445443 
+00000d94 5f415641494c 
+00000d9a 41424c452032 
+00000da0 00 
+00000da1 01             1876 	.byte	1
+00000da2 12             1877 	.byte	18
+00000da3 455f4e4f5f44   1878 	.strz	"E_NO_DTC_AVAILABLE DEM_E_NO_DTC_AVAILABLE"
+00000da9 54435f415641 
+00000daf 494c41424c45 
+00000db5 2044454d5f45 
+00000dbb 5f4e4f5f4454 
+00000dc1 435f41564149 
+00000dc7 4c41424c4500 
+00000dcd 01             1879 	.byte	1
+00000dce 19             1880 	.byte	25
+00000dcf 44454d5f455f   1881 	.strz	"DEM_E_NO_FDC_AVAILABLE 3"
+00000dd5 4e4f5f464443 
+00000ddb 5f415641494c 
+00000de1 41424c452033 
+00000de7 00 
+00000de8 01             1882 	.byte	1
+00000de9 1b             1883 	.byte	27
+00000dea 455f4e4f5f46   1884 	.strz	"E_NO_FDC_AVAILABLE DEM_E_NO_FDC_AVAILABLE"
+00000df0 44435f415641 
+00000df6 494c41424c45 
+00000dfc 2044454d5f45 
+00000e02 5f4e4f5f4644 
+00000e08 435f41564149 
+00000e0e 4c41424c4500 
+00000e14 04             1885 	.byte	4
+00000e15 03             1886 	.byte	3
+00000e16 08             1887 	.byte	8
+00000e17 24             1888 	.byte	36
+00000e18 01             1889 	.byte	1
+00000e19 2e             1890 	.byte	46
+00000e1a 46494d5f5354   1891 	.strz	"FIM_START_SEC_ROM_CONST "
+00000e20 4152545f5345 
+00000e26 435f524f4d5f 
+00000e2c 434f4e535420 
+00000e32 00 
+00000e33 03             1892 	.byte	3
+00000e34 2f             1893 	.byte	47
+
+                                                                      Page 45
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+00000e35 19             1894 	.byte	25
+00000e36 01             1895 	.byte	1
+00000e37 06             1896 	.byte	6
+00000e38 4d454d4d4150   1897 	.strz	"MEMMAP_ERROR "
+00000e3e 5f4552524f52 
+00000e44 2000 
+00000e46 01             1898 	.byte	1
+00000e47 3a             1899 	.byte	58
+00000e48 4253575f5354   1900 	.strz	"BSW_START_SEC_DEFAULT_CONST_UNSPECIFIED "
+00000e4e 4152545f5345 
+00000e54 435f44454641 
+00000e5a 554c545f434f 
+00000e60 4e53545f554e 
+00000e66 535045434946 
+00000e6c 4945442000 
+00000e71 03             1901 	.byte	3
+00000e72 3b             1902 	.byte	59
+00000e73 13             1903 	.byte	19
+00000e74 01             1904 	.byte	1
+00000e75 bc05           1905 	.byte	188,5
+00000e77 53544152545f   1906 	.strz	"START_SEC_CONST_UNSPECIFIED "
+00000e7d 5345435f434f 
+00000e83 4e53545f554e 
+00000e89 535045434946 
+00000e8f 4945442000 
+00000e94 03             1907 	.byte	3
+00000e95 bb09           1908 	.byte	187,9
+00000e97 14             1909 	.byte	20
+00000e98 01             1910 	.byte	1
+00000e99 b408           1911 	.byte	180,8
+00000e9b 434f4e53545f   1912 	.strz	"CONST_SEC_OPEN "
+00000ea1 5345435f4f50 
+00000ea7 454e2000 
+00000eab 04             1913 	.byte	4
+00000eac 04             1914 	.byte	4
+00000ead 01             1915 	.byte	1
+00000eae 3f             1916 	.byte	63
+00000eaf 46494d5f5741   1917 	.strz	"FIM_WAS_STARTED_SEC_ROM_CONST "
+00000eb5 535f53544152 
+00000ebb 5445445f5345 
+00000ec1 435f524f4d5f 
+00000ec7 434f4e535420 
+00000ecd 00 
+00000ece 04             1918 	.byte	4
+00000ecf 01             1919 	.byte	1
+00000ed0 32             1920 	.byte	50
+00000ed1 46494d5f5354   1921 	.strz	"FIM_STOP_SEC_ROM_CONST "
+00000ed7 4f505f534543 
+00000edd 5f524f4d5f43 
+00000ee3 4f4e53542000 
+00000ee9 03             1922 	.byte	3
+00000eea 33             1923 	.byte	51
+00000eeb 19             1924 	.byte	25
+00000eec 01             1925 	.byte	1
+00000eed 06             1926 	.byte	6
+00000eee 4d454d4d4150   1927 	.strz	"MEMMAP_ERROR "
+00000ef4 5f4552524f52 
+00000efa 2000 
+00000efc 01             1928 	.byte	1
+00000efd 47             1929 	.byte	71
+00000efe 4253575f5354   1930 	.strz	"BSW_STOP_SEC_DEFAULT_CONST_UNSPECIFIED "
+
+                                                                      Page 46
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+00000f04 4f505f534543 
+00000f0a 5f4445464155 
+00000f10 4c545f434f4e 
+00000f16 53545f554e53 
+00000f1c 504543494649 
+00000f22 45442000 
+00000f26 03             1931 	.byte	3
+00000f27 48             1932 	.byte	72
+00000f28 13             1933 	.byte	19
+00000f29 01             1934 	.byte	1
+00000f2a bf05           1935 	.byte	191,5
+00000f2c 53544f505f53   1936 	.strz	"STOP_SEC_CONST "
+00000f32 45435f434f4e 
+00000f38 53542000 
+00000f3c 03             1937 	.byte	3
+00000f3d bb09           1938 	.byte	187,9
+00000f3f 14             1939 	.byte	20
+00000f40 04             1940 	.byte	4
+00000f41 04             1941 	.byte	4
+00000f42 04             1942 	.byte	4
+00000f43 04             1943 	.byte	4
+00000f44 01             1944 	.byte	1
+00000f45 0b             1945 	.byte	11
+00000f46 46494d5f5354   1946 	.strz	"FIM_START_SEC_ROM_CODE "
+00000f4c 4152545f5345 
+00000f52 435f524f4d5f 
+00000f58 434f44452000 
+00000f5e 03             1947 	.byte	3
+00000f5f 0c             1948 	.byte	12
+00000f60 19             1949 	.byte	25
+00000f61 01             1950 	.byte	1
+00000f62 06             1951 	.byte	6
+00000f63 4d454d4d4150   1952 	.strz	"MEMMAP_ERROR "
+00000f69 5f4552524f52 
+00000f6f 2000 
+00000f71 01             1953 	.byte	1
+00000f72 51             1954 	.byte	81
+00000f73 4253575f5354   1955 	.strz	"BSW_START_SEC_DEFAULT_CODE "
+00000f79 4152545f5345 
+00000f7f 435f44454641 
+00000f85 554c545f434f 
+00000f8b 44452000 
+00000f8f 03             1956 	.byte	3
+00000f90 52             1957 	.byte	82
+00000f91 13             1958 	.byte	19
+00000f92 01             1959 	.byte	1
+00000f93 d308           1960 	.byte	211,8
+00000f95 53544152545f   1961 	.strz	"START_SEC_CODE "
+00000f9b 5345435f434f 
+00000fa1 44452000 
+00000fa5 03             1962 	.byte	3
+00000fa6 bb09           1963 	.byte	187,9
+00000fa8 14             1964 	.byte	20
+00000fa9 01             1965 	.byte	1
+00000faa f307           1966 	.byte	243,7
+00000fac 434f44455f53   1967 	.strz	"CODE_SEC_OPEN "
+00000fb2 45435f4f5045 
+00000fb8 4e2000 
+00000fbb 04             1968 	.byte	4
+00000fbc 04             1969 	.byte	4
+00000fbd 01             1970 	.byte	1
+
+                                                                      Page 47
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+00000fbe 56             1971 	.byte	86
+00000fbf 46494d5f5741   1972 	.strz	"FIM_WAS_STARTED_SEC_ROM_CODE "
+00000fc5 535f53544152 
+00000fcb 5445445f5345 
+00000fd1 435f524f4d5f 
+00000fd7 434f44452000 
+00000fdd 04             1973 	.byte	4
+00000fde 01             1974 	.byte	1
+00000fdf 27             1975 	.byte	39
+00000fe0 46494d5f5354   1976 	.strz	"FIM_STOP_SEC_ROM_CODE "
+00000fe6 4f505f534543 
+00000fec 5f524f4d5f43 
+00000ff2 4f44452000 
+00000ff7 03             1977 	.byte	3
+00000ff8 28             1978 	.byte	40
+00000ff9 19             1979 	.byte	25
+00000ffa 01             1980 	.byte	1
+00000ffb 06             1981 	.byte	6
+00000ffc 4d454d4d4150   1982 	.strz	"MEMMAP_ERROR "
+00001002 5f4552524f52 
+00001008 2000 
+0000100a 01             1983 	.byte	1
+0000100b 5e             1984 	.byte	94
+0000100c 4253575f5354   1985 	.strz	"BSW_STOP_SEC_DEFAULT_CODE "
+00001012 4f505f534543 
+00001018 5f4445464155 
+0000101e 4c545f434f44 
+00001024 452000 
+00001027 03             1986 	.byte	3
+00001028 5f             1987 	.byte	95
+00001029 13             1988 	.byte	19
+0000102a 01             1989 	.byte	1
+0000102b d608           1990 	.byte	214,8
+0000102d 53544f505f53   1991 	.strz	"STOP_SEC_CODE "
+00001033 45435f434f44 
+00001039 452000 
+0000103c 03             1992 	.byte	3
+0000103d bb09           1993 	.byte	187,9
+0000103f 14             1994 	.byte	20
+00001040 04             1995 	.byte	4
+00001041 04             1996 	.byte	4
+00001042 04             1997 	.byte	4
+00001043 04             1998 	.byte	4
+00001044 03             1999 	.byte	3
+00001045 06             2000 	.byte	6
+00001046 25             2001 	.byte	37
+00001047 03             2002 	.byte	3
+00001048 09             2003 	.byte	9
+00001049 26             2004 	.byte	38
+0000104a 04             2005 	.byte	4
+0000104b 01             2006 	.byte	1
+0000104c 1f             2007 	.byte	31
+0000104d 46494d5f5354   2008 	.strz	"FIM_START_SEC_RAM_CLEARED "
+00001053 4152545f5345 
+00001059 435f52414d5f 
+0000105f 434c45415245 
+00001065 442000 
+00001068 03             2009 	.byte	3
+00001069 20             2010 	.byte	32
+0000106a 19             2011 	.byte	25
+0000106b 01             2012 	.byte	1
+
+                                                                      Page 48
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+0000106c 06             2013 	.byte	6
+0000106d 4d454d4d4150   2014 	.strz	"MEMMAP_ERROR "
+00001073 5f4552524f52 
+00001079 2000 
+0000107b 01             2015 	.byte	1
+0000107c 0c             2016 	.byte	12
+0000107d 4253575f5354   2017 	.strz	"BSW_START_SEC_DEFAULT_RAM0_CLEARED_UNSPECIFIED "
+00001083 4152545f5345 
+00001089 435f44454641 
+0000108f 554c545f5241 
+00001095 4d305f434c45 
+0000109b 415245445f55 
+000010a1 4e5350454349 
+000010a7 464945442000 
+000010ad 03             2018 	.byte	3
+000010ae 0d             2019 	.byte	13
+000010af 13             2020 	.byte	19
+000010b0 01             2021 	.byte	1
+000010b1 8a05           2022 	.byte	138,5
+000010b3 53544152545f   2023 	.strz	"START_SEC_VAR_CLEARED_UNSPECIFIED "
+000010b9 5345435f5641 
+000010bf 525f434c4541 
+000010c5 5245445f554e 
+000010cb 535045434946 
+000010d1 4945442000 
+000010d6 03             2024 	.byte	3
+000010d7 bb09           2025 	.byte	187,9
+000010d9 14             2026 	.byte	20
+000010da 01             2027 	.byte	1
+000010db 56             2028 	.byte	86
+000010dc 53544152545f   2029 	.strz	"START_SEC_VAR_ZERO_INIT_UNSPECIFIED "
+000010e2 5345435f5641 
+000010e8 525f5a45524f 
+000010ee 5f494e49545f 
+000010f4 554e53504543 
+000010fa 494649454420 
+00001100 00 
+00001101 01             2030 	.byte	1
+00001102 840a           2031 	.byte	132,10
+00001104 5641525f5345   2032 	.strz	"VAR_SEC_OPEN "
+0000110a 435f4f50454e 
+00001110 2000 
+00001112 04             2033 	.byte	4
+00001113 04             2034 	.byte	4
+00001114 01             2035 	.byte	1
+00001115 11             2036 	.byte	17
+00001116 46494d5f5741   2037 	.strz	"FIM_WAS_STARTED_SEC_RAM_CLEARED "
+0000111c 535f53544152 
+00001122 5445445f5345 
+00001128 435f52414d5f 
+0000112e 434c45415245 
+00001134 442000 
+00001137 04             2038 	.byte	4
+00001138 01             2039 	.byte	1
+00001139 25             2040 	.byte	37
+0000113a 46494d5f5354   2041 	.strz	"FIM_STOP_SEC_RAM_CLEARED "
+00001140 4f505f534543 
+00001146 5f52414d5f43 
+0000114c 4c4541524544 
+00001152 2000 
+00001154 03             2042 	.byte	3
+
+                                                                      Page 49
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+00001155 26             2043 	.byte	38
+00001156 19             2044 	.byte	25
+00001157 01             2045 	.byte	1
+00001158 06             2046 	.byte	6
+00001159 4d454d4d4150   2047 	.strz	"MEMMAP_ERROR "
+0000115f 5f4552524f52 
+00001165 2000 
+00001167 01             2048 	.byte	1
+00001168 19             2049 	.byte	25
+00001169 4253575f5354   2050 	.strz	"BSW_STOP_SEC_DEFAULT_RAM0_CLEARED_UNSPECIFIED "
+0000116f 4f505f534543 
+00001175 5f4445464155 
+0000117b 4c545f52414d 
+00001181 305f434c4541 
+00001187 5245445f554e 
+0000118d 535045434946 
+00001193 4945442000 
+00001198 03             2051 	.byte	3
+00001199 1a             2052 	.byte	26
+0000119a 13             2053 	.byte	19
+0000119b 01             2054 	.byte	1
+0000119c 8d05           2055 	.byte	141,5
+0000119e 53544f505f53   2056 	.strz	"STOP_SEC_VAR "
+000011a4 45435f564152 
+000011aa 2000 
+000011ac 03             2057 	.byte	3
+000011ad bb09           2058 	.byte	187,9
+000011af 14             2059 	.byte	20
+000011b0 04             2060 	.byte	4
+000011b1 04             2061 	.byte	4
+000011b2 04             2062 	.byte	4
+000011b3 01             2063 	.byte	1
+000011b4 2a             2064 	.byte	42
+000011b5 46494d5f5354   2065 	.strz	"FIM_START_SEC_ROM_CODE "
+000011bb 4152545f5345 
+000011c1 435f524f4d5f 
+000011c7 434f44452000 
+000011cd 03             2066 	.byte	3
+000011ce 2b             2067 	.byte	43
+000011cf 19             2068 	.byte	25
+000011d0 01             2069 	.byte	1
+000011d1 06             2070 	.byte	6
+000011d2 4d454d4d4150   2071 	.strz	"MEMMAP_ERROR "
+000011d8 5f4552524f52 
+000011de 2000 
+000011e0 01             2072 	.byte	1
+000011e1 51             2073 	.byte	81
+000011e2 4253575f5354   2074 	.strz	"BSW_START_SEC_DEFAULT_CODE "
+000011e8 4152545f5345 
+000011ee 435f44454641 
+000011f4 554c545f434f 
+000011fa 44452000 
+000011fe 03             2075 	.byte	3
+000011ff 52             2076 	.byte	82
+00001200 13             2077 	.byte	19
+00001201 01             2078 	.byte	1
+00001202 d308           2079 	.byte	211,8
+00001204 53544152545f   2080 	.strz	"START_SEC_CODE "
+0000120a 5345435f434f 
+00001210 44452000 
+00001214 03             2081 	.byte	3
+
+                                                                      Page 50
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+00001215 bb09           2082 	.byte	187,9
+00001217 14             2083 	.byte	20
+00001218 01             2084 	.byte	1
+00001219 f307           2085 	.byte	243,7
+0000121b 434f44455f53   2086 	.strz	"CODE_SEC_OPEN "
+00001221 45435f4f5045 
+00001227 4e2000 
+0000122a 04             2087 	.byte	4
+0000122b 04             2088 	.byte	4
+0000122c 01             2089 	.byte	1
+0000122d 56             2090 	.byte	86
+0000122e 46494d5f5741   2091 	.strz	"FIM_WAS_STARTED_SEC_ROM_CODE "
+00001234 535f53544152 
+0000123a 5445445f5345 
+00001240 435f524f4d5f 
+00001246 434f44452000 
+0000124c 04             2092 	.byte	4
+0000124d 01             2093 	.byte	1
+0000124e b401           2094 	.byte	180,1
+00001250 46494d5f5354   2095 	.strz	"FIM_STOP_SEC_ROM_CODE "
+00001256 4f505f534543 
+0000125c 5f524f4d5f43 
+00001262 4f44452000 
+00001267 03             2096 	.byte	3
+00001268 b501           2097 	.byte	181,1
+0000126a 19             2098 	.byte	25
+0000126b 01             2099 	.byte	1
+0000126c 06             2100 	.byte	6
+0000126d 4d454d4d4150   2101 	.strz	"MEMMAP_ERROR "
+00001273 5f4552524f52 
+00001279 2000 
+0000127b 01             2102 	.byte	1
+0000127c 5e             2103 	.byte	94
+0000127d 4253575f5354   2104 	.strz	"BSW_STOP_SEC_DEFAULT_CODE "
+00001283 4f505f534543 
+00001289 5f4445464155 
+0000128f 4c545f434f44 
+00001295 452000 
+00001298 03             2105 	.byte	3
+00001299 5f             2106 	.byte	95
+0000129a 13             2107 	.byte	19
+0000129b 01             2108 	.byte	1
+0000129c d608           2109 	.byte	214,8
+0000129e 53544f505f53   2110 	.strz	"STOP_SEC_CODE "
+000012a4 45435f434f44 
+000012aa 452000 
+000012ad 03             2111 	.byte	3
+000012ae bb09           2112 	.byte	187,9
+000012b0 14             2113 	.byte	20
+000012b1 04             2114 	.byte	4
+000012b2 04             2115 	.byte	4
+000012b3 04             2116 	.byte	4
+000012b4 04             2117 	.byte	4
+000012b5 03             2118 	.byte	3
+000012b6 07             2119 	.byte	7
+000012b7 27             2120 	.byte	39
+000012b8 04             2121 	.byte	4
+000012b9 01             2122 	.byte	1
+000012ba 09             2123 	.byte	9
+000012bb 46494d5f5354   2124 	.strz	"FIM_START_SEC_ROM_CODE "
+000012c1 4152545f5345 
+
+                                                                      Page 51
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+000012c7 435f524f4d5f 
+000012cd 434f44452000 
+000012d3 03             2125 	.byte	3
+000012d4 0a             2126 	.byte	10
+000012d5 19             2127 	.byte	25
+000012d6 01             2128 	.byte	1
+000012d7 06             2129 	.byte	6
+000012d8 4d454d4d4150   2130 	.strz	"MEMMAP_ERROR "
+000012de 5f4552524f52 
+000012e4 2000 
+000012e6 01             2131 	.byte	1
+000012e7 51             2132 	.byte	81
+000012e8 4253575f5354   2133 	.strz	"BSW_START_SEC_DEFAULT_CODE "
+000012ee 4152545f5345 
+000012f4 435f44454641 
+000012fa 554c545f434f 
+00001300 44452000 
+00001304 03             2134 	.byte	3
+00001305 52             2135 	.byte	82
+00001306 13             2136 	.byte	19
+00001307 01             2137 	.byte	1
+00001308 d308           2138 	.byte	211,8
+0000130a 53544152545f   2139 	.strz	"START_SEC_CODE "
+00001310 5345435f434f 
+00001316 44452000 
+0000131a 03             2140 	.byte	3
+0000131b bb09           2141 	.byte	187,9
+0000131d 14             2142 	.byte	20
+0000131e 01             2143 	.byte	1
+0000131f f307           2144 	.byte	243,7
+00001321 434f44455f53   2145 	.strz	"CODE_SEC_OPEN "
+00001327 45435f4f5045 
+0000132d 4e2000 
+00001330 04             2146 	.byte	4
+00001331 04             2147 	.byte	4
+00001332 01             2148 	.byte	1
+00001333 56             2149 	.byte	86
+00001334 46494d5f5741   2150 	.strz	"FIM_WAS_STARTED_SEC_ROM_CODE "
+0000133a 535f53544152 
+00001340 5445445f5345 
+00001346 435f524f4d5f 
+0000134c 434f44452000 
+00001352 04             2151 	.byte	4
+00001353 01             2152 	.byte	1
+00001354 50             2153 	.byte	80
+00001355 46494d5f5354   2154 	.strz	"FIM_STOP_SEC_ROM_CODE "
+0000135b 4f505f534543 
+00001361 5f524f4d5f43 
+00001367 4f44452000 
+0000136c 03             2155 	.byte	3
+0000136d 51             2156 	.byte	81
+0000136e 19             2157 	.byte	25
+0000136f 01             2158 	.byte	1
+00001370 06             2159 	.byte	6
+00001371 4d454d4d4150   2160 	.strz	"MEMMAP_ERROR "
+00001377 5f4552524f52 
+0000137d 2000 
+0000137f 01             2161 	.byte	1
+00001380 5e             2162 	.byte	94
+00001381 4253575f5354   2163 	.strz	"BSW_STOP_SEC_DEFAULT_CODE "
+00001387 4f505f534543 
+
+                                                                      Page 52
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00002b81.s
+0000138d 5f4445464155 
+00001393 4c545f434f44 
+00001399 452000 
+0000139c 03             2164 	.byte	3
+0000139d 5f             2165 	.byte	95
+0000139e 13             2166 	.byte	19
+0000139f 01             2167 	.byte	1
+000013a0 d608           2168 	.byte	214,8
+000013a2 53544f505f53   2169 	.strz	"STOP_SEC_CODE "
+000013a8 45435f434f44 
+000013ae 452000 
+000013b1 03             2170 	.byte	3
+000013b2 bb09           2171 	.byte	187,9
+000013b4 14             2172 	.byte	20
+000013b5 04             2173 	.byte	4
+000013b6 04             2174 	.byte	4
+000013b7 04             2175 	.byte	4
+000013b8 04             2176 	.byte	4
+000013b9 00             2177 	.byte	0
+                        2178 	.section	.debug_abbrev
+00000127 00             2179 	.byte	0
+                        2180 	.section	.debug_info
+                        2181 .Ldw_end:
+                        2182 .rh850_flags REGMODE32,DATA_ALIGN8,GP_FIX,EP_NONFIX,TP_FIX,REG2_RESERVE,G3K,GHS_MISALIGN,SDA_EXTRA_REGS_0

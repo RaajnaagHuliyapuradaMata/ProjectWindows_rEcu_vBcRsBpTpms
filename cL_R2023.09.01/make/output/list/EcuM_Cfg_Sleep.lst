@@ -1,0 +1,584 @@
+                                                                      Page 1
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00008ic1.s
+Command Line: C:\ghs\comp_201517\ease850.exe -w -elf -b0 -I../source/common -I../source/ProjectCompiler -I../source/ProjectCfg -I../source/SwcApplTpms -I../source/SwcApplTpms/Intface -I../source/SwcApplEcuM -I../source/SwcServiceEcuM -I../source/SwcServiceNvM -I../source/SwcServiceOs -I../source/SwcServiceStartUp -I../source/McalAdc -I../source/McalDio -I../source/McalGpt -I../source/McalMcu -I../source/McalWdg -I../source/wrappers -I../source/wrappers/McalAta -I../source/McalLin -I../source/McalCan -I../source/wrappers/OS -I../source/McalFls -I../source/EcuabFee -I../source/EcuabMemIf -I../source/wrappers/VStdLib -I../source/wrappers/Crc -I../source/wrappers/FBL_APPL -I../source/wrappers/CAN_MANAGER -I../source/wrappers/NVM_MANAGER -I../source/wrappers/DEM_MANAGER -I../source/wrappers/RDC_MANAGER -I../source/wrappers/ENV_MANAGER -I../source/wrappers/SYS_MANAGER -I../source/wrappers/EcuabCanIf -I../source/wrappers/SwcServiceCanSM -I../source/wrappers/SwcServiceCanTp -I../source/wrappers/SwcServiceCanTp_PreCompile -I../source/wrappers/SwcServiceCom -I../source/wrappers/SwcServiceComM -I../source/wrappers/SwcServiceComStack -I../source/wrappers/SwcServiceDcm -I../source/wrappers/SwcServicePduR -I../source/wrappers/SwcServiceEcuM -I../source/wrappers/Bfx -I../source/wrappers/SwcServiceDem -I../source/SwcServiceDet -I../source/SwcServiceFiM -I../source/wrappers/LibAutosarDiag -I../source/wrappers/rba_BswSrv -I../source/SwcServiceSchM -I../source/wrappers/SwcServiceComM/Integration -I../source/wrappers/SwcServicePduR/Integration -I../source/wrappers/EcuabCanIf/Integration -I../source/wrappers/SwcServiceCom/Integration -I../source/wrappers/SwcServiceCanTp/Integration -I../source/wrappers/SwcServiceEcuM/Integration -I../source/SwcServiceDet/Integration -I../source/wrappers/SwcServiceDcm/Integration -I../source/wrappers/SwcServiceDem/Integration -I../source/SwcServiceFiM/Integration -I../source/wrappers/EcuabCanIf/api -I../source/wrappers/SwcServiceCom/api -I../source/wrappers/SwcServiceComM/api -I../source/wrappers/SwcServicePduR/api -I../source/wrappers/Bfx/api -I../source/SwcServiceDet/api -I../source/SwcServiceFiM/api -I../source/wrappers/LibAutosarDiag/api -I../source/wrappers/rba_BswSrv/api -IC:\ghs\comp_201517\lib\rh850 -cg_underscore -cpu=rh850g3k -no_v850_simd -rh850_fpsimd=none -nomacro -patch_dbo=C:\_ECU2\ECU_Rivian_A1\Target\repo_projects\pRealEcu\cL_R2023.09.01\make\output\objects\EcuM_Cfg_Sleep.dbo -source=EcuM_Cfg_Sleep.c -o output\objects\gh_00008ic1.o -list=output\list\EcuM_Cfg_Sleep.lst C:\Users\nhuliyap\AppData\Local\Temp\gh_00008ic1.s 
+Original File: C:\Users\nhuliyap\AppData\Local\Temp\gh_00008ic1.s
+Source File: EcuM_Cfg_Sleep.c
+Directory: C:\_ECU2\ECU_Rivian_A1\Target\repo_projects\pRealEcu\cL_R2023.09.01\make
+Host OS: Windows
+EASE: Copyright (C) 1983-2015 Green Hills Software.  All Rights Reserved.
+Release: Compiler v2015.1.7
+Build Directory: [Directory] BTOWORKER6:c:/build_2015_1_bto/2015-10-21.2100-2015_1_bto/win32-comp-ecom
+Revision: [VCInfo] http://toolsvc/branches/release-branch-70-bto/src@544153 (built by build)
+Revision Date: Thu Oct 22 07:50:13 2015
+
+Release Date: Thu Oct 22 09:32:32 2015
+
+                           1 --Driver Command: ccv850 ../source/ProjectCfg/EcuM_Cfg_Sleep.c -cpu=rh850 -fhard
+                           2 --		-ignore_callt_state_in_interrupts -large_sda -misalign_pack
+                           3 --		-nofarcalls -nofloatio -no_callt -Ogeneral -Onounroll
+                           4 --		-prepare_dispose -registermode=32 -reserve_r2 -sda=0
+                           5 --		-shorten_loads -Wshadow --brief_diagnostics --no_commons
+                           6 --		--no_wrap_diagnostics --prototype_errors --short_enum -list -G
+                           7 --		-dual_debug -dwarf -X5523 -lnk=-no_xda_modifications -D
+                           8 --		NOT_READY_FOR_TESTING_OR_DEPLOYMENT -D IBTCM_SW_ANPASSUNGEN -D
+                           9 --		BUILD_LORDSTOWN -c -inline_prologue -I../source/common
+                          10 --		-I../source/ProjectCompiler -I../source/ProjectCfg
+                          11 --		-I../source/SwcApplTpms -I../source/SwcApplTpms/Intface
+                          12 --		-I../source/SwcApplEcuM -I../source/SwcServiceEcuM
+                          13 --		-I../source/SwcServiceNvM -I../source/SwcServiceOs
+                          14 --		-I../source/SwcServiceStartUp -I../source/McalAdc
+                          15 --		-I../source/McalDio -I../source/McalGpt -I../source/McalMcu
+                          16 --		-I../source/McalWdg -I../source/wrappers
+                          17 --		-I../source/wrappers/McalAta -I../source/McalLin
+                          18 --		-I../source/McalCan -I../source/wrappers/OS -I../source/McalFls
+                          19 --		-I../source/EcuabFee -I../source/EcuabMemIf
+                          20 --		-I../source/wrappers/VStdLib -I../source/wrappers
+                          21 --		-I../source/wrappers/Crc -I../source/wrappers/FBL_APPL
+                          22 --		-I../source/wrappers/CAN_MANAGER -I../source/wrappers/NVM_MANAGER
+                          23 --		-I../source/wrappers/DEM_MANAGER -I../source/wrappers/RDC_MANAGER
+                          24 --		-I../source/wrappers/ENV_MANAGER -I../source/wrappers/SYS_MANAGER
+                          25 --		-I../source/wrappers/EcuabCanIf
+                          26 --		-I../source/wrappers/SwcServiceCanSM
+                          27 --		-I../source/wrappers/SwcServiceCanTp
+                          28 --		-I../source/wrappers/SwcServiceCanTp_PreCompile
+                          29 --		-I../source/wrappers/SwcServiceCom
+                          30 --		-I../source/wrappers/SwcServiceComM
+                          31 --		-I../source/wrappers/SwcServiceComStack
+                          32 --		-I../source/wrappers/SwcServiceDcm
+                          33 --		-I../source/wrappers/SwcServicePduR
+                          34 --		-I../source/wrappers/SwcServiceEcuM -I../source/wrappers/Bfx
+                          35 --		-I../source/wrappers/SwcServiceDem -I../source/SwcServiceDet
+                          36 --		-I../source/SwcServiceFiM -I../source/wrappers/LibAutosarDiag
+                          37 --		-I../source/wrappers/rba_BswSrv -I../source/SwcServiceSchM
+                          38 --		-I../source/wrappers/SwcServiceComM/Integration
+                          39 --		-I../source/wrappers/SwcServicePduR/Integration
+                          40 --		-I../source/wrappers/EcuabCanIf/Integration
+                          41 --		-I../source/wrappers/SwcServiceCom/Integration
+                          42 --		-I../source/wrappers/SwcServiceCanTp/Integration
+                          43 --		-I../source/wrappers/SwcServiceEcuM/Integration
+                          44 --		-I../source/SwcServiceDet/Integration
+                          45 --		-I../source/wrappers/SwcServiceDcm/Integration
+                          46 --		-I../source/wrappers/SwcServiceDem/Integration
+                          47 --		-I../source/SwcServiceFiM/Integration
+                          48 --		-I../source/wrappers/EcuabCanIf/api
+                          49 --		-I../source/wrappers/SwcServiceCom/api
+                          50 --		-I../source/wrappers/SwcServiceComM/api
+
+                                                                      Page 2
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00008ic1.s
+                          51 --		-I../source/wrappers/SwcServicePduR/api
+                          52 --		-I../source/wrappers/Bfx/api -I../source/SwcServiceDet/api
+                          53 --		-I../source/SwcServiceFiM/api
+                          54 --		-I../source/wrappers/LibAutosarDiag/api
+                          55 --		-I../source/wrappers/rba_BswSrv/api -object_dir=output/objects
+                          56 --		-list_dir=output/list
+                          57 --Source File:   ../source/ProjectCfg/EcuM_Cfg_Sleep.c
+                          58 --Directory:     
+                          59 --		C:\_ECU2\ECU_Rivian_A1\Target\repo_projects\pRealEcu\cL_R2023.09.01\make
+                          60 --Compile Date:  Wed Sep 06 08:57:37 2023
+                          61 --Host OS:       Win32
+                          62 --Version:       C-RH850 2015.1.7 RELEASE VERSION
+                          63 --Release:       Compiler v2015.1.7
+                          64 --Revision Date: Thu Oct 22 08:06:12 2015
+                          65 --Release Date:  Thu Oct 22 09:34:32 2015
+                          66 -- ecom  -g -w -OM
+                          67 	.text
+                          68 ..bof.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcL_R2023.2E09.2E01.5Cmake.5Coutput.5Cobjects.5CEcuM_Cfg_Sleep...43.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcL_R2023.2E09.2E01.5Cmake..64F822E1..0::
+                          69 	.align	2
+                          70 ..gh.f.f.1.e.0:
+                          71 	.type	..gh.f.f.1.e.0,@object
+                          72 	.size	..gh.f.f.1.e.0,0
+                          73 	.global	_EcuM_Prv_GetResource
+                          74 _EcuM_Prv_GetResource:
+                          75 --	    .bf
+                          76 .LDW01:
+                          77 --	    .ef
+                          78 .LDW11:
+00000000 7f00             79 	jmp	[lp]
+                          80 	.global	___ghs_eofn_EcuM_Prv_GetResource
+                          81 ___ghs_eofn_EcuM_Prv_GetResource:
+                          82 	.type	_EcuM_Prv_GetResource,@function
+                          83 	.size	_EcuM_Prv_GetResource,.-_EcuM_Prv_GetResource
+                          84 	.align	2
+                          85 
+                          86 	.section ".bss","awb"
+                          87 .L32:
+                          88 	.type	.L32,@object
+                          89 	.size	.L32,0
+                          90 	.data
+                          91 	.text
+                          92 	.align	2
+                          93 	.align	2
+                          94 ..gh.f.f.1.e.1:
+                          95 	.type	..gh.f.f.1.e.1,@object
+                          96 	.size	..gh.f.f.1.e.1,0
+                          97 	.global	_EcuM_Prv_ReleaseResource
+                          98 _EcuM_Prv_ReleaseResource:
+                          99 --	    .bf
+                         100 .LDW21:
+                         101 --	    .ef
+                         102 .LDW31:
+00000002 7f00            103 	jmp	[lp]
+                         104 	.global	___ghs_eofn_EcuM_Prv_ReleaseResource
+                         105 ___ghs_eofn_EcuM_Prv_ReleaseResource:
+                         106 	.type	_EcuM_Prv_ReleaseResource,@function
+                         107 	.size	_EcuM_Prv_ReleaseResource,.-_EcuM_Prv_ReleaseResource
+                         108 	.align	2
+                         109 
+                         110 	.section ".bss","awb"
+                         111 .L64:
+
+                                                                      Page 3
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00008ic1.s
+                         112 	.type	.L64,@object
+                         113 	.size	.L64,0
+                         114 	.data
+                         115 	.text
+                         116 	.align	2
+                         117 
+                         118 	.data
+                         119 	.ghsnote version,17
+                         120 	.ghsnote tools,3
+                         121 	.ghsnote options,144
+                         122 	.text
+                         123 	.align	2
+                         124 ..eof.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcL_R2023.2E09.2E01.5Cmake.5Coutput.5Cobjects.5CEcuM_Cfg_Sleep...43.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcL_R2023.2E09.2E01.5Cmake..64F822E1..0::
+                         125 	.section	.debug_info
+                         126 .Ldw_begin:
+00000000 1d010000        127 	.word	.Ldw_end-.Ldw_begin-4
+00000004 0200            128 	.byte	2,0
+00000006 00000000*       129 	.word	.Ldw_abbr_begin
+0000000a 04              130 	.byte	4
+                         131 	.section	.debug_abbrev
+                         132 .Ldw_abbr_begin:
+                         133 	.section	.debug_info
+0000000b 01              134 	.byte	1
+0000000c 00000000*       135 	.word	..bof.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcL_R2023.2E09.2E01.5Cmake.5Coutput.5Cobjects.5CEcuM_Cfg_Sleep...43.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcL_R2023.2E09.2E01.5Cmake..64F822E1..0
+00000010 00000000*       136 	.word	..eof.C.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcL_R2023.2E09.2E01.5Cmake.5Coutput.5Cobjects.5CEcuM_Cfg_Sleep...43.3A.5C_ECU2.5CECU_Rivian_A1.5CTarget.5Crepo_projects.5CpRealEcu.5CcL_R2023.2E09.2E01.5Cmake..64F822E1..0
+00000014 2e2e2f736f75    137 	.strz	"../source/ProjectCfg/EcuM_Cfg_Sleep.c"
+0000001a 7263652f5072 
+00000020 6f6a65637443 
+00000026 66672f456375 
+0000002c 4d5f4366675f 
+00000032 536c6565702e 
+00000038 6300 
+0000003a 433a5c5f4543    138 	.strz	"C:\\_ECU2\\ECU_Rivian_A1\\Target\\repo_projects\\pRealEcu\\cL_R2023.09.01\\make"
+00000040 55325c454355 
+00000046 5f5269766961 
+0000004c 6e5f41315c54 
+00000052 61726765745c 
+00000058 7265706f5f70 
+0000005e 726f6a656374 
+00000064 735c70526561 
+0000006a 6c4563755c63 
+00000070 4c5f52323032 
+00000076 332e30392e30 
+0000007c 315c6d616b65 
+00000082 00 
+00000083 474853204320    139 	.strz	"GHS C 2015.1.7 [dual]"
+00000089 323031352e31 
+0000008f 2e37205b6475 
+00000095 616c5d00 
+00000099 0100            140 	.byte	1,0
+0000009b 00000000*       141 	.word	.Ldw_line_begin
+0000009f 00000000*       142 	.word	.Ldw_macinfo_begin
+000000a3 00              143 	.byte	0
+                         144 
+                         145 	.section	.debug_abbrev
+00000000 01              146 	.byte	1
+00000001 11              147 	.byte	17
+00000002 01              148 	.byte	1
+00000003 1101            149 	.byte	17,1
+00000005 1201            150 	.byte	18,1
+00000007 0308            151 	.byte	3,8
+
+                                                                      Page 4
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00008ic1.s
+00000009 1b08            152 	.byte	27,8
+0000000b 2508            153 	.byte	37,8
+0000000d 1305            154 	.byte	19,5
+0000000f 1006            155 	.byte	16,6
+00000011 4306            156 	.byte	67,6
+00000013 420b            157 	.byte	66,11
+00000015 0000            158 	.byte	0,0
+                         159 
+                         160 	.section	.debug_line
+                         161 .Ldw_line_begin:
+00000000 63000000        162 	.word	.Ldw_line_end-.Ldw_line_begin-4
+00000004 0200            163 	.byte	2,0
+00000006 00000000*       164 	.word	.Ldw_lpro_end-.Ldw_lpro_begin
+                         165 .Ldw_lpro_begin:
+0000000a 01              166 	.byte	1
+0000000b 00              167 	.byte	0
+0000000c 00              168 	.byte	0
+0000000d 04              169 	.byte	4
+0000000e 0a              170 	.byte	10
+0000000f 000101          171 	.byte	0,1,1
+00000012 010100          172 	.byte	1,1,0
+00000015 000001          173 	.byte	0,0,1
+00000018 00              174 	.byte	0
+00000019 2e2e2f736f75    175 	.strz	"../source/ProjectCfg/EcuM_Cfg_Sleep.c"
+0000001f 7263652f5072 
+00000025 6f6a65637443 
+0000002b 66672f456375 
+00000031 4d5f4366675f 
+00000037 536c6565702e 
+0000003d 6300 
+0000003f 000000          176 	.byte	0,0,0
+00000042 00              177 	.byte	0
+                         178 .Ldw_lpro_end:
+                         179 	.section	.debug_macinfo
+                         180 .Ldw_macinfo_begin:
+                         181 	.section	.debug_frame
+                         182 .LDW_40a8f40:
+00000000 00000000*       183 	.word	.LDW_unq_2-.LDW_unq_1
+                         184 .LDW_unq_1:
+00000004 ffffffff        185 	.byte	255,255,255,255
+00000008 01              186 	.byte	1
+00000009 00              187 	.byte	0
+0000000a 01              188 	.byte	1
+0000000b 01              189 	.byte	1
+0000000c 1f              190 	.byte	31
+0000000d 0c              191 	.byte	12
+0000000e 03              192 	.byte	3
+0000000f 00              193 	.byte	0
+00000010 07              194 	.byte	7
+00000011 00              195 	.byte	0
+00000012 07              196 	.byte	7
+00000013 01              197 	.byte	1
+00000014 07              198 	.byte	7
+00000015 02              199 	.byte	2
+00000016 07              200 	.byte	7
+00000017 03              201 	.byte	3
+00000018 07              202 	.byte	7
+00000019 04              203 	.byte	4
+0000001a 07              204 	.byte	7
+0000001b 05              205 	.byte	5
+0000001c 07              206 	.byte	7
+
+                                                                      Page 5
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00008ic1.s
+0000001d 06              207 	.byte	6
+0000001e 07              208 	.byte	7
+0000001f 07              209 	.byte	7
+00000020 07              210 	.byte	7
+00000021 08              211 	.byte	8
+00000022 07              212 	.byte	7
+00000023 09              213 	.byte	9
+00000024 07              214 	.byte	7
+00000025 0a              215 	.byte	10
+00000026 07              216 	.byte	7
+00000027 0b              217 	.byte	11
+00000028 07              218 	.byte	7
+00000029 0c              219 	.byte	12
+0000002a 07              220 	.byte	7
+0000002b 0d              221 	.byte	13
+0000002c 07              222 	.byte	7
+0000002d 0e              223 	.byte	14
+0000002e 07              224 	.byte	7
+0000002f 0f              225 	.byte	15
+00000030 07              226 	.byte	7
+00000031 10              227 	.byte	16
+00000032 07              228 	.byte	7
+00000033 11              229 	.byte	17
+00000034 07              230 	.byte	7
+00000035 12              231 	.byte	18
+00000036 07              232 	.byte	7
+00000037 13              233 	.byte	19
+00000038 08              234 	.byte	8
+00000039 14              235 	.byte	20
+0000003a 08              236 	.byte	8
+0000003b 15              237 	.byte	21
+0000003c 08              238 	.byte	8
+0000003d 16              239 	.byte	22
+0000003e 08              240 	.byte	8
+0000003f 17              241 	.byte	23
+00000040 08              242 	.byte	8
+00000041 18              243 	.byte	24
+00000042 08              244 	.byte	8
+00000043 19              245 	.byte	25
+00000044 08              246 	.byte	8
+00000045 1a              247 	.byte	26
+00000046 08              248 	.byte	8
+00000047 1b              249 	.byte	27
+00000048 08              250 	.byte	8
+00000049 1c              251 	.byte	28
+0000004a 08              252 	.byte	8
+0000004b 1d              253 	.byte	29
+0000004c 07              254 	.byte	7
+0000004d 1e              255 	.byte	30
+0000004e 08              256 	.byte	8
+0000004f 1f              257 	.byte	31
+00000050 07              258 	.byte	7
+00000051 20              259 	.byte	32
+00000052 07              260 	.byte	7
+00000053 21              261 	.byte	33
+00000054 07              262 	.byte	7
+00000055 22              263 	.byte	34
+00000056 07              264 	.byte	7
+00000057 23              265 	.byte	35
+00000058 07              266 	.byte	7
+00000059 24              267 	.byte	36
+
+                                                                      Page 6
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00008ic1.s
+0000005a 07              268 	.byte	7
+0000005b 25              269 	.byte	37
+0000005c 07              270 	.byte	7
+0000005d 26              271 	.byte	38
+0000005e 07              272 	.byte	7
+0000005f 27              273 	.byte	39
+00000060 07              274 	.byte	7
+00000061 28              275 	.byte	40
+00000062 07              276 	.byte	7
+00000063 29              277 	.byte	41
+00000064 07              278 	.byte	7
+00000065 2a              279 	.byte	42
+00000066 07              280 	.byte	7
+00000067 2b              281 	.byte	43
+00000068 07              282 	.byte	7
+00000069 2c              283 	.byte	44
+0000006a 07              284 	.byte	7
+0000006b 2d              285 	.byte	45
+0000006c 07              286 	.byte	7
+0000006d 2e              287 	.byte	46
+0000006e 07              288 	.byte	7
+0000006f 2f              289 	.byte	47
+00000070 07              290 	.byte	7
+00000071 30              291 	.byte	48
+00000072 07              292 	.byte	7
+00000073 31              293 	.byte	49
+00000074 07              294 	.byte	7
+00000075 32              295 	.byte	50
+00000076 07              296 	.byte	7
+00000077 33              297 	.byte	51
+00000078 07              298 	.byte	7
+00000079 34              299 	.byte	52
+0000007a 07              300 	.byte	7
+0000007b 35              301 	.byte	53
+0000007c 07              302 	.byte	7
+0000007d 36              303 	.byte	54
+0000007e 07              304 	.byte	7
+0000007f 37              305 	.byte	55
+00000080 07              306 	.byte	7
+00000081 38              307 	.byte	56
+00000082 07              308 	.byte	7
+00000083 39              309 	.byte	57
+00000084 07              310 	.byte	7
+00000085 3a              311 	.byte	58
+00000086 07              312 	.byte	7
+00000087 3b              313 	.byte	59
+00000088 07              314 	.byte	7
+00000089 3c              315 	.byte	60
+0000008a 07              316 	.byte	7
+0000008b 3d              317 	.byte	61
+0000008c 07              318 	.byte	7
+0000008d 3e              319 	.byte	62
+0000008e 07              320 	.byte	7
+0000008f 3f              321 	.byte	63
+                         322 .LDW_unq_2:
+                         323 	.section	.debug_info
+                         324 .LDW_4067278:
+000000a4 45              325 	.byte	69
+000000a5 01              326 	.byte	1
+                         327 
+                         328 	.section	.debug_abbrev
+
+                                                                      Page 7
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00008ic1.s
+00000017 45              329 	.byte	69
+00000018 15              330 	.byte	21
+00000019 01              331 	.byte	1
+0000001a 270c            332 	.byte	39,12
+0000001c 0000            333 	.byte	0,0
+                         334 
+                         335 	.section	.debug_info
+000000a6 00              336 	.byte	0
+                         337 
+                         338 .LDW_40670b8:
+000000a7 45              339 	.byte	69
+000000a8 01              340 	.byte	1
+                         341 
+000000a9 00              342 	.byte	0
+                         343 
+                         344 .LDW_40a9ee0:
+000000aa 13              345 	.byte	19
+000000ab 4563754d5f50    346 	.strz	"EcuM_Prv_GetResource"
+000000b1 72765f476574 
+000000b7 5265736f7572 
+000000bd 636500 
+000000c0 36              347 	.byte	54
+000000c1 06              348 	.byte	6
+000000c2 01              349 	.byte	1
+000000c3 00000000*       350 	.word	_EcuM_Prv_GetResource
+000000c7 00000000*       351 	.word	___ghs_eofn_EcuM_Prv_GetResource
+000000cb 0153            352 	.byte	1,83
+000000cd 02              353 	.byte	2
+000000ce 00              354 	.byte	0
+000000cf 02              355 	.byte	2
+000000d0 00              356 	.byte	0
+000000d1 00              357 	.byte	0
+000000d2 00              358 	.byte	0
+000000d3 00              359 	.byte	0
+000000d4 01              360 	.byte	1
+000000d5 01              361 	.byte	1
+000000d6 00              362 	.byte	0
+000000d7 01              363 	.byte	1
+                         364 
+                         365 	.section	.debug_abbrev
+0000001e 13              366 	.byte	19
+0000001f 2e              367 	.byte	46
+00000020 01              368 	.byte	1
+00000021 0308            369 	.byte	3,8
+00000023 3b0f            370 	.byte	59,15
+00000025 390f            371 	.byte	57,15
+00000027 3a0f            372 	.byte	58,15
+00000029 1101            373 	.byte	17,1
+0000002b 1201            374 	.byte	18,1
+0000002d 400a            375 	.byte	64,10
+0000002f 8341            376 	.byte	131,65
+00000031 0f              377 	.byte	15
+00000032 8741            378 	.byte	135,65
+00000034 0d              379 	.byte	13
+00000035 8541            380 	.byte	133,65
+00000037 0f              381 	.byte	15
+00000038 8641            382 	.byte	134,65
+0000003a 0d              383 	.byte	13
+0000003b 9241            384 	.byte	146,65
+0000003d 0f              385 	.byte	15
+0000003e 3c0c            386 	.byte	60,12
+
+                                                                      Page 8
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00008ic1.s
+00000040 200b            387 	.byte	32,11
+00000042 3f0c            388 	.byte	63,12
+00000044 320b            389 	.byte	50,11
+00000046 4c0b            390 	.byte	76,11
+00000048 270c            391 	.byte	39,12
+0000004a 0000            392 	.byte	0,0
+                         393 
+                         394 	.section	.debug_frame
+                         395 .LDW_4b2c8f8:
+00000090 00000000*       396 	.word	.LDW_unq_4-.LDW_unq_3
+                         397 .LDW_unq_3:
+00000094 00000000*       398 	.word	.LDW_40a8f40
+00000098 00000000*       399 	.word	_EcuM_Prv_GetResource
+0000009c 00000000*       400 	.word	___ghs_eofn_EcuM_Prv_GetResource-_EcuM_Prv_GetResource
+000000a0 01              401 	.byte	1
+000000a1 00000000*       402 	.word	.LDW11
+000000a5 00              403 	.byte	0
+000000a6 00              404 	.byte	0
+000000a7 00              405 	.byte	0
+                         406 .LDW_unq_4:
+                         407 	.section	.debug_line
+00000043 000502          408 	.byte	0,5,2
+00000046 00000000*       409 	.word	_EcuM_Prv_GetResource
+0000004a 06              410 	.byte	6
+0000004b 03              411 	.byte	3
+0000004c 35              412 	.byte	53
+0000004d 02              413 	.byte	2
+0000004e 00              414 	.byte	0
+0000004f 01              415 	.byte	1
+00000050 02              416 	.byte	2
+00000051 02              417 	.byte	2
+00000052 000101          418 	.byte	0,1,1
+                         419 	.section	.debug_info
+                         420 .LDW_4ae1d78:
+000000d8 1d              421 	.byte	29
+000000d9 00000000*       422 	.word	.LDW01
+000000dd 00000000*       423 	.word	.LDW11
+                         424 
+                         425 	.section	.debug_abbrev
+0000004c 1d              426 	.byte	29
+0000004d 0b              427 	.byte	11
+0000004e 01              428 	.byte	1
+0000004f 1101            429 	.byte	17,1
+00000051 1201            430 	.byte	18,1
+00000053 0000            431 	.byte	0,0
+                         432 
+                         433 	.section	.debug_info
+000000e1 00              434 	.byte	0
+                         435 
+000000e2 00              436 	.byte	0
+                         437 
+                         438 .LDW_4ae22c8:
+000000e3 13              439 	.byte	19
+000000e4 4563754d5f50    440 	.strz	"EcuM_Prv_ReleaseResource"
+000000ea 72765f52656c 
+000000f0 656173655265 
+000000f6 736f75726365 
+000000fc 00 
+000000fd 37              441 	.byte	55
+000000fe 06              442 	.byte	6
+000000ff 01              443 	.byte	1
+
+                                                                      Page 9
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00008ic1.s
+00000100 00000000*       444 	.word	_EcuM_Prv_ReleaseResource
+00000104 00000000*       445 	.word	___ghs_eofn_EcuM_Prv_ReleaseResource
+00000108 0153            446 	.byte	1,83
+0000010a 02              447 	.byte	2
+0000010b 00              448 	.byte	0
+0000010c 02              449 	.byte	2
+0000010d 00              450 	.byte	0
+0000010e 00              451 	.byte	0
+0000010f 00              452 	.byte	0
+00000110 00              453 	.byte	0
+00000111 01              454 	.byte	1
+00000112 01              455 	.byte	1
+00000113 00              456 	.byte	0
+00000114 01              457 	.byte	1
+                         458 
+                         459 	.section	.debug_frame
+                         460 .LDW_40aefa0:
+000000a8 00000000*       461 	.word	.LDW_unq_6-.LDW_unq_5
+                         462 .LDW_unq_5:
+000000ac 00000000*       463 	.word	.LDW_40a8f40
+000000b0 00000000*       464 	.word	_EcuM_Prv_ReleaseResource
+000000b4 00000000*       465 	.word	___ghs_eofn_EcuM_Prv_ReleaseResource-_EcuM_Prv_ReleaseResource
+000000b8 01              466 	.byte	1
+000000b9 00000000*       467 	.word	.LDW31
+000000bd 00              468 	.byte	0
+000000be 00              469 	.byte	0
+000000bf 00              470 	.byte	0
+                         471 .LDW_unq_6:
+                         472 	.section	.debug_line
+00000055 000502          473 	.byte	0,5,2
+00000058 00000000*       474 	.word	_EcuM_Prv_ReleaseResource
+0000005c 06              475 	.byte	6
+0000005d 03              476 	.byte	3
+0000005e 36              477 	.byte	54
+0000005f 02              478 	.byte	2
+00000060 00              479 	.byte	0
+00000061 01              480 	.byte	1
+00000062 02              481 	.byte	2
+00000063 02              482 	.byte	2
+00000064 000101          483 	.byte	0,1,1
+                         484 	.section	.debug_info
+                         485 .LDW_4ae1c28:
+00000115 1d              486 	.byte	29
+00000116 00000000*       487 	.word	.LDW21
+0000011a 00000000*       488 	.word	.LDW31
+                         489 
+0000011e 00              490 	.byte	0
+                         491 
+0000011f 00              492 	.byte	0
+                         493 
+00000120 00              494 	.byte	0
+                         495 
+                         496 	.section	.debug_line
+                         497 .Ldw_line_end:
+                         498 	.section	.debug_macinfo
+00000000 03              499 	.byte	3
+00000001 00              500 	.byte	0
+00000002 01              501 	.byte	1
+00000003 04              502 	.byte	4
+00000004 00              503 	.byte	0
+                         504 	.section	.debug_abbrev
+
+                                                                      Page 10
+                                                              C:\Users\nhuliyap\AppData\Local\Temp\gh_00008ic1.s
+00000055 00              505 	.byte	0
+                         506 	.section	.debug_info
+                         507 .Ldw_end:
+                         508 .rh850_flags REGMODE32,DATA_ALIGN8,GP_FIX,EP_NONFIX,TP_FIX,REG2_RESERVE,G3K,GHS_MISALIGN,SDA_EXTRA_REGS_0
