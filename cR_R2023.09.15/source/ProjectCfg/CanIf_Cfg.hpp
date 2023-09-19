@@ -108,7 +108,6 @@
 #define CANIF_TOTAL_CTRLS                                                     1u
 #define CANIF_TOTAL_DYNAMIC_PDUS                                              0u
 #define CANIF_RX_DYNAMIC_PDUS                                                 0u
-
 #define CANIF_NUM_TRANSCEIVERS                                                 0
 #define CANIF_MAX_PDU_INDEX                                              0xFFFFu
 #define CanIf_CFG_Size_Of_CANID                               sizeof(Can_IdType)
@@ -255,7 +254,7 @@ typedef struct{
 
 typedef struct{
    P2FUNC(void, TYPEDEF, CanIfRxPduUserRxIndicationUser)(
-             VAR(Type_SwcServiceCom_tIdPdu,     AUTOMATIC               ) RxPduTargetId_t
+             VAR(Type_SwcServiceCom_tIdPdu,          AUTOMATIC               ) RxPduTargetId_t
       ,  P2CONST(CanIf_Type_SwcServiceCom_stInfoPdu, TYPEDEF, CANIF_APPL_DATA) ULPduInfoTypUSER_tst
    );
 }CanIf_RxUSERCbk_Prototype;

@@ -4,7 +4,6 @@
 #include "infMcalCanSwcServiceSchM.hpp"
 
 #include "can.hpp"
-
 #include "device.hpp"
 #include "CanIf_Integration.hpp"
 #include "ComStack_Types.hpp"
@@ -89,8 +88,8 @@ void infMcalCanSwcServiceSchM_vMainFunctionBusOff(void){
 void Can_ForwardMessageToCanIf(
    const Can_FrameType* tCanFrame
 ){
-   Can_HwType               tCanMailbox;
-   Type_SwcServiceCom_stInfoPdu              tPduInfo;
+   Can_HwType                   tCanMailbox;
+   Type_SwcServiceCom_stInfoPdu tPduInfo;
    CanIf_ControllerModeType tCanIfControllerMode;
 
    CanIf_GetControllerMode(
@@ -124,7 +123,7 @@ void Can_ForwardMessageToCanIf(
       tPduInfo.SduLength       = tCanFrame->DLC;
       tPduInfo.SduDataPtr      = (uint8*)tCanFrame->DB;
 
-      CanIf_RxIndication(
+      CanIf_RxIndication_Internal(
             &tCanMailbox
          ,  &tPduInfo
       );

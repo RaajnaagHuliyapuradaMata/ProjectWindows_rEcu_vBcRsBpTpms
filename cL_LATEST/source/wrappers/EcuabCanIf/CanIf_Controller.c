@@ -1,3 +1,5 @@
+#include "Std_Types.hpp"
+
 #include "CanIf_Prv.hpp"
 
 #define CANIF_START_SEC_VAR_FAST_CLEARED_UNSPECIFIED

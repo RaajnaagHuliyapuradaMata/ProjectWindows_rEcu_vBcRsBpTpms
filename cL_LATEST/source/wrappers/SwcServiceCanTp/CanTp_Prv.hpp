@@ -95,14 +95,7 @@
 #define CanTp_Lok_GetCfgCsCrTicks(Connection)        CanTp_CfgPtr->TimeOut[(Connection)->TimeOutId].CsCrTicks
 #define CanTp_Lok_GetTxActiveBits(id)                CanTp_CfgPtr->TxSdu[CanTp_Channel[id].ActiveSduId].BitFields
 #define CanTp_Lok_GetRxActiveBits(id)                CanTp_CfgPtr->RxSdu[CanTp_Channel[id].ActiveSduId].BitFields
-#define CanTp_Lok_ReportError(Api, Err)
-#define CanTp_Lok_ReportRunTimeError(Api, Err)
-
-#if(CANTP_CHANGE_PARAMETER_API != STD_ON)
 #define CanTp_Lok_RxParamInit()
-#endif
-
-#if(CANTP_CANFD_SUPPORT == CANTP_ON)
 #define CanTp_Lok_GetTxDl(Connection)                ((Connection)->TX_DL)
 #define CanTp_Lok_GetCanDl(FrameLength)              (CanTp_CanDlTable[FrameLength])
 #define CanTp_Lok_GetRxDl(ChannelId)                 (CanTp_Channel[ChannelId].RX_DL)
@@ -110,15 +103,12 @@
 #define CanTp_Lok_IsRxDlInValid(RX_DL)               (((RX_DL) != 0x08) && ((RX_DL) != 0x0C) && ((RX_DL) != 0x10) &&\
                                                       ((RX_DL) != 0x14) && ((RX_DL) != 0x18) && ((RX_DL) != 0x20) &&\
                                                       ((RX_DL) != 0x30) && ((RX_DL) != 0x40))
-#endif
 
-#if(CANTP_TX_BURST_MODE != CANTP_ON)
 #define CanTp_Lok_QInit()
 #define CanTp_Lok_PutInQ(ChannelId)
 #define CanTp_Lok_GetFromQ(ChannelId)
 #define CanTp_Lok_BurstMainFunction(Id, Point)
-#endif
-
+#define CanTp_IncrementCounter()                      (CanTp_MainFunctionTicks++)
 #define CanTp_Lok_BuildBugOn(condition)              ((void)sizeof(char[1 - 2*!!(condition)]))
 
 typedef Std_ReturnType (*Type_SwcServiceCanTp_fptrCreateFrame)(CanTp_ChannelIdType ChannelId, Type_SwcServiceCom_stInfoPdu *PduInfoPtr);
@@ -165,10 +155,8 @@ typedef struct{
 typedef void (*Type_SwcServiceCanTp_fptrSubState)(CanTp_ChannelIdType ChannelId);
 
 typedef struct{
-   uint8 TxBufferStatus;
-#if(CANTP_CANFD_SUPPORT == CANTP_ON)
+   uint8           TxBufferStatus;
    uint8           RX_DL;
-#endif
    uint8           PciId;
    uint8           FlowStatus;
    uint8           SN;
@@ -191,10 +179,7 @@ typedef Std_ReturnType (*CanTp_CanIfTransmitApiType)(Type_SwcServiceCom_tIdPdu T
 #include "CanTp_MemMap.hpp"
 extern CanTp_ChannelType CanTp_Channel[CANTP_MAX_CHANNEL_SIZE];
 extern CanTp_ChannelIdType CanTp_TxConfirmationChannel[CANTP_MAX_NO_OF_TX_NPDU];
-
-#if(CANTP_CYCLE_COUNTER == CANTP_ON)
 extern volatile CanTp_TickType CanTp_MainFunctionTicks;
-#endif
 extern const Type_CfgSwcServiceCanTp_st *CanTp_CfgPtr;
 #define CANTP_STOP_SEC_VAR_CLEARED_UNSPECIFIED
 #include "CanTp_MemMap.hpp"
@@ -211,9 +196,7 @@ extern const uint8 CanTp_State[CfgSwcServiceCanTp_dNumSubStates];
 extern const uint8 CanTp_AddressSize[CANTP_ADDRESS_ARRAY_SIZE];
 extern const uint8 CanTp_PciFrameType[CANTP_PCI_ARRAY_SIZE];
 extern const uint8 CanTp_PciSize[CANTP_PCI_ARRAY_SIZE];
-#if(CANTP_CANFD_SUPPORT == CANTP_ON)
 extern const uint8 CanTp_CanDlTable[CANTP_CANDL_ARRAY_SIZE];
-#endif
 #define CANTP_STOP_SEC_CONST_8
 #include "CanTp_MemMap.hpp"
 
@@ -226,7 +209,6 @@ extern const Type_SwcServicePduR_fptrConfirmationTpLo  CfgSwcServiceCanTp_cafptr
 #define CANTP_STOP_SEC_CONST_UNSPECIFIED
 #include "CanTp_MemMap.hpp"
 
-#if(CANTP_CYCLE_COUNTER == CANTP_ON)
 LOCAL_INLINE void CanTp_GetElapsedValue(
       CanTp_TickType* Value
    ,  CanTp_TickType* ElapsedValue
@@ -235,19 +217,12 @@ LOCAL_INLINE void CanTp_GetElapsedValue(
    *Value = CanTp_MainFunctionTicks;
    *ElapsedValue = *Value - ValueIn;
 }
-#endif
 
 LOCAL_INLINE boolean CanTp_Lok_GetBit(
       uint8 Value
    ,  uint8 Mask
 ){
     return ((Value & Mask) == Mask) ? TRUE : FALSE;
-}
-
-LOCAL_INLINE void CanTp_IncrementCounter(void){
-#if(CANTP_CYCLE_COUNTER == CANTP_ON)
-   CanTp_MainFunctionTicks += 1;
-#endif
 }
 
 LOCAL_INLINE void CanTp_Lok_ArrayInit(
@@ -262,9 +237,9 @@ LOCAL_INLINE void CanTp_Lok_ArrayInit(
 }
 
 LOCAL_INLINE void CanTp_Lok_TxConfirmation_ArrayInit(
-      CanTp_ChannelIdType* ArrayPtr
-   ,  Type_SwcServiceCom_tIdPdu            NoOfTxPdus
-   ,  CanTp_ChannelIdType  NoOfChannels
+      CanTp_ChannelIdType*      ArrayPtr
+   ,  Type_SwcServiceCom_tIdPdu NoOfTxPdus
+   ,  CanTp_ChannelIdType       NoOfChannels
 ){
    Type_SwcServiceCom_tIdPdu arrayindex;
    for(arrayindex = 0; arrayindex < NoOfTxPdus; arrayindex++){
@@ -352,21 +327,17 @@ LOCAL_INLINE void CanTp_Lok_TxPciInit(
 ){
    const CanTp_TxSduType *Connection = CanTp_CfgPtr->TxSdu + CanTpTxSduId;
    uint8 AddressLength;
-#if(CANTP_CANFD_SUPPORT == CANTP_ON)
    uint8 TX_DL = CanTp_Lok_GetTxDl(Connection);
-#endif
    AddressLength = CanTp_AddressSize[Connection->AddressFormatId];
    if((CanTpTxInfoPtr->SduLength + AddressLength + 1u) <= CANTP_DEFAULT_CAN_DL){
         *PciId = CANTP_NPCI_SFCAN;
    }
-#if(CANTP_CANFD_SUPPORT == CANTP_ON)
    else if((TX_DL > CANTP_DEFAULT_CAN_DL) && ((CanTpTxInfoPtr->SduLength + AddressLength + 2u) <= TX_DL)){
         *PciId = CANTP_NPCI_SFCANFD;
    }
    else if((TX_DL > CANTP_DEFAULT_CAN_DL) && (CanTpTxInfoPtr->SduLength > CANTP_MAXFFDL)){
         *PciId = CANTP_NPCI_FFCANFD;
    }
-#endif
    else{
         *PciId = CANTP_NPCI_FFCAN;
    }
@@ -376,13 +347,11 @@ LOCAL_INLINE void CanTp_Lok_CanIfTransmit(
       const CanTp_TxContextType* Context
    ,  const Type_SwcServiceCom_stInfoPdu*         CanIfTxInfoPtr
 ){
-   Std_ReturnType Result = E_NOT_OK;
    Type_SwcServiceCom_stInfoPdu CanIfTxInfo;
    uint8 SduBuffer[CANTP_MAX_NPDU_LENGTH];
    CanIfTxInfo.SduLength = CanIfTxInfoPtr->SduLength;
    CanIfTxInfo.SduDataPtr = SduBuffer;
-   Result = (CanTp_Lok_CreateFrame(Context->ChannelId, &CanIfTxInfo) == E_OK) ? E_OK : Result;
-   if(Result == E_OK){
+   if(CanTp_Lok_CreateFrame(Context->ChannelId, &CanIfTxInfo) == E_OK){
       CanTp_TxConfirmationChannel[Context->TxConfirmationId] = Context->ChannelId;
       if(
             CanIf_Transmit(
@@ -416,30 +385,30 @@ LOCAL_INLINE Std_ReturnType CanTp_Lok_GetConnectionAcceptance(
       const CanTp_RxContextType* Context
    ,  const Type_SwcServiceCom_stInfoPdu*         PduInfoPtr
 ){
-   Std_ReturnType RetValue = E_NOT_OK;
-   uint8          NewChannelState = CANTP_IDLE;
-   uint8          OldChannelState = CanTp_Lok_GetState(Context->ChannelId);
-   const CanTp_RxSduType *Connection = CanTp_CfgPtr->RxSdu + CanTp_Channel[Context->ChannelId].ActiveSduId;
+         Std_ReturnType   RetValue = E_NOT_OK;
+         uint8            NewChannelState = CANTP_IDLE;
+         uint8            OldChannelState = CanTp_Lok_GetState(Context->ChannelId);
+   const CanTp_RxSduType* Connection = CanTp_CfgPtr->RxSdu + CanTp_Channel[Context->ChannelId].ActiveSduId;
 
    (void)PduInfoPtr;
-   {
-      if(OldChannelState == CANTP_IDLE){
+   if(OldChannelState == CANTP_IDLE){
+      NewChannelState = CANTP_RX_RECEPTION_REQUEST_ACCEPTED;
+   }
+   else{
+      if((OldChannelState == CANTP_RECEPTION)&&(CanTp_Channel[Context->ChannelId].ActiveSduId == Context->SduId)){
          NewChannelState = CANTP_RX_RECEPTION_REQUEST_ACCEPTED;
-      }
-      else{
-         if((OldChannelState == CANTP_RECEPTION)&&(CanTp_Channel[Context->ChannelId].ActiveSduId == Context->SduId)){
-            NewChannelState = CANTP_RX_RECEPTION_REQUEST_ACCEPTED;
-            CanTp_Lok_PduRConfirmation(CANTP_RX_PDUR_CONFIRMATION, Context->PduRPduHandleId, E_NOT_OK);
-            if(CanTp_SubState[Context->ChannelId] == CANTP_RX_WAIT_FOR_FCTRANSMIT_CONFIRMATION
-            ){
-               CanTp_TxConfirmationChannel[Connection->TxConfirmationId] = CANTP_INVALID_CHANNEL;
-            }
+         CanTp_Lok_PduRConfirmation(CANTP_RX_PDUR_CONFIRMATION, Context->PduRPduHandleId, E_NOT_OK);
+         if(
+               CanTp_SubState[Context->ChannelId]
+            == CANTP_RX_WAIT_FOR_FCTRANSMIT_CONFIRMATION
+         ){
+            CanTp_TxConfirmationChannel[Connection->TxConfirmationId] = CANTP_INVALID_CHANNEL;
          }
       }
-      if(NewChannelState == CANTP_RX_RECEPTION_REQUEST_ACCEPTED){
-         CanTp_SubState[Context->ChannelId] = CANTP_RX_RECEPTION_REQUEST_ACCEPTED;
-         RetValue = E_OK;
-      }
+   }
+   if(NewChannelState == CANTP_RX_RECEPTION_REQUEST_ACCEPTED){
+      CanTp_SubState[Context->ChannelId] = CANTP_RX_RECEPTION_REQUEST_ACCEPTED;
+      RetValue = E_OK;
    }
    return RetValue;
 }
@@ -452,9 +421,7 @@ LOCAL_INLINE void CanTp_Lok_SetTxBlockInfo(
    CanTp_ChannelPtrType Channel = &CanTp_Channel[Context->ChannelId];
    Type_SwcServiceCom_tLengthPdu BlockCfsRemaining;
    SduDataPtr = PduInfoPtr->SduDataPtr + Context->DataOffset;
-#if(CANTP_DYNAMIC_FC_SUPPORT != CANTP_ON)
    if(Channel->STminTicks == CANTP_INVALID_STMIN_TICKS)
-#endif
    {
       Channel->BS = *SduDataPtr;
       SduDataPtr++;
@@ -483,9 +450,7 @@ LOCAL_INLINE uint8 CanTp_Lok_GetRxParam(
 ){
    uint8 value;
    value = (parameter == TP_STMIN)? (0u) : (1u);
-#if(CANTP_CHANGE_PARAMETER_API != STD_ON)
    return CanTp_Lok_GetRxCfgParam(id, value);
-#endif
 }
 
 LOCAL_INLINE void CanTp_Lok_SetRxBlockInfo(
@@ -498,9 +463,7 @@ LOCAL_INLINE void CanTp_Lok_SetRxBlockInfo(
    uint8 BS = Channel->BS;
    const CanTp_RxSduType *Connection = CanTp_CfgPtr->RxSdu + Channel->ActiveSduId;
    Type_SwcServiceCom_tLengthPdu OneFramePayloadLength = CanTp_Lok_GetRxDl(ChannelId) - CanTp_AddressSize[Connection->AddressFormatId] - CANTP_CF_PCISIZE;
-#if(CANTP_DYNAMIC_FC_SUPPORT != CANTP_ON)
    if(Channel->STminTicks == CANTP_INVALID_STMIN_TICKS)
-#endif
    {
       BSMax = CanTp_Lok_GetRxParam(Channel->ActiveSduId, TP_BS);
       if(RemBufSize >= Channel->SduLengthRemaining){
@@ -521,24 +484,9 @@ LOCAL_INLINE void CanTp_Lok_SetRxBlockInfo(
       BlockCfsRemaining = CanTp_Lok_GetRxBlockCfs(ChannelId);
       Channel->BlockCfsRemaining = (BS != 0u) ? BS : BlockCfsRemaining;
       Channel->FlowStatus = CANTP_FC_CTS;
-#if(CANTP_DYNAMIC_FC_SUPPORT != CANTP_ON)
       Channel->STminTicks = 0;
-#endif
    }
    Channel->BS = BS;
-}
-
-LOCAL_INLINE void CanTp_Lok_PageConfirmation(
-   const CanTp_TxContextType* Context){
-   Type_SwcServiceCom_stInfoPdu SduInfo;
-   Type_SwcServiceCom_tLengthPdu RemBufSize;
-   uint8 SduBuffer[CANTP_MAX_NPDU_LENGTH];
-   if(CanTp_Channel[Context->ChannelId].TxBufferStatus == CANTP_BUFFER_NOT_ASKED){
-        SduInfo.SduLength = Context->PayLoadLength;
-        SduInfo.SduDataPtr = SduBuffer;
-        (void)PduR_CanTpCopyTxData(Context->PduRPduHandleId, &SduInfo, NULL_PTR, &RemBufSize);
-        CanTp_Channel[Context->ChannelId].TxBufferStatus = CANTP_BUFFER_ASKED;
-   }
 }
 
 LOCAL_INLINE void CanTp_Lok_FcTxConfirmation(

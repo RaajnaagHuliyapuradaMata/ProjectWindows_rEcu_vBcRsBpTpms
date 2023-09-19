@@ -1,6 +1,6 @@
 #pragma once
 /******************************************************************************/
-/* File   : CfgEcuabCanIf.h                                                   */
+/* File   : CfgEcuabCanIf.hpp                                                 */
 /*                                                                            */
 /* Author : Raajnaag HULIYAPURADA MATA                                        */
 /*                                                                            */
@@ -32,7 +32,7 @@
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
-#define CANIF_XCORE_CFG_ENABLED                                        (STD_OFF)
+#define CANIF_XCORE_CFG_ENABLED                                          STD_OFF
 
 /******************************************************************************/
 /* MACROS                                                                     */
@@ -48,19 +48,19 @@ typedef enum{
 }CanIf_Lok_HrhType_ten;
 
 typedef struct{
-   CanIf_Lok_HrhType_ten HrhInfo_e;
-   Type_SwcServiceCom_tIdPdu             PduIdx_t;
-   uint32                NumRxPdus_u32;
-   boolean               HrhRangeMask_b;
-   uint8                 ControllerId_u8;
+   CanIf_Lok_HrhType_ten     HrhInfo_e;
+   Type_SwcServiceCom_tIdPdu PduIdx_t;
+   uint32                    NumRxPdus_u32;
+   boolean                   HrhRangeMask_b;
+   uint8                     ControllerId_u8;
 }CanIf_Cfg_Hrhtype_tst;
 
 typedef struct{
-   uint8       RxPduReadNotifyReadDataStatus_u8;
-   uint8_least IndexForUL_u8;
-   uint8       CanIdtype_u8;
-   uint8       RxPduDlc_u8;
-   Can_IdType  RxPduCanId;
+   uint8                       RxPduReadNotifyReadDataStatus_u8;
+   uint8_least                 IndexForUL_u8;
+   uint8                       CanIdtype_u8;
+   uint8                       RxPduDlc_u8;
+   Can_IdType                  RxPduCanId;
    Type_SwcServiceCom_tIdPdu   Hrhref_t;
    Type_SwcServiceCom_tIdPdu   RxPduTargetId_t;
 }CanIf_Cfg_RxPduType_tst;
@@ -103,12 +103,14 @@ typedef enum{
 
 typedef struct{
    const CanIf_Cfg_TxBufferConfig_tst* CanIf_TxBufferConfigPtr;
-   Type_SwcServiceCom_tIdPdu                           TxPduId;
-   Type_SwcServiceCom_tIdPdu                           TxPduTargetPduId;
-   Type_SwcServiceCom_tIdPdu                           TxPduType;
+   Type_SwcServiceCom_tIdPdu           TxPduId;
+   Type_SwcServiceCom_tIdPdu           TxPduTargetPduId;
+   Type_SwcServiceCom_tIdPdu           TxPduType;
    CanIf_Cfg_TxPduCanIdType_ten        TxPduCanIdType;
    CanIf_Cfg_UserType_ten              TxPduTxUserUL;
-   void (*UserTxConfirmation) (Type_SwcServiceCom_tIdPdu TxPduTargetPduId);
+   P2FUNC(void, CANIF_APPL_CODE, UserTxConfirmation)(
+      Type_SwcServiceCom_tIdPdu TxPduTargetPduId
+   );
    Can_IdType                          TxPduCanId;
    boolean                             TxPduReadNotifyStatus;
    boolean                             TxTruncEnabled_b;
@@ -116,18 +118,21 @@ typedef struct{
 }CanIf_Cfg_TxPduConfig_tst;
 
 typedef struct{
-   void (*CanIfRxPduIndicationName) (Type_SwcServiceCom_tIdPdu RxPduTargetId_t, const Type_SwcServiceCom_stInfoPdu * CanIf_ULPduinfo_pst );
+   P2FUNC(void, TYPEDEF, CanIfRxPduIndicationName)(
+             VAR(Type_SwcServiceCom_tIdPdu,    AUTOMATIC               ) RxPduTargetId_t
+      ,  P2CONST(Type_SwcServiceCom_stInfoPdu, TYPEDEF, CANIF_APPL_DATA) CanIf_ULPduinfo_pst
+   );
 }CanIf_RxCbk_Prototype;
 
 typedef struct{
    P2CONST(CanIf_Cfg_Hrhtype_tst,   TYPEDEF, CANIF_CFG_CONST) HrhConfig_pcst;
    P2CONST(CanIf_Cfg_RxPduType_tst, TYPEDEF, CANIF_CFG_CONST) RxPduConfig_pcst;
-   VAR(Type_SwcServiceCom_tIdPdu,                   TYPEDEF)                  NumCanRxPduId_t;
-   VAR(uint8,                       TYPEDEF)                  NumCanCtrl_u8;
-   VAR(Type_SwcServiceCom_tIdPdu,                   TYPEDEF)                  NumCddRxPdus_t;
+   VAR(Type_SwcServiceCom_tIdPdu,   TYPEDEF                 ) NumCanRxPduId_t;
+   VAR(uint8,                       TYPEDEF                 ) NumCanCtrl_u8;
+   VAR(Type_SwcServiceCom_tIdPdu,                    TYPEDEF) NumCddRxPdus_t;
    const uint16*                                              RxPduIdTable_Ptr;
    const uint16*                                              HrhPduIdTable_Ptr;
-   VAR(uint8,                       TYPEDEF)                  CfgSetIndex_u8;
+   VAR(uint8,                       TYPEDEF                 ) CfgSetIndex_u8;
    const CanIf_Cfg_TxPduConfig_tst*                           CanIf_TxPduConfigPtr;
    const CanIf_Cfg_TxBufferConfig_tst*                        CanIf_TxBufferConfigPtr;
    const CanIf_Cfg_CtrlConfig_tst*                            CanIf_CtrlConfigPtr;
@@ -145,11 +150,7 @@ typedef struct{
 /******************************************************************************/
 /* PARAMS                                                                     */
 /******************************************************************************/
-#define CANIF_START_SEC_CONST_UNSPECIFIED
-#include "CanIf_MemMap.hpp"
 extern const Type_CfgEcuabCanIf_st CfgEcuabCanIf_st;
-#define CANIF_STOP_SEC_CONST_UNSPECIFIED
-#include "CanIf_MemMap.hpp"
 
 /******************************************************************************/
 /* OBJECTS                                                                    */

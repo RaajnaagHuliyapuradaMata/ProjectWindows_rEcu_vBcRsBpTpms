@@ -15,7 +15,6 @@ uint8 CanTp_MainState;
 
 #define CANTP_START_SEC_CODE
 #include "CanTp_MemMap.hpp"
-#if(CANTP_VERSION_INFO_API == STD_ON)
 void CanTp_GetVersionInfo(Std_VersionInfoType* versioninfo){
    if(
          versioninfo
@@ -30,33 +29,44 @@ void CanTp_GetVersionInfo(Std_VersionInfoType* versioninfo){
       versioninfo->sw_patch_version = CANTP_SW_PATCH_VERSION;
    }
 }
-#endif
 
 void CanTp_Init(
    const Type_CfgSwcServiceCanTp_st* CfgPtr
 ){
    CanTp_MainState = CANTP_OFF;
-#if(CANTP_VARIANT == CANTP_PRE_COMPILE)
    CanTp_CfgPtr    = &CfgSwcServiceCanTp_cst;
    (void)CfgPtr;
-#endif
    CanTp_Lok_RxParamInit();
    CanTp_Lok_QInit();
-   CanTp_Lok_ArrayInit(&CanTp_SubState[0], CanTp_CfgPtr->NumberOfChannels, CANTP_IDLE);
-   CanTp_Lok_TxConfirmation_ArrayInit(&CanTp_TxConfirmationChannel[0], CanTp_CfgPtr->NumberOfTxPdus, CANTP_INVALID_CHANNEL);
+   CanTp_Lok_ArrayInit(
+         &CanTp_SubState[0]
+      ,  CanTp_CfgPtr->NumberOfChannels
+      ,  CANTP_IDLE
+   );
+   CanTp_Lok_TxConfirmation_ArrayInit(
+         &CanTp_TxConfirmationChannel[0]
+      ,  CanTp_CfgPtr->NumberOfTxPdus
+      ,  CANTP_INVALID_CHANNEL
+   );
    CanTp_MainState = CANTP_ON;
 }
 
-#if(CANTP_CANTPLITE_SUPPORT != STD_ON)
 void CanTp_Shutdown(void){
    CanTp_MainState = CANTP_OFF;
    CanTp_Lok_RxParamInit();
    CanTp_Lok_QInit();
-   CanTp_Lok_ArrayInit(&CanTp_SubState[0], CanTp_CfgPtr->NumberOfChannels, CANTP_IDLE);
-   CanTp_Lok_TxConfirmation_ArrayInit(&CanTp_TxConfirmationChannel[0], CanTp_CfgPtr->NumberOfTxPdus, CANTP_INVALID_CHANNEL);
+   CanTp_Lok_ArrayInit(
+         &CanTp_SubState[0]
+      ,  CanTp_CfgPtr->NumberOfChannels
+      ,  CANTP_IDLE
+   );
+   CanTp_Lok_TxConfirmation_ArrayInit(
+         &CanTp_TxConfirmationChannel[0]
+      ,  CanTp_CfgPtr->NumberOfTxPdus
+      ,  CANTP_INVALID_CHANNEL
+   );
    CanTp_CfgPtr = NULL_PTR;
 }
-#endif
 
 void infSwcServiceCanTpSwcServiceSchM_vMainFunction(void){
    CanTp_ChannelIdType ChannelId;
@@ -101,9 +111,7 @@ Std_ReturnType CanTp_Transmit(
          MaxLength = (PciId < CANTP_NPCI_SFCANFD) ? PayloadLength : (PayloadLength - CANTP_FDSFDL_PCI);
       }
       else{
-#if(CANTP_CANFD_SUPPORT == CANTP_ON)
          MaxLength = (TX_DL > CANTP_DEFAULT_CAN_DL) ? CANTP_MAXFDFFDL : CANTP_MAXFFDL;
-#endif
       }
       ErrorId = (CanTpTxInfoPtr->SduLength > MaxLength) ? CANTP_E_INVALID_TATYPE : CANTP_NO_ERROR;
    }
@@ -127,7 +135,6 @@ Std_ReturnType CanTp_Transmit(
    return(RetVal);
 }
 
-#if(CANTP_CANTPLITE_SUPPORT != CANTP_ON)
 Std_ReturnType CanTp_CancelTransmit(
    Type_SwcServiceCom_tIdPdu CanTpTxSduId
 ){
@@ -183,7 +190,6 @@ Std_ReturnType CanTp_CancelReceive(
    SchM_Exit_CanTp_EXCLUSIVE_AREA();
    return (RetVal);
 }
-#endif
 
 void CanTp_TxConfirmation(
    Type_SwcServiceCom_tIdPdu TxPduId
@@ -218,7 +224,7 @@ void CanTp_TxConfirmation(
             <  MaxCopyLength
          )
          ?  0u
-         :  (Type_SwcServiceCom_tLengthPdu)((Channel->SduLengthRemaining - MaxCopyLength))
+         :  (Type_SwcServiceCom_tLengthPdu)(Channel->SduLengthRemaining - MaxCopyLength)
          ;
          if(Channel->PciId == CANTP_NPCI_CF){
             Channel->SN++;
@@ -350,7 +356,8 @@ static uint8 CanTp_Lok_GetRxContext(
                      )
                )
                ?  CANTP_E_INVALID_TATYPE
-               :  CANTP_NO_ERROR;
+               :  CANTP_NO_ERROR
+               ;
             }
          }
       }
@@ -388,10 +395,8 @@ static Std_ReturnType CanTp_Lok_RxSduLengthCheck(
                      != 0u
                   )
                && (
-                     (
-                           PciLowerNibble
-                        <= (CANTP_DEFAULT_CAN_DL - DataOffset)
-                     )
+                        PciLowerNibble
+                     <= (CANTP_DEFAULT_CAN_DL - DataOffset)
                   )
             ){
                CAN_DL = (
@@ -403,7 +408,6 @@ static Std_ReturnType CanTp_Lok_RxSduLengthCheck(
             }
          }
          else{
-#if(CANTP_CANFD_SUPPORT == CANTP_ON)
             DataOffset = Context->AddressSize + CanTp_PciSize[CANTP_NPCI_SFCANFD];
             SF_DL = Data[1];
             if(
@@ -422,7 +426,6 @@ static Std_ReturnType CanTp_Lok_RxSduLengthCheck(
                :  (DataOffset + SF_DL)
                ;
             }
-#endif
          }
          break;
 
@@ -435,7 +438,6 @@ static Std_ReturnType CanTp_Lok_RxSduLengthCheck(
                FfDlValue12bit
             == 0u
          ){
-#if(CANTP_CANFD_SUPPORT == CANTP_ON)
             FF_DL = (Data[2] * 0x1000000u)
                   + (Data[3] * 0x10000u)
                   + (Data[4] * 0x100u)
@@ -451,7 +453,6 @@ static Std_ReturnType CanTp_Lok_RxSduLengthCheck(
             ?  CANTP_INVALID_DL
             :  RX_DL
             ;
-#endif
          }
          else{
             FF_DL      = FfDlValue12bit;

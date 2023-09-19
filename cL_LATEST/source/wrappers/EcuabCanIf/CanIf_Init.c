@@ -1,12 +1,12 @@
-
+#include "Std_Types.hpp"
 
 #include "CanIf_Prv.hpp"
 
 #define CANIF_START_SEC_CODE
 #include "CanIf_MemMap.hpp"
-
 void CanIf_Init(
-   const Type_CfgEcuabCanIf_st* ConfigPtr){
+   P2CONST(Type_CfgEcuabCanIf_st, AUTOMATIC, CANIF_APPL_CONST) ConfigPtr
+){
    CanIf_ControllerStateType * controllerState_pst;
    uint32 index_u32;
    uint8_least pdu_uo;
@@ -29,8 +29,7 @@ void CanIf_Init(
     numControllers_u8 = CanIf_Lok_ConfigSet_tpst->NumCanCtrl_u8;
    controllerState_pst = CanIf_Lok_ControllerState_ast;
 
-   for(pdu_uo = 0; pdu_uo < CanIf_Lok_ConfigSet_tpst->NumOfTxPdus; pdu_uo++)
-   {
+   for(pdu_uo = 0; pdu_uo < CanIf_Lok_ConfigSet_tpst->NumOfTxPdus; pdu_uo++){
         CanIf_Lok_TxNotification_aen[pdu_uo] = CANIF_NO_NOTIFICATION;
    }
 

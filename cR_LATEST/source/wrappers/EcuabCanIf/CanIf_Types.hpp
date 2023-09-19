@@ -5,12 +5,12 @@
 #include "Can_GeneralTypes.hpp"
 
 typedef enum{
-      CANIF_OFFLINE,
-      CANIF_TX_OFFLINE,
-      CANIF_TX_OFFLINE_ACTIVE,
-      CANIF_ONLINE,
-      CANIF_TX_TP_ONLINE,
-      CANIF_TX_USER_TP_ONLINE
+      CANIF_OFFLINE
+   ,  CANIF_TX_OFFLINE
+   ,  CANIF_TX_OFFLINE_ACTIVE
+   ,  CANIF_ONLINE
+   ,  CANIF_TX_TP_ONLINE
+   ,  CANIF_TX_USER_TP_ONLINE
 }CanIf_PduModeType;
 
 typedef enum{

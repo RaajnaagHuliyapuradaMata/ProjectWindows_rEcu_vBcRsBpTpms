@@ -46,8 +46,8 @@ const uint8 CanTp_CanDlTable[CANTP_CANDL_ARRAY_SIZE] = {
 #include "CanTp_MemMap.hpp"
 
 static void CanTp_Lok_GetTxBuffer(
-      const CanTp_TxContextType* Context
-   ,  const Type_SwcServiceCom_stInfoPdu*         SduInfoPtr
+      const CanTp_TxContextType*          Context
+   ,  const Type_SwcServiceCom_stInfoPdu* SduInfoPtr
 ){
    Type_SwcServiceCom_tLengthPdu RemBufSize;
    if(
@@ -891,14 +891,14 @@ static void SwcApplCanTp_fptrSubState_TxWaitForConfirmation(
 static void SwcApplCanTp_fptrSubState_TxRequestAccepted(
    CanTp_ChannelIdType ChannelId
 ){
-         uint8               CAN_DL;
-         uint8               DataOffset;
-         Type_SwcServiceCom_stInfoPdu         SduInfo;
-         Type_SwcServiceCom_stInfoPdu         PduInfo;
-         CanTp_ChannelIdType TxConfirmationChannel;
-         CanTp_ChannelType*  Channel = &CanTp_Channel[ChannelId];
-   const CanTp_TxSduType*    Connection;
-         CanTp_TxContextType Context;
+         uint8                        CAN_DL;
+         uint8                        DataOffset;
+         Type_SwcServiceCom_stInfoPdu SduInfo;
+         Type_SwcServiceCom_stInfoPdu PduInfo;
+         CanTp_ChannelIdType          TxConfirmationChannel;
+         CanTp_ChannelType*           Channel = &CanTp_Channel[ChannelId];
+   const CanTp_TxSduType*             Connection;
+         CanTp_TxContextType          Context;
    Context.ChannelId = ChannelId;
    Context.PduRApiId = CANTP_TX_PDUR_CONFIRMATION;
    Context.Value = Channel->InitialTicks;

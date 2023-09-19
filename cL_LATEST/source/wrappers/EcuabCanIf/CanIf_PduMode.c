@@ -10,18 +10,8 @@ Std_ReturnType CanIf_SetPduMode(
       uint8             ControllerId
    ,  CanIf_PduModeType PduModeRequest
 ){
-   CanIf_ControllerStateType* lControllerState_p;
+   CanIf_ControllerStateType* lControllerState_p = CanIf_Lok_ControllerState_ast + ControllerId;
    Std_ReturnType             lRetVal_en = E_NOT_OK;
-
-   if(
-         (CANIF_OFFLINE    != PduModeRequest)
-      && (CANIF_TX_OFFLINE != PduModeRequest)
-      && (CANIF_ONLINE     != PduModeRequest)
-   ){
-      CANIF_DET_REPORT_ERROR_NO_CONDITON((CANIF_SET_PDU_MODE_SID), (CANIF_E_PARAM_PDU_MODE))
-   }
-   lControllerState_p = CanIf_Lok_ControllerState_ast + ControllerId;
-
    if(
          (
                (
@@ -46,7 +36,7 @@ Std_ReturnType CanIf_GetPduMode(
    ,   CanIf_PduModeType* PduModePtr
 ){
    CanIf_ControllerStateType* lControllerState_p = CanIf_Lok_ControllerState_ast + ControllerId;
-   *PduModePtr = (CanIf_PduModeType)((lControllerState_p->Ctrl_Pdu_mode)& BIT_MASK_CTRL_MODE);
+   *PduModePtr = (CanIf_PduModeType)((lControllerState_p->Ctrl_Pdu_mode) & BIT_MASK_CTRL_MODE);
    return E_OK;
 }
 #define CANIF_STOP_SEC_CODE

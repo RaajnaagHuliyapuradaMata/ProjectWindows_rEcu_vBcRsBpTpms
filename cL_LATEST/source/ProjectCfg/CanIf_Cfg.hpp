@@ -31,6 +31,11 @@
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
+#define CANIF_CFG_UL_RX                                                  STD_ON
+#define CANIF_CANSM_ENABLED                                              STD_ON
+#define CANIF_CANTP_ENABLED                                              STD_ON
+#define CANIF_PDUR_ENABLED                                               STD_ON
+#define CANIF_ECUM_ENABLED                                               STD_ON
 #define CANIF_PUBLIC_TXCONFIRM_POLLING_SUPPORT                           STD_OFF
 #define CANIF_TXOFFLINEACTIVE_SUPPORT                                    STD_OFF
 #define CANIF_SET_BAUDRATE_API                                           STD_OFF
@@ -38,6 +43,28 @@
 #define CANIF_PUBLIC_BUSOFF_RECOVERY_FROM_RXINDICATION                   STD_OFF
 #define CANIF_DIRECT_HW_WRITE                                            STD_OFF
 #define CANIF_PUBLIC_DEV_ERROR_DETECT                                    STD_OFF
+#define CANIF_PUBLIC_VERSIONINFO_API                                     STD_OFF
+#define CANIF_PUBLIC_SETDYNAMICTXID_API                                  STD_OFF
+#define CANIF_WAKEUP_SUPPORT                                             STD_OFF
+#define CANIF_CFG_READRXPDU_DATA_IN_RXPDUS                               STD_OFF
+#define CANIF_CFG_TRCV_DRV_SUPPORT                                       STD_OFF
+#define CANIF_CFG_TRCV_WAKEUP_SUPPORT                                    STD_OFF
+#define CANIF_CFG_TRCV_PN_SUPPORT                                        STD_OFF
+#define CANIF_RB_ERROR_PASSIVE_SUPPORT                                   STD_OFF
+#define CANIF_CFG_DLC_CHECK                                              STD_OFF
+#define CANIF_FD_SUPPORT                                                 STD_OFF
+#define CANIF_LITE_CONFIGURATION                                         STD_OFF
+#define CANIF_USER_TP_TX_OFFLINE_MODE                                    STD_OFF
+#define CANIF_CANNM_ENABLED                                              STD_OFF
+#define CANIF_J1939NM_ENABLED                                            STD_OFF
+#define CANIF_CANTSYN_ENABLED                                            STD_OFF
+#define CANIF_XCP_ENABLED                                                STD_OFF
+#define CANIF_J1939TP_ENABLED                                            STD_OFF
+#define CANIF_PUBLIC_WAKEUP_CHECK_VALID_BY_NM                            STD_OFF
+#define CANIF_BASIC_CAN_SUPPORT                                          STD_OFF
+#define CANIF_BASIC_CAN_SUPPORT_LIST                                     STD_OFF
+#define CANIF_RXPDU_CANID_RANGE                                          STD_OFF
+
 #define CANIF_VENDOR_ID                                                       6u
 #define CANIF_MODULE_ID                                                      60u
 #define CANIF_AR_RELEASE_MAJOR_VERSION                                        4u
@@ -55,43 +82,17 @@
 #define CANIF_TOTAL_DYNAMIC_PDUS                                              0u
 #define CANIF_RX_DYNAMIC_PDUS                                                 0u
 #define CANIF_NUM_TRANSCEIVERS                                                 0
-#define CANIF_PUBLIC_VERSIONINFO_API                                     STD_OFF
-#define CANIF_PUBLIC_SETDYNAMICTXID_API                                  STD_OFF
-#define CANIF_WAKEUP_SUPPORT                                             STD_OFF
 #define CANIF_CFG_NUM_CANRXPDUIDS                                            13u
 #define CANIF_CFG_TOTAL_HOH_NUM                                              18u
 #define CANIF_CFG_RX_BUFFER_SIZE                                              0u
-#define CANIF_CFG_READRXPDU_DATA_IN_RXPDUS                               STD_OFF
-#define CANIF_CFG_UL_RX                                                  STD_ON
 #define CANIF_CFG_NO_OF_TLV                                                    1
-#define CANIF_CFG_TRCV_DRV_SUPPORT                                       STD_OFF
 #define CANIF_CFG_NUM_TRCVS                                                    0
-#define CANIF_CFG_TRCV_WAKEUP_SUPPORT                                    STD_OFF
 #define CANIF_CFG_NO_TRCV_WAKEUP_SUPPORT                                      0u
-#define CANIF_CFG_TRCV_PN_SUPPORT                                        STD_OFF
 #define CANIF_NUM_CONTROLLERS                                                  1
-#define CANIF_RB_ERROR_PASSIVE_SUPPORT                                   STD_OFF
-#define CANIF_CFG_DLC_CHECK                                              STD_OFF
-#define CANIF_FD_SUPPORT                                                 STD_OFF
 #define CANIF_INSTANCE_ID                                                      0
-#define CANIF_LITE_CONFIGURATION                                         STD_OFF
-#define CANIF_USER_TP_TX_OFFLINE_MODE                                    STD_OFF
-#define CANIF_CANNM_ENABLED                                              STD_OFF
-#define CANIF_CANSM_ENABLED                                              STD_ON
-#define CANIF_J1939NM_ENABLED                                            STD_OFF
-#define CANIF_CANTP_ENABLED                                              STD_ON
-#define CANIF_CANTSYN_ENABLED                                            STD_OFF
-#define CANIF_PDUR_ENABLED                                               STD_ON
-#define CANIF_XCP_ENABLED                                                STD_OFF
-#define CANIF_J1939TP_ENABLED                                            STD_OFF
-#define CANIF_ECUM_ENABLED                                               STD_ON
-#define CANIF_PUBLIC_WAKEUP_CHECK_VALID_BY_NM                            STD_OFF
-#define CANIF_BASIC_CAN_SUPPORT                                          STD_OFF
-#define CANIF_BASIC_CAN_SUPPORT_LIST                                     STD_OFF
-#define CANIF_RXPDU_CANID_RANGE                                          STD_OFF
 #define CanIfConf_CanIfTxPduCfg_TPMS_ApplicationCyclic_Can_Network_0_CANNODE_0              0
 #define CanIfConf_CanIfTxPduCfg_TPMS_ApplicationResponse_Can_Network_0_CANNODE_0            1
-#define CfgEcuabCanIf_PduTxDiagUdsResp_Physical                      2
+#define CfgEcuabCanIf_PduTxDiagUdsResp_Physical                                             2
 #define CanIfConf_CanIfTxPduCfg_TPMS_Status_Can_Network_0_CANNODE_0                         3
 #define CanIfConf_CanIfTxPduCfg_TPMS_TirePT_Can_Network_0_CANNODE_0                         4
 #define CanIfConf_CanIfCtrlCfg_Can_Network_0_CANNODE_0                                      0
@@ -155,17 +156,16 @@ typedef enum{
 }CanIf_DlcErrorReturnType;
 
 typedef struct{
-   P2FUNC(void, TYPEDEF, User_ControllerBusOff) (VAR(uint8, AUTOMATIC) ControllerId);
-
+   P2FUNC(void, TYPEDEF, User_ControllerBusOff        )(VAR(uint8, AUTOMATIC) ControllerId);
    P2FUNC(void, TYPEDEF, User_ControllerModeIndication)(
-         VAR(uint8,                    AUTOMATIC) ControllerId
+         VAR(uint8,     AUTOMATIC) ControllerId
       ,  VAR(CanIf_ControllerModeType, AUTOMATIC) ControllerMode
    );
 }CanIf_CallbackFuncType;
 
 typedef struct{
    P2FUNC(void, TYPEDEF, CanIfRxPduUserRxIndicationUser)(
-             VAR(Type_SwcServiceCom_tIdPdu,         AUTOMATIC               ) RxPduTargetId_t
+             VAR(Type_SwcServiceCom_tIdPdu,          AUTOMATIC               ) RxPduTargetId_t
       ,  P2CONST(CanIf_Type_SwcServiceCom_stInfoPdu, TYPEDEF, CANIF_APPL_DATA) ULPduInfoTypUSER_tst
    );
 }CanIf_RxUSERCbk_Prototype;

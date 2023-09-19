@@ -3,31 +3,31 @@
 
 #include "CanTp_Cfg.hpp"
 
-#define CANTP_INIT                      		                              0x01u
-#define CANTP_SHUTDOWN                  		                              0x02u
-#define CANTP_TRANSMIT                  		                              0x03u
-#define CANTP_TXCONFIRMATION          			                              0x40u
-#define CANTP_RXINDICATION              		                              0x42u
-#define CANTP_MAINFUNCTION              		                              0x06u
-#define CANTP_GETVERSIONINFO            		                              0x07u
-#define CANTP_CANCELTRANSMIT					                                 0x08u
-#define CANTP_CANCELRECEIVE						                              0x09u
-#define CANTP_CHANGEPARAMETER           		                              0x0Au
-#define CANTP_READPARAMETER			    		                              0x0Bu
-#define CANTP_TRIGGERTRANSMIT					                                 0x0Cu
-#define CANTP_E_PARAM_CONFIG            		                              0x01u
-#define CANTP_E_PARAM_ID                		                              0x02u
-#define CANTP_E_PARAM_POINTER           		                              0x03u
-#define CANTP_E_INIT_FAILED         			                              0x04u
-#define CANTP_E_UNINIT                  		                              0x20u
-#define CANTP_E_INVALID_TX_ID           		                              0x30u
-#define CANTP_E_INVALID_RX_ID           		                              0x40u
-#define CANTP_E_PADDING      					                                 0x70u
-#define CANTP_E_INVALID_TATYPE          		                              0x90u
-#define CANTP_E_OPER_NOT_SUPPORTED      		                              0xA0u
-#define CANTP_E_COM                     		                              0xB0u
-#define CANTP_E_RX_COM                  		                              0xC0u
-#define CANTP_E_TX_COM                  		                              0xD0u
+#define CANTP_INIT                                                         0x01u
+#define CANTP_SHUTDOWN                                                     0x02u
+#define CANTP_TRANSMIT                                                     0x03u
+#define CANTP_TXCONFIRMATION                                               0x40u
+#define CANTP_RXINDICATION                                                 0x42u
+#define CANTP_MAINFUNCTION                                                 0x06u
+#define CANTP_GETVERSIONINFO                                               0x07u
+#define CANTP_CANCELTRANSMIT                                               0x08u
+#define CANTP_CANCELRECEIVE                                                0x09u
+#define CANTP_CHANGEPARAMETER                                              0x0Au
+#define CANTP_READPARAMETER                                                0x0Bu
+#define CANTP_TRIGGERTRANSMIT                                              0x0Cu
+#define CANTP_E_PARAM_CONFIG                                               0x01u
+#define CANTP_E_PARAM_ID                                                   0x02u
+#define CANTP_E_PARAM_POINTER                                              0x03u
+#define CANTP_E_INIT_FAILED                                                0x04u
+#define CANTP_E_UNINIT                                                     0x20u
+#define CANTP_E_INVALID_TX_ID                                              0x30u
+#define CANTP_E_INVALID_RX_ID                                              0x40u
+#define CANTP_E_PADDING                                                    0x70u
+#define CANTP_E_INVALID_TATYPE                                             0x90u
+#define CANTP_E_OPER_NOT_SUPPORTED                                         0xA0u
+#define CANTP_E_COM                                                        0xB0u
+#define CANTP_E_RX_COM                                                     0xC0u
+#define CANTP_E_TX_COM                                                     0xD0u
 
 #define CANTP_START_SEC_VAR_CLEARED_8
 #include "CanTp_MemMap.hpp"
