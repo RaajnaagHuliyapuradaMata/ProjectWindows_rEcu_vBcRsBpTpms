@@ -47,8 +47,8 @@ FUNC(void, COM_CODE) Com_InternalMainFunctionRx( VAR(Com_MainFuncType,AUTOMATIC)
    Com_RxIpduConstPtrType              RxIPduConstPtr;
    Com_RxIpduRamPtrType                RxIpduRamPtr;
    VAR(uint16_least, AUTOMATIC)        Idx_Pdu_ui;
-   VAR(Com_IpduIdType,AUTOMATIC)       StartIPduId;
-   VAR(Com_IpduIdType,AUTOMATIC)       EndIPduId;
+   VAR(Type_CfgSwcServiceCom_tIdIPdu,AUTOMATIC)       StartIPduId;
+   VAR(Type_CfgSwcServiceCom_tIdIPdu,AUTOMATIC)       EndIPduId;
 
    if(
 #if(COM_CONFIGURATION_USE_DET == STD_ON)
@@ -657,7 +657,7 @@ FUNC(boolean,COM_CODE) Com_ProvideRxIpduStatus(VAR(Type_SwcServiceCom_tIdPdu, AU
 {
    VAR(boolean, AUTOMATIC) pduStatus_b;
 
-   if(PduId < COM_GET_NUM_RX_IPDU)
+   if(PduId < CfgSwcServiceCom_dNumIPduRx)
    {
 
         PduId = COM_GET_RX_IPDU_ID(PduId);

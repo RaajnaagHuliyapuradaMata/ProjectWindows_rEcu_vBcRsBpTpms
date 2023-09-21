@@ -1,3 +1,28 @@
+/******************************************************************************/
+/* File   : Dcm_Lcfg_DspUds.c                                                 */
+/*                                                                            */
+/* Author : Raajnaag HULIYAPURADA MATA                                        */
+/*                                                                            */
+/* License / Warranty / Terms and Conditions                                  */
+/*                                                                            */
+/* Everyone is permitted to copy and distribute verbatim copies of this lice- */
+/* nse document, but changing it is not allowed. This is a free, copyright l- */
+/* icense for software and other kinds of works. By contrast, this license is */
+/* intended to guarantee your freedom to share and change all versions of a   */
+/* program, to make sure it remains free software for all its users. You have */
+/* certain responsibilities, if you distribute copies of the software, or if  */
+/* you modify it: responsibilities to respect the freedom of others.          */
+/*                                                                            */
+/* All rights reserved. Copyright � 1982 Raajnaag HULIYAPURADA MATA           */
+/*                                                                            */
+/* Always refer latest software version from:                                 */
+/* https://github.com/RaajnaagHuliyapuradaMata?tab=repositories               */
+/*                                                                            */
+/******************************************************************************/
+
+/******************************************************************************/
+/* #INCLUDES                                                                  */
+/******************************************************************************/
 #include "Std_Types.hpp"
 
 #include "Dcm.hpp"
@@ -10,6 +35,81 @@
 #include "DcmDspUds_RequestDownload_Prot.hpp"
 #include "DcmAppl.hpp"
 #include "DcmCore_DslDsd_Prot.hpp"
+
+/******************************************************************************/
+/* #DEFINES                                                                   */
+/******************************************************************************/
+#define RoutineControl_ResetEeprom_DcmDspStartRoutineInSignal_StrtIn          0u
+
+/******************************************************************************/
+/* MACROS                                                                     */
+/******************************************************************************/
+
+/******************************************************************************/
+/* TYPEDEFS                                                                   */
+/******************************************************************************/
+typedef enum{
+      RoutineControl_VehicleEolTestProcedure_DcmDspStopRoutineOut_Status_StpOut
+   ,  RoutineControl_VehicleEolTestProcedure_DcmDspStartRoutineOut_Status_StrtOut
+   ,  RoutineControl_VehicleEolTestProcedure_DcmDspRequestRoutineResults_TestStatus_ReqRsltOut
+   ,  RoutineControl_VehicleEolTestProcedure_DcmDspRequestRoutineResults_PressureFL_ReqRsltOut
+   ,  RoutineControl_VehicleEolTestProcedure_DcmDspRequestRoutineResults_PressureFR_ReqRsltOut
+   ,  RoutineControl_VehicleEolTestProcedure_DcmDspRequestRoutineResults_PressureRL_ReqRsltOut
+   ,  RoutineControl_VehicleEolTestProcedure_DcmDspRequestRoutineResults_PressureRR_ReqRsltOut
+   ,  DCM_RC_SIGOUTUINT8MAX
+}Dcm_DspRoutineSigOutUInt8Idx_ten;
+
+typedef enum{
+      RoutineControl_VehicleEolTestProcedure_DcmDspStopRoutineIn_TestProcedureActive_StpIn
+   ,  RoutineControl_VehicleEolTestProcedure_DcmDspStartRoutineIn_Timeout_StrtIn
+   ,  DCM_RC_SIGINUINT8MAX
+}Dcm_DspRoutineSigInUInt8Idx_ten;
+
+/******************************************************************************/
+/* CONSTS                                                                     */
+/******************************************************************************/
+FUNC(uint32,DCM_CODE) Dcm_RCGetSigVal_u32(
+      VAR(uint8,  AUTOMATIC) dataSigType_en
+   ,  VAR(uint16, AUTOMATIC) idxSignalIndex_u16
+);
+
+FUNC(void,DCM_CODE) Dcm_RCSetSigVal(
+      VAR(uint8,  AUTOMATIC) dataSigType_en
+   ,  VAR(uint16, AUTOMATIC) idxSignalIndex_u16
+   ,  VAR(uint32, AUTOMATIC) dataSigVal_u32
+);
+
+static FUNC(Std_ReturnType,DCM_CODE) Dcm_Dsp_RC_Fbl_RoutineControl_EraseMemory_65280_Func(
+   VAR(uint8, AUTOMATIC) dataSubFunc_u8
+);
+
+static FUNC(Std_ReturnType,DCM_CODE) Dcm_Dsp_RC_Fbl_RoutineControl_VerifyDownload_Func(
+   VAR(uint8, AUTOMATIC) dataSubFunc_u8
+);
+
+static FUNC(Std_ReturnType,DCM_CODE) Dcm_Dsp_RC_RoutineControl_EcuEolTestProcedure_Func(
+   VAR(uint8, AUTOMATIC) dataSubFunc_u8
+);
+
+static FUNC(Std_ReturnType,DCM_CODE) Dcm_Dsp_RC_RoutineControl_SelfTest_Func(
+   VAR(uint8, AUTOMATIC) dataSubFunc_u8
+);
+
+static FUNC(Std_ReturnType,DCM_CODE) Dcm_Dsp_RC_RoutineControl_VehicleEolTestProcedure_Func(
+   VAR(uint8, AUTOMATIC) dataSubFunc_u8
+);
+
+static FUNC(Std_ReturnType,DCM_CODE) Dcm_Dsp_RC_RoutineControl_ResetEeprom_Func(
+   VAR(uint8, AUTOMATIC) dataSubFunc_u8
+);
+
+static FUNC(Std_ReturnType,DCM_CODE) Dcm_Dsp_RC_RoutineControl_AuthorizeEcuProgram_Func(
+   VAR(uint8, AUTOMATIC) dataSubFunc_u8
+);
+
+FUNC(uint16,DCM_CODE) Dcm_DIDcalculateTableSize_u16(void);
+
+FUNC(uint16,DCM_CODE) Dcm_RequestDownloadCalculateTableSize_u16(void);
 
 #define DCM_START_SEC_CONST_UNSPECIFIED
 #include "Dcm_Cfg_MemMap.hpp"
@@ -25,153 +125,7 @@ CONST(Dcm_Dsp_Security_t, DCM_CONST) Dcm_Dsp_Security[DCM_CFG_DSP_NUMSECURITY] =
       {0x00u, 1000, (void*)&SecaFBL_GetSeed,  (void*)&SecaFBL_CompareKey,  0x1, 16, 16, 3, 5, 0, USE_ASYNCH_FNC}
    ,  {0x00u, 1000, (void*)&SecaDATA_GetSeed, (void*)&SecaDATA_CompareKey, 0x2, 16, 16, 3, 5, 0, USE_ASYNCH_FNC}
 };
-#define DCM_STOP_SEC_CONST_UNSPECIFIED
-#include "Dcm_Cfg_MemMap.hpp"
 
-#if(DCM_CFG_DSP_ROUTINECONTROL_ENABLED != DCM_CFG_OFF)
-
-#define DCM_START_SEC_VAR_CLEARED_16
-#include "Dcm_Cfg_MemMap.hpp"
-VAR(sint16, DCM_VAR)              Dcm_RCSigOutN_as16[1];
-#define DCM_STOP_SEC_VAR_CLEARED_16
-#include "Dcm_Cfg_MemMap.hpp"
-
-#define DCM_START_SEC_VAR_CLEARED_32
-#include "Dcm_Cfg_MemMap.hpp"
-VAR(sint32, DCM_VAR)              Dcm_RCSigOutN_as32[1];
-#define DCM_STOP_SEC_VAR_CLEARED_32
-#include "Dcm_Cfg_MemMap.hpp"
-
-#define DCM_START_SEC_VAR_CLEARED_8
-#include "Dcm_Cfg_MemMap.hpp"
-VAR(sint8, DCM_VAR)               Dcm_RCSigOutN_as8[1];
-#define DCM_STOP_SEC_VAR_CLEARED_8
-#include "Dcm_Cfg_MemMap.hpp"
-
-#define DCM_START_SEC_VAR_CLEARED_32
-#include "Dcm_Cfg_MemMap.hpp"
-VAR(uint32, DCM_VAR)              Dcm_RCSigOutN_au32[1];
-#define DCM_STOP_SEC_VAR_CLEARED_32
-#include "Dcm_Cfg_MemMap.hpp"
-
-#define DCM_START_SEC_VAR_CLEARED_16
-#include "Dcm_Cfg_MemMap.hpp"
-VAR(uint16, DCM_VAR)              Dcm_RCSigOutN_au16[1];
-#define DCM_STOP_SEC_VAR_CLEARED_16
-#include "Dcm_Cfg_MemMap.hpp"
-
-typedef enum{
-      RoutineControl_VehicleEolTestProcedure_DcmDspStopRoutineOut_Status_StpOut
-   ,  RoutineControl_VehicleEolTestProcedure_DcmDspStartRoutineOut_Status_StrtOut
-   ,  RoutineControl_VehicleEolTestProcedure_DcmDspRequestRoutineResults_TestStatus_ReqRsltOut
-   ,  RoutineControl_VehicleEolTestProcedure_DcmDspRequestRoutineResults_PressureFL_ReqRsltOut
-   ,  RoutineControl_VehicleEolTestProcedure_DcmDspRequestRoutineResults_PressureFR_ReqRsltOut
-   ,  RoutineControl_VehicleEolTestProcedure_DcmDspRequestRoutineResults_PressureRL_ReqRsltOut
-   ,  RoutineControl_VehicleEolTestProcedure_DcmDspRequestRoutineResults_PressureRR_ReqRsltOut
-   ,  DCM_RC_SIGOUTUINT8MAX
-}Dcm_DspRoutineSigOutUInt8Idx_ten;
-
-#define DCM_START_SEC_VAR_CLEARED_8
-#include "Dcm_Cfg_MemMap.hpp"
-static VAR(uint8, DCM_VAR) Dcm_RCSigOut_au8[7];
-       VAR(uint8, DCM_VAR) Dcm_RCSigOutN_au8[1];
-#define DCM_STOP_SEC_VAR_CLEARED_8
-#include "Dcm_Cfg_MemMap.hpp"
-
-#define DCM_START_SEC_VAR_CLEARED_16
-#include "Dcm_Cfg_MemMap.hpp"
-VAR(sint16, DCM_VAR)              Dcm_RCSigInN_as16[1];
-#define DCM_STOP_SEC_VAR_CLEARED_16
-#include "Dcm_Cfg_MemMap.hpp"
-
-#define DCM_START_SEC_VAR_CLEARED_32
-#include "Dcm_Cfg_MemMap.hpp"
-VAR(sint32, DCM_VAR)              Dcm_RCSigInN_as32[1];
-#define DCM_STOP_SEC_VAR_CLEARED_32
-#include "Dcm_Cfg_MemMap.hpp"
-
-#define DCM_START_SEC_VAR_CLEARED_8
-#include "Dcm_Cfg_MemMap.hpp"
-VAR(sint8, DCM_VAR)               Dcm_RCSigInN_as8[1];
-#define DCM_STOP_SEC_VAR_CLEARED_8
-#include "Dcm_Cfg_MemMap.hpp"
-
-#define DCM_START_SEC_VAR_CLEARED_32
-#include "Dcm_Cfg_MemMap.hpp"
-VAR(uint32, DCM_VAR)              Dcm_RCSigInN_au32[1];
-#define DCM_STOP_SEC_VAR_CLEARED_32
-#include "Dcm_Cfg_MemMap.hpp"
-
-#define DCM_START_SEC_VAR_CLEARED_16
-#include "Dcm_Cfg_MemMap.hpp"
-VAR(uint16, DCM_VAR)              Dcm_RCSigInN_au16[1];
-#define DCM_STOP_SEC_VAR_CLEARED_16
-#include "Dcm_Cfg_MemMap.hpp"
-
-typedef enum{
-    RoutineControl_VehicleEolTestProcedure_DcmDspStopRoutineIn_TestProcedureActive_StpIn
-   ,   RoutineControl_VehicleEolTestProcedure_DcmDspStartRoutineIn_Timeout_StrtIn
-   ,   DCM_RC_SIGINUINT8MAX
-}Dcm_DspRoutineSigInUInt8Idx_ten;
-
-#define DCM_START_SEC_VAR_CLEARED_8
-#include "Dcm_Cfg_MemMap.hpp"
-static VAR(uint8, DCM_VAR)               Dcm_RCSigIn_au8[2];
-#define DCM_STOP_SEC_VAR_CLEARED_8
-#include "Dcm_Cfg_MemMap.hpp"
-
-#define RoutineControl_ResetEeprom_DcmDspStartRoutineInSignal_StrtIn  0u
-
-#define DCM_START_SEC_VAR_CLEARED_8
-#include "Dcm_Cfg_MemMap.hpp"
-VAR(uint8, DCM_VAR)               Dcm_RCSigInN_au8[10];
-#define DCM_STOP_SEC_VAR_CLEARED_8
-#include "Dcm_Cfg_MemMap.hpp"
-
-#define DCM_START_SEC_CODE
-#include "Dcm_Cfg_MemMap.hpp"
-
-FUNC(uint32,DCM_CODE) Dcm_RCGetSigVal_u32(
-      VAR(uint8,  AUTOMATIC) dataSigType_en
-   ,  VAR(uint16, AUTOMATIC) idxSignalIndex_u16
-){
-   VAR(uint32,AUTOMATIC)       dataSigVal_u32;
-   dataSigVal_u32 = 0;
-   switch(
-      dataSigType_en
-   ){
-      case DCM_UINT8:
-         dataSigVal_u32 = (uint32)Dcm_RCSigOut_au8[idxSignalIndex_u16];
-         break;
-
-       default:
-         (void)idxSignalIndex_u16;
-         break;
-   }
-   return dataSigVal_u32;
-}
-
-FUNC(void,DCM_CODE) Dcm_RCSetSigVal(
-   VAR(uint8,AUTOMATIC) dataSigType_en,
-   VAR(uint16,AUTOMATIC) idxSignalIndex_u16,
-   VAR(uint32,AUTOMATIC) dataSigVal_u32
-){
-   switch(dataSigType_en){
-      case DCM_UINT8:
-         Dcm_RCSigIn_au8[idxSignalIndex_u16]=(uint8)dataSigVal_u32;
-         break;
-
-      default:
-         (void)dataSigVal_u32;
-         (void)idxSignalIndex_u16;
-         break;
-   }
-}
-#define DCM_STOP_SEC_CODE
-#include "Dcm_Cfg_MemMap.hpp"
-
-#define DCM_START_SEC_CONST_UNSPECIFIED
-#include "Dcm_Cfg_MemMap.hpp"
 static CONST(Dcm_DspRoutineSignalInfo_tst, DCM_CONST)DcmDspRc_Fbl_RoutineControl_EraseMemory_65280_StrtInSig[]       = {    { 0, 64, DCM_RC_INVLDSIGINDEX,                                                                     DCM_BIG_ENDIAN, DCM_VARIABLE_LENGTH}};
 static CONST(Dcm_DspRoutineSignalInfo_tst, DCM_CONST)DcmDspRc_RoutineControl_VehicleEolTestProcedure_StpInSig[]      = {    { 0,  8, RoutineControl_VehicleEolTestProcedure_DcmDspStopRoutineIn_TestProcedureActive_StpIn,     DCM_BIG_ENDIAN, DCM_UINT8}};
 static CONST(Dcm_DspRoutineSignalInfo_tst, DCM_CONST)DcmDspRc_RoutineControl_VehicleEolTestProcedure_StrtInSig[]     = {    { 0,  8, RoutineControl_VehicleEolTestProcedure_DcmDspStartRoutineIn_Timeout_StrtIn,               DCM_BIG_ENDIAN, DCM_UINT8}};
@@ -193,182 +147,7 @@ static CONST(Dcm_DspRoutineInfoType_tst, DCM_CONST)DcmDspRc_RoutineControl_SelfT
 static CONST(Dcm_DspRoutineInfoType_tst, DCM_CONST)DcmDspRc_RoutineControl_VehicleEolTestProcedure = {0xFFFFFFFFuL, 0xFFFFFFFFuL, NULL_PTR, DcmDspRc_RoutineControl_VehicleEolTestProcedure_StrtInSig, DcmDspRc_RoutineControl_VehicleEolTestProcedure_StpInSig, NULL_PTR, DcmDspRc_RoutineControl_VehicleEolTestProcedure_StrtOutSig, DcmDspRc_RoutineControl_VehicleEolTestProcedure_StopOutSig, DcmDspRc_RoutineControl_VehicleEolTestProcedure_ReqRsltOutSig,  1, 1, 0, 1, 1, 5,  1, 1, 0, 1, 1, 5, 1, 1, 0, 1, 1, 5};
 static CONST(Dcm_DspRoutineInfoType_tst, DCM_CONST)DcmDspRc_RoutineControl_ResetEeprom             = {0xFFFFFFFFuL, 0xFFFFFFFFuL, NULL_PTR, DcmDspRc_RoutineControl_ResetEeprom_StrtInSig,             NULL_PTR,                                                 NULL_PTR, NULL_PTR,                                                   NULL_PTR,                                                   NULL_PTR,                                                      10, 0, 0, 0, 0, 0, 10, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0};
 static CONST(Dcm_DspRoutineInfoType_tst, DCM_CONST)DcmDspRc_RoutineControl_AuthorizeEcuProgram     = {0xFFFFFFFFuL, 0xFFFFFFFFuL, NULL_PTR, NULL_PTR,                                                  NULL_PTR,                                                 NULL_PTR, NULL_PTR,                                                   NULL_PTR,                                                   NULL_PTR,                                                       0, 0, 0, 0, 0, 0,  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-#define DCM_STOP_SEC_CONST_UNSPECIFIED
-#include "Dcm_Cfg_MemMap.hpp"
 
-#define DCM_START_SEC_CODE
-#include "Dcm_Cfg_MemMap.hpp"
-static FUNC(Std_ReturnType,DCM_CODE) Dcm_Dsp_RC_Fbl_RoutineControl_EraseMemory_65280_Func(
-   VAR(uint8, AUTOMATIC) dataSubFunc_u8
-){
-   VAR(Std_ReturnType,AUTOMATIC) dataRetVal_u8;
-   dataRetVal_u8 = E_NOT_OK;
-   switch(dataSubFunc_u8){
-      case 1u:
-         dataRetVal_u8 = Fbl_ProgM_EraseMemoryCallback_65280(
-            &(Dcm_InParameterBuf_au8[0]),
-            Dcm_RCOpStatus_u8,
-            Dcm_RCCurrDataLength_u16,
-            &(Dcm_RCNegResCode_u8));
-         break;
-
-      default:
-         Dcm_RCNegResCode_u8 = DCM_E_SUBFUNCTIONNOTSUPPORTED;
-         break;
-   }
-   return (dataRetVal_u8);
-}
-
-static FUNC(Std_ReturnType,DCM_CODE) Dcm_Dsp_RC_Fbl_RoutineControl_VerifyDownload_Func(
-   VAR(uint8, AUTOMATIC) dataSubFunc_u8
-){
-   VAR(Std_ReturnType,AUTOMATIC) dataRetVal_u8;
-   dataRetVal_u8 = E_NOT_OK;
-   switch(dataSubFunc_u8){
-      case 1u:
-         dataRetVal_u8 = Fbl_ProgM_VerifyDownloadCallback(
-            Dcm_RCOpStatus_u8,
-            &(Dcm_RCNegResCode_u8));
-
-         break;
-
-      default:
-         Dcm_RCNegResCode_u8 = DCM_E_SUBFUNCTIONNOTSUPPORTED;
-         break;
-   }
-   return (dataRetVal_u8);
-}
-
-static FUNC(Std_ReturnType,DCM_CODE) Dcm_Dsp_RC_RoutineControl_EcuEolTestProcedure_Func(
-   VAR(uint8, AUTOMATIC) dataSubFunc_u8
-){
-   VAR(Std_ReturnType,AUTOMATIC) dataRetVal_u8;
-   dataRetVal_u8 = E_NOT_OK;
-   switch(dataSubFunc_u8){
-      case 1u:
-         dataRetVal_u8 = DcmDsp_StartEcuEolTestProcedure_Callback(
-            Dcm_RCOpStatus_u8,
-            &(Dcm_RCNegResCode_u8));
-
-         break;
-
-      default:
-         Dcm_RCNegResCode_u8 = DCM_E_SUBFUNCTIONNOTSUPPORTED;
-         break;
-   }
-   return (dataRetVal_u8);
-}
-
-static FUNC(Std_ReturnType,DCM_CODE) Dcm_Dsp_RC_RoutineControl_SelfTest_Func(
-   VAR(uint8, AUTOMATIC) dataSubFunc_u8
-){
-   VAR(Std_ReturnType,AUTOMATIC) dataRetVal_u8;
-   dataRetVal_u8 = E_NOT_OK;
-   switch(dataSubFunc_u8){
-      case 1u:
-         dataRetVal_u8 = DcmDsp_StartSelfTest_Callback(
-            Dcm_RCOpStatus_u8,
-            &(Dcm_RCNegResCode_u8));
-
-         break;
-
-      case 3u:
-         dataRetVal_u8 = DcmDsp_RequestResultSelfTest_Callback(
-            Dcm_RCOpStatus_u8,
-            &(Dcm_RCNegResCode_u8));
-         break;
-
-      default:
-         Dcm_RCNegResCode_u8 = DCM_E_SUBFUNCTIONNOTSUPPORTED;
-         break;
-   }
-   return (dataRetVal_u8);
-}
-
-static FUNC(Std_ReturnType,DCM_CODE) Dcm_Dsp_RC_RoutineControl_VehicleEolTestProcedure_Func(
-   VAR(uint8, AUTOMATIC) dataSubFunc_u8
-){
-   VAR(Std_ReturnType,AUTOMATIC) dataRetVal_u8;
-   dataRetVal_u8 = E_NOT_OK;
-   switch(dataSubFunc_u8){
-      case 1u:
-         dataRetVal_u8 = DcmDsp_StartVehicleEolTestProcedure_Callback(
-            Dcm_RCSigIn_au8[RoutineControl_VehicleEolTestProcedure_DcmDspStartRoutineIn_Timeout_StrtIn],
-            Dcm_RCOpStatus_u8,
-            &(Dcm_RCSigOut_au8[RoutineControl_VehicleEolTestProcedure_DcmDspStartRoutineOut_Status_StrtOut]),
-            &(Dcm_RCNegResCode_u8));
-         break;
-
-      case 2u:
-         dataRetVal_u8 = DcmDsp_StopVehicleEolTestProcedure_Callback(
-            Dcm_RCSigIn_au8[RoutineControl_VehicleEolTestProcedure_DcmDspStopRoutineIn_TestProcedureActive_StpIn],
-            Dcm_RCOpStatus_u8,
-            &(Dcm_RCSigOut_au8[RoutineControl_VehicleEolTestProcedure_DcmDspStopRoutineOut_Status_StpOut]),
-            &(Dcm_RCNegResCode_u8));
-
-         break;
-
-      case 3u:
-         dataRetVal_u8 = DcmDsp_RequestResultVehicleEolTestProcedure_Callback(
-            Dcm_RCOpStatus_u8,
-            &(Dcm_RCSigOut_au8[RoutineControl_VehicleEolTestProcedure_DcmDspRequestRoutineResults_TestStatus_ReqRsltOut]),
-            &(Dcm_RCSigOut_au8[RoutineControl_VehicleEolTestProcedure_DcmDspRequestRoutineResults_PressureFL_ReqRsltOut]),
-            &(Dcm_RCSigOut_au8[RoutineControl_VehicleEolTestProcedure_DcmDspRequestRoutineResults_PressureFR_ReqRsltOut]),
-            &(Dcm_RCSigOut_au8[RoutineControl_VehicleEolTestProcedure_DcmDspRequestRoutineResults_PressureRL_ReqRsltOut]),
-            &(Dcm_RCSigOut_au8[RoutineControl_VehicleEolTestProcedure_DcmDspRequestRoutineResults_PressureRR_ReqRsltOut]),
-            &(Dcm_RCNegResCode_u8));
-         break;
-
-      default:
-         Dcm_RCNegResCode_u8 = DCM_E_SUBFUNCTIONNOTSUPPORTED;
-         break;
-   }
-   return (dataRetVal_u8);
-}
-
-static FUNC(Std_ReturnType,DCM_CODE) Dcm_Dsp_RC_RoutineControl_ResetEeprom_Func(
-   VAR(uint8, AUTOMATIC) dataSubFunc_u8
-){
-   VAR(Std_ReturnType,AUTOMATIC) dataRetVal_u8;
-   dataRetVal_u8 = E_NOT_OK;
-   switch(dataSubFunc_u8){
-      case 1u:
-         dataRetVal_u8 = DcmDsp_StartResetEeprom_Callback(
-            &Dcm_RCSigInN_au8[RoutineControl_ResetEeprom_DcmDspStartRoutineInSignal_StrtIn],
-            Dcm_RCOpStatus_u8,
-            &(Dcm_RCNegResCode_u8));
-         break;
-
-      default:
-         Dcm_RCNegResCode_u8 = DCM_E_SUBFUNCTIONNOTSUPPORTED;
-         break;
-   }
-   return (dataRetVal_u8);
-}
-
-static FUNC(Std_ReturnType,DCM_CODE) Dcm_Dsp_RC_RoutineControl_AuthorizeEcuProgram_Func(
-   VAR(uint8, AUTOMATIC) dataSubFunc_u8
-){
-   VAR(Std_ReturnType,AUTOMATIC) dataRetVal_u8;
-   dataRetVal_u8 = E_NOT_OK;
-   switch(dataSubFunc_u8){
-      case 1u:
-         dataRetVal_u8 = DcmDsp_StartAuthorizeEcuProgram_Callback(
-            Dcm_RCOpStatus_u8,
-            &(Dcm_RCNegResCode_u8));
-         break;
-
-      default:
-         Dcm_RCNegResCode_u8 = DCM_E_SUBFUNCTIONNOTSUPPORTED;
-         break;
-   }
-   return (dataRetVal_u8);
-}
-#define DCM_STOP_SEC_CODE
-#include "Dcm_Cfg_MemMap.hpp"
-
-#define DCM_START_SEC_CONST_UNSPECIFIED
-#include "Dcm_Cfg_MemMap.hpp"
 CONST(Dcm_DspRoutineType_tst, DCM_CONST) Dcm_DspRoutine_cast[DCM_CFG_RC_NUMRIDS] = {
       {0x0203,  TRUE, FALSE, &DcmDspRc_RoutineControl_AuthorizeEcuProgram,     &Dcm_Dsp_RC_RoutineControl_AuthorizeEcuProgram_Func,     TRUE, FALSE, FALSE, TRUE, FALSE}
    ,  {0x1248,  TRUE, FALSE, &DcmDspRc_RoutineControl_ResetEeprom,             &Dcm_Dsp_RC_RoutineControl_ResetEeprom_Func,             TRUE, FALSE, FALSE, TRUE, FALSE}
@@ -378,19 +157,7 @@ CONST(Dcm_DspRoutineType_tst, DCM_CONST) Dcm_DspRoutine_cast[DCM_CFG_RC_NUMRIDS]
    ,  {0xff00, FALSE, FALSE, &DcmDspRc_Fbl_RoutineControl_EraseMemory_65280,   &Dcm_Dsp_RC_Fbl_RoutineControl_EraseMemory_65280_Func,   TRUE, FALSE, FALSE, TRUE, FALSE}
    ,  {0xff01,  TRUE, FALSE, &DcmDspRc_Fbl_RoutineControl_VerifyDownload,      &Dcm_Dsp_RC_Fbl_RoutineControl_VerifyDownload_Func,      TRUE, FALSE, FALSE, TRUE, FALSE}
 };
-#define DCM_STOP_SEC_CONST_UNSPECIFIED
-#include "Dcm_Cfg_MemMap.hpp"
 
-#define DCM_START_SEC_VAR_CLEARED_UNSPECIFIED
-#include "Dcm_Cfg_MemMap.hpp"
-VAR(Dcm_DspRoutineStatusType_ten, DCM_VAR) Dcm_RoutineStatus_aen[DCM_CFG_RC_NUMRIDS];
-#define DCM_STOP_SEC_VAR_CLEARED_UNSPECIFIED
-#include "Dcm_Cfg_MemMap.hpp"
-
-#endif
-
-#define DCM_START_SEC_CONST_UNSPECIFIED
-#include "Dcm_Cfg_MemMap.hpp"
 CONST(Dcm_SignalDIDSubStructConfig_tst, DCM_CONST) Dcm_DspDid_ControlInfo_st[13] = {
       {NULL_PTR, NULL_PTR, NULL_PTR}
    ,  {NULL_PTR, NULL_PTR, (void*)&DcmDspData_ManufacturingSupportMode_WriteFunc}
@@ -446,11 +213,7 @@ CONST(Dcm_DataInfoConfig_tst, DCM_CONST) Dcm_DspDataInfo_st [37] = {
    ,  {(void*)&DcmDspData_WheelSensor04_ReadFunc,                   80, DCM_INVALID_NVDBLOCK,  0, DCM_UINT8, USE_DATA_ASYNCH_FNC, DCM_BIG_ENDIAN, TRUE}
    ,  {(void*)&DcmDspData_WheelSensorParameter_ReadFunc,            32, DCM_INVALID_NVDBLOCK,  7, DCM_UINT8, USE_DATA_ASYNCH_FNC, DCM_BIG_ENDIAN, TRUE}
 };
-#define DCM_STOP_SEC_CONST_UNSPECIFIED
-#include "Dcm_Cfg_MemMap.hpp"
 
-#define DCM_START_SEC_CONST_UNSPECIFIED
-#include "Dcm_Cfg_MemMap.hpp"
 static CONST(Dcm_SignalDIDConfig_tst, DCM_CONST) DcmDspDid_F181_SigConf[1] = {{0,  2}};
 static CONST(Dcm_SignalDIDConfig_tst, DCM_CONST) DcmDspDid_F184_SigConf[1] = {{0,  1}};
 static CONST(Dcm_SignalDIDConfig_tst, DCM_CONST) DcmDspDid_F014_SigConf[1] = {{0,  3}};
@@ -488,11 +251,7 @@ static CONST(Dcm_SignalDIDConfig_tst, DCM_CONST) DcmDspDid_FDA5_SigConf[1] = {{0
 static CONST(Dcm_SignalDIDConfig_tst, DCM_CONST) DcmDspDid_FD17_SigConf[1] = {{0, 23}};
 static CONST(Dcm_SignalDIDConfig_tst, DCM_CONST) DcmDspDid_FD16_SigConf[1] = {{0, 27}};
 static CONST(Dcm_SignalDIDConfig_tst, DCM_CONST) DcmDspDid_FD18_SigConf[1] = {{0, 24}};
-#define DCM_STOP_SEC_CONST_UNSPECIFIED
-#include "Dcm_Cfg_MemMap.hpp"
 
-#define DCM_START_SEC_CONST_UNSPECIFIED
-#include "Dcm_Cfg_MemMap.hpp"
 static CONST(Dcm_ExtendedDIDConfig_tst, DCM_CONST) Did_extendedConfig_DcmDspDidInfo_ApplicationID                 = {0x05uL, 0xFFFFFFFFuL, &Dcm_ReadApplicationId_UserSpecificCheck,                 0x0uL, 0x0uL, NULL_PTR};
 static CONST(Dcm_ExtendedDIDConfig_tst, DCM_CONST) Did_extendedConfig_DcmDspDidInfo_AppSwFingerprint              = {0x04uL, 0xFFFFFFFFuL, &Dcm_ReadAppSwFingerprint_UserSpecificCheck,              0x0uL, 0x0uL, NULL_PTR};
 static CONST(Dcm_ExtendedDIDConfig_tst, DCM_CONST) Did_extendedConfig_DcmDspDidInfo_ApplicationProgramInformation = {0x04uL, 0xFFFFFFFFuL, &Dcm_ReadApplicationProgramInformation_UserSpecificCheck, 0x0uL, 0x0uL, NULL_PTR};
@@ -530,11 +289,7 @@ static CONST(Dcm_ExtendedDIDConfig_tst, DCM_CONST) Did_extendedConfig_DcmDspDidI
 static CONST(Dcm_ExtendedDIDConfig_tst, DCM_CONST) Did_extendedConfig_DcmDspDidInfo_PressureOnKeyConfig           = {0x05uL, 0xFFFFFFFFuL, NULL_PTR,                                                 0x5uL, 0x4uL, NULL_PTR};
 static CONST(Dcm_ExtendedDIDConfig_tst, DCM_CONST) Did_extendedConfig_DcmDspDidInfo_TemperatureWarningThreshold   = {0x05uL, 0xFFFFFFFFuL, NULL_PTR,                                                 0x5uL, 0x4uL, NULL_PTR};
 static CONST(Dcm_ExtendedDIDConfig_tst, DCM_CONST) Did_extendedConfig_DcmDspDidInfo_PressureOnKeyStatus           = {0x05uL, 0xFFFFFFFFuL, NULL_PTR,                                                 0x0uL, 0x0uL, NULL_PTR};
-#define DCM_STOP_SEC_CONST_UNSPECIFIED
-#include "Dcm_Cfg_MemMap.hpp"
 
-#define DCM_START_SEC_CONST_UNSPECIFIED
-#include "Dcm_Cfg_MemMap.hpp"
 CONST(Dcm_DIDConfig_tst, DCM_CONST) Dcm_DIDConfig[] = {
       {0x101,  1,   3, TRUE, FALSE, DcmDspDid_101_SigConf,  &Did_extendedConfig_DcmDspDidInfo_ComponentAndSwType}
    ,  {0xF011, 1,  79, TRUE, FALSE, DcmDspDid_F011_SigConf, &Did_extendedConfig_DcmDspDidInfo_BootloaderProgramInformation}
@@ -574,51 +329,13 @@ CONST(Dcm_DIDConfig_tst, DCM_CONST) Dcm_DIDConfig[] = {
    ,  {0xFDA4, 1,  10, TRUE, FALSE, DcmDspDid_FDA4_SigConf, &Did_extendedConfig_DcmDspDidInfo_WheelSensor04}
    ,  {0xFDA5, 1,  10, TRUE, FALSE, DcmDspDid_FDA5_SigConf, &Did_extendedConfig_DcmDspDidInfo_LastReceivedWheelSensor}
 };
-#define DCM_STOP_SEC_CONST_UNSPECIFIED
-#include "Dcm_Cfg_MemMap.hpp"
 
-#define DCM_START_SEC_CODE
-#include "Dcm_Cfg_MemMap.hpp"
-FUNC(uint16,DCM_CODE) Dcm_DIDcalculateTableSize_u16(
-   void){
-   return ((uint16)(sizeof(Dcm_DIDConfig)) / (uint16)(sizeof(Dcm_DIDConfig_tst)));
-}
-
-boolean Dcm_ControlDtcSettingModecheck_b(
-   P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, DCM_INTERN_DATA) NegRespCode_u8
-){
-   VAR(boolean,AUTOMATIC) retVal_b;
-   VAR(Std_ReturnType,AUTOMATIC) retVal_u8 = DcmAppl_UserDTCSettingEnableModeRuleService();
-   if(retVal_u8 != E_OK){
-      retVal_b = FALSE;
-   }
-   else{
-      retVal_b = TRUE;
-   }
-   (void)NegRespCode_u8;
-   return retVal_b;
-}
-#define DCM_STOP_SEC_CODE
-#include "Dcm_Cfg_MemMap.hpp"
-
-#define DCM_START_SEC_CONST_UNSPECIFIED
-#include "Dcm_Cfg_MemMap.hpp"
 CONST(Dcm_DspEcuReset_tst, DCM_CONST) Dcm_DspEcuResetType_cast[DCM_CFG_DSP_NUMRESETTYPE] = {
       {0x01, DCM_RESET_NO_BOOT}
    ,  {0x03, DCM_RESET_NO_BOOT}
    ,  {0x4C, DCM_RESET_OEM_BOOT}
 };
-#define DCM_STOP_SEC_CONST_UNSPECIFIED
-#include "Dcm_Cfg_MemMap.hpp"
 
-#define DCM_START_SEC_VAR_INIT_UNSPECIFIED
-#include "Dcm_Cfg_MemMap.hpp"
-P2FUNC(Std_ReturnType,DCM_APPL_CODE,Dcm_ComMUserReEnableModeRuleRef)(void) = &DcmAppl_UserCommCtrlReEnableModeRuleService;
-#define DCM_STOP_SEC_VAR_INIT_UNSPECIFIED
-#include "Dcm_Cfg_MemMap.hpp"
-
-#define DCM_START_SEC_CONST_UNSPECIFIED
-#include "Dcm_Cfg_MemMap.hpp"
 CONST(Dcm_Dsld_AllChannelsInfoType, DCM_CONST) Dcm_AllChannels_ForModeInfo[DCM_CFG_NUM_ALLCHANNELS_MODE_INFO] = {{ComMConf_ComMChannel_ComMChannel_Can_Network_0_Channel}};
 CONST (Dcm_RequestDownloadConfig_tst, DCM_CONST) Dcm_RequestDownloadConfig_cast[] = {
       {0xA0080000, 0xA00FFFFF, 0xFFFFFFFFuL, 0}
@@ -627,8 +344,333 @@ CONST (Dcm_RequestDownloadConfig_tst, DCM_CONST) Dcm_RequestDownloadConfig_cast[
 #define DCM_STOP_SEC_CONST_UNSPECIFIED
 #include "Dcm_Cfg_MemMap.hpp"
 
+/******************************************************************************/
+/* PARAMS                                                                     */
+/******************************************************************************/
+
+/******************************************************************************/
+/* OBJECTS                                                                    */
+/******************************************************************************/
+#define DCM_START_SEC_VAR_CLEARED_16
+#include "Dcm_Cfg_MemMap.hpp"
+VAR(sint16, DCM_VAR)              Dcm_RCSigOutN_as16[1];
+#define DCM_STOP_SEC_VAR_CLEARED_16
+#include "Dcm_Cfg_MemMap.hpp"
+
+#define DCM_START_SEC_VAR_CLEARED_32
+#include "Dcm_Cfg_MemMap.hpp"
+VAR(sint32, DCM_VAR)              Dcm_RCSigOutN_as32[1];
+#define DCM_STOP_SEC_VAR_CLEARED_32
+#include "Dcm_Cfg_MemMap.hpp"
+
+#define DCM_START_SEC_VAR_CLEARED_8
+#include "Dcm_Cfg_MemMap.hpp"
+VAR(sint8, DCM_VAR)               Dcm_RCSigOutN_as8[1];
+#define DCM_STOP_SEC_VAR_CLEARED_8
+#include "Dcm_Cfg_MemMap.hpp"
+
+#define DCM_START_SEC_VAR_CLEARED_32
+#include "Dcm_Cfg_MemMap.hpp"
+VAR(uint32, DCM_VAR)              Dcm_RCSigOutN_au32[1];
+#define DCM_STOP_SEC_VAR_CLEARED_32
+#include "Dcm_Cfg_MemMap.hpp"
+
+#define DCM_START_SEC_VAR_CLEARED_16
+#include "Dcm_Cfg_MemMap.hpp"
+VAR(uint16, DCM_VAR)              Dcm_RCSigOutN_au16[1];
+#define DCM_STOP_SEC_VAR_CLEARED_16
+#include "Dcm_Cfg_MemMap.hpp"
+
+#define DCM_START_SEC_VAR_CLEARED_8
+#include "Dcm_Cfg_MemMap.hpp"
+static VAR(uint8, DCM_VAR) Dcm_RCSigOut_au8[7];
+       VAR(uint8, DCM_VAR) Dcm_RCSigOutN_au8[1];
+#define DCM_STOP_SEC_VAR_CLEARED_8
+#include "Dcm_Cfg_MemMap.hpp"
+
+#define DCM_START_SEC_VAR_CLEARED_16
+#include "Dcm_Cfg_MemMap.hpp"
+VAR(sint16, DCM_VAR)              Dcm_RCSigInN_as16[1];
+#define DCM_STOP_SEC_VAR_CLEARED_16
+#include "Dcm_Cfg_MemMap.hpp"
+
+#define DCM_START_SEC_VAR_CLEARED_32
+#include "Dcm_Cfg_MemMap.hpp"
+VAR(sint32, DCM_VAR)              Dcm_RCSigInN_as32[1];
+#define DCM_STOP_SEC_VAR_CLEARED_32
+#include "Dcm_Cfg_MemMap.hpp"
+
+#define DCM_START_SEC_VAR_CLEARED_8
+#include "Dcm_Cfg_MemMap.hpp"
+VAR(sint8, DCM_VAR)               Dcm_RCSigInN_as8[1];
+#define DCM_STOP_SEC_VAR_CLEARED_8
+#include "Dcm_Cfg_MemMap.hpp"
+
+#define DCM_START_SEC_VAR_CLEARED_32
+#include "Dcm_Cfg_MemMap.hpp"
+VAR(uint32, DCM_VAR)              Dcm_RCSigInN_au32[1];
+#define DCM_STOP_SEC_VAR_CLEARED_32
+#include "Dcm_Cfg_MemMap.hpp"
+
+#define DCM_START_SEC_VAR_CLEARED_16
+#include "Dcm_Cfg_MemMap.hpp"
+VAR(uint16, DCM_VAR)              Dcm_RCSigInN_au16[1];
+#define DCM_STOP_SEC_VAR_CLEARED_16
+#include "Dcm_Cfg_MemMap.hpp"
+
+#define DCM_START_SEC_VAR_CLEARED_8
+#include "Dcm_Cfg_MemMap.hpp"
+static VAR(uint8, DCM_VAR)               Dcm_RCSigIn_au8[2];
+#define DCM_STOP_SEC_VAR_CLEARED_8
+#include "Dcm_Cfg_MemMap.hpp"
+
+#define DCM_START_SEC_VAR_CLEARED_8
+#include "Dcm_Cfg_MemMap.hpp"
+VAR(uint8, DCM_VAR)               Dcm_RCSigInN_au8[10];
+#define DCM_STOP_SEC_VAR_CLEARED_8
+#include "Dcm_Cfg_MemMap.hpp"
+
+#define DCM_START_SEC_VAR_CLEARED_UNSPECIFIED
+#include "Dcm_Cfg_MemMap.hpp"
+VAR(Dcm_DspRoutineStatusType_ten, DCM_VAR) Dcm_RoutineStatus_aen[DCM_CFG_RC_NUMRIDS];
+#define DCM_STOP_SEC_VAR_CLEARED_UNSPECIFIED
+#include "Dcm_Cfg_MemMap.hpp"
+
+#define DCM_START_SEC_VAR_INIT_UNSPECIFIED
+#include "Dcm_Cfg_MemMap.hpp"
+P2FUNC(Std_ReturnType,DCM_APPL_CODE,Dcm_ComMUserReEnableModeRuleRef)(void) = &DcmAppl_UserCommCtrlReEnableModeRuleService;
+#define DCM_STOP_SEC_VAR_INIT_UNSPECIFIED
+#include "Dcm_Cfg_MemMap.hpp"
+
+/******************************************************************************/
+/* FUNCTIONS                                                                  */
+/******************************************************************************/
 #define DCM_START_SEC_CODE
 #include "Dcm_Cfg_MemMap.hpp"
+FUNC(uint32,DCM_CODE) Dcm_RCGetSigVal_u32(
+      VAR(uint8,  AUTOMATIC) dataSigType_en
+   ,  VAR(uint16, AUTOMATIC) idxSignalIndex_u16
+){
+   VAR(uint32,AUTOMATIC)       dataSigVal_u32;
+   dataSigVal_u32 = 0;
+   switch(
+      dataSigType_en
+   ){
+      case DCM_UINT8:
+         dataSigVal_u32 = (uint32)Dcm_RCSigOut_au8[idxSignalIndex_u16];
+         break;
+
+       default:
+         (void)idxSignalIndex_u16;
+         break;
+   }
+   return dataSigVal_u32;
+}
+
+FUNC(void,DCM_CODE) Dcm_RCSetSigVal(
+      VAR(uint8,  AUTOMATIC) dataSigType_en
+   ,  VAR(uint16, AUTOMATIC) idxSignalIndex_u16
+   ,  VAR(uint32, AUTOMATIC) dataSigVal_u32
+){
+   switch(
+      dataSigType_en
+   ){
+      case DCM_UINT8:
+         Dcm_RCSigIn_au8[idxSignalIndex_u16]=(uint8)dataSigVal_u32;
+         break;
+
+      default:
+         (void)dataSigVal_u32;
+         (void)idxSignalIndex_u16;
+         break;
+   }
+}
+
+static FUNC(Std_ReturnType,DCM_CODE) Dcm_Dsp_RC_Fbl_RoutineControl_EraseMemory_65280_Func(
+   VAR(uint8, AUTOMATIC) dataSubFunc_u8
+){
+   VAR(Std_ReturnType,AUTOMATIC) dataRetVal_u8 = E_NOT_OK;
+   switch(
+      dataSubFunc_u8
+   ){
+      case 1u:
+         dataRetVal_u8 = Fbl_ProgM_EraseMemoryCallback_65280(
+               &Dcm_InParameterBuf_au8[0]
+            ,  Dcm_RCOpStatus_u8
+            ,  Dcm_RCCurrDataLength_u16
+            ,  &Dcm_RCNegResCode_u8
+         );
+         break;
+
+      default:
+         Dcm_RCNegResCode_u8 = DCM_E_SUBFUNCTIONNOTSUPPORTED;
+         break;
+   }
+   return dataRetVal_u8;
+}
+
+static FUNC(Std_ReturnType,DCM_CODE) Dcm_Dsp_RC_Fbl_RoutineControl_VerifyDownload_Func(
+   VAR(uint8, AUTOMATIC) dataSubFunc_u8
+){
+   VAR(Std_ReturnType,AUTOMATIC) dataRetVal_u8 = E_NOT_OK;
+   switch(
+      dataSubFunc_u8
+   ){
+      case 1u:
+         dataRetVal_u8 = Fbl_ProgM_VerifyDownloadCallback(
+               Dcm_RCOpStatus_u8
+            ,  &Dcm_RCNegResCode_u8
+         );
+         break;
+
+      default:
+         Dcm_RCNegResCode_u8 = DCM_E_SUBFUNCTIONNOTSUPPORTED;
+         break;
+   }
+   return dataRetVal_u8;
+}
+
+static FUNC(Std_ReturnType,DCM_CODE) Dcm_Dsp_RC_RoutineControl_EcuEolTestProcedure_Func(
+   VAR(uint8, AUTOMATIC) dataSubFunc_u8
+){
+   VAR(Std_ReturnType,AUTOMATIC) dataRetVal_u8 = E_NOT_OK;
+   switch(
+   dataSubFunc_u8
+   ){
+      case 1u:
+         dataRetVal_u8 = DcmDsp_StartEcuEolTestProcedure_Callback(
+               Dcm_RCOpStatus_u8
+            ,  &Dcm_RCNegResCode_u8
+         );
+         break;
+
+      default:
+         Dcm_RCNegResCode_u8 = DCM_E_SUBFUNCTIONNOTSUPPORTED;
+         break;
+   }
+   return dataRetVal_u8;
+}
+
+static FUNC(Std_ReturnType,DCM_CODE) Dcm_Dsp_RC_RoutineControl_SelfTest_Func(
+   VAR(uint8, AUTOMATIC) dataSubFunc_u8
+){
+   VAR(Std_ReturnType,AUTOMATIC) dataRetVal_u8 = E_NOT_OK;
+   switch(
+      dataSubFunc_u8
+   ){
+      case 1u:
+         dataRetVal_u8 = DcmDsp_StartSelfTest_Callback(
+               Dcm_RCOpStatus_u8
+            ,  &Dcm_RCNegResCode_u8
+         );
+
+         break;
+
+      case 3u:
+         dataRetVal_u8 = DcmDsp_RequestResultSelfTest_Callback(
+            Dcm_RCOpStatus_u8,
+            &Dcm_RCNegResCode_u8
+         );
+         break;
+
+      default:
+         Dcm_RCNegResCode_u8 = DCM_E_SUBFUNCTIONNOTSUPPORTED;
+         break;
+   }
+   return dataRetVal_u8;
+}
+
+static FUNC(Std_ReturnType,DCM_CODE) Dcm_Dsp_RC_RoutineControl_VehicleEolTestProcedure_Func(
+   VAR(uint8, AUTOMATIC) dataSubFunc_u8
+){
+   VAR(Std_ReturnType,AUTOMATIC) dataRetVal_u8 = E_NOT_OK;
+   switch(
+      dataSubFunc_u8
+   ){
+      case 1u:
+         dataRetVal_u8 = DcmDsp_StartVehicleEolTestProcedure_Callback(
+               Dcm_RCSigIn_au8[RoutineControl_VehicleEolTestProcedure_DcmDspStartRoutineIn_Timeout_StrtIn]
+            ,  Dcm_RCOpStatus_u8
+            ,  &Dcm_RCSigOut_au8[RoutineControl_VehicleEolTestProcedure_DcmDspStartRoutineOut_Status_StrtOut]
+            ,  &Dcm_RCNegResCode_u8
+         );
+         break;
+
+      case 2u:
+         dataRetVal_u8 = DcmDsp_StopVehicleEolTestProcedure_Callback(
+               Dcm_RCSigIn_au8[RoutineControl_VehicleEolTestProcedure_DcmDspStopRoutineIn_TestProcedureActive_StpIn]
+            ,  Dcm_RCOpStatus_u8
+            ,  &Dcm_RCSigOut_au8[RoutineControl_VehicleEolTestProcedure_DcmDspStopRoutineOut_Status_StpOut]
+            ,  &Dcm_RCNegResCode_u8
+         );
+         break;
+
+      case 3u:
+         dataRetVal_u8 = DcmDsp_RequestResultVehicleEolTestProcedure_Callback(
+               Dcm_RCOpStatus_u8
+            ,  &Dcm_RCSigOut_au8[RoutineControl_VehicleEolTestProcedure_DcmDspRequestRoutineResults_TestStatus_ReqRsltOut]
+            ,  &Dcm_RCSigOut_au8[RoutineControl_VehicleEolTestProcedure_DcmDspRequestRoutineResults_PressureFL_ReqRsltOut]
+            ,  &Dcm_RCSigOut_au8[RoutineControl_VehicleEolTestProcedure_DcmDspRequestRoutineResults_PressureFR_ReqRsltOut]
+            ,  &Dcm_RCSigOut_au8[RoutineControl_VehicleEolTestProcedure_DcmDspRequestRoutineResults_PressureRL_ReqRsltOut]
+            ,  &Dcm_RCSigOut_au8[RoutineControl_VehicleEolTestProcedure_DcmDspRequestRoutineResults_PressureRR_ReqRsltOut]
+            ,  &Dcm_RCNegResCode_u8
+         );
+         break;
+
+      default:
+         Dcm_RCNegResCode_u8 = DCM_E_SUBFUNCTIONNOTSUPPORTED;
+         break;
+   }
+   return dataRetVal_u8;
+}
+
+static FUNC(Std_ReturnType,DCM_CODE) Dcm_Dsp_RC_RoutineControl_ResetEeprom_Func(
+   VAR(uint8, AUTOMATIC) dataSubFunc_u8
+){
+   VAR(Std_ReturnType,AUTOMATIC) dataRetVal_u8 = E_NOT_OK;
+   switch(
+      dataSubFunc_u8
+   ){
+      case 1u:
+         dataRetVal_u8 = DcmDsp_StartResetEeprom_Callback(
+               &Dcm_RCSigInN_au8[RoutineControl_ResetEeprom_DcmDspStartRoutineInSignal_StrtIn]
+            ,  Dcm_RCOpStatus_u8
+            ,  &Dcm_RCNegResCode_u8
+         );
+         break;
+
+      default:
+         Dcm_RCNegResCode_u8 = DCM_E_SUBFUNCTIONNOTSUPPORTED;
+         break;
+   }
+   return dataRetVal_u8;
+}
+
+static FUNC(Std_ReturnType,DCM_CODE) Dcm_Dsp_RC_RoutineControl_AuthorizeEcuProgram_Func(
+   VAR(uint8, AUTOMATIC) dataSubFunc_u8
+){
+   VAR(Std_ReturnType,AUTOMATIC) dataRetVal_u8 = E_NOT_OK;
+   switch(
+      dataSubFunc_u8
+   ){
+      case 1u:
+         dataRetVal_u8 = DcmDsp_StartAuthorizeEcuProgram_Callback(
+               Dcm_RCOpStatus_u8
+            ,  &Dcm_RCNegResCode_u8
+         );
+         break;
+
+      default:
+         Dcm_RCNegResCode_u8 = DCM_E_SUBFUNCTIONNOTSUPPORTED;
+         break;
+   }
+   return dataRetVal_u8;
+}
+
+FUNC(uint16,DCM_CODE) Dcm_DIDcalculateTableSize_u16(void){
+   return ((uint16)(sizeof(Dcm_DIDConfig)) / (uint16)(sizeof(Dcm_DIDConfig_tst)));
+}
+
 FUNC(uint16,DCM_CODE) Dcm_RequestDownloadCalculateTableSize_u16(void){
   return ((uint16)(sizeof(Dcm_RequestDownloadConfig_cast))/(uint16)(sizeof(Dcm_RequestDownloadConfig_tst)));
 }

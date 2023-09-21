@@ -1,15 +1,67 @@
+/******************************************************************************/
+/* File   : CanIf_RxIndication.c                                              */
+/*                                                                            */
+/* Author : Raajnaag HULIYAPURADA MATA                                        */
+/*                                                                            */
+/* License / Warranty / Terms and Conditions                                  */
+/*                                                                            */
+/* Everyone is permitted to copy and distribute verbatim copies of this lice- */
+/* nse document, but changing it is not allowed. This is a free, copyright l- */
+/* icense for software and other kinds of works. By contrast, this license is */
+/* intended to guarantee your freedom to share and change all versions of a   */
+/* program, to make sure it remains free software for all its users. You have */
+/* certain responsibilities, if you distribute copies of the software, or if  */
+/* you modify it: responsibilities to respect the freedom of others.          */
+/*                                                                            */
+/* All rights reserved. Copyright © 1982 Raajnaag HULIYAPURADA MATA           */
+/*                                                                            */
+/* Always refer latest software version from:                                 */
+/* https://github.com/RaajnaagHuliyapuradaMata?tab=repositories               */
+/*                                                                            */
+/******************************************************************************/
+
+/******************************************************************************/
+/* #INCLUDES                                                                  */
+/******************************************************************************/
 #include "Std_Types.hpp"
 
 #include "CanIf_Prv.hpp"
 
+/******************************************************************************/
+/* #DEFINES                                                                   */
+/******************************************************************************/
+
+/******************************************************************************/
+/* MACROS                                                                     */
+/******************************************************************************/
+
+/******************************************************************************/
+/* TYPEDEFS                                                                   */
+/******************************************************************************/
+
+/******************************************************************************/
+/* CONSTS                                                                     */
+/******************************************************************************/
+
+/******************************************************************************/
+/* PARAMS                                                                     */
+/******************************************************************************/
+
+/******************************************************************************/
+/* OBJECTS                                                                    */
+/******************************************************************************/
+
+/******************************************************************************/
+/* FUNCTIONS                                                                  */
+/******************************************************************************/
 #define CANIF_START_SEC_CODE
 #include "CanIf_MemMap.hpp"
 FUNC(void, CANIF_CODE) CanIf_RxIndication_Internal(
       P2CONST(Can_HwType,                   AUTOMATIC, CANIF_APPL_DATA) Mailbox
    ,  P2CONST(Type_SwcServiceCom_stInfoPdu, AUTOMATIC, CANIF_APPL_DATA) PduInfoPtr
 ){
-     P2VAR(CanIf_NotifStatusType,        AUTOMATIC, AUTOMATIC      ) RxNotifPtr_pen     = CanIf_Lok_RxNotification_taen;
-       VAR(Can_IdType,                   AUTOMATIC                 ) CanIdNoIdType_t    = Mailbox->CanId & CANIF_PRV_MSB_BIT_RESET;
+     P2VAR(Type_EcuabCanIf_eStatusNotification,        AUTOMATIC, AUTOMATIC      ) RxNotifPtr_pen     = CanIf_Lok_RxNotification_taen;
+       VAR(Type_McalCan_tId,             AUTOMATIC                 ) CanIdNoIdType_t    = Mailbox->CanId & CANIF_PRV_MSB_BIT_RESET;
        VAR(uint8,                        AUTOMATIC                 ) CanIdPduType_u8    = (uint8)((Mailbox->CanId)>>CANIF_CANID_BIT_SHIFT);
    P2CONST(CanIf_Cfg_Hrhtype_tst,        AUTOMATIC, CANIF_CFG_CONST) HrhCfg_pcst        = CanIf_Lok_ConfigSet_tpst->HrhConfig_pcst + CanIf_Lok_ConfigSet_tpst->HrhPduIdTable_Ptr[Mailbox->Hoh];
      P2VAR(CanIf_ControllerStateType,    AUTOMATIC, AUTOMATIC      ) ControllerState_ps = CanIf_Lok_ControllerState_ast + Mailbox->ControllerId;
@@ -100,4 +152,8 @@ FUNC(Std_ReturnType, CANIF_CODE)CanIf_XCore_LocalCore_RxIndication(
 }
 #define CANIF_STOP_SEC_CODE
 #include "CanIf_MemMap.hpp"
+
+/******************************************************************************/
+/* EOF                                                                        */
+/******************************************************************************/
 

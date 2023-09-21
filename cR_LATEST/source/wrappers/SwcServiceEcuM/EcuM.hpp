@@ -35,14 +35,7 @@ extern VAR(Type_SwcServiceEcuM_stInfoTargetShutdown, ECUM_VAR_SAVED_ZONE0_UNSPEC
 #include "EcuM_Cfg_MemMap.hpp"
 #endif
 
-#if(ECUM_CFG_ECUC_RB_RTE_IN_USE == FALSE)
-#define ECUM_START_SEC_CODE
-#include "EcuM_Cfg_MemMap.hpp"
 extern FUNC(void, ECUM_CODE) infSwcServiceEcuMSwcServiceSchM_vMainFunction(void);
-#else
-#define ECUM_START_SEC_CODE
-#include "EcuM_Cfg_MemMap.hpp"
-#endif
 
 extern FUNC(void,     ECUM_CODE) EcuM_StartupTwo               (void);
 extern FUNC(Std_ReturnType,     ECUM_CODE) EcuM_GoDown                   (VAR(uint16, AUTOMATIC) caller);
@@ -50,11 +43,6 @@ extern FUNC(void,     ECUM_CODE) EcuM_Shutdown                 (void);
 extern FUNC(Type_SwcServiceEcuM_tSourceWakeup, ECUM_CODE) EcuM_GetValidatedWakeupEvents (void);
 extern FUNC(Type_SwcServiceEcuM_tSourceWakeup, ECUM_CODE) EcuM_GetExpiredWakeupEvents   (void);
 extern FUNC(Type_SwcServiceEcuM_tSourceWakeup, ECUM_CODE) EcuM_GetPendingWakeupEvents   (void);
-
-#if(ECUM_SLEEP_SUPPORT_ENABLE != FALSE)
-extern FUNC(Std_ReturnType, ECUM_CODE) EcuM_GoHalt(void);
-extern FUNC(Std_ReturnType, ECUM_CODE) EcuM_GoPoll(void);
-#endif
 
 extern FUNC(void ,     ECUM_CODE) EcuM_ClearWakeupEvent (  VAR(Type_SwcServiceEcuM_tSourceWakeup, AUTOMATIC) sources);
 extern FUNC(void,     ECUM_CODE) EcuM_GetVersionInfo   (P2VAR(Std_VersionInfoType,     AUTOMATIC, ECUM_APPL_DATA) versioninfo);
@@ -92,18 +80,4 @@ FUNC(Std_ReturnType, ECUM_CODE ) EcuM_Rn_GetLastShutdownInfo(
 );
 #endif
 
-#if(ECUM_CFG_MODE_HANDLING == STD_ON)
-extern FUNC(Std_ReturnType, ECUM_CODE) EcuM_RequestRUN(      VAR(EcuM_UserType,  AUTOMATIC) user);
-extern FUNC(Std_ReturnType, ECUM_CODE) EcuM_ReleaseRUN(      VAR(EcuM_UserType,  AUTOMATIC) user);
-extern FUNC(Std_ReturnType, ECUM_CODE) EcuM_RequestPOST_RUN( VAR(EcuM_UserType,  AUTOMATIC) user);
-extern FUNC(Std_ReturnType, ECUM_CODE) EcuM_ReleasePOST_RUN( VAR(EcuM_UserType,  AUTOMATIC) user);
-extern FUNC(void,     ECUM_CODE) EcuM_SetState(        VAR(EcuM_StateType, AUTOMATIC) state);
-extern FUNC(void,     ECUM_CODE) EcuM_KillAllRUNRequests     (void);
-extern FUNC(void,     ECUM_CODE) EcuM_KillAllPostRUNRequests (void);
-extern FUNC(void,     ECUM_CODE) EcuM_Rn_KillAllRequests     (void);
-extern FUNC(void,     ECUM_CODE) EcuM_Rn_CurrentState        (void);
-#endif
-
-#define ECUM_STOP_SEC_CODE
-#include "EcuM_Cfg_MemMap.hpp"
 #endif

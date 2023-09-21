@@ -8,7 +8,7 @@ LOCAL_INLINE FUNC(void, COM_CODE) Com_Lok_ProcessRxDMIPduGroupVector(
                                                             P2CONST(uint8, AUTOMATIC, COM_APPL_DATA) ipduGroupVector
                                                                     );
 
-LOCAL_INLINE FUNC(void, COM_CODE) Com_Lok_EnableRxDeadlineMonitoring(VAR(Com_IpduIdType, AUTOMATIC) IpduId);
+LOCAL_INLINE FUNC(void, COM_CODE) Com_Lok_EnableRxDeadlineMonitoring(VAR(Type_CfgSwcServiceCom_tIdIPdu, AUTOMATIC) IpduId);
 
 #endif
 
@@ -48,14 +48,14 @@ FUNC(void, COM_CODE) Com_ReceptionDMControl(VAR(Com_IpduGroupVector, AUTOMATIC) 
 
         RxIPduRamPtr   = &COM_GET_RXPDURAM_S(0);
 
-        for(Index_u16 = 0; Index_u16 < COM_GET_NUM_RX_IPDU; Index_u16++)
+        for(Index_u16 = 0; Index_u16 < CfgSwcServiceCom_dNumIPduRx; Index_u16++)
         {
             if(COM_GET_IPDUCOUNTER_DM(Index_u16) >0 )
             {
 
                 if((Com_GetRamValue(RXIPDU,_DMSTATUS,RxIPduRamPtr->RxFlags)) == COM_STOP)
                 {
-                    Com_Lok_EnableRxDeadlineMonitoring((Com_IpduIdType)Index_u16);
+                    Com_Lok_EnableRxDeadlineMonitoring((Type_CfgSwcServiceCom_tIdIPdu)Index_u16);
 
                     Com_SetRamValue(RXIPDU,_DMSTATUS,RxIPduRamPtr->RxFlags, COM_START);
                 }
@@ -83,7 +83,7 @@ LOCAL_INLINE FUNC(void, COM_CODE) Com_Lok_ProcessRxDMIPduGroupVector(
                                                                     )
 {
 
-   P2CONST(Com_IpduIdType, AUTOMATIC, COM_APPL_CONST)  IPduRefPtr;
+   P2CONST(Type_CfgSwcServiceCom_tIdIPdu, AUTOMATIC, COM_APPL_CONST)  IPduRefPtr;
 
    Com_IPduGrpConstPtrType                             IPduGrpConstPtr;
    VAR(uint16_least,AUTOMATIC)                         Index_u16;
@@ -141,7 +141,7 @@ LOCAL_INLINE FUNC(void, COM_CODE) Com_Lok_ProcessRxDMIPduGroupVector(
    }
 }
 
-LOCAL_INLINE FUNC(void, COM_CODE) Com_Lok_EnableRxDeadlineMonitoring(VAR(Com_IpduIdType, AUTOMATIC) IpduId)
+LOCAL_INLINE FUNC(void, COM_CODE) Com_Lok_EnableRxDeadlineMonitoring(VAR(Type_CfgSwcServiceCom_tIdIPdu, AUTOMATIC) IpduId)
 {
    Com_RxIpduConstPtrType                                      RxIPduConstPtr;
 #ifdef COM_RxIPduTimeout

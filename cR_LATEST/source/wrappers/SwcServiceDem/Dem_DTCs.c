@@ -12,7 +12,9 @@
 #include "Dem_Cfg.hpp"
 #include "Dem_DTCGroup.hpp"
 #include "Dem_Lok_J1939Dcm.hpp"
-#include "Dem_Cfg_ExtPrototypes.hpp"
+#include "DemAppInterfaceX.hpp"
+#include "Rte_Dem.hpp"
+#include "FiM.hpp"
 
 #define DEM_START_SEC_RAM_CLEARED
 #include "Dem_Cfg_MemMap.hpp"

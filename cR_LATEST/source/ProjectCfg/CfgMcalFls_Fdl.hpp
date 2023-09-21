@@ -1,11 +1,3 @@
-#ifdef ENABLE_QAC_TEST
-#pragma PRQA_MESSAGES_OFF 0292
-#endif
-
-#ifdef ENABLE_QAC_TEST
-#pragma PRQA_MESSAGES_ON 0292
-#endif
-
 #pragma once
 /******************************************************************************/
 /* File   : CfgMcalFls_Fdl.hpp                                                */

@@ -1,9 +1,5 @@
-
-
 #ifndef DCMDSPUDS_WDBI_PROT_H
 #define DCMDSPUDS_WDBI_PROT_H
-
-#if(DCM_CFG_DSP_WRITEDATABYIDENTIFIER_ENABLED != DCM_CFG_OFF)
 
 typedef   P2FUNC(Std_ReturnType,TYPEDEF,WriteFncRange1_pfct)( VAR(uint16,AUTOMATIC) DID
    ,    P2CONST(uint8,AUTOMATIC,DCM_INTERN_DATA) Data
@@ -59,21 +55,6 @@ typedef P2FUNC(Std_ReturnType,TYPEDEF,WdbiFnc21_pfct)
    ,     VAR(Dcm_OpStatusType,AUTOMATIC) OpStatus
    ,     P2VAR(Dcm_NegativeResponseCodeType,AUTOMATIC,DCM_INTERN_DATA) ErrorCode);
 
-#if(DCM_CFG_DSP_WRITE_ASP_ENABLED != DCM_CFG_OFF)
-
-typedef P2FUNC(Std_ReturnType,TYPEDEF,WdbiFnc22_pfct)
-                                   (P2CONST(uint8,AUTOMATIC,DCM_INTERN_DATA) Data
-   ,     VAR(Dcm_OpStatusType,AUTOMATIC) OpStatus);
-
-typedef P2FUNC(Std_ReturnType,TYPEDEF,WdbiFnc23_pfct)
-                                   (P2CONST(uint8,AUTOMATIC,DCM_INTERN_DATA) Data
-   ,     VAR(uint16,AUTOMATIC) DataLength
-   ,     VAR(Dcm_OpStatusType,AUTOMATIC) OpStatus);
-
-typedef P2FUNC(Std_ReturnType,TYPEDEF,WdbiFnc24_pfct)
-                                   (P2VAR(Dcm_NegativeResponseCodeType,AUTOMATIC,DCM_INTERN_DATA) ErrorCode);
-#endif
-
 typedef P2FUNC(Std_ReturnType,TYPEDEF,WdbiFnc5_pfct) (VAR(boolean,AUTOMATIC) Data);
 typedef P2FUNC(Std_ReturnType,TYPEDEF,WdbiFnc6_pfct) (VAR(uint8,  AUTOMATIC) Data);
 typedef P2FUNC(Std_ReturnType,TYPEDEF,WdbiFnc7_pfct) (VAR(uint16, AUTOMATIC) Data);
@@ -88,6 +69,5 @@ typedef P2FUNC(Std_ReturnType,TYPEDEF,WdbiFnc15_pfct)(P2CONST(sint8, AUTOMATIC,D
 typedef P2FUNC(Std_ReturnType,TYPEDEF,WdbiFnc16_pfct)(P2CONST(sint16,AUTOMATIC,DCM_INTERN_DATA) Data);
 typedef P2FUNC(Std_ReturnType,TYPEDEF,WdbiFnc17_pfct)(P2CONST(sint32,AUTOMATIC,DCM_INTERN_DATA) Data);
 
-#endif
 #endif
 

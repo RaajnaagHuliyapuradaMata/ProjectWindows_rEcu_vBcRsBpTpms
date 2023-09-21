@@ -2,7 +2,6 @@
 #define _VERSION_H
 
 #include "types.hpp"
-#include "can.hpp"
 
 #define cAPP_DESCRIPTOR_BLOCK_ROM_ADDRESS                      (void*)0x00077b00
 #define cFBL_DESCRIPTOR_BLOCK_ROM_ADDRESS                      (void*)0x0001ff00

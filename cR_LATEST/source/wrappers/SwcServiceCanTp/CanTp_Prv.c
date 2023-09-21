@@ -1,28 +1,49 @@
+/******************************************************************************/
+/* File   : CanTp_Prv.c                                                       */
+/*                                                                            */
+/* Author : Raajnaag HULIYAPURADA MATA                                        */
+/*                                                                            */
+/* License / Warranty / Terms and Conditions                                  */
+/*                                                                            */
+/* Everyone is permitted to copy and distribute verbatim copies of this lice- */
+/* nse document, but changing it is not allowed. This is a free, copyright l- */
+/* icense for software and other kinds of works. By contrast, this license is */
+/* intended to guarantee your freedom to share and change all versions of a   */
+/* program, to make sure it remains free software for all its users. You have */
+/* certain responsibilities, if you distribute copies of the software, or if  */
+/* you modify it: responsibilities to respect the freedom of others.          */
+/*                                                                            */
+/* All rights reserved. Copyright © 1982 Raajnaag HULIYAPURADA MATA           */
+/*                                                                            */
+/* Always refer latest software version from:                                 */
+/* https://github.com/RaajnaagHuliyapuradaMata?tab=repositories               */
+/*                                                                            */
+/******************************************************************************/
+
+/******************************************************************************/
+/* #INCLUDES                                                                  */
+/******************************************************************************/
 #include "Std_Types.hpp"
 
 #include "CanTp.hpp"
 #include "CanTp_Cbk.hpp"
 #include "CanTp_Prv.hpp"
 
-#define CANTP_START_SEC_VAR_CLEARED_UNSPECIFIED
-#include "CanTp_MemMap.hpp"
-CanTp_ChannelType CanTp_Channel[CANTP_MAX_CHANNEL_SIZE];
-CanTp_ChannelIdType CanTp_TxConfirmationChannel[CANTP_MAX_NPDU_LENGTH];
+/******************************************************************************/
+/* #DEFINES                                                                   */
+/******************************************************************************/
 
-#if(CANTP_CYCLE_COUNTER == CANTP_ON)
-volatile CanTp_TickType CanTp_MainFunctionTicks;
-#endif
+/******************************************************************************/
+/* MACROS                                                                     */
+/******************************************************************************/
 
-const Type_CfgSwcServiceCanTp_st *CanTp_CfgPtr;
-#define CANTP_STOP_SEC_VAR_CLEARED_UNSPECIFIED
-#include "CanTp_MemMap.hpp"
+/******************************************************************************/
+/* TYPEDEFS                                                                   */
+/******************************************************************************/
 
-#define CANTP_START_SEC_VAR_CLEARED_8
-#include "CanTp_MemMap.hpp"
-uint8 CanTp_SubState[CANTP_MAX_CHANNEL_SIZE];
-#define CANTP_STOP_SEC_VAR_CLEARED_8
-#include "CanTp_MemMap.hpp"
-
+/******************************************************************************/
+/* CONSTS                                                                     */
+/******************************************************************************/
 #define CANTP_START_SEC_CONST_8
 #include "CanTp_MemMap.hpp"
 const uint8 CanTp_State[CfgSwcServiceCanTp_dNumSubStates] = {0, 1, 1, 1, 1, 2, 2, 2, 2};
@@ -42,9 +63,37 @@ const uint8 CanTp_CanDlTable[CANTP_CANDL_ARRAY_SIZE] = {
 #define CANTP_STOP_SEC_CONST_8
 #include "CanTp_MemMap.hpp"
 
-#define CANTP_START_SEC_CODE
+/******************************************************************************/
+/* PARAMS                                                                     */
+/******************************************************************************/
+
+/******************************************************************************/
+/* OBJECTS                                                                    */
+/******************************************************************************/
+#define CANTP_START_SEC_VAR_CLEARED_UNSPECIFIED
+#include "CanTp_MemMap.hpp"
+CanTp_ChannelType CanTp_Channel[CANTP_MAX_CHANNEL_SIZE];
+CanTp_ChannelIdType CanTp_TxConfirmationChannel[CANTP_MAX_NPDU_LENGTH];
+
+#if(CANTP_CYCLE_COUNTER == CANTP_ON)
+volatile CanTp_TickType CanTp_MainFunctionTicks;
+#endif
+
+const Type_CfgSwcServiceCanTp_st *CanTp_CfgPtr;
+#define CANTP_STOP_SEC_VAR_CLEARED_UNSPECIFIED
 #include "CanTp_MemMap.hpp"
 
+#define CANTP_START_SEC_VAR_CLEARED_8
+#include "CanTp_MemMap.hpp"
+uint8 CanTp_SubState[CANTP_MAX_CHANNEL_SIZE];
+#define CANTP_STOP_SEC_VAR_CLEARED_8
+#include "CanTp_MemMap.hpp"
+
+/******************************************************************************/
+/* FUNCTIONS                                                                  */
+/******************************************************************************/
+#define CANTP_START_SEC_CODE
+#include "CanTp_MemMap.hpp"
 static void CanTp_Lok_Transmit(
       const CanTp_TxContextType*          Context
    ,        Type_SwcServiceCom_stInfoPdu* SduInfoPtr
@@ -1219,3 +1268,8 @@ const Type_SwcServicePduR_fptrConfirmationTpLo CfgSwcServiceCanTp_cafptrListConf
 };
 #define CANTP_STOP_SEC_CONST_UNSPECIFIED
 #include "CanTp_MemMap.hpp"
+
+/******************************************************************************/
+/* EOF                                                                        */
+/******************************************************************************/
+

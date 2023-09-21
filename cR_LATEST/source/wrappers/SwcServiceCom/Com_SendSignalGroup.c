@@ -171,7 +171,7 @@ FUNC(uint8, COM_CODE) Com_InternalSendSignalGroup(VAR(Com_SignalGroupIdType, AUT
         }
 #endif
 
-        Com_Lok_ProceedToSendIpdu( (Com_IpduIdType)IpduId_ui, sendIpduFlag_u16 );
+        Com_Lok_ProceedToSendIpdu( (Type_CfgSwcServiceCom_tIdIPdu)IpduId_ui, sendIpduFlag_u16 );
 
    }
    else{

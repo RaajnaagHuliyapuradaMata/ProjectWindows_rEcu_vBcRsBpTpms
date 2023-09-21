@@ -1,5 +1,3 @@
-
-
 #ifndef SYS_MANAGER_H
 #define SYS_MANAGER_H
 

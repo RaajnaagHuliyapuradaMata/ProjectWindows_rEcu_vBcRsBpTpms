@@ -19,7 +19,7 @@ FUNC(BufReq_ReturnType, COM_CODE) Com_CopyRxData( Type_SwcServiceCom_tIdPdu PduI
 
 #if(COM_CONFIGURATION_USE_DET == STD_ON)
 
-   if(Com_Lok_DETCheck_Param_Ptr((PduId >= COM_GET_NUM_RX_IPDU), (PduInfoPointer == NULL_PTR)
+   if(Com_Lok_DETCheck_Param_Ptr((PduId >= CfgSwcServiceCom_dNumIPduRx), (PduInfoPointer == NULL_PTR)
    ,     COMServiceId_CopyRxData))
 #endif
    {

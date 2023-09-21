@@ -37,7 +37,7 @@ FUNC(uint8, COM_CODE) Com_SendSignalGroupArray( Com_SignalGroupIdType SignalGrou
 
         if( Com_GetValue(TXSIGGRP,_ARRAYACCESS,ConstxSignalGrpFields) )
         {
-            Com_IpduIdType IpduId_ui;
+            Type_CfgSwcServiceCom_tIdIPdu IpduId_ui;
             IpduId_ui    = TxSigGrpConstPtr->IpduRef;
             TxIpduRamPtr = &COM_GET_TXPDURAM_S( IpduId_ui );
 

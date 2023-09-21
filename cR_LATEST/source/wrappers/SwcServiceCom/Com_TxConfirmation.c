@@ -9,7 +9,7 @@ FUNC(void, COM_CODE) Com_TxConfirmation(VAR(Type_SwcServiceCom_tIdPdu, AUTOMATIC
 {
 
 #if(COM_CONFIGURATION_USE_DET == STD_ON)
-   if(Com_Lok_DETCheck_Param((TxPduId >= COM_GET_NUM_TX_IPDU), COMServiceId_TxConfirmation))
+   if(Com_Lok_DETCheck_Param((TxPduId >= CfgSwcServiceCom_dNumIPduTx), COMServiceId_TxConfirmation))
 #endif
    {
 

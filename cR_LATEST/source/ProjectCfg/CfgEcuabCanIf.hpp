@@ -57,7 +57,7 @@ typedef struct{
    uint8_least                 IndexForUL_u8;
    uint8                       CanIdtype_u8;
    uint8                       RxPduDlc_u8;
-   Can_IdType                  RxPduCanId;
+   Type_McalCan_tId                  RxPduCanId;
    Type_SwcServiceCom_tIdPdu   Hrhref_t;
    Type_SwcServiceCom_tIdPdu   RxPduTargetId_t;
 }CanIf_Cfg_RxPduType_tst;
@@ -75,7 +75,7 @@ typedef enum{
 
 typedef struct{
    const CanIf_Cfg_CtrlConfig_tst*   CanIf_CtrlConfigPtr;
-         Can_HwHandleType            CanObjectId;
+         Type_McalCan_tHandleHw            CanObjectId;
          CanIf_Cfg_CanHandleType_ten CanHandleType;
 }CanIf_Cfg_HthConfig_tst;
 
@@ -114,7 +114,7 @@ typedef struct{
    P2FUNC(void, CANIF_APPL_CODE, UserTxConfirmation)(
       Type_SwcServiceCom_tIdPdu TxPduTargetPduId
    );
-   Can_IdType                          TxPduCanId;
+   Type_McalCan_tId                          TxPduCanId;
    boolean                             TxPduReadNotifyStatus;
    boolean                             TxTruncEnabled_b;
    uint8                               TxPduLength_u8;
@@ -165,3 +165,4 @@ typedef struct{
 /******************************************************************************/
 /* EOF                                                                        */
 /******************************************************************************/
+

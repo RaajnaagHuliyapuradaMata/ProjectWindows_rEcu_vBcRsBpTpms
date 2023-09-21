@@ -14,7 +14,7 @@
 /* certain responsibilities, if you distribute copies of the software, or if  */
 /* you modify it: responsibilities to respect the freedom of others.          */
 /*                                                                            */
-/* All rights reserved. Copyright © 1982 Raajnaag HULIYAPURADA MATA           */
+/* All rights reserved. Copyright Â© 1982 Raajnaag HULIYAPURADA MATA           */
 /*                                                                            */
 /* Always refer latest software version from:                                 */
 /* https://github.com/RaajnaagHuliyapuradaMata?tab=repositories               */
@@ -57,11 +57,7 @@
 #define CANSM_CFG_TRCV_CANIF_SUPPORT                                     STD_OFF
 #define CANSM_GETBUSOFFDELAY_SUPPORT                                     STD_OFF
 
-#define CANSM_START_SEC_CONST_8
-#include "CanSM_MemMap.hpp"
 extern CONST(uint8, CANSM_CONST) CanSM_NetworkId_LUT[1][CANSM_NUM_CAN_NETWORKS];
-#define CANSM_STOP_SEC_CONST_8
-#include "CanSM_MemMap.hpp"
 
 
 /******************************************************************************/

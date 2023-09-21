@@ -14,7 +14,7 @@
 /* certain responsibilities, if you distribute copies of the software, or if  */
 /* you modify it: responsibilities to respect the freedom of others.          */
 /*                                                                            */
-/* All rights reserved. Copyright � 1982 Raajnaag HULIYAPURADA MATA           */
+/* All rights reserved. Copyright © 1982 Raajnaag HULIYAPURADA MATA           */
 /*                                                                            */
 /* Always refer latest software version from:                                 */
 /* https://github.com/RaajnaagHuliyapuradaMata?tab=repositories               */
@@ -24,7 +24,7 @@
 /******************************************************************************/
 /* #INCLUDES                                                                  */
 /******************************************************************************/
-#include "CanIf_Types.hpp"
+#include "Types_EcuabCanIf.hpp"
 #include "CfgEcuabCanIf.hpp"
 #include "EcuM_Cbk.hpp"
 
@@ -110,7 +110,7 @@
 #define CANIF_RX_DYNAMIC_PDUS                                                 0u
 #define CANIF_NUM_TRANSCEIVERS                                                 0
 #define CANIF_MAX_PDU_INDEX                                              0xFFFFu
-#define CanIf_CFG_Size_Of_CANID                               sizeof(Can_IdType)
+#define CanIf_CFG_Size_Of_CANID                               sizeof(Type_McalCan_tId)
 #define CANIF_CFG_NUM_CANRXPDUIDS                                            11u
 #define CANIF_CFG_TOTAL_HRH_NUM                                              11u
 #define CANIF_CFG_TOTAL_HOH_NUM                                              16u
@@ -127,12 +127,12 @@
 #define CANIF_INSTANCE_ID                                                      1
 #define CANIF_VARIANT_INFO                                                     1
 
-#define CanIfConf_CanIfTxPduCfg_ApplicationCyclic_TPM_Can_Network_CANNODE_0      0
-#define CanIfConf_CanIfTxPduCfg_ApplicationResponse_TPM_Can_Network_CANNODE_0    1
-#define CanIfConf_CanIfTxPduCfg_HMIPressure_TPM_Can_Network_CANNODE_0            2
-#define CanIfConf_CanIfTxPduCfg_HMITempAndRefPress_TPM_Can_Network_CANNODE_0     3
-#define CfgEcuabCanIf_PduTxDiagUdsResp_Physical                                  4
-#define CanIfConf_CanIfTxPduCfg_TPMS_Software_ID_TPM_Can_Network_CANNODE_0       5
+#define CfgEcuabCanIf_dPduTx_ApplicationCyclic_TPM_Can_Network_CANNODE_0       0
+#define CfgEcuabCanIf_dPduTx_ApplicationResponse_TPM_Can_Network_CANNODE_0     1
+#define CfgEcuabCanIf_dPduTx_HMIPressure_TPM_Can_Network_CANNODE_0             2
+#define CfgEcuabCanIf_dPduTx_HMITempAndRefPress_TPM_Can_Network_CANNODE_0      3
+#define CfgEcuabCanIf_dPduTx_DiagUdsResp_Physical                              4
+#define CfgEcuabCanIf_dPduTx_TPMS_Software_ID_TPM_Can_Network_CANNODE_0        5
 #define CanIfConf_CanIfCtrlCfg_Can_Network_CANNODE_0                             0
 #define CanIfConf_CanIfRxPduCfg_ApplicationRequest_TPM_Can_Network_CANNODE_0     0
 #define CanIfConf_CanIfRxPduCfg_BCM_peripheralMasterClock_Can_Network_CANNODE_0  1
@@ -169,11 +169,11 @@
 typedef struct{
    P2VAR(uint8, TYPEDEF, CANIF_APPL_DATA) SduDataPtr;
    Type_SwcServiceCom_tLengthPdu                          SduLength;
-   Can_IdType                             SduCanId;
+   Type_McalCan_tId                             SduCanId;
 }CanIf_Type_SwcServiceCom_stInfoPdu;
 
 typedef struct{
-   Can_IdType CanId;
+   Type_McalCan_tId CanId;
    Type_SwcServiceCom_tIdPdu  swPduHandle;
    uint8      SduLength;
    uint8      BufferIndex;
@@ -225,7 +225,7 @@ typedef struct{
    P2FUNC(void, TYPEDEF, User_ControllerBusOff        )(VAR(uint8, AUTOMATIC) ControllerId);
    P2FUNC(void, TYPEDEF, User_ControllerModeIndication)(
          VAR(uint8,     AUTOMATIC) ControllerId
-      ,  VAR(CanIf_ControllerModeType, AUTOMATIC) ControllerMode
+      ,  VAR(Type_EcuabCanIf_eModeController, AUTOMATIC) ControllerMode
    );
 
 #if(CANIF_RB_ERROR_PASSIVE_SUPPORT != STD_OFF)

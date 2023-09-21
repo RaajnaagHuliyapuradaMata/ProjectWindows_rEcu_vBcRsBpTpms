@@ -1,12 +1,38 @@
-#ifndef CANTP_PRV_H
-#define CANTP_PRV_H
+#pragma once
+/******************************************************************************/
+/* File   : CanTp_Prv.hpp                                                     */
+/*                                                                            */
+/* Author : Raajnaag HULIYAPURADA MATA                                        */
+/*                                                                            */
+/* License / Warranty / Terms and Conditions                                  */
+/*                                                                            */
+/* Everyone is permitted to copy and distribute verbatim copies of this lice- */
+/* nse document, but changing it is not allowed. This is a free, copyright l- */
+/* icense for software and other kinds of works. By contrast, this license is */
+/* intended to guarantee your freedom to share and change all versions of a   */
+/* program, to make sure it remains free software for all its users. You have */
+/* certain responsibilities, if you distribute copies of the software, or if  */
+/* you modify it: responsibilities to respect the freedom of others.          */
+/*                                                                            */
+/* All rights reserved. Copyright © 1982 Raajnaag HULIYAPURADA MATA           */
+/*                                                                            */
+/* Always refer latest software version from:                                 */
+/* https://github.com/RaajnaagHuliyapuradaMata?tab=repositories               */
+/*                                                                            */
+/******************************************************************************/
 
+/******************************************************************************/
+/* #INCLUDES                                                                  */
+/******************************************************************************/
 #include "CanTp.hpp"
 #include "CanTp_Types.hpp"
 #include "CanTp_Cfg_SchM.hpp"
 #include "PduR_CanTp.hpp"
 #include "CanIf.hpp"
 
+/******************************************************************************/
+/* #DEFINES                                                                   */
+/******************************************************************************/
 #define CANTP_SF_HIGHNIBBLE                                              (0x00u)
 #define CANTP_FF_HIGHNIBBLE                                              (0x10u)
 #define CANTP_CF_HIGHNIBBLE                                              (0x20u)
@@ -73,6 +99,9 @@
 #define CANTP_FC_WAIT                                                       (1u)
 #define CANTP_FC_OVERFLOW                                                   (2u)
 
+/******************************************************************************/
+/* MACROS                                                                     */
+/******************************************************************************/
 #define CanTp_Lok_PduRConfirmation(Api, id, result)  CfgSwcServiceCanTp_cafptrListConfirmationPduR[Api](id, result)
 #define CanTp_Lok_ActivateMainFunction(TriggerPoint) CanTp_SchMTriggerApis[TriggerPoint]()
 #define CanTp_Lok_ProcessFrame(Context, PduInfoPtr)  CfgSwcServiceCanTp_cafptrListProcessFrame[(Context)->FrameType](Context, PduInfoPtr)
@@ -105,6 +134,9 @@
 #define CanTp_IncrementCounter()                      (CanTp_MainFunctionTicks++)
 #define CanTp_Lok_BuildBugOn(condition)              ((void)sizeof(char[1 - 2*!!(condition)]))
 
+/******************************************************************************/
+/* TYPEDEFS                                                                   */
+/******************************************************************************/
 typedef Std_ReturnType (*Type_SwcServiceCanTp_fptrCreateFrame)(CanTp_ChannelIdType ChannelId, Type_SwcServiceCom_stInfoPdu *PduInfoPtr);
 
 typedef struct{
@@ -167,6 +199,17 @@ typedef void (*Type_SwcServicePduR_fptrConfirmationTpLo)(Type_SwcServiceCom_tIdP
 typedef void (*CanTp_SchMTriggerApiType)(void);
 typedef Std_ReturnType (*CanTp_CanIfTransmitApiType)(Type_SwcServiceCom_tIdPdu TxPduId, const Type_SwcServiceCom_stInfoPdu* PduInfoPtr);
 
+/******************************************************************************/
+/* CONSTS                                                                     */
+/******************************************************************************/
+
+/******************************************************************************/
+/* PARAMS                                                                     */
+/******************************************************************************/
+
+/******************************************************************************/
+/* OBJECTS                                                                    */
+/******************************************************************************/
 #define CANTP_START_SEC_VAR_CLEARED_UNSPECIFIED
 #include "CanTp_MemMap.hpp"
 extern CanTp_ChannelType CanTp_Channel[CANTP_MAX_CHANNEL_SIZE];
@@ -201,6 +244,9 @@ extern const Type_SwcServicePduR_fptrConfirmationTpLo  CfgSwcServiceCanTp_cafptr
 #define CANTP_STOP_SEC_CONST_UNSPECIFIED
 #include "CanTp_MemMap.hpp"
 
+/******************************************************************************/
+/* FUNCTIONS                                                                  */
+/******************************************************************************/
 LOCAL_INLINE void CanTp_GetElapsedValue(
       CanTp_TickType* Value
    ,  CanTp_TickType* ElapsedValue
@@ -504,4 +550,7 @@ LOCAL_INLINE void CanTp_Lok_PrepareFcRecieve(
    CanTp_Channel[ChannelId].PciId = CANTP_NPCI_FC;
 }
 
-#endif
+/******************************************************************************/
+/* EOF                                                                        */
+/******************************************************************************/
+

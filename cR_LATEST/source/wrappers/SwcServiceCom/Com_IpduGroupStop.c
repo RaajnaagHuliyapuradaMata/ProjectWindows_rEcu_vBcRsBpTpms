@@ -4,7 +4,7 @@
 
 #define COM_START_SEC_CODE
 #include "Com_MemMap.hpp"
-FUNC(void, COM_CODE) Com_TxIPduStop( VAR(Com_IpduIdType, AUTOMATIC) IpduId )
+FUNC(void, COM_CODE) Com_TxIPduStop( VAR(Type_CfgSwcServiceCom_tIdIPdu, AUTOMATIC) IpduId )
 {
    Com_TxIpduRamPtrType        TxIpduRamPtr;
 #ifdef COM_ERRORNOTIFICATION

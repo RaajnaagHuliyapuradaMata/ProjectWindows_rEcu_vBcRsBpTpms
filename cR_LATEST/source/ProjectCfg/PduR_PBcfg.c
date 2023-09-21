@@ -11,11 +11,11 @@
 #define PDUR_START_SEC_CONFIG_DATA_POSTBUILD_UNSPECIFIED
 #include "PduR_MemMap.hpp"
 static CONST(PduR_RT_UpToLo,PDUR_CONST) PduR_comToLo[] = {
-      {CanIfConf_CanIfTxPduCfg_ApplicationCyclic_TPM_Can_Network_CANNODE_0,   (PduR_loTransmitFP)PduR_RF_CanIf_Transmit, (PduR_loCancelTransmitFP)PduR_IH_CancelTransmit}
-   ,  {CanIfConf_CanIfTxPduCfg_ApplicationResponse_TPM_Can_Network_CANNODE_0, (PduR_loTransmitFP)PduR_RF_CanIf_Transmit, (PduR_loCancelTransmitFP)PduR_IH_CancelTransmit}
-   ,  {CanIfConf_CanIfTxPduCfg_HMIPressure_TPM_Can_Network_CANNODE_0,         (PduR_loTransmitFP)PduR_RF_CanIf_Transmit, (PduR_loCancelTransmitFP)PduR_IH_CancelTransmit}
-   ,  {CanIfConf_CanIfTxPduCfg_HMITempAndRefPress_TPM_Can_Network_CANNODE_0,  (PduR_loTransmitFP)PduR_RF_CanIf_Transmit, (PduR_loCancelTransmitFP)PduR_IH_CancelTransmit}
-   ,  {CanIfConf_CanIfTxPduCfg_TPMS_Software_ID_TPM_Can_Network_CANNODE_0,    (PduR_loTransmitFP)PduR_RF_CanIf_Transmit, (PduR_loCancelTransmitFP)PduR_IH_CancelTransmit}
+      {CfgEcuabCanIf_dPduTx_ApplicationCyclic_TPM_Can_Network_CANNODE_0,   (PduR_loTransmitFP)PduR_RF_CanIf_Transmit, (PduR_loCancelTransmitFP)PduR_IH_CancelTransmit}
+   ,  {CfgEcuabCanIf_dPduTx_ApplicationResponse_TPM_Can_Network_CANNODE_0, (PduR_loTransmitFP)PduR_RF_CanIf_Transmit, (PduR_loCancelTransmitFP)PduR_IH_CancelTransmit}
+   ,  {CfgEcuabCanIf_dPduTx_HMIPressure_TPM_Can_Network_CANNODE_0,         (PduR_loTransmitFP)PduR_RF_CanIf_Transmit, (PduR_loCancelTransmitFP)PduR_IH_CancelTransmit}
+   ,  {CfgEcuabCanIf_dPduTx_HMITempAndRefPress_TPM_Can_Network_CANNODE_0,  (PduR_loTransmitFP)PduR_RF_CanIf_Transmit, (PduR_loCancelTransmitFP)PduR_IH_CancelTransmit}
+   ,  {CfgEcuabCanIf_dPduTx_TPMS_Software_ID_TPM_Can_Network_CANNODE_0,    (PduR_loTransmitFP)PduR_RF_CanIf_Transmit, (PduR_loCancelTransmitFP)PduR_IH_CancelTransmit}
 };
 
 static CONST(PduR_RT_UpToLo,PDUR_CONST) PduR_DcmToLo[] = {

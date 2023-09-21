@@ -1,7 +1,59 @@
+/******************************************************************************/
+/* File   : CanIf_Rb_Apis.c                                                   */
+/*                                                                            */
+/* Author : Raajnaag HULIYAPURADA MATA                                        */
+/*                                                                            */
+/* License / Warranty / Terms and Conditions                                  */
+/*                                                                            */
+/* Everyone is permitted to copy and distribute verbatim copies of this lice- */
+/* nse document, but changing it is not allowed. This is a free, copyright l- */
+/* icense for software and other kinds of works. By contrast, this license is */
+/* intended to guarantee your freedom to share and change all versions of a   */
+/* program, to make sure it remains free software for all its users. You have */
+/* certain responsibilities, if you distribute copies of the software, or if  */
+/* you modify it: responsibilities to respect the freedom of others.          */
+/*                                                                            */
+/* All rights reserved. Copyright © 1982 Raajnaag HULIYAPURADA MATA           */
+/*                                                                            */
+/* Always refer latest software version from:                                 */
+/* https://github.com/RaajnaagHuliyapuradaMata?tab=repositories               */
+/*                                                                            */
+/******************************************************************************/
+
+/******************************************************************************/
+/* #INCLUDES                                                                  */
+/******************************************************************************/
 #include "Std_Types.hpp"
 
 #include "CanIf_Prv.hpp"
 
+/******************************************************************************/
+/* #DEFINES                                                                   */
+/******************************************************************************/
+
+/******************************************************************************/
+/* MACROS                                                                     */
+/******************************************************************************/
+
+/******************************************************************************/
+/* TYPEDEFS                                                                   */
+/******************************************************************************/
+
+/******************************************************************************/
+/* CONSTS                                                                     */
+/******************************************************************************/
+
+/******************************************************************************/
+/* PARAMS                                                                     */
+/******************************************************************************/
+
+/******************************************************************************/
+/* OBJECTS                                                                    */
+/******************************************************************************/
+
+/******************************************************************************/
+/* FUNCTIONS                                                                  */
+/******************************************************************************/
 #define CANIF_START_SEC_CODE
 #include "CanIf_MemMap.hpp"
 FUNC(void, CANIF_CODE) CanIf_ControllerErrorPassive(VAR(uint8, AUTOMATIC) ControllerId){
@@ -26,7 +78,7 @@ FUNC(Std_ReturnType, CANIF_CODE) CanIf_Rn_ReadTxPduCanId(
             if(lTxPduConfig_pst->TxPduCanId!= 0xFFFFFFFFu){
                 lCanId_u32 = lTxPduConfig_pst->TxPduCanId;
                 lCanId_u32 &= CANIF_MSB_BIT_RESET;
-                lCanId_u32 |= ( ((Can_IdType)lTxPduConfig_pst->TxPduCanIdType) << CANIF_CANID_BIT_SHIFT );
+                lCanId_u32 |= ( ((Type_McalCan_tId)lTxPduConfig_pst->TxPduCanIdType) << CANIF_CANID_BIT_SHIFT );
                 RetVal = E_OK;
             }
         }
@@ -93,3 +145,8 @@ FUNC(Std_ReturnType, CANIF_CODE) CanIf_ReturnRxPduId(VAR(Type_SwcServiceCom_tIdP
 }
 #define CANIF_STOP_SEC_CODE
 #include "CanIf_MemMap.hpp"
+
+/******************************************************************************/
+/* EOF                                                                        */
+/******************************************************************************/
+

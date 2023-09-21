@@ -6,7 +6,9 @@
 #include "Dem_Events.hpp"
 #include "Dem_EventStatus.hpp"
 #include "Dem_Mapping.hpp"
-#include "Dem_Cfg_ExtPrototypes.hpp"
+#include "DemAppInterfaceX.hpp"
+#include "Rte_Dem.hpp"
+#include "FiM.hpp"
 #include "Dem_Cfg.hpp"
 
 #if(DEM_CFG_DEPENDENCY == DEM_CFG_DEPENDENCY_ON)

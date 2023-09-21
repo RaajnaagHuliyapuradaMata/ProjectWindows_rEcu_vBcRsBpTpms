@@ -1,18 +1,42 @@
+#pragma once
+/******************************************************************************/
+/* File   : Dem_Cfg_DtcId.hpp                                                 */
+/*                                                                            */
+/* Author : Raajnaag HULIYAPURADA MATA                                        */
+/*                                                                            */
+/* License / Warranty / Terms and Conditions                                  */
+/*                                                                            */
+/* Everyone is permitted to copy and distribute verbatim copies of this lice- */
+/* nse document, but changing it is not allowed. This is a free, copyright l- */
+/* icense for software and other kinds of works. By contrast, this license is */
+/* intended to guarantee your freedom to share and change all versions of a   */
+/* program, to make sure it remains free software for all its users. You have */
+/* certain responsibilities, if you distribute copies of the software, or if  */
+/* you modify it: responsibilities to respect the freedom of others.          */
+/*                                                                            */
+/* All rights reserved. Copyright © 1982 Raajnaag HULIYAPURADA MATA           */
+/*                                                                            */
+/* Always refer latest software version from:                                 */
+/* https://github.com/RaajnaagHuliyapuradaMata?tab=repositories               */
+/*                                                                            */
+/******************************************************************************/
 
-
-#ifndef DEM_CFG_DTCID_H
-#define DEM_CFG_DTCID_H
-
+/******************************************************************************/
+/* #INCLUDES                                                                  */
+/******************************************************************************/
 #include "Dem_Cfg_EventId.hpp"
 
-#define DEM_CFG_EVCOMB_DISABLED       1u
-#define DEM_CFG_EVCOMB_ONSTORAGE      2u
-#define DEM_CFG_EVCOMB_ONRETRIEVAL    3u
-#define DEM_CFG_EVCOMB            DEM_CFG_EVCOMB_DISABLED
+/******************************************************************************/
+/* #DEFINES                                                                   */
+/******************************************************************************/
+#define DEM_CFG_EVCOMB_DISABLED                                               1u
+#define DEM_CFG_EVCOMB_ONSTORAGE                                              2u
+#define DEM_CFG_EVCOMB_ONRETRIEVAL                                            3u
+#define DEM_CFG_EVCOMB                                   DEM_CFG_EVCOMB_DISABLED
 
-#define DEM_DTCID_INVALID           0u
-#define DEM_DTCID_COUNT             41u
-#define DEM_DTCID_ARRAYLENGTH       (DEM_DTCID_COUNT+1u)
+#define DEM_DTCID_INVALID                                                     0u
+#define DEM_DTCID_COUNT                                                      41u
+#define DEM_DTCID_ARRAYLENGTH                               (DEM_DTCID_COUNT+1u)
 
 #define DemConf_DemDTCClass_DemDTC_CommunicationErrorWithBcm         1u
 #define DemConf_DemDTCClass_DemDTC_CommunicationErrorWithAmp         2u
@@ -60,7 +84,6 @@
 #define DEM_DTCGROUPID_COUNT             1u
 #define DEM_DTCGROUPID_ARRAYLENGTH       (DEM_DTCGROUPID_COUNT+1u)
 
-// genInfo: for(EvCombination==OFF) the explicit mapping from dtcid to eventId is necessary, because an event may not be assigned to any DTC
 #define DEM_MAP_EVENTID_DTCID   \
 const Dem_DtcIdType Dem_MapEventIdToDtcId[DEM_EVENTID_ARRAYLENGTH] = \
 { \
@@ -113,8 +136,6 @@ const Dem_DtcIdType Dem_MapEventIdToDtcId[DEM_EVENTID_ARRAYLENGTH] = \
  ,{DemConf_DemDTCClass_DemDTC_CommunicationErrorWithBcm , DemConf_DemDTCClass_DemDTC_EcuRfInterference}	\
 }
 
-#if(DEM_CFG_EVCOMB == DEM_CFG_EVCOMB_DISABLED)
-
 #define DEM_MAP_DTCID_EVENTID        \
 const Dem_MapDtcIdToEventIdType  Dem_MapDtcIdToEventId[DEM_DTCID_ARRAYLENGTH] = \
 { \
@@ -162,388 +183,31 @@ const Dem_MapDtcIdToEventIdType  Dem_MapDtcIdToEventId[DEM_DTCID_ARRAYLENGTH] = 
    ,DemConf_DemEventParameter_DemEventParameter_EcuRfInterference  \
 };
 
-#else
+/******************************************************************************/
+/* MACROS                                                                     */
+/******************************************************************************/
 
-#define DEM_MAP_DTCID_EVENTID        \
-static const  Dem_EventIdType  Dem_MapDtcIdToEventId_DemDTC_CommunicationErrorWithBcm[] = { \
-   DemConf_DemEventParameter_DemEventParameter_CommunicationErrorWithBcm \
-}; \
- \
- \
-static const  Dem_EventIdType  Dem_MapDtcIdToEventId_DemDTC_CommunicationErrorWithAmp[] = { \
-   DemConf_DemEventParameter_DemEventParameter_CommunicationErrorWithAmp \
-}; \
- \
- \
-static const  Dem_EventIdType  Dem_MapDtcIdToEventId_DemDTC_CommunicationErrorWithDcmFL[] = { \
-   DemConf_DemEventParameter_DemEventParameter_CommunicationErrorWithDcmFL \
-}; \
- \
- \
-static const  Dem_EventIdType  Dem_MapDtcIdToEventId_DemDTC_CommunicationErrorWithDcmRL[] = { \
-   DemConf_DemEventParameter_DemEventParameter_CommunicationErrorWithDcmRL \
-}; \
- \
- \
-static const  Dem_EventIdType  Dem_MapDtcIdToEventId_DemDTC_CommunicationErrorWithScmFL[] = { \
-   DemConf_DemEventParameter_DemEventParameter_CommunicationErrorWithScmFL \
-}; \
- \
- \
-static const  Dem_EventIdType  Dem_MapDtcIdToEventId_DemDTC_CanVehicleModeSignalMissing[] = { \
-   DemConf_DemEventParameter_DemEventParameter_CanVehicleModeSignalMissing \
-}; \
- \
- \
-static const  Dem_EventIdType  Dem_MapDtcIdToEventId_DemDTC_CanBusoffError[] = { \
-   DemConf_DemEventParameter_DemEventParameter_CanBusoffError \
-}; \
- \
- \
-static const  Dem_EventIdType  Dem_MapDtcIdToEventId_DemDTC_CanOffroadSignalMissing[] = { \
-   DemConf_DemEventParameter_DemEventParameter_CanOffroadSignalMissing \
-}; \
- \
- \
-static const  Dem_EventIdType  Dem_MapDtcIdToEventId_DemDTC_CanAbsWheelPulseSignalMissing[] = { \
-   DemConf_DemEventParameter_DemEventParameter_CanAbsWheelPulseSignalMissing \
-}; \
- \
- \
-static const  Dem_EventIdType  Dem_MapDtcIdToEventId_DemDTC_NoQualifiedSensorSignals[] = { \
-   DemConf_DemEventParameter_DemEventParameter_NoQualifiedSensorSignals \
-}; \
- \
- \
-static const  Dem_EventIdType  Dem_MapDtcIdToEventId_DemDTC_DetectedTooManySensors[] = { \
-   DemConf_DemEventParameter_DemEventParameter_DetectedTooManySensors \
-}; \
- \
- \
-static const  Dem_EventIdType  Dem_MapDtcIdToEventId_DemDTC_CanAtmosphericTemperatureSignalMissing[] = { \
-   DemConf_DemEventParameter_DemEventParameter_CanAtmosphericTemperatureSignalMissing \
-}; \
- \
- \
-static const  Dem_EventIdType  Dem_MapDtcIdToEventId_DemDTC_CanSpeedSignalMissing[] = { \
-   DemConf_DemEventParameter_DemEventParameter_CanSpeedSignalMissing \
-}; \
- \
- \
-static const  Dem_EventIdType  Dem_MapDtcIdToEventId_DemDTC_CanWheelDirectionSignalMissing[] = { \
-   DemConf_DemEventParameter_DemEventParameter_CanWheelDirectionSignalMissing \
-}; \
- \
- \
-static const  Dem_EventIdType  Dem_MapDtcIdToEventId_DemDTC_CanClockSyncSignalMissing[] = { \
-   DemConf_DemEventParameter_DemEventParameter_CanClockSyncSignalMissing \
-}; \
- \
- \
-static const  Dem_EventIdType  Dem_MapDtcIdToEventId_DemDTC_FailedMemory[] = { \
-   DemConf_DemEventParameter_Event_FailedMemory \
-}; \
- \
- \
-static const  Dem_EventIdType  Dem_MapDtcIdToEventId_DemDTC_NoVin[] = { \
-   DemConf_DemEventParameter_Event_NoVin \
-}; \
- \
- \
-static const  Dem_EventIdType  Dem_MapDtcIdToEventId_DemDTC_BatteryVoltageLow[] = { \
-   DemConf_DemEventParameter_Event_BatteryVoltageLow \
-}; \
- \
- \
-static const  Dem_EventIdType  Dem_MapDtcIdToEventId_DemDTC_BatteryVoltageHigh[] = { \
-   DemConf_DemEventParameter_Event_BatteryVoltageHigh \
-}; \
- \
- \
-static const  Dem_EventIdType  Dem_MapDtcIdToEventId_DemDTC_NoEcuSerialNumber[] = { \
-   DemConf_DemEventParameter_Event_NoEcuSerialNumber \
-}; \
- \
- \
-static const  Dem_EventIdType  Dem_MapDtcIdToEventId_DemDTC_SensorLifeTimeCounterLowFL[] = { \
-   DemConf_DemEventParameter_DemEventParameter_SensorLifeTimeCounterLowFL \
-}; \
- \
- \
-static const  Dem_EventIdType  Dem_MapDtcIdToEventId_DemDTC_SensorMissingFL[] = { \
-   DemConf_DemEventParameter_DemEventParameter_SensorMissingFL \
-}; \
- \
- \
-static const  Dem_EventIdType  Dem_MapDtcIdToEventId_DemDTC_SensorDefectFL[] = { \
-   DemConf_DemEventParameter_DemEventParameter_SensorDefectFL \
-}; \
- \
- \
-static const  Dem_EventIdType  Dem_MapDtcIdToEventId_DemDTC_SensorOvertempFL[] = { \
-   DemConf_DemEventParameter_DemEventParameter_SensorOvertempFL \
-}; \
- \
- \
-static const  Dem_EventIdType  Dem_MapDtcIdToEventId_DemDTC_SensorLifeTimeCounterLowFR[] = { \
-   DemConf_DemEventParameter_DemEventParameter_SensorLifeTimeCounterLowFR \
-}; \
- \
- \
-static const  Dem_EventIdType  Dem_MapDtcIdToEventId_DemDTC_SensorMissingFR[] = { \
-   DemConf_DemEventParameter_DemEventParameter_SensorMissingFR \
-}; \
- \
- \
-static const  Dem_EventIdType  Dem_MapDtcIdToEventId_DemDTC_SensorDefectFR[] = { \
-   DemConf_DemEventParameter_DemEventParameter_SensorDefectFR \
-}; \
- \
- \
-static const  Dem_EventIdType  Dem_MapDtcIdToEventId_DemDTC_SensorOvertempFR[] = { \
-   DemConf_DemEventParameter_DemEventParameter_SensorOvertempFR \
-}; \
- \
- \
-static const  Dem_EventIdType  Dem_MapDtcIdToEventId_DemDTC_SensorLifeTimeCounterLowRR[] = { \
-   DemConf_DemEventParameter_DemEventParameter_SensorLifeTimeCounterLowRR \
-}; \
- \
- \
-static const  Dem_EventIdType  Dem_MapDtcIdToEventId_DemDTC_SensorMissingRR[] = { \
-   DemConf_DemEventParameter_DemEventParameter_SensorMissingRR \
-}; \
- \
- \
-static const  Dem_EventIdType  Dem_MapDtcIdToEventId_DemDTC_SensorDefectRR[] = { \
-   DemConf_DemEventParameter_DemEventParameter_SensorDefectRR \
-}; \
- \
- \
-static const  Dem_EventIdType  Dem_MapDtcIdToEventId_DemDTC_SensorOvertempRR[] = { \
-   DemConf_DemEventParameter_DemEventParameter_SensorOvertempRR \
-}; \
- \
- \
-static const  Dem_EventIdType  Dem_MapDtcIdToEventId_DemDTC_SensorLifeTimeCounterLowRL[] = { \
-   DemConf_DemEventParameter_DemEventParameter_SensorLifeTimeCounterLowRL \
-}; \
- \
- \
-static const  Dem_EventIdType  Dem_MapDtcIdToEventId_DemDTC_SensorMissingRL[] = { \
-   DemConf_DemEventParameter_DemEventParameter_SensorMissingRL \
-}; \
- \
- \
-static const  Dem_EventIdType  Dem_MapDtcIdToEventId_DemDTC_SensorDefectRL[] = { \
-   DemConf_DemEventParameter_DemEventParameter_SensorDefectRL \
-}; \
- \
- \
-static const  Dem_EventIdType  Dem_MapDtcIdToEventId_DemDTC_SensorOvertempRL[] = { \
-   DemConf_DemEventParameter_DemEventParameter_SensorOvertempRL \
-}; \
- \
- \
-static const  Dem_EventIdType  Dem_MapDtcIdToEventId_DemDTC_SensorDefectUnknownPosition[] = { \
-   DemConf_DemEventParameter_DemEventParameter_SensorDefectUnknownPosition \
-}; \
- \
- \
-static const  Dem_EventIdType  Dem_MapDtcIdToEventId_DemDTC_SensorMissingUnknownPosition[] = { \
-   DemConf_DemEventParameter_DemEventParameter_SensorMissingUnknownPosition \
-}; \
- \
- \
-static const  Dem_EventIdType  Dem_MapDtcIdToEventId_DemDTC_AutolocationFail[] = { \
-   DemConf_DemEventParameter_DemEventParameter_AutolocationFail \
-}; \
- \
- \
-static const  Dem_EventIdType  Dem_MapDtcIdToEventId_DemDTC_TpmsNotFunctional[] = { \
-   DemConf_DemEventParameter_DemEventParameter_TpmsNotFunctional \
-}; \
- \
- \
-static const  Dem_EventIdType  Dem_MapDtcIdToEventId_DemDTC_EcuRfInterference[] = { \
-   DemConf_DemEventParameter_DemEventParameter_EcuRfInterference \
-}; \
- \
- \
- \
-const Dem_MapDtcIdToEventIdType  Dem_MapDtcIdToEventId[DEM_DTCID_ARRAYLENGTH] = \
-{ \
-   { \
-      NULL_PTR, \
-      0u \
-   }\
-   ,{ \
-      &Dem_MapDtcIdToEventId_DemDTC_CommunicationErrorWithBcm[0], \
-      (uint16)(DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_CommunicationErrorWithBcm)/DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_CommunicationErrorWithBcm[0])) \
-   }\
-   ,{ \
-      &Dem_MapDtcIdToEventId_DemDTC_CommunicationErrorWithAmp[0], \
-      (uint16)(DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_CommunicationErrorWithAmp)/DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_CommunicationErrorWithAmp[0])) \
-   }\
-   ,{ \
-      &Dem_MapDtcIdToEventId_DemDTC_CommunicationErrorWithDcmFL[0], \
-      (uint16)(DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_CommunicationErrorWithDcmFL)/DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_CommunicationErrorWithDcmFL[0])) \
-   }\
-   ,{ \
-      &Dem_MapDtcIdToEventId_DemDTC_CommunicationErrorWithDcmRL[0], \
-      (uint16)(DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_CommunicationErrorWithDcmRL)/DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_CommunicationErrorWithDcmRL[0])) \
-   }\
-   ,{ \
-      &Dem_MapDtcIdToEventId_DemDTC_CommunicationErrorWithScmFL[0], \
-      (uint16)(DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_CommunicationErrorWithScmFL)/DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_CommunicationErrorWithScmFL[0])) \
-   }\
-   ,{ \
-      &Dem_MapDtcIdToEventId_DemDTC_CanVehicleModeSignalMissing[0], \
-      (uint16)(DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_CanVehicleModeSignalMissing)/DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_CanVehicleModeSignalMissing[0])) \
-   }\
-   ,{ \
-      &Dem_MapDtcIdToEventId_DemDTC_CanBusoffError[0], \
-      (uint16)(DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_CanBusoffError)/DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_CanBusoffError[0])) \
-   }\
-   ,{ \
-      &Dem_MapDtcIdToEventId_DemDTC_CanOffroadSignalMissing[0], \
-      (uint16)(DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_CanOffroadSignalMissing)/DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_CanOffroadSignalMissing[0])) \
-   }\
-   ,{ \
-      &Dem_MapDtcIdToEventId_DemDTC_CanAbsWheelPulseSignalMissing[0], \
-      (uint16)(DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_CanAbsWheelPulseSignalMissing)/DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_CanAbsWheelPulseSignalMissing[0])) \
-   }\
-   ,{ \
-      &Dem_MapDtcIdToEventId_DemDTC_NoQualifiedSensorSignals[0], \
-      (uint16)(DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_NoQualifiedSensorSignals)/DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_NoQualifiedSensorSignals[0])) \
-   }\
-   ,{ \
-      &Dem_MapDtcIdToEventId_DemDTC_DetectedTooManySensors[0], \
-      (uint16)(DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_DetectedTooManySensors)/DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_DetectedTooManySensors[0])) \
-   }\
-   ,{ \
-      &Dem_MapDtcIdToEventId_DemDTC_CanAtmosphericTemperatureSignalMissing[0], \
-      (uint16)(DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_CanAtmosphericTemperatureSignalMissing)/DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_CanAtmosphericTemperatureSignalMissing[0])) \
-   }\
-   ,{ \
-      &Dem_MapDtcIdToEventId_DemDTC_CanSpeedSignalMissing[0], \
-      (uint16)(DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_CanSpeedSignalMissing)/DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_CanSpeedSignalMissing[0])) \
-   }\
-   ,{ \
-      &Dem_MapDtcIdToEventId_DemDTC_CanWheelDirectionSignalMissing[0], \
-      (uint16)(DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_CanWheelDirectionSignalMissing)/DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_CanWheelDirectionSignalMissing[0])) \
-   }\
-   ,{ \
-      &Dem_MapDtcIdToEventId_DemDTC_CanClockSyncSignalMissing[0], \
-      (uint16)(DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_CanClockSyncSignalMissing)/DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_CanClockSyncSignalMissing[0])) \
-   }\
-   ,{ \
-      &Dem_MapDtcIdToEventId_DemDTC_FailedMemory[0], \
-      (uint16)(DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_FailedMemory)/DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_FailedMemory[0])) \
-   }\
-   ,{ \
-      &Dem_MapDtcIdToEventId_DemDTC_NoVin[0], \
-      (uint16)(DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_NoVin)/DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_NoVin[0])) \
-   }\
-   ,{ \
-      &Dem_MapDtcIdToEventId_DemDTC_BatteryVoltageLow[0], \
-      (uint16)(DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_BatteryVoltageLow)/DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_BatteryVoltageLow[0])) \
-   }\
-   ,{ \
-      &Dem_MapDtcIdToEventId_DemDTC_BatteryVoltageHigh[0], \
-      (uint16)(DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_BatteryVoltageHigh)/DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_BatteryVoltageHigh[0])) \
-   }\
-   ,{ \
-      &Dem_MapDtcIdToEventId_DemDTC_NoEcuSerialNumber[0], \
-      (uint16)(DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_NoEcuSerialNumber)/DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_NoEcuSerialNumber[0])) \
-   }\
-   ,{ \
-      &Dem_MapDtcIdToEventId_DemDTC_SensorLifeTimeCounterLowFL[0], \
-      (uint16)(DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_SensorLifeTimeCounterLowFL)/DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_SensorLifeTimeCounterLowFL[0])) \
-   }\
-   ,{ \
-      &Dem_MapDtcIdToEventId_DemDTC_SensorMissingFL[0], \
-      (uint16)(DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_SensorMissingFL)/DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_SensorMissingFL[0])) \
-   }\
-   ,{ \
-      &Dem_MapDtcIdToEventId_DemDTC_SensorDefectFL[0], \
-      (uint16)(DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_SensorDefectFL)/DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_SensorDefectFL[0])) \
-   }\
-   ,{ \
-      &Dem_MapDtcIdToEventId_DemDTC_SensorOvertempFL[0], \
-      (uint16)(DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_SensorOvertempFL)/DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_SensorOvertempFL[0])) \
-   }\
-   ,{ \
-      &Dem_MapDtcIdToEventId_DemDTC_SensorLifeTimeCounterLowFR[0], \
-      (uint16)(DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_SensorLifeTimeCounterLowFR)/DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_SensorLifeTimeCounterLowFR[0])) \
-   }\
-   ,{ \
-      &Dem_MapDtcIdToEventId_DemDTC_SensorMissingFR[0], \
-      (uint16)(DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_SensorMissingFR)/DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_SensorMissingFR[0])) \
-   }\
-   ,{ \
-      &Dem_MapDtcIdToEventId_DemDTC_SensorDefectFR[0], \
-      (uint16)(DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_SensorDefectFR)/DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_SensorDefectFR[0])) \
-   }\
-   ,{ \
-      &Dem_MapDtcIdToEventId_DemDTC_SensorOvertempFR[0], \
-      (uint16)(DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_SensorOvertempFR)/DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_SensorOvertempFR[0])) \
-   }\
-   ,{ \
-      &Dem_MapDtcIdToEventId_DemDTC_SensorLifeTimeCounterLowRR[0], \
-      (uint16)(DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_SensorLifeTimeCounterLowRR)/DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_SensorLifeTimeCounterLowRR[0])) \
-   }\
-   ,{ \
-      &Dem_MapDtcIdToEventId_DemDTC_SensorMissingRR[0], \
-      (uint16)(DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_SensorMissingRR)/DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_SensorMissingRR[0])) \
-   }\
-   ,{ \
-      &Dem_MapDtcIdToEventId_DemDTC_SensorDefectRR[0], \
-      (uint16)(DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_SensorDefectRR)/DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_SensorDefectRR[0])) \
-   }\
-   ,{ \
-      &Dem_MapDtcIdToEventId_DemDTC_SensorOvertempRR[0], \
-      (uint16)(DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_SensorOvertempRR)/DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_SensorOvertempRR[0])) \
-   }\
-   ,{ \
-      &Dem_MapDtcIdToEventId_DemDTC_SensorLifeTimeCounterLowRL[0], \
-      (uint16)(DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_SensorLifeTimeCounterLowRL)/DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_SensorLifeTimeCounterLowRL[0])) \
-   }\
-   ,{ \
-      &Dem_MapDtcIdToEventId_DemDTC_SensorMissingRL[0], \
-      (uint16)(DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_SensorMissingRL)/DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_SensorMissingRL[0])) \
-   }\
-   ,{ \
-      &Dem_MapDtcIdToEventId_DemDTC_SensorDefectRL[0], \
-      (uint16)(DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_SensorDefectRL)/DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_SensorDefectRL[0])) \
-   }\
-   ,{ \
-      &Dem_MapDtcIdToEventId_DemDTC_SensorOvertempRL[0], \
-      (uint16)(DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_SensorOvertempRL)/DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_SensorOvertempRL[0])) \
-   }\
-   ,{ \
-      &Dem_MapDtcIdToEventId_DemDTC_SensorDefectUnknownPosition[0], \
-      (uint16)(DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_SensorDefectUnknownPosition)/DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_SensorDefectUnknownPosition[0])) \
-   }\
-   ,{ \
-      &Dem_MapDtcIdToEventId_DemDTC_SensorMissingUnknownPosition[0], \
-      (uint16)(DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_SensorMissingUnknownPosition)/DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_SensorMissingUnknownPosition[0])) \
-   }\
-   ,{ \
-      &Dem_MapDtcIdToEventId_DemDTC_AutolocationFail[0], \
-      (uint16)(DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_AutolocationFail)/DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_AutolocationFail[0])) \
-   }\
-   ,{ \
-      &Dem_MapDtcIdToEventId_DemDTC_TpmsNotFunctional[0], \
-      (uint16)(DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_TpmsNotFunctional)/DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_TpmsNotFunctional[0])) \
-   }\
-   ,{ \
-      &Dem_MapDtcIdToEventId_DemDTC_EcuRfInterference[0], \
-      (uint16)(DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_EcuRfInterference)/DEM_SIZEOF_VAR(Dem_MapDtcIdToEventId_DemDTC_EcuRfInterference[0])) \
-   }\
-};
+/******************************************************************************/
+/* TYPEDEFS                                                                   */
+/******************************************************************************/
 
-#endif
+/******************************************************************************/
+/* CONSTS                                                                     */
+/******************************************************************************/
 
-#endif
+/******************************************************************************/
+/* PARAMS                                                                     */
+/******************************************************************************/
+
+/******************************************************************************/
+/* OBJECTS                                                                    */
+/******************************************************************************/
+
+/******************************************************************************/
+/* FUNCTIONS                                                                  */
+/******************************************************************************/
+
+/******************************************************************************/
+/* EOF                                                                        */
+/******************************************************************************/
 

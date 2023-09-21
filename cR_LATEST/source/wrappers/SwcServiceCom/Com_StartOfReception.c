@@ -18,7 +18,7 @@ FUNC(BufReq_ReturnType, COM_CODE) Com_StartOfReception( Type_SwcServiceCom_tIdPd
 
 #if(COM_CONFIGURATION_USE_DET == STD_ON)
 
-   if(Com_Lok_DETCheck_Param((ComRxPduId >= COM_GET_NUM_RX_IPDU), COMServiceId_StartOfReception))
+   if(Com_Lok_DETCheck_Param((ComRxPduId >= CfgSwcServiceCom_dNumIPduRx), COMServiceId_StartOfReception))
 #endif
    {
 

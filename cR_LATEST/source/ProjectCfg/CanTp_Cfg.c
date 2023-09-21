@@ -34,9 +34,9 @@
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
-#define CANTP_IF_PDU_ID_00000     CfgEcuabCanIf_PduTxDiagUdsResp_Physical
+#define CANTP_IF_PDU_ID_00000     CfgEcuabCanIf_dPduTx_DiagUdsResp_Physical
 #define CANTP_IF_FC_PDU_ID_00000  0
-#define CANTP_IF_FC_PDU_ID_00001  CfgEcuabCanIf_PduTxDiagUdsResp_Physical
+#define CANTP_IF_FC_PDU_ID_00001  CfgEcuabCanIf_dPduTx_DiagUdsResp_Physical
 #define CANTP_PDUR_DEST_ID_00000  CfgSwcServicePduR_PduDestTxDiagUds_Physical_PduR2CanTp
 #define CANTP_PDUR_SRC_ID_00000   CfgSwcServicePduR_PduSrcRxDiagUdsReq_Functional_CanTp2PduR
 #define CANTP_PDUR_SRC_ID_00001   CfgSwcServicePduR_PduSrcRxDiagUdsReq_Physical_CanTp2PduR
@@ -92,18 +92,6 @@ const Type_CfgSwcServiceCanTp_st CfgSwcServiceCanTp_cst = {
 };
 #define CANTP_STOP_SEC_CONFIG_DATA_UNSPECIFIED
 #include "CanTp_MemMap.hpp"
-
-/******************************************************************************/
-/* MACROS                                                                     */
-/******************************************************************************/
-
-/******************************************************************************/
-/* TYPEDEFS                                                                   */
-/******************************************************************************/
-
-/******************************************************************************/
-/* CONSTS                                                                     */
-/******************************************************************************/
 
 /******************************************************************************/
 /* PARAMS                                                                     */

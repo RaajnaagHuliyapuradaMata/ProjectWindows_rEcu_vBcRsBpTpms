@@ -97,7 +97,7 @@ LOCAL_INLINE FUNC(uint8, COM_CODE) Com_Lok_SendDynSignal(   VAR(Com_SignalIdType
 
    isSigTriggered_u8 = Com_Lok_CopyDynSignal(SignalId, SignalDataPtr, Length);
 
-   if(Com_CheckTxIPduStatus((Com_IpduIdType)IpduId_ui))
+   if(Com_CheckTxIPduStatus((Type_CfgSwcServiceCom_tIdIPdu)IpduId_ui))
    {
 
         VAR(Com_SendIpduInfo,AUTOMATIC) sendIpduFlag_u16 = COM_CLEAR_SENDIPDU_FLAGS;
@@ -129,7 +129,7 @@ LOCAL_INLINE FUNC(uint8, COM_CODE) Com_Lok_SendDynSignal(   VAR(Com_SignalIdType
         }
 #endif
 
-        Com_Lok_ProceedToSendIpdu( (Com_IpduIdType)IpduId_ui, sendIpduFlag_u16 );
+        Com_Lok_ProceedToSendIpdu( (Type_CfgSwcServiceCom_tIdIPdu)IpduId_ui, sendIpduFlag_u16 );
 
    }
    else{

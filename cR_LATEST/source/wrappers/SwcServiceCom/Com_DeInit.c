@@ -23,9 +23,9 @@ FUNC(void, COM_CODE) Com_DeInit(void){
 
         TxIpduRamPtr = &COM_GET_TXPDURAM_S(0);
 
-        for(Idx_ui=0 ; Idx_ui < COM_GET_NUM_TX_IPDU;Idx_ui++)
+        for(Idx_ui=0 ; Idx_ui < CfgSwcServiceCom_dNumIPduTx;Idx_ui++)
         {
-            COM_GET_IPDUCOUNTER_S(Idx_ui + COM_GET_NUM_RX_IPDU) = 0;
+            COM_GET_IPDUCOUNTER_S(Idx_ui + CfgSwcServiceCom_dNumIPduRx) = 0;
 
             Com_SetRamValue(TXIPDU,_TICKTXTO,TxIpduRamPtr->Com_TxFlags,COM_STOP);
 
@@ -45,7 +45,7 @@ FUNC(void, COM_CODE) Com_DeInit(void){
         }
 
         RxIPduRamPtr = &COM_GET_RXPDURAM_S(0);
-        for(Idx_ui=0 ; Idx_ui < COM_GET_NUM_RX_IPDU;Idx_ui++)
+        for(Idx_ui=0 ; Idx_ui < CfgSwcServiceCom_dNumIPduRx;Idx_ui++)
         {
 
             Com_SetRamValue(RXIPDU,_INDICATION,RxIPduRamPtr ->RxFlags,COM_FALSE);

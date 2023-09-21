@@ -1,9 +1,31 @@
-#ifndef CANIF_PRV_H
-#define CANIF_PRV_H
+#pragma once
+/******************************************************************************/
+/* File   : CanIf_Prv.hpp                                                     */
+/*                                                                            */
+/* Author : Raajnaag HULIYAPURADA MATA                                        */
+/*                                                                            */
+/* License / Warranty / Terms and Conditions                                  */
+/*                                                                            */
+/* Everyone is permitted to copy and distribute verbatim copies of this lice- */
+/* nse document, but changing it is not allowed. This is a free, copyright l- */
+/* icense for software and other kinds of works. By contrast, this license is */
+/* intended to guarantee your freedom to share and change all versions of a   */
+/* program, to make sure it remains free software for all its users. You have */
+/* certain responsibilities, if you distribute copies of the software, or if  */
+/* you modify it: responsibilities to respect the freedom of others.          */
+/*                                                                            */
+/* All rights reserved. Copyright © 1982 Raajnaag HULIYAPURADA MATA           */
+/*                                                                            */
+/* Always refer latest software version from:                                 */
+/* https://github.com/RaajnaagHuliyapuradaMata?tab=repositories               */
+/*                                                                            */
+/******************************************************************************/
 
+/******************************************************************************/
+/* #INCLUDES                                                                  */
+/******************************************************************************/
 #include "CanIf.hpp"
 #include "CanIf_Cbk.hpp"
-#include "Can.hpp"
 #include "PduR.hpp"
 #include "PduR_CanIf.hpp"
 #include "CanTp.hpp"
@@ -12,6 +34,9 @@
 #include "CanIf_Cfg_SchM.hpp"
 #include "CanSM_Cbk.hpp"
 
+/******************************************************************************/
+/* #DEFINES                                                                   */
+/******************************************************************************/
 #define CANIF_PRV_INVALID_CHANNEL_MODE                                        0u
 #define CANIF_PRV_VALID_CHANNEL_MODE                                          1u
 #define CANIF_PRV_WAKEUP_MODE                                                 2u
@@ -44,26 +69,48 @@
 #define CANIF_PRV_MSB_BIT_RESET                                      0x3FFFFFFFu
 #define CANIF_MSB_BIT_RESET_STD                                          0x3FFFu
 #define CANIF_GET_ONE_BYTE                                               0x00ffu
+
+/******************************************************************************/
+/* MACROS                                                                     */
+/******************************************************************************/
 #define CANIF_DET_REPORT_ERROR_NOT_OK(CONDITION, API, ERROR)
 #define CANIF_DET_REPORT_ERROR_VOID_RET(CONDITION, API, ERROR)
 #define CANIF_DET_REPORT_ERROR(CONDITION, API, ERROR)
 #define CANIF_DET_REPORT_ERROR_NOK(CONDITION, API, ERROR)
 #define CANIF_DET_REPORT_ERROR_SCHM_EXIT_NOK(CONDITION, API, ERROR, SCHM_EXIT_FUNC)
 
+/******************************************************************************/
+/* TYPEDEFS                                                                   */
+/******************************************************************************/
 typedef struct{
-   CanIf_ControllerModeType    DeviceMode;
-   CanIf_PduModeType           ChannelMode;
+   Type_EcuabCanIf_eModeController    DeviceMode;
+   Type_EcuabCanIf_eModePdu           ChannelMode;
 }CanIf_ControllerStateType;
 
-extern   CONST(CanIf_CallbackFuncType,    CANIF_CONST         ) CanIf_Callback;
-extern   CONST(CanIf_RxCbk_Prototype,     CANIF_CONST         ) CanIf_Lok_ULName_ta_fct[];
-extern P2CONST(Type_CfgEcuabCanIf_st,     AUTOMATIC, AUTOMATIC) CanIf_Lok_ConfigSet_pcst;
-extern P2CONST(Type_CfgEcuabCanIf_st,     AUTOMATIC, AUTOMATIC) CanIf_Lok_ConfigSet_tpst;
-extern     VAR(CanIf_ControllerStateType, CANIF_VAR           ) CanIf_Lok_ControllerState_ast[];
-extern     VAR(CanIf_NotifStatusType,     CANIF_VAR           ) CanIf_Lok_TxNotification_aen[];
-extern     VAR(CanIf_NotifStatusType,     CANIF_VAR           ) CanIf_Lok_RxNotification_taen[CANIF_CFG_NUM_CANRXPDUIDS];
-extern     VAR(boolean,                   CANIF_VAR           ) CanIf_Lok_InitStatus_b;
-extern     VAR(uint8,                     AUTOMATIC           ) CanIf_ActiveCfgSet;
+/******************************************************************************/
+/* CONSTS                                                                     */
+/******************************************************************************/
+
+/******************************************************************************/
+/* PARAMS                                                                     */
+/******************************************************************************/
+
+/******************************************************************************/
+/* OBJECTS                                                                    */
+/******************************************************************************/
+
+/******************************************************************************/
+/* FUNCTIONS                                                                  */
+/******************************************************************************/
+extern   CONST(CanIf_CallbackFuncType,              CANIF_CONST         ) CanIf_Callback;
+extern   CONST(CanIf_RxCbk_Prototype,               CANIF_CONST         ) CanIf_Lok_ULName_ta_fct[];
+extern P2CONST(Type_CfgEcuabCanIf_st,               AUTOMATIC, AUTOMATIC) CanIf_Lok_ConfigSet_pcst;
+extern P2CONST(Type_CfgEcuabCanIf_st,               AUTOMATIC, AUTOMATIC) CanIf_Lok_ConfigSet_tpst;
+extern     VAR(CanIf_ControllerStateType,           CANIF_VAR           ) CanIf_Lok_ControllerState_ast[];
+extern     VAR(Type_EcuabCanIf_eStatusNotification, CANIF_VAR           ) CanIf_Lok_TxNotification_aen[];
+extern     VAR(Type_EcuabCanIf_eStatusNotification, CANIF_VAR           ) CanIf_Lok_RxNotification_taen[CANIF_CFG_NUM_CANRXPDUIDS];
+extern     VAR(boolean,                             CANIF_VAR           ) CanIf_Lok_InitStatus_b;
+extern     VAR(uint8,                               AUTOMATIC           ) CanIf_ActiveCfgSet;
 
 FUNC(void, CANIF_CODE) CanIf_Lok_ReadRxBuffer(
         P2VAR(Type_SwcServiceCom_stInfoPdu, AUTOMATIC, CANIF_APPL_CONST) PduInfoPtr
@@ -84,4 +131,7 @@ extern FUNC(Std_ReturnType, CANIF_CODE)CanIf_XCore_LocalCore_RxIndication(
    ,  P2CONST(Type_SwcServiceCom_stInfoPdu, AUTOMATIC, CANIF_CFG_CONST) CanIf_ULPduinfo_pst
 );
 
-#endif
+/******************************************************************************/
+/* EOF                                                                        */
+/******************************************************************************/
+

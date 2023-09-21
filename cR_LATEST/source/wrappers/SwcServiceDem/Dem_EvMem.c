@@ -11,7 +11,9 @@
 #include "Dem_EvMemGen.hpp"
 #include "Dem_ConsisChk.hpp"
 #include "Dem_Lok_CallEvtStChngdCbk.hpp"
-#include "Dem_Cfg_ExtPrototypes.hpp"
+#include "DemAppInterfaceX.hpp"
+#include "Rte_Dem.hpp"
+#include "FiM.hpp"
 #include "Dem_Lib.hpp"
 
 #if(DEM_CFG_EVMEM_PROJECT_EXTENSION)

@@ -13,7 +13,7 @@ FUNC(Std_ReturnType, COM_CODE ) Com_TriggerIPDUSendWithMetaData( VAR( Type_SwcSe
     returnVal_uo = E_NOT_OK;
 
 #if(COM_CONFIGURATION_USE_DET == STD_ON)
-   if( Com_Lok_DETCheck_Param( (PduId >= COM_GET_NUM_TX_IPDU) , COMServiceId_TriggerIPDUSendWithMetaData) )
+   if( Com_Lok_DETCheck_Param( (PduId >= CfgSwcServiceCom_dNumIPduTx) , COMServiceId_TriggerIPDUSendWithMetaData) )
 #endif
    {
 

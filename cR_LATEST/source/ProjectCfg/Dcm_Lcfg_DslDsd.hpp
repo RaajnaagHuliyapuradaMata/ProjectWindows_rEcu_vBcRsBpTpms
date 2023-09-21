@@ -1,8 +1,57 @@
-#ifndef DCM_LCFG_DSLDSD_H
-#define DCM_LCFG_DSLDSD_H
+#pragma once
+/******************************************************************************/
+/* File   : Dcm_Lcfg_DslDsd.hpp                                               */
+/*                                                                            */
+/* Author : Raajnaag HULIYAPURADA MATA                                        */
+/*                                                                            */
+/* License / Warranty / Terms and Conditions                                  */
+/*                                                                            */
+/* Everyone is permitted to copy and distribute verbatim copies of this lice- */
+/* nse document, but changing it is not allowed. This is a free, copyright l- */
+/* icense for software and other kinds of works. By contrast, this license is */
+/* intended to guarantee your freedom to share and change all versions of a   */
+/* program, to make sure it remains free software for all its users. You have */
+/* certain responsibilities, if you distribute copies of the software, or if  */
+/* you modify it: responsibilities to respect the freedom of others.          */
+/*                                                                            */
+/* All rights reserved. Copyright © 1982 Raajnaag HULIYAPURADA MATA           */
+/*                                                                            */
+/* Always refer latest software version from:                                 */
+/* https://github.com/RaajnaagHuliyapuradaMata?tab=repositories               */
+/*                                                                            */
+/******************************************************************************/
 
-#define DCM_START_SEC_CODE
-#include "Dcm_Cfg_MemMap.hpp"
+/******************************************************************************/
+/* #INCLUDES                                                                  */
+/******************************************************************************/
+
+/******************************************************************************/
+/* #DEFINES                                                                   */
+/******************************************************************************/
+
+/******************************************************************************/
+/* MACROS                                                                     */
+/******************************************************************************/
+
+/******************************************************************************/
+/* TYPEDEFS                                                                   */
+/******************************************************************************/
+
+/******************************************************************************/
+/* CONSTS                                                                     */
+/******************************************************************************/
+
+/******************************************************************************/
+/* PARAMS                                                                     */
+/******************************************************************************/
+
+/******************************************************************************/
+/* OBJECTS                                                                    */
+/******************************************************************************/
+
+/******************************************************************************/
+/* FUNCTIONS                                                                  */
+/******************************************************************************/
 extern FUNC(Std_ReturnType,DCM_CODE) SwcServiceDcm_tTesterPresent(VAR( Dcm_SrvOpStatusType,AUTOMATIC) OpStatus,P2VAR(Dcm_MsgContextType,AUTOMATIC,DCM_INTERN_DATA) pMsgContext,P2VAR(Dcm_NegativeResponseCodeType,AUTOMATIC,DCM_INTERN_DATA) dataNegRespCode_u8);
 extern FUNC(Std_ReturnType,DCM_CODE) SwcServiceDcm_tDiagnosticSessionControl(VAR( Dcm_SrvOpStatusType,AUTOMATIC) OpStatus,P2VAR(Dcm_MsgContextType,AUTOMATIC,DCM_INTERN_DATA) pMsgContext,P2VAR(Dcm_NegativeResponseCodeType,AUTOMATIC,DCM_INTERN_DATA) dataNegRespCode_u8);
 extern FUNC(Std_ReturnType,DCM_CODE) SwcServiceDcm_tSecurityAccess(VAR( Dcm_SrvOpStatusType,AUTOMATIC) OpStatus,P2VAR(Dcm_MsgContextType,AUTOMATIC,DCM_INTERN_DATA) pMsgContext,P2VAR(Dcm_NegativeResponseCodeType,AUTOMATIC,DCM_INTERN_DATA) dataNegRespCode_u8);
@@ -55,11 +104,11 @@ extern FUNC(Std_ReturnType,DCM_APPL_CODE) Dcm_Vin_UserSpecificCheck(P2VAR(Dcm_Ne
 extern FUNC(Std_ReturnType,DCM_APPL_CODE) DcmAppl_UserDIDModeRuleService(P2VAR(Dcm_NegativeResponseCodeType,AUTOMATIC,DCM_INTERN_DATA) Nrc_u8, VAR(uint16,AUTOMATIC) did_u16,VAR(Dcm_Direction_t,AUTOMATIC) dataDirection_en);
 extern FUNC(Std_ReturnType,DCM_APPL_CODE) DcmAppl_UserRIDModeRuleService(P2VAR(Dcm_NegativeResponseCodeType,AUTOMATIC,DCM_INTERN_DATA) Nrc_u8, VAR(uint16,AUTOMATIC) rid_u16, VAR(uint8,AUTOMATIC) subfunction_u8);
 extern FUNC(Std_ReturnType,DCM_APPL_CODE) DcmAppl_UserCommCtrlReEnableModeRuleService(void);
-extern FUNC(Std_ReturnType,DCM_APPL_CODE) DcmAppl_UserDTCSettingEnableModeRuleService(void);
 extern FUNC(void,DCM_CODE)  DcmAppl_Switch_DcmExecuteEcuReset(VAR(uint8,AUTOMATIC) ResetType_u8);
 extern FUNC(void,DCM_CODE)  DcmAppl_Switch_DcmBootLoaderReset(void);
 extern FUNC(void,DCM_CODE)  DcmAppl_Switch_DcmSysSupplierReset(void);
-#define DCM_STOP_SEC_CODE
-#include "Dcm_Cfg_MemMap.hpp"
-#endif
+
+/******************************************************************************/
+/* EOF                                                                        */
+/******************************************************************************/
 

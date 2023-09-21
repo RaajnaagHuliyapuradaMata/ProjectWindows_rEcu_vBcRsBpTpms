@@ -2,21 +2,7 @@
 #define ECUM_CFG_H
 
 #include "CfgMcalMcu.hpp"
-#if(!defined(CFGMCALMCU_AR_RELEASE_MAJOR_VERSION) || (CFGMCALMCU_AR_RELEASE_MAJOR_VERSION != 4))
-#error "AUTOSAR major version undefined or mismatched"
-#endif
-#if(!defined(CFGMCALMCU_AR_RELEASE_MINOR_VERSION) || (CFGMCALMCU_AR_RELEASE_MINOR_VERSION != 2))
-#error "AUTOSAR minor version undefined or mismatched"
-#endif
-
 #include "Os.hpp"
-#if(!defined(OS_AR_RELEASE_MAJOR_VERSION) || (OS_AR_RELEASE_MAJOR_VERSION != 4))
-#error "AUTOSAR major version undefined or mismatched"
-#endif
-#if(!defined(OS_AR_RELEASE_MINOR_VERSION) || (OS_AR_RELEASE_MINOR_VERSION != 2))
-#error "AUTOSAR minor version undefined or mismatched"
-#endif
-
 #include "CfgSwcServiceEcuM.hpp"
 #include "infMcalMcuSwcApplEcuM.hpp" //TBD: change to Types_McalMcu.hpp
 

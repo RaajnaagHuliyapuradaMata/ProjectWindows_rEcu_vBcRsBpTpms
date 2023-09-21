@@ -1,26 +1,77 @@
+/******************************************************************************/
+/* File   : CanIf_Controller.c                                                */
+/*                                                                            */
+/* Author : Raajnaag HULIYAPURADA MATA                                        */
+/*                                                                            */
+/* License / Warranty / Terms and Conditions                                  */
+/*                                                                            */
+/* Everyone is permitted to copy and distribute verbatim copies of this lice- */
+/* nse document, but changing it is not allowed. This is a free, copyright l- */
+/* icense for software and other kinds of works. By contrast, this license is */
+/* intended to guarantee your freedom to share and change all versions of a   */
+/* program, to make sure it remains free software for all its users. You have */
+/* certain responsibilities, if you distribute copies of the software, or if  */
+/* you modify it: responsibilities to respect the freedom of others.          */
+/*                                                                            */
+/* All rights reserved. Copyright © 1982 Raajnaag HULIYAPURADA MATA           */
+/*                                                                            */
+/* Always refer latest software version from:                                 */
+/* https://github.com/RaajnaagHuliyapuradaMata?tab=repositories               */
+/*                                                                            */
+/******************************************************************************/
+
+/******************************************************************************/
+/* #INCLUDES                                                                  */
+/******************************************************************************/
 #include "Std_Types.hpp"
 
 #include "CanIf_Prv.hpp"
 
+#include "infMcalCanEcuabCanIf.hpp"
+
+/******************************************************************************/
+/* #DEFINES                                                                   */
+/******************************************************************************/
+
+/******************************************************************************/
+/* MACROS                                                                     */
+/******************************************************************************/
+
+/******************************************************************************/
+/* TYPEDEFS                                                                   */
+/******************************************************************************/
+
+/******************************************************************************/
+/* CONSTS                                                                     */
+/******************************************************************************/
+
+/******************************************************************************/
+/* PARAMS                                                                     */
+/******************************************************************************/
+
+/******************************************************************************/
+/* OBJECTS                                                                    */
+/******************************************************************************/
+
+/******************************************************************************/
+/* FUNCTIONS                                                                  */
+/******************************************************************************/
 #define CANIF_START_SEC_CODE
 #include "CanIf_MemMap.hpp"
 FUNC(Std_ReturnType, CANIF_CODE) CanIf_SetControllerMode(
       VAR(uint8,                    AUTOMATIC) ControllerId
-   ,  VAR(CanIf_ControllerModeType, AUTOMATIC) ControllerMode
+   ,  VAR(Type_EcuabCanIf_eModeController, AUTOMATIC) ControllerMode
 ){
-      P2VAR(CanIf_ControllerStateType, AUTOMATIC, AUTOMATIC)       lControllerState_p;
-        VAR(Can_ReturnType,            AUTOMATIC)                  lCanStatus_en = CAN_NOT_OK;
-        VAR(Std_ReturnType,            AUTOMATIC)                  lRetVal_en    = E_NOT_OK;
-        VAR(Can_StateTransitionType,   AUTOMATIC)                  lCanMode;
-   P2CONST(CanIf_Cfg_CtrlConfig_tst,  AUTOMATIC, CANIF_CFG_CONST) lCtrlConfig_pst;
-   VAR(uint8, AUTOMATIC)          lCtrlCustId_u8;
-   lCtrlCustId_u8     = CanIf_Lok_ConfigSet_tpst->CtrlIdTable_Ptr[ControllerId];
-   lControllerState_p = CanIf_Lok_ControllerState_ast + ControllerId;
-   lCtrlConfig_pst    = (CanIf_Lok_ConfigSet_tpst->CanIf_CtrlConfigPtr) + lCtrlCustId_u8;
+        VAR(Type_McalCan_eStateTransition, AUTOMATIC)                  lCanMode;
+       VAR(uint8,                          AUTOMATIC                 ) lCtrlCustId_u8     = CanIf_Lok_ConfigSet_tpst->CtrlIdTable_Ptr[ControllerId];
+      P2VAR(CanIf_ControllerStateType,     AUTOMATIC, AUTOMATIC      ) lControllerState_p = CanIf_Lok_ControllerState_ast + ControllerId;
+   P2CONST(CanIf_Cfg_CtrlConfig_tst,       AUTOMATIC, CANIF_CFG_CONST) lCtrlConfig_pst    = (CanIf_Lok_ConfigSet_tpst->CanIf_CtrlConfigPtr) + lCtrlCustId_u8;
+        VAR(Type_McalCan_eReturn,          AUTOMATIC)                  lCanStatus_en      = CAN_NOT_OK;
+        VAR(Std_ReturnType,                AUTOMATIC)                  lRetVal_en         = E_NOT_OK;
 
    switch(ControllerMode){
         case CANIF_CS_SLEEP:
-            lCanStatus_en = Can_SetControllerMode((uint8)(lCtrlConfig_pst->CtrlCanCtrlRef), CAN_T_SLEEP);
+            lCanStatus_en = infMcalCanEcuabCanIf_tSetModeController((uint8)(lCtrlConfig_pst->CtrlCanCtrlRef), CAN_T_SLEEP);
             if(lCanStatus_en != CAN_NOT_OK){
                 lRetVal_en = E_OK;
                 lControllerState_p->ChannelMode = CANIF_OFFLINE;
@@ -28,7 +79,7 @@ FUNC(Std_ReturnType, CANIF_CODE) CanIf_SetControllerMode(
             break;
 
         case CANIF_CS_STARTED:
-           lCanStatus_en = Can_SetControllerMode((uint8)(lCtrlConfig_pst->CtrlCanCtrlRef), CAN_T_START);
+           lCanStatus_en = infMcalCanEcuabCanIf_tSetModeController((uint8)(lCtrlConfig_pst->CtrlCanCtrlRef), CAN_T_START);
            if(lCanStatus_en != CAN_NOT_OK){
                lRetVal_en = E_OK;
             }
@@ -41,7 +92,7 @@ FUNC(Std_ReturnType, CANIF_CODE) CanIf_SetControllerMode(
             else{
                 lCanMode = CAN_T_STOP;
             }
-            lCanStatus_en = Can_SetControllerMode((uint8)(lCtrlConfig_pst->CtrlCanCtrlRef), lCanMode);
+            lCanStatus_en = infMcalCanEcuabCanIf_tSetModeController((uint8)(lCtrlConfig_pst->CtrlCanCtrlRef), lCanMode);
             if(lCanStatus_en != CAN_NOT_OK){
                 lRetVal_en = E_OK;
                 lControllerState_p->ChannelMode = CANIF_TX_OFFLINE;
@@ -56,7 +107,7 @@ FUNC(Std_ReturnType, CANIF_CODE) CanIf_SetControllerMode(
 
 FUNC(Std_ReturnType, CANIF_CODE) CanIf_GetControllerMode(
         VAR(uint8,                    AUTOMATIC)                  ControllerId
-   ,  P2VAR(CanIf_ControllerModeType, AUTOMATIC, CANIF_APPL_DATA) ControllerModePtr
+   ,  P2VAR(Type_EcuabCanIf_eModeController, AUTOMATIC, CANIF_APPL_DATA) ControllerModePtr
 ){
    P2VAR(CanIf_ControllerStateType, AUTOMATIC, AUTOMATIC) lControllerState_p;
     lControllerState_p = CanIf_Lok_ControllerState_ast + ControllerId;
@@ -84,7 +135,7 @@ FUNC(void, CANIF_CODE) CanIf_ControllerBusOff(
 
 FUNC(void, CANIF_CODE) CanIf_ControllerModeIndication(
       VAR(uint8,                    AUTOMATIC) ControllerId
-   ,  VAR(CanIf_ControllerModeType, AUTOMATIC) ControllerMode
+   ,  VAR(Type_EcuabCanIf_eModeController, AUTOMATIC) ControllerMode
 ){
      P2VAR(CanIf_ControllerStateType, AUTOMATIC, AUTOMATIC) lControllerState_p;
    P2CONST(CanIf_CallbackFuncType,    AUTOMATIC, AUTOMATIC) lCallBackPtr_p;
@@ -99,3 +150,8 @@ FUNC(void, CANIF_CODE) CanIf_ControllerModeIndication(
 }
 #define CANIF_STOP_SEC_CODE
 #include "CanIf_MemMap.hpp"
+
+/******************************************************************************/
+/* EOF                                                                        */
+/******************************************************************************/
+

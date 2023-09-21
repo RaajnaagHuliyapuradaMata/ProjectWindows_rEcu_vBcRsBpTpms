@@ -10,7 +10,9 @@
 #include "Dem_DTCs.hpp"
 #include "Dem_OperationCycle.hpp"
 #include "Dem_EventFHandling.hpp"
-#include "Dem_Cfg_ExtPrototypes.hpp"
+#include "DemAppInterfaceX.hpp"
+#include "Rte_Dem.hpp"
+#include "FiM.hpp"
 #include "Dem_DTCGroup.hpp"
 
 #define DEM_START_SEC_ROM_CODE

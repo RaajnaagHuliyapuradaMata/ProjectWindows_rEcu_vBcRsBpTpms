@@ -9,7 +9,6 @@
 #include "ComM.hpp"
 #include "EcuM.hpp"
 #include "Dem.hpp"
-#include "Can.hpp"
 #include "CanTrcv.hpp"
 #include "GpioX.hpp"
 

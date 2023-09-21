@@ -12,7 +12,7 @@ FUNC(void,COM_CODE) Com_SwitchIpduTxMode(VAR(Type_SwcServiceCom_tIdPdu, AUTOMATI
    VAR(uint8, AUTOMATIC) LatestTransMode_u8;
 
 #if(COM_CONFIGURATION_USE_DET == STD_ON)
-   if(Com_Lok_DETCheck_Param((PduId >= COM_GET_NUM_TX_IPDU), COMServiceId_SwitchIpduTxMode))
+   if(Com_Lok_DETCheck_Param((PduId >= CfgSwcServiceCom_dNumIPduTx), COMServiceId_SwitchIpduTxMode))
 #endif
    {
 

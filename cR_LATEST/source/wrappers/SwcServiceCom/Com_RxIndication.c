@@ -20,7 +20,7 @@ FUNC(void, COM_CODE) Com_RxIndication(VAR(Type_SwcServiceCom_tIdPdu, AUTOMATIC) 
 
 #if(COM_CONFIGURATION_USE_DET == STD_ON)
 
-   if(Com_Lok_DETCheck_Param_Ptr((RxPduId >= COM_GET_NUM_RX_IPDU), (PduInfoPtr == NULL_PTR)
+   if(Com_Lok_DETCheck_Param_Ptr((RxPduId >= CfgSwcServiceCom_dNumIPduRx), (PduInfoPtr == NULL_PTR)
    ,     COMServiceId_RxIndication))
 #endif
    {
@@ -234,7 +234,7 @@ FUNC(uint8, COM_CODE) Com_ReadRxIPduLength(
     Status = COM_SERVICE_NOT_AVAILABLE;
 
 #if(COM_CONFIGURATION_USE_DET == STD_ON)
-   if(Com_Lok_DETCheck_Param_Ptr( (RxPduId >= COM_GET_NUM_RX_IPDU), (RxIPduLengthPtr == NULL_PTR)
+   if(Com_Lok_DETCheck_Param_Ptr( (RxPduId >= CfgSwcServiceCom_dNumIPduRx), (RxIPduLengthPtr == NULL_PTR)
    ,     COMServiceId_ReadRxIPduLength ))
 #endif
    {

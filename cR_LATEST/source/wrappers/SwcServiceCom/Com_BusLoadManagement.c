@@ -33,7 +33,7 @@ FUNC(void, COM_CODE) Com_RestoreBusload (void){
         Com_ReducedPeriod_u16 = 0;
 
         TxIpduRamPtr = &COM_GET_TXPDURAM_S(0);
-        for(BufIdx = 0; BufIdx < COM_GET_NUM_TX_IPDU; BufIdx++)
+        for(BufIdx = 0; BufIdx < CfgSwcServiceCom_dNumIPduTx; BufIdx++)
         {
 
             if((TxIpduRamPtr->CurrentTxModePtr->Mode == (uint8)COM_TXMODE_PERIODIC)

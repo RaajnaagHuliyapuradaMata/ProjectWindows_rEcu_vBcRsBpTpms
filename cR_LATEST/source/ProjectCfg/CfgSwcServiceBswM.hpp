@@ -37,7 +37,7 @@
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
 typedef struct{
-   P2CONST(void,     TYPEDEF, BSWM_CONST) CfgSwcServiceBswM_cstDataPtr;
+   P2CONST(void,                TYPEDEF, BSWM_CONST) CfgSwcServiceBswM_cstDataPtr;
    P2CONST(Std_VersionInfoType, TYPEDEF, BSWM_CONST) BswM_VersionInfoPtr;
 }Type_CfgSwcServiceBswM_st;
 

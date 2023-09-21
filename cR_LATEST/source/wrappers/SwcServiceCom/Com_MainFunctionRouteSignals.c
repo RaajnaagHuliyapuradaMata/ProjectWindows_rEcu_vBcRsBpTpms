@@ -112,7 +112,7 @@ LOCAL_INLINE FUNC(void,COM_CODE) Com_Lok_PrepareTxIpdu(void){
 
     TxIPduConstPtr = COM_GET_TX_IPDU_CONSTDATA(0);
 
-   for(Index_ui = COM_ZERO; Index_ui < COM_GET_NUM_TX_IPDU; Index_ui++)
+   for(Index_ui = COM_ZERO; Index_ui < CfgSwcServiceCom_dNumIPduTx; Index_ui++)
    {
 
         if((Com_GetValue(TXIPDU,_ISGWPDU,TxIPduConstPtr->txIPduFields) != COM_FALSE) &&

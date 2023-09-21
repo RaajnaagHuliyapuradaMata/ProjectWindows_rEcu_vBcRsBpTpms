@@ -79,6 +79,15 @@ static uint8 VERSION_ucDecimalToBcd(
    return (ucBcdValue);
 }
 
+void VERSION_GetSoftware_ID(
+   uint8* ucData
+){
+   ucData += VERSION_GetMajor(ucData, cSTRING_SIZ_MAJOR, cMETADATA_APP);
+   ucData += VERSION_GetMinor(ucData, cSTRING_SIZ_MINOR, cMETADATA_APP);
+   ucData += VERSION_GetMicro(ucData, cSTRING_SIZ_MICRO, cMETADATA_APP);
+   ucData += VERSION_GetCrc32(ucData, cSTRING_SIZ_CRC32, cMETADATA_APP);
+}
+
 uint8 VERSION_GetEcuProgramInformationPart1(
       uint8* ucData
    ,  uint8  ucLen

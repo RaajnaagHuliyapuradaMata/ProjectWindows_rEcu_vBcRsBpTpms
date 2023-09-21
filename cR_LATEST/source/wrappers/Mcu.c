@@ -2,9 +2,9 @@
 
 #include "infMcalMcuSwcApplEcuM.hpp"
 
+#include "infMcalCanEcuabCanIf.hpp" //TBD: Move to McalMcu.c
 #include "device.hpp"
 #include "CfgMcalMcu.hpp"
-#include "Can.hpp"
 #include "CanTrcv.hpp"
 #include "EcuM.hpp"
 #include "Dem.hpp"
@@ -30,8 +30,8 @@ void ApplMcu_vDeepStop(void){
    if(TRCV_GetWakeupFlag() == TRUE){
       ApplMcu_vPerformReset();
    }
-   Can_SetControllerMode(0, CAN_T_STOP);
-   Can_SetControllerMode(0, CAN_T_SLEEP);
+   infMcalCanEcuabCanIf_tSetModeController(0, CAN_T_STOP);
+   infMcalCanEcuabCanIf_tSetModeController(0, CAN_T_SLEEP);
    TRCV_Standby();
    rf_ata5785_off_mode();
    GPIO_DeInit();

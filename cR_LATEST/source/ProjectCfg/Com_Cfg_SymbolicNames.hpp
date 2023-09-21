@@ -1,25 +1,45 @@
+#pragma once
+/******************************************************************************/
+/* File   : Com_Cfg_SymbolicNames.hpp                                         */
+/*                                                                            */
+/* Author : Raajnaag HULIYAPURADA MATA                                        */
+/*                                                                            */
+/* License / Warranty / Terms and Conditions                                  */
+/*                                                                            */
+/* Everyone is permitted to copy and distribute verbatim copies of this lice- */
+/* nse document, but changing it is not allowed. This is a free, copyright l- */
+/* icense for software and other kinds of works. By contrast, this license is */
+/* intended to guarantee your freedom to share and change all versions of a   */
+/* program, to make sure it remains free software for all its users. You have */
+/* certain responsibilities, if you distribute copies of the software, or if  */
+/* you modify it: responsibilities to respect the freedom of others.          */
+/*                                                                            */
+/* All rights reserved. Copyright © 1982 Raajnaag HULIYAPURADA MATA           */
+/*                                                                            */
+/* Always refer latest software version from:                                 */
+/* https://github.com/RaajnaagHuliyapuradaMata?tab=repositories               */
+/*                                                                            */
+/******************************************************************************/
 
+/******************************************************************************/
+/* #INCLUDES                                                                  */
+/******************************************************************************/
 
-#ifndef COM_CFG_SYMBOLICNAMES_H
-#define COM_CFG_SYMBOLICNAMES_H
+/******************************************************************************/
+/* #DEFINES                                                                   */
+/******************************************************************************/
+#define COM_VARIANT_PRE_COMPILE                                                0
+#define COM_VARIANT_LINK_TIME                                                  1
+#define COM_VARIANT_POSTBUILD_LOADABLE                                         2
+#define COM_VARIANT_POSTBUILD_SELECTABLE                                       3
 
-#define COM_VARIANT_PRE_COMPILE                   0
+#define COM_CONFIGURATION_VARIANT                        COM_VARIANT_PRE_COMPILE
 
-#define COM_VARIANT_LINK_TIME                     1
-
-#define COM_VARIANT_POSTBUILD_LOADABLE            2
-
-#define COM_VARIANT_POSTBUILD_SELECTABLE          3
-
-#define COM_CONFIGURATION_VARIANT                 COM_VARIANT_PRE_COMPILE
-
-#ifndef     COM_DontUseExternalSymbolicNames
-
+#ifndef COM_DontUseExternalSymbolicNames
 #define ComConf_ComIPdu_ApplicationCyclic_TPM_Can_Network_CANNODE_0 0
 #define ComConf_ComIPdu_HMIPressure_TPM_Can_Network_CANNODE_0 1
 #define ComConf_ComIPdu_HMITempAndRefPress_TPM_Can_Network_CANNODE_0 2
 #define ComConf_ComIPdu_ApplicationResponse_TPM_Can_Network_CANNODE_0 3
-
 #define ComConf_ComIPdu_ApplicationRequest_TPM_Can_Network_CANNODE_0 0
 #define ComConf_ComIPdu_BCM_peripheralMasterClock_Can_Network_CANNODE_0 1
 #define ComConf_ComIPdu_ESP_WSpeed_Front_BodyLCAN_Can_Network_CANNODE_0 2
@@ -29,7 +49,6 @@
 #define ComConf_ComIPdu_TMM_Status_BodyLCAN_Can_Network_CANNODE_0 6
 #define ComConf_ComIPdu_VehSts_BodyLCAN_Can_Network_CANNODE_0 7
 #define ComConf_ComIPdu_VmsStsReq_BodyLCAN_Can_Network_CANNODE_0 8
-
 #define ComConf_ComSignal_AppCyclic_7 0
 #define ComConf_ComSignal_AppCyclic_6 1
 #define ComConf_ComSignal_AppCyclic_5 2
@@ -73,7 +92,6 @@
 #define ComConf_ComSignal_AppResponse_2 40
 #define ComConf_ComSignal_AppResponse_1 41
 #define ComConf_ComSignal_AppResponse_0 42
-
 #define ComConf_ComSignal_AppReqCmd_7 0
 #define ComConf_ComSignal_AppReqCmd_6 1
 #define ComConf_ComSignal_AppReqCmd_5 2
@@ -128,19 +146,37 @@
 #define ComConf_ComSignal_PcmStatesReq 51
 #define ComConf_ComSignal_EspPataModReq 52
 #define ComConf_ComSignal_DrvModPataOffRoadMod 53
-
-#ifdef COM_TX_SIGNALGROUP
-
-#endif
-#ifdef COM_RX_SIGNALGROUP
-
-#endif
-
 #define ComConf_ComIPduGroup_ComIPduGroup_Rx 0
 #define ComConf_ComIPduGroup_ComIPduGroup_Tx 1
 #define ComConf_ComIPduGroup_ComIPduGroup_Tx_AppCyclic 2
 #define ComConf_ComIPduGroup_ComIPduGroup_Tx_AppResponse 3
-
 #endif
 
-#endif
+/******************************************************************************/
+/* MACROS                                                                     */
+/******************************************************************************/
+
+/******************************************************************************/
+/* TYPEDEFS                                                                   */
+/******************************************************************************/
+
+/******************************************************************************/
+/* CONSTS                                                                     */
+/******************************************************************************/
+
+/******************************************************************************/
+/* PARAMS                                                                     */
+/******************************************************************************/
+
+/******************************************************************************/
+/* OBJECTS                                                                    */
+/******************************************************************************/
+
+/******************************************************************************/
+/* FUNCTIONS                                                                  */
+/******************************************************************************/
+
+/******************************************************************************/
+/* EOF                                                                        */
+/******************************************************************************/
+

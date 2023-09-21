@@ -9,7 +9,9 @@
 #include "Dem_Nvm.hpp"
 #include "Dem_Lock.hpp"
 #include "Dem_Cfg_EvMem.hpp"
-#include "Dem_Cfg_ExtPrototypes.hpp"
+#include "DemAppInterfaceX.hpp"
+#include "Rte_Dem.hpp"
+#include "FiM.hpp"
 
 #define DEM_START_SEC_RAM_CLEARED
 #include "Dem_Cfg_MemMap.hpp"

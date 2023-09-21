@@ -74,11 +74,6 @@ VAR(uint8, DCM_VAR) Dcm_InParameterBuf_au8 [8];
 #define DCM_START_SEC_CONST_8
 #include "Dcm_Cfg_MemMap.hpp"
 static CONST(uint8, DCM_CONST) Dcm_Dsld_rx_table_acu8[DCM_CFG_NUM_RX_PDUID] = {0x0, 0x0};
-#define DCM_STOP_SEC_CONST_8
-#include "Dcm_Cfg_MemMap.hpp"
-
-#define DCM_START_SEC_CONST_8
-#include "Dcm_Cfg_MemMap.hpp"
 static CONST(Type_SwcServiceCom_tIdPdu, DCM_CONST) Dcm_DsldTxTable_cast[DCM_NUM_TX_PDUID] = {PduRConf_PduRSrcPdu_UDS_Tx_Physical_Can_Network_CANNODE_0_Phys_Dcm2PduR};
 #define DCM_STOP_SEC_CONST_8
 #include "Dcm_Cfg_MemMap.hpp"
@@ -161,11 +156,7 @@ static CONST(Dcm_Dsld_SubServiceType, DCM_CONST) Dcm_SrvTab0_SubSrv13_acs[] = {
                                                                                     {0x6uL,  0xffffffffuL, &DcmAppl_UserSubServiceModeRuleService, NULL_PTR,     0x1,  FALSE}
                                                                                  ,  {0x6uL,  0xffffffffuL, &DcmAppl_UserSubServiceModeRuleService, NULL_PTR,     0x2,  FALSE}
 };
-#define DCM_STOP_SEC_CONST_UNSPECIFIED
-#include "Dcm_Cfg_MemMap.hpp"
 
-#define DCM_START_SEC_CONST_UNSPECIFIED
-#include "Dcm_Cfg_MemMap.hpp"
 static CONST(Dcm_Dsld_ServiceType, DCM_CONST) Dcm_Dsld_sid_table0_acs[] = {
       {0x1FuL, 0xffffffffuL, &SwcServiceDcm_tDiagnosticSessionControl,     &Dcm_Dsp_DscIni,     0x10, TRUE,  TRUE, Dcm_SrvTab0_SubSrv1_acs,  5, &DcmAppl_UserServiceModeRuleService, &Dcm_Lok_DspDscConfirmation}
    ,  {0x4uL,  0x4uL,     &SwcServiceDcm_tEcuReset,     &Dcm_Dsp_EcuReset_Ini,     0x11, TRUE,  TRUE, Dcm_SrvTab0_SubSrv5_acs,  3, &DcmAppl_UserServiceModeRuleService, &Dcm_Lok_DspEcuResetConfirmation}
@@ -182,11 +173,7 @@ static CONST(Dcm_Dsld_ServiceType, DCM_CONST) Dcm_Dsld_sid_table0_acs[] = {
    ,  {0x5uL,  0xffffffffuL, &SwcServiceDcm_tTesterPresent,     NULL_PTR,     0x3E, TRUE,  TRUE, Dcm_SrvTab0_SubSrv0_acs,  1, &DcmAppl_UserServiceModeRuleService, &DcmAppl_DcmConfirmation}
    ,  {0x6uL,  0xffffffffuL, &SwcServiceDcm_tControlDTCSetting,     &Dcm_Dsp_CDTCSIni,     0x85, TRUE,  TRUE, Dcm_SrvTab0_SubSrv13_acs, 2, &DcmAppl_UserServiceModeRuleService, &DcmAppl_DcmConfirmation}
 };
-#define DCM_STOP_SEC_CONST_UNSPECIFIED
-#include "Dcm_Cfg_MemMap.hpp"
 
-#define DCM_START_SEC_CONST_UNSPECIFIED
-#include "Dcm_Cfg_MemMap.hpp"
 static CONST(Dcm_Dsld_sid_tableType, DCM_CONST) Dcm_DsldServiceTables_cast[] = {{Dcm_Dsld_sid_table0_acs, 14, 0x7F, 13}};
 #define DCM_STOP_SEC_CONST_UNSPECIFIED
 #include "Dcm_Cfg_MemMap.hpp"

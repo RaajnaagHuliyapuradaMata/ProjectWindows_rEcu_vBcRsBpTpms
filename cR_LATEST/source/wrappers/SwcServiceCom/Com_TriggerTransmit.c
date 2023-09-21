@@ -23,7 +23,7 @@ FUNC(Std_ReturnType, COM_CODE) Com_TriggerTransmit(VAR(Type_SwcServiceCom_tIdPdu
 
 #if(COM_CONFIGURATION_USE_DET == STD_ON)
 
-   if(Com_Lok_DETCheck_Param_Ptr((TxPduId >= COM_GET_NUM_TX_IPDU), (PduInfoPtr == NULL_PTR)
+   if(Com_Lok_DETCheck_Param_Ptr((TxPduId >= CfgSwcServiceCom_dNumIPduTx), (PduInfoPtr == NULL_PTR)
    ,     COMServiceId_TriggerTransmit))
 #endif
    {

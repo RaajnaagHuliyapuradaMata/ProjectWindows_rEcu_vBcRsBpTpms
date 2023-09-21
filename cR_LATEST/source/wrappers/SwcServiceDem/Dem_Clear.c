@@ -16,7 +16,9 @@
 #include "Dem_Cfg.hpp"
 #include "Dem_EventStatus.hpp"
 #include "Dem_EvMemGen.hpp"
-#include "Dem_Cfg_ExtPrototypes.hpp"
+#include "DemAppInterfaceX.hpp"
+#include "Rte_Dem.hpp"
+#include "FiM.hpp"
 #include "Dem_Lok_J1939Dcm.hpp"
 
 #define DEM_START_SEC_RAM_INIT

@@ -11,7 +11,7 @@ FUNC(uint8, COM_CODE) Com_ReceiveSignalGroupArray( Com_SignalGroupIdType SignalG
    Com_RxSigGrpConstPtrType            RxSigGrpConstPtr;
    VAR(uint8,AUTOMATIC)                returnValue_u8;
    VAR(Com_MainFuncType,AUTOMATIC)     rxMainFuncId;
-   VAR(Com_IpduIdType,AUTOMATIC)       IpduId_ui;
+   VAR(Type_CfgSwcServiceCom_tIdIPdu,AUTOMATIC)       IpduId_ui;
 
     returnValue_u8 = COM_SERVICE_NOT_AVAILABLE;
 

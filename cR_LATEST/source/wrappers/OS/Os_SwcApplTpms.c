@@ -10,7 +10,6 @@
 #include "adcX.hpp"
 #include "rscan.hpp"
 #include "wdt.hpp"
-#include "can.hpp"
 #include "CfgMcalMcu.hpp"
 #include "CanTrcv.hpp"
 #include "CanManagerX.hpp"
@@ -37,11 +36,13 @@
 #include "Nvm.hpp"
 #include "Version.hpp"
 
-static uint8         ucLed = 0;
-static uint8         uc100msTimer = 0;
-static uint8         ucNoiseMeasureTimer = 0;
-static uint8         ucAtaIrqTimeout = 0;
-static Can_FrameType tRxCanFrame;
+#include "infMcalCanSwcServiceSchM.hpp"
+
+static uint8                ucLed               = 0;
+static uint8                uc100msTimer        = 0;
+static uint8                ucNoiseMeasureTimer = 0;
+static uint8                ucAtaIrqTimeout     = 0;
+static Type_McalCan_stFrame tRxCanFrame;
 
 ISR(CAT2ISR_TelRec){
    Os_Disable_CAT2ISR_TelRec();
@@ -155,7 +156,7 @@ TASK(TelRecTask){
 
 TASK(CanRecTask){
    Can_RtnType tCanRecStatus = Can_ReadRxFiFo(&tRxCanFrame);
-   Can_ForwardMessageToCanIf(
+   infMcalMcuSwcServiceSchM_vRunnableRx(
       &tRxCanFrame
    );
    Os_Enable_CAT2ISR_Can0Receive();

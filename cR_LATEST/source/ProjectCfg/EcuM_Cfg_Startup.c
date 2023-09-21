@@ -9,7 +9,6 @@
 #endif
 
 #include "Dem.hpp"
-#include "Can.hpp"
 #include "CanIf.hpp"
 #include "ComM.hpp"
 #include "CanSM.hpp"

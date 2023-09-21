@@ -1,6 +1,33 @@
-#ifndef DEM_CFG_DTCS_H
-#define DEM_CFG_DTCS_H
+#pragma once
+/******************************************************************************/
+/* File   : Dem_Cfg_DTCs.hpp                                                  */
+/*                                                                            */
+/* Author : Raajnaag HULIYAPURADA MATA                                        */
+/*                                                                            */
+/* License / Warranty / Terms and Conditions                                  */
+/*                                                                            */
+/* Everyone is permitted to copy and distribute verbatim copies of this lice- */
+/* nse document, but changing it is not allowed. This is a free, copyright l- */
+/* icense for software and other kinds of works. By contrast, this license is */
+/* intended to guarantee your freedom to share and change all versions of a   */
+/* program, to make sure it remains free software for all its users. You have */
+/* certain responsibilities, if you distribute copies of the software, or if  */
+/* you modify it: responsibilities to respect the freedom of others.          */
+/*                                                                            */
+/* All rights reserved. Copyright © 1982 Raajnaag HULIYAPURADA MATA           */
+/*                                                                            */
+/* Always refer latest software version from:                                 */
+/* https://github.com/RaajnaagHuliyapuradaMata?tab=repositories               */
+/*                                                                            */
+/******************************************************************************/
 
+/******************************************************************************/
+/* #INCLUDES                                                                  */
+/******************************************************************************/
+
+/******************************************************************************/
+/* #DEFINES                                                                   */
+/******************************************************************************/
 #define DEM_CFG_STOREWAITINGFORMONITORINGEVENT  FALSE
 #define DEM_CFG_DTCFILTER_EXTERNALPROCESSING_OFF  STD_OFF
 #define DEM_CFG_DTCFILTER_EXTERNALPROCESSING_ON   STD_ON
@@ -12,7 +39,6 @@
 #define DEM_DTC_BP_STATE_SUPPRESSED             0u
 #define DEM_DTC_BP_GROUP_DTCSETTING_DISABLED    1u
 
-typedef uint8 Dem_DtcStateType;
 #define DEM_DTCSTATE_ISBITSET                    rba_DiagLib_Bit8IsBitSet
 #define DEM_DTCSTATE_OVERWRITEBIT                rba_DiagLib_Bit8OverwriteBit
 #define DEM_DTCSTATE_CLEARBIT                    rba_DiagLib_Bit8ClearBit
@@ -30,5 +56,32 @@ typedef uint8 Dem_DtcStateType;
 #define DEM_DTC_DTCSETTING_CALLBACK_SUPPORTED_ON STD_ON
 #define DEM_DTC_DTCSETTING_CALLBACK_SUPPORTED DEM_DTC_DTCSETTING_CALLBACK_SUPPORTED_OFF
 
-#endif
+/******************************************************************************/
+/* MACROS                                                                     */
+/******************************************************************************/
+
+/******************************************************************************/
+/* TYPEDEFS                                                                   */
+/******************************************************************************/
+typedef uint8 Dem_DtcStateType;
+
+/******************************************************************************/
+/* CONSTS                                                                     */
+/******************************************************************************/
+
+/******************************************************************************/
+/* PARAMS                                                                     */
+/******************************************************************************/
+
+/******************************************************************************/
+/* OBJECTS                                                                    */
+/******************************************************************************/
+
+/******************************************************************************/
+/* FUNCTIONS                                                                  */
+/******************************************************************************/
+
+/******************************************************************************/
+/* EOF                                                                        */
+/******************************************************************************/
 

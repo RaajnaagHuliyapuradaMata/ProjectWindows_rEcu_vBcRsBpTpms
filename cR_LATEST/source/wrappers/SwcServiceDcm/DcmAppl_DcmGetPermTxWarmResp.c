@@ -9,7 +9,7 @@
 #include "Dcm_Cfg_MemMap.hpp"
 FUNC(Std_ReturnType,DCM_APPL_CODE) DcmAppl_DcmGetPermTxWarmResp(void){
    VAR(Std_ReturnType,AUTOMATIC)   retVal;
-   CanIf_ControllerModeType tCanIfControllerMode;
+   Type_EcuabCanIf_eModeController tCanIfControllerMode;
     retVal = E_NOT_OK;
    CanIf_GetControllerMode(0, &tCanIfControllerMode);
    if(tCanIfControllerMode == CANIF_CS_STARTED)

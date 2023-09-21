@@ -11,8 +11,10 @@
   static Dcm__Union_ProductionData PROD_DATA DCM__UN_ProductionDataFlash;
 #endif
 
-static void PRODFLASH__WriteProductionDataMember(Dcm__Enum_ProductionDataMembers EN_Member, const uint8 *PU8_Data, const uint8 U8_Length)
-{
+static void PRODFLASH__WriteProductionDataMember(
+   Dcm__Enum_ProductionDataMembers EN_Member,
+   const uint8* PU8_Data,
+   const uint8 U8_Length){
   uint8 AU8_FlashBlockBuffer[DCM__PRODUCTION_DATA_FLASH_BLOCK_SIZE];
   uint32 U32_AddressOfMember = 0U;
   uint16 U16_SizeOfMember = 0U;
@@ -21,45 +23,32 @@ static void PRODFLASH__WriteProductionDataMember(Dcm__Enum_ProductionDataMembers
   uint8 U8_BlockNumberCounter = 0U;
   uint8 U8_BufferCounter = 0U;
   uint8 U8_BytesToWrite = U8_Length;
-
   U32_AddressOfMember = PRODFLASH__GetAddressOfMember(EN_Member);
-
   U16_SizeOfMember = PRODFLASH__GetSizeOfMember(EN_Member);
-
   U8_StartBlockNumber = PRODFLASH__GetStartBlockNumber(U32_AddressOfMember);
-
   U8_EndBlockNumber = PRODFLASH__GetEndBlockNumber(U32_AddressOfMember, U16_SizeOfMember);
-
-  for(U8_BlockNumberCounter = U8_StartBlockNumber; U8_BlockNumberCounter <= U8_EndBlockNumber; U8_BlockNumberCounter++)
-  {
+   for(U8_BlockNumberCounter = U8_StartBlockNumber;
+         U8_BlockNumberCounter <= U8_EndBlockNumber; U8_BlockNumberCounter++){
    uint8 U8_StartPositionOfWrite = 0U;
    uint8 U8_CurrentPositionOfWrite = 0U;
-
-   for(U8_BufferCounter = 0U; U8_BufferCounter < DCM__PRODUCTION_DATA_FLASH_BLOCK_SIZE; U8_BufferCounter++)
-   {
+      for(U8_BufferCounter = 0U;
+            U8_BufferCounter < DCM__PRODUCTION_DATA_FLASH_BLOCK_SIZE;
+            U8_BufferCounter++){
       AU8_FlashBlockBuffer[U8_BufferCounter] = *(&DCM__UN_ProductionDataFlash.AU8_Production_Data_Array[0] + (U8_BlockNumberCounter * DCM__PRODUCTION_DATA_FLASH_BLOCK_SIZE) + U8_BufferCounter);
    }
-
    PRODFLASH__EraseFlashBlock(U8_BlockNumberCounter);
-
-   if(U8_BlockNumberCounter == U8_StartBlockNumber)
-   {
-
+      if(U8_BlockNumberCounter == U8_StartBlockNumber){
       U8_StartPositionOfWrite = (uint8) (U32_AddressOfMember % DCM__PRODUCTION_DATA_FLASH_BLOCK_SIZE);
    }
    else{
-
       U8_StartPositionOfWrite = 0U;
    }
-
-    U8_CurrentPositionOfWrite = U8_StartPositionOfWrite;
-   while((U8_CurrentPositionOfWrite < DCM__PRODUCTION_DATA_FLASH_BLOCK_SIZE) && (U8_BytesToWrite > 0U))
-   {
+      U8_CurrentPositionOfWrite = U8_StartPositionOfWrite;
+      while((U8_CurrentPositionOfWrite < DCM__PRODUCTION_DATA_FLASH_BLOCK_SIZE) && (U8_BytesToWrite > 0U)){
       AU8_FlashBlockBuffer[U8_CurrentPositionOfWrite] = PU8_Data[U8_Length - U8_BytesToWrite];
       U8_CurrentPositionOfWrite++;
       U8_BytesToWrite--;
    }
-
    PRODFLASH__WriteFlashBlock(U8_BlockNumberCounter, (uint8 *) AU8_FlashBlockBuffer);
   }
 }
@@ -682,8 +671,8 @@ uint8 PRODFLASH_GetEolCheckerByte(uint8* ucData)
   return ucSize;
 }
 
-void PRODFLASH_PutRivianEcuPartNumber(const uint8* ucData)
-{
+void PRODFLASH_PutRivianEcuPartNumber(
+   const uint8* ucData){
   PRODFLASH__WriteProductionDataMember(DCM__E_RIVIAN_ECU_PART_NUMBER, ucData, sizeof(DCM__UN_ProductionDataFlash.Struct_Split_Production_Data.AU8_Index25_RivianEcuPartNumber));
 }
 

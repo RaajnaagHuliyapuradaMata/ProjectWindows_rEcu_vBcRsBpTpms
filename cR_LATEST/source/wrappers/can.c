@@ -1,9 +1,38 @@
+/******************************************************************************/
+/* File   : McalCan.c                                                         */
+/*                                                                            */
+/* Author : Raajnaag HULIYAPURADA MATA                                        */
+/*                                                                            */
+/* License / Warranty / Terms and Conditions                                  */
+/*                                                                            */
+/* Everyone is permitted to copy and distribute verbatim copies of this lice- */
+/* nse document, but changing it is not allowed. This is a free, copyright l- */
+/* icense for software and other kinds of works. By contrast, this license is */
+/* intended to guarantee your freedom to share and change all versions of a   */
+/* program, to make sure it remains free software for all its users. You have */
+/* certain responsibilities, if you distribute copies of the software, or if  */
+/* you modify it: responsibilities to respect the freedom of others.          */
+/*                                                                            */
+/* All rights reserved. Copyright © 1982 Raajnaag HULIYAPURADA MATA           */
+/*                                                                            */
+/* Always refer latest software version from:                                 */
+/* https://github.com/RaajnaagHuliyapuradaMata?tab=repositories               */
+/*                                                                            */
+/******************************************************************************/
+
+/******************************************************************************/
+/* #INCLUDES                                                                  */
+/******************************************************************************/
 #include "Std_Types.hpp"
 
 #include "infMcalCanSwcApplEcuM.hpp"
 #include "infMcalCanSwcServiceSchM.hpp"
+#include "infMcalCanEcuabCanIf.hpp"
 
-#include "can.hpp"
+#include "rscanX.hpp"
+#include "Com_Cfg_SymbolicNames.hpp"
+#include "Can_GeneralTypes.hpp"
+
 #include "device.hpp"
 #include "CanIf.hpp"
 #include "CanIf_Cfg_SymbolicNames.hpp"
@@ -14,8 +43,48 @@
 #include "Os_ConfigInterrupts.hpp"
 #include "CanTrcv.hpp"
 
-CanIf_ControllerModeType ucControllerMode = CANIF_CS_UNINIT;
+/******************************************************************************/
+/* #DEFINES                                                                   */
+/******************************************************************************/
+#define CAN_AR_RELEASE_MAJOR_VERSION                                           4
+#define CAN_AR_RELEASE_MINOR_VERSION                                           2
+#define CfgEcuabCanIf_dIdCanRx_UdsReqPhy                           (uint16)0x73A
+#define CfgEcuabCanIf_dIdCanRx_UdsReqFunc                          (uint16)0x7DF
+#define CfgEcuabCanIf_dIdCanRx_ApplicationReq                      (uint16)0x63A
+#define CfgEcuabCanIf_dIdCanRx_BcmPeripheralMasterclock            (uint16)0x208
+#define CfgEcuabCanIf_dIdCanRx_EspWheelSpeed_F                     (uint16)0x209
+#define CfgEcuabCanIf_dIdCanRx_EspWheelSpeed_R                     (uint16)0x20A
+#define CfgEcuabCanIf_dIdCanRx_EspWheelPulsesStamped               (uint16)0x20B
+#define CfgEcuabCanIf_dIdCanRx_TmmStatus                           (uint16)0x315
+#define CfgEcuabCanIf_dIdCanRx_TmpsRdcData                         (uint16)0x300
+#define CfgEcuabCanIf_dIdCanRx_VehStatus                           (uint16)0x210
+#define CfgEcuabCanIf_dIdCanRx_VmsStatusReq                        (uint16)0x330
+#define cBUSOFFTIMEOUT                                                       200
 
+/******************************************************************************/
+/* MACROS                                                                     */
+/******************************************************************************/
+
+/******************************************************************************/
+/* TYPEDEFS                                                                   */
+/******************************************************************************/
+
+/******************************************************************************/
+/* CONSTS                                                                     */
+/******************************************************************************/
+
+/******************************************************************************/
+/* PARAMS                                                                     */
+/******************************************************************************/
+
+/******************************************************************************/
+/* OBJECTS                                                                    */
+/******************************************************************************/
+Type_EcuabCanIf_eModeController ucControllerMode = CANIF_CS_UNINIT;
+
+/******************************************************************************/
+/* FUNCTIONS                                                                  */
+/******************************************************************************/
 void infMcalCanSwcApplEcuM_vInitFunction(void){
   RS_CAN_Init();
   ucControllerMode = CANIF_CS_STARTED;
@@ -24,7 +93,10 @@ void infMcalCanSwcApplEcuM_vInitFunction(void){
 void Can_SetBaudrate(void){
 }
 
-Can_ReturnType Can_SetControllerMode(uint8 ucController, Can_StateTransitionType ucMode){
+Type_McalCan_eReturn infMcalCanEcuabCanIf_tSetModeController(
+      uint8                   ucController
+   ,  Type_McalCan_eStateTransition ucMode
+){
   switch(ucControllerMode){
    case CANIF_CS_SLEEP:
       if(ucMode == CAN_T_WAKEUP){
@@ -86,12 +158,12 @@ void infMcalCanSwcServiceSchM_vMainFunctionBusOff(void){
   }
 }
 
-void Can_ForwardMessageToCanIf(
-   const Can_FrameType* tCanFrame
+FUNC(void, MCALCAN_CODE) infMcalMcuSwcServiceSchM_vRunnableRx(
+   const Type_McalCan_stFrame* tCanFrame
 ){
    Can_HwType                   tCanMailbox;
    Type_SwcServiceCom_stInfoPdu tPduInfo;
-   CanIf_ControllerModeType tCanIfControllerMode;
+   Type_EcuabCanIf_eModeController tCanIfControllerMode;
 
    CanIf_GetControllerMode(
          0
@@ -129,11 +201,11 @@ void Can_ForwardMessageToCanIf(
    }
 }
 
-Can_ReturnType Can_Write(
-            Can_HwHandleType ucHthRefId
-   ,  const Can_PduType*     PduInfo_Write
+Type_McalCan_eReturn infMcalCanEcuabCanIf_tWrite(
+            Type_McalCan_tHandleHw ucHthRefId
+   ,  const Type_McalCan_stPdu*     PduInfo_Write
 ){
-   Can_FrameType tTxCanFrame;
+   Type_McalCan_stFrame tTxCanFrame;
    uint8         i;
    for(
       i = 0;
@@ -155,3 +227,8 @@ Can_ReturnType Can_Write(
    );
    return CAN_OK;
 }
+
+/******************************************************************************/
+/* EOF                                                                        */
+/******************************************************************************/
+

@@ -7,7 +7,9 @@
 #include "Dem_DebArTime.hpp"
 #include "Dem_DebCtrBaseClass.hpp"
 #include "Dem_DebMonInternal.hpp"
-#include "Dem_Cfg_ExtPrototypes.hpp"
+#include "DemAppInterfaceX.hpp"
+#include "Rte_Dem.hpp"
+#include "FiM.hpp"
 #include "Dem_Lib.hpp"
 
 #define DEM_START_SEC_ROM_CONST

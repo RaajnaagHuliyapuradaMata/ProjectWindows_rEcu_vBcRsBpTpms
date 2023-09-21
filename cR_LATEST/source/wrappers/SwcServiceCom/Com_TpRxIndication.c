@@ -15,7 +15,7 @@ FUNC(void, COM_CODE) Com_TpRxIndication( Type_SwcServiceCom_tIdPdu PduId, Std_Re
 
 #if(COM_CONFIGURATION_USE_DET == STD_ON)
 
-   if(Com_Lok_DETCheck_Param((PduId >= COM_GET_NUM_RX_IPDU), COMServiceId_TpRxIndication))
+   if(Com_Lok_DETCheck_Param((PduId >= CfgSwcServiceCom_dNumIPduRx), COMServiceId_TpRxIndication))
 #endif
    {
 

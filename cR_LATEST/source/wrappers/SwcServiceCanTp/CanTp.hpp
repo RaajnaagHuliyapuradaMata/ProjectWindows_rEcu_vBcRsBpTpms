@@ -1,8 +1,34 @@
-#ifndef CANTP_H
-#define CANTP_H
+#pragma once
+/******************************************************************************/
+/* File   : CanTp.hpp                                                         */
+/*                                                                            */
+/* Author : Raajnaag HULIYAPURADA MATA                                        */
+/*                                                                            */
+/* License / Warranty / Terms and Conditions                                  */
+/*                                                                            */
+/* Everyone is permitted to copy and distribute verbatim copies of this lice- */
+/* nse document, but changing it is not allowed. This is a free, copyright l- */
+/* icense for software and other kinds of works. By contrast, this license is */
+/* intended to guarantee your freedom to share and change all versions of a   */
+/* program, to make sure it remains free software for all its users. You have */
+/* certain responsibilities, if you distribute copies of the software, or if  */
+/* you modify it: responsibilities to respect the freedom of others.          */
+/*                                                                            */
+/* All rights reserved. Copyright � 1982 Raajnaag HULIYAPURADA MATA           */
+/*                                                                            */
+/* Always refer latest software version from:                                 */
+/* https://github.com/RaajnaagHuliyapuradaMata?tab=repositories               */
+/*                                                                            */
+/******************************************************************************/
 
+/******************************************************************************/
+/* #INCLUDES                                                                  */
+/******************************************************************************/
 #include "CanTp_Cfg.hpp"
 
+/******************************************************************************/
+/* #DEFINES                                                                   */
+/******************************************************************************/
 #define CANTP_INIT                                                         0x01u
 #define CANTP_SHUTDOWN                                                     0x02u
 #define CANTP_TRANSMIT                                                     0x03u
@@ -29,6 +55,25 @@
 #define CANTP_E_RX_COM                                                     0xC0u
 #define CANTP_E_TX_COM                                                     0xD0u
 
+/******************************************************************************/
+/* MACROS                                                                     */
+/******************************************************************************/
+
+/******************************************************************************/
+/* TYPEDEFS                                                                   */
+/******************************************************************************/
+
+/******************************************************************************/
+/* CONSTS                                                                     */
+/******************************************************************************/
+
+/******************************************************************************/
+/* PARAMS                                                                     */
+/******************************************************************************/
+
+/******************************************************************************/
+/* OBJECTS                                                                    */
+/******************************************************************************/
 #define CANTP_START_SEC_VAR_CLEARED_8
 #include "CanTp_MemMap.hpp"
 extern uint8 CanTp_MainState;
@@ -41,6 +86,9 @@ extern uint8 CanTp_MainState;
 extern void CanTp_GetVersionInfo(Std_VersionInfoType* versioninfo);
 #endif
 
+/******************************************************************************/
+/* FUNCTIONS                                                                  */
+/******************************************************************************/
 extern void CanTp_Init(const Type_CfgSwcServiceCanTp_st *CfgPtr);
 
 #if(CANTP_CANTPLITE_SUPPORT != STD_ON)
@@ -54,14 +102,10 @@ extern Std_ReturnType CanTp_CancelTransmit(Type_SwcServiceCom_tIdPdu CanTpTxSduI
 extern Std_ReturnType CanTp_CancelReceive(Type_SwcServiceCom_tIdPdu CanTpRxSduId);
 #endif
 
-#if(CANTP_CHANGE_PARAMETER_API == STD_ON)
-extern Std_ReturnType CanTp_ChangeParameter(Type_SwcServiceCom_tIdPdu id, TPParameterType parameter, uint16 value);
-#endif
-
-#if(CANTP_READ_PARAMETER_API == STD_ON)
-extern Std_ReturnType CanTp_ReadParameter(Type_SwcServiceCom_tIdPdu id, TPParameterType parameter, uint16 *value);
-#endif
 #define CANTP_STOP_SEC_CODE
 #include "CanTp_MemMap.hpp"
 
-#endif
+/******************************************************************************/
+/* EOF                                                                        */
+/******************************************************************************/
+
