@@ -51,11 +51,3 @@ void DCMMGR_IncNonceCounter(void){
 uint64 DCMMGR_GetNonceCounter(void){
   return ullNonceCounter;
 }
-
-void ClientIf_Debug_DiagReqCallback(
-      const enum_TPMSDiagnosticRequest eDiagRequest
-   ,     tsTPMSDiag_Data*           spDiag_Data
-   ,     uint8                      ucReturnVal
-){
-}
-

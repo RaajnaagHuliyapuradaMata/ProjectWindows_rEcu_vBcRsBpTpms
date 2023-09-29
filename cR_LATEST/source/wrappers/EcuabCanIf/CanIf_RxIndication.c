@@ -56,22 +56,22 @@
 /******************************************************************************/
 #define CANIF_START_SEC_CODE
 #include "CanIf_MemMap.hpp"
-FUNC(void, CANIF_CODE) CanIf_RxIndication_Internal(
+FUNC(void, CANIF_CODE) infEcuabCanIfMcalCan_vIndicationRx(
       P2CONST(Can_HwType,                   AUTOMATIC, CANIF_APPL_DATA) Mailbox
    ,  P2CONST(Type_SwcServiceCom_stInfoPdu, AUTOMATIC, CANIF_APPL_DATA) PduInfoPtr
 ){
-     P2VAR(Type_EcuabCanIf_eStatusNotification,        AUTOMATIC, AUTOMATIC      ) RxNotifPtr_pen     = CanIf_Lok_RxNotification_taen;
-       VAR(Type_McalCan_tId,             AUTOMATIC                 ) CanIdNoIdType_t    = Mailbox->CanId & CANIF_PRV_MSB_BIT_RESET;
-       VAR(uint8,                        AUTOMATIC                 ) CanIdPduType_u8    = (uint8)((Mailbox->CanId)>>CANIF_CANID_BIT_SHIFT);
-   P2CONST(CanIf_Cfg_Hrhtype_tst,        AUTOMATIC, CANIF_CFG_CONST) HrhCfg_pcst        = CanIf_Lok_ConfigSet_tpst->HrhConfig_pcst + CanIf_Lok_ConfigSet_tpst->HrhPduIdTable_Ptr[Mailbox->Hoh];
-     P2VAR(CanIf_ControllerStateType,    AUTOMATIC, AUTOMATIC      ) ControllerState_ps = CanIf_Lok_ControllerState_ast + Mailbox->ControllerId;
-       VAR(uint8,                        AUTOMATIC                 ) ModeChkStatus      = CANIF_PRV_INVALID_CHANNEL_MODE;
-       VAR(boolean,                      AUTOMATIC                 ) IdFound_b          = FALSE;
-       VAR(uint8,                        AUTOMATIC                 ) Index_u8;
-       VAR(Type_SwcServiceCom_tIdPdu,    AUTOMATIC                 ) PduId_qu8;
-   P2CONST(CanIf_Cfg_RxPduType_tst,      AUTOMATIC, CANIF_CFG_CONST) RxPduCfg_pcst;
-       VAR(Type_SwcServiceCom_stInfoPdu, AUTOMATIC                 ) PduInfoTemp_tst;
-       VAR(Type_SwcServiceCom_stInfoPdu, AUTOMATIC                 ) ULPduInfoTyp_tst;
+     P2VAR(Type_EcuabCanIf_eStatusNotification, AUTOMATIC, AUTOMATIC      ) RxNotifPtr_pen     = CanIf_Lok_RxNotification_taen;
+       VAR(Type_McalCan_tId,                    AUTOMATIC                 ) CanIdNoIdType_t    = Mailbox->CanId & CANIF_PRV_MSB_BIT_RESET;
+       VAR(uint8,                               AUTOMATIC                 ) CanIdPduType_u8    = (uint8)((Mailbox->CanId)>>CANIF_CANID_BIT_SHIFT);
+   P2CONST(CanIf_Cfg_Hrhtype_tst,               AUTOMATIC, CANIF_CFG_CONST) HrhCfg_pcst        = CanIf_Lok_ConfigSet_tpst->HrhConfig_pcst + CanIf_Lok_ConfigSet_tpst->HrhPduIdTable_Ptr[Mailbox->Hoh];
+     P2VAR(CanIf_ControllerStateType,           AUTOMATIC, AUTOMATIC      ) ControllerState_ps = CanIf_Lok_ControllerState_ast + Mailbox->ControllerId;
+       VAR(uint8,                               AUTOMATIC                 ) ModeChkStatus      = CANIF_PRV_INVALID_CHANNEL_MODE;
+       VAR(boolean,                             AUTOMATIC                 ) IdFound_b          = FALSE;
+       VAR(uint8,                               AUTOMATIC                 ) Index_u8;
+       VAR(Type_SwcServiceCom_tIdPdu,           AUTOMATIC                 ) PduId_qu8;
+   P2CONST(CanIf_Cfg_RxPduType_tst,             AUTOMATIC, CANIF_CFG_CONST) RxPduCfg_pcst;
+       VAR(Type_SwcServiceCom_stInfoPdu,        AUTOMATIC                 ) PduInfoTemp_tst;
+       VAR(Type_SwcServiceCom_stInfoPdu,        AUTOMATIC                 ) ULPduInfoTyp_tst;
 
    if(
          CANIF_CS_STARTED
@@ -132,23 +132,12 @@ FUNC(void, CANIF_CODE) CanIf_RxIndication_Internal(
             RxPduCfg_pcst->IndexForUL_u8
          != CANIF_PRV_NO_UL
       ){
-         (void)CanIf_XCore_LocalCore_RxIndication(
-               RxPduCfg_pcst
+         CanIf_Lok_ConfigSet_tpst->RxAutosarUL_Ptr[RxPduCfg_pcst->IndexForUL_u8].CanIfRxPduIndicationName(
+               RxPduCfg_pcst->RxPduTargetId_t
             ,  &ULPduInfoTyp_tst
          );
       }
    }
-}
-
-FUNC(Std_ReturnType, CANIF_CODE)CanIf_XCore_LocalCore_RxIndication(
-      P2CONST(CanIf_Cfg_RxPduType_tst,      AUTOMATIC, CANIF_CFG_CONST) CanIf_RXPduConfig_pst
-   ,  P2CONST(Type_SwcServiceCom_stInfoPdu, AUTOMATIC, CANIF_CFG_CONST) CanIf_ULPduinfo_pst
-){
-   CanIf_Lok_ConfigSet_tpst->RxAutosarUL_Ptr[CanIf_RXPduConfig_pst->IndexForUL_u8].CanIfRxPduIndicationName(
-         CanIf_RXPduConfig_pst->RxPduTargetId_t
-      ,  CanIf_ULPduinfo_pst
-   );
-   return E_OK;
 }
 #define CANIF_STOP_SEC_CODE
 #include "CanIf_MemMap.hpp"

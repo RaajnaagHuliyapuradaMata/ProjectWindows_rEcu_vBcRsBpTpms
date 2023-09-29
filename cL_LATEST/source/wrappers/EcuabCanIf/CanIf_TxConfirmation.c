@@ -12,7 +12,7 @@ void CanIf_TxConfirmation(
    P2CONST(CanIf_Cfg_CtrlConfig_tst,  AUTOMATIC, CANIF_CFG_CONST) lCtrlConfig_pst    = lTxPduConfig_pst->CanIf_TxBufferConfigPtr->CanIf_HthConfigPtr->CanIf_CtrlConfigPtr;
        VAR(uint8,                     AUTOMATIC                 ) lControllerId_u8   = lCtrlConfig_pst->CtrlId;
      P2VAR(CanIf_ControllerStateType, AUTOMATIC, AUTOMATIC      ) lControllerState_p = CanIf_Lok_ControllerState_ast + lControllerId_u8;
-     P2VAR(CanIf_NotifStatusType,     AUTOMATIC, AUTOMATIC      ) lTxNotifPtr        = CanIf_Lok_TxNotification_aen;
+     P2VAR(Type_EcuabCanIf_eStatusNotification,     AUTOMATIC, AUTOMATIC      ) lTxNotifPtr        = CanIf_Lok_TxNotification_aen;
 
    if(
          FALSE

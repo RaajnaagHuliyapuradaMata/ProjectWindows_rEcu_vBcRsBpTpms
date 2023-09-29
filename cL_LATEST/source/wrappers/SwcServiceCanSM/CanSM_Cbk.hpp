@@ -10,7 +10,7 @@
 extern FUNC(void, CANSM_CODE) CanSM_ControllerBusOff(VAR(uint8, AUTOMATIC) ControllerId);
 extern FUNC(void, CANSM_CODE) CanSM_ControllerModeIndication(
       VAR(uint8, AUTOMATIC) ControllerId
-   ,  VAR(CanIf_ControllerModeType, AUTOMATIC) ControllerMode
+   ,  VAR(Type_EcuabCanIf_eModeController, AUTOMATIC) ControllerMode
 );
 
 #if(CANSM_CFG_TRCV_CANIF_SUPPORT == STD_ON)

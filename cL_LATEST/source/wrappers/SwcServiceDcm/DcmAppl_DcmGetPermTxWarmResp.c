@@ -23,7 +23,7 @@ Std_ReturnType DcmAppl_DcmGetPermTxWarmResp(void){
 
     //return (retVal);
 
-   CanIf_ControllerModeType tCanIfControllerMode;
+   Type_EcuabCanIf_eModeController tCanIfControllerMode;
     retVal = E_NOT_OK;
 
    CanIf_GetControllerMode(0, &tCanIfControllerMode);

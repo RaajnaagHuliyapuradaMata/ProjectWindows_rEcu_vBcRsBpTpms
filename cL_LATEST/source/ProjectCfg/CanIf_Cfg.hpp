@@ -25,7 +25,7 @@
 /* #INCLUDES                                                                  */
 /******************************************************************************/
 #include "EcuM_Cbk.hpp"
-#include "CanIf_Types.hpp"
+#include "Types_EcuabCanIf.hpp"
 #include "Can.hpp"
 
 /******************************************************************************/
@@ -132,11 +132,11 @@
 typedef struct{
    P2VAR(uint8, TYPEDEF, CANIF_APPL_DATA) SduDataPtr;
    Type_SwcServiceCom_tLengthPdu                          SduLength;
-   Can_IdType                             SduCanId;
+   Type_McalCan_tId                             SduCanId;
 }CanIf_Type_SwcServiceCom_stInfoPdu;
 
 typedef struct{
-   Can_IdType CanId;
+   Type_McalCan_tId CanId;
    Type_SwcServiceCom_tIdPdu  swPduHandle;
    uint8      SduLength;
    uint8      BufferIndex;
@@ -159,7 +159,7 @@ typedef struct{
    P2FUNC(void, TYPEDEF, User_ControllerBusOff        )(VAR(uint8, AUTOMATIC) ControllerId);
    P2FUNC(void, TYPEDEF, User_ControllerModeIndication)(
          VAR(uint8,     AUTOMATIC) ControllerId
-      ,  VAR(CanIf_ControllerModeType, AUTOMATIC) ControllerMode
+      ,  VAR(Type_EcuabCanIf_eModeController, AUTOMATIC) ControllerMode
    );
 }CanIf_CallbackFuncType;
 

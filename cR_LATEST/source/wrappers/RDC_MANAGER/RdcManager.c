@@ -2,7 +2,6 @@
 
 #include "RdcManager.hpp"
 #include "RdcRingBufferX.hpp"
-#include "TmsManagerX.hpp"
 #include "EnvManagerX.hpp"
 
 static boolean Rdc__BO_IdRead;
@@ -14,7 +13,7 @@ static boolean Rdc__CheckStartOfId(uint8 *PU8_TelegramData);
 static void Rdc__StoreIds(void);
 static boolean Rdc__CheckIdAfterAutolearn(struct rfstruct* PS_TelegramData, uint32* PU32_Timestamp);
 
-extern void Rdc_Init(void){
+void Rdc_Init(void){
    uint8 U8_Counter;
    Rdc__BO_IdRead = FALSE;
    Rdc__U32_ECUTimestamp = RDC__TIMESTAMP_INIT;
@@ -32,28 +31,30 @@ extern void Rdc_Init(void){
    RdcRb_Init();
 }
 
-extern void Rdc_ProcessTelegram(
+void Rdc_ProcessTelegram(
    struct rfstruct* PS_TelegramData
 ){
    boolean BO_StoreTelegram = FALSE;
    uint32 U32_Timestamp = 0U;
-   ClientIf_GetECUTimeStampValue(&U32_Timestamp);
+   ClientIf_GetECUTimeStampValue(
+      &U32_Timestamp
+   );
    if(
-         Rdc__CheckStartOfId(PS_TelegramData->buffer)
-      != FALSE
+         FALSE
+      != Rdc__CheckStartOfId(
+            PS_TelegramData->buffer
+         )
    ){
-      boolean BO_IsDeveloperModeActive = Tms_IsDeveloperModeActive();
-      boolean BO_IsAutolearnFinished = Tms_IsAutolearnFinished();
       if(
-            (BO_IsDeveloperModeActive == FALSE)
-         && (BO_IsAutolearnFinished != FALSE)
+            (FALSE == SwcApplTpms_bIsActiveModeDeveloper())
+         && (FALSE != SwcApplTpms_bIsFinishedAutolearn())
       ){
          if(
-            Rdc__CheckIdAfterAutolearn(
-                  PS_TelegramData
-               ,  &U32_Timestamp
-            )
-            != FALSE
+               FALSE
+            != Rdc__CheckIdAfterAutolearn(
+                     PS_TelegramData
+                  ,  &U32_Timestamp
+               )
          ){
             BO_StoreTelegram = TRUE;
          }
@@ -79,7 +80,7 @@ extern void Rdc_ProcessTelegram(
    }
 }
 
-extern void Rdc_ForwardRfDataToTms(void){
+void Rdc_ForwardRfDataToTms(void){
    tsEnv_Data* PS_EnvData = Env_GetEnvironmentData();
    while(RdcRb_IsBufferEmpty() == FALSE){
       tsWS_RxDataIn* PS_RxData = RdcRb_ReadTelegram();
@@ -87,7 +88,7 @@ extern void Rdc_ForwardRfDataToTms(void){
    }
 }
 
-extern void Rdc_ForwardSimulatedRfDataToTms(uint8* PU8_DataPointer){
+void Rdc_ForwardSimulatedRfDataToTms(uint8* PU8_DataPointer){
    tsWS_RxDataIn S_RxData;
    uint16 U16_SimulatedTimestamp;
    tsEnv_Data* PS_EnvData = Env_GetEnvironmentData();
@@ -121,11 +122,11 @@ extern void Rdc_ForwardSimulatedRfDataToTms(uint8* PU8_DataPointer){
    );
 }
 
-extern void Rdc_IncrementTimestamp(void){
+void Rdc_IncrementTimestamp(void){
   Rdc__U32_ECUTimestamp++;
 }
 
-extern void Rdc_SynchronizeToCGMTimestamp(
+void Rdc_SynchronizeToCGMTimestamp(
    uint64 U64_CGMTimestamp
 ){
    Rdc__U64_CurrentValueCGMTimestamp = U64_CGMTimestamp;
@@ -148,7 +149,7 @@ extern void Rdc_SynchronizeToCGMTimestamp(
    }
 }
 
-extern uint32 Rdc_ConvertWheelPulseTimestamp(
+uint32 Rdc_ConvertWheelPulseTimestamp(
    uint16 U16_WheelPulseTimestamp
 ){
   uint32 U32_ConvertedTimestamp;
@@ -175,7 +176,7 @@ extern uint32 Rdc_ConvertWheelPulseTimestamp(
   return U32_ConvertedTimestamp;
 }
 
-extern void Rdc_StoreLatestCGMTimestamp(uint64 *PU64_CGMTimestamp){
+void Rdc_StoreLatestCGMTimestamp(uint64 *PU64_CGMTimestamp){
   *PU64_CGMTimestamp = Rdc__U64_CurrentValueCGMTimestamp;
 }
 
@@ -233,6 +234,6 @@ static boolean Rdc__CheckIdAfterAutolearn(struct rfstruct* PS_TelegramData, uint
   return BO_ForwardRfData;
 }
 
-void ClientIf_GetECUTimeStampValue (uint32 *ulpECUTimeStamp){
+void ClientIf_GetECUTimeStampValue(uint32* ulpECUTimeStamp){
   *ulpECUTimeStamp = Rdc__U32_ECUTimestamp;
 }

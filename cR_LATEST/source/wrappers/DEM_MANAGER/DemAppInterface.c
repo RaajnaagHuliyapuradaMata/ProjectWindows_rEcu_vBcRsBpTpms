@@ -14,6 +14,10 @@ static uint8 ucCurTirePress[4];
 static uint8 ucCurTireTemp[4];
 static uint8 ucCurLearnLocateStatus;
 
+extern void HufIf_GetStatusErrorERR(
+   //TBD: Move to different header
+   uint8 eErrorType);
+
 void Dem_SetCurrentTirePressures(uint8 ucFL, uint8 ucFR, uint8 ucRL, uint8 ucRR){
    ucCurTirePress[0] = ucFL;
    ucCurTirePress[1] = ucFR;
@@ -32,9 +36,9 @@ void Dem_SetCurrentLearnLocateStatus(uint8 ucLLStatus){ucCurLearnLocateStatus = 
 Dem_ReadExternalDataElementFnc RTE_EngineSpeed_Data(uint8* ucBuffer){return E_OK;}
 
 Dem_ReadExternalDataElementFnc Dem_GetData_VehicleSpeed(uint8* ucBuffer){
-   tsEnv_Data* envData = Env_GetEnvironmentData();
-   ucBuffer[1] = (envData->uiVehSpeed & 0xff);
-   ucBuffer[0] = (envData->uiVehSpeed >> 8) & 0xff;
+   tsEnv_Data* tEnvData = Env_GetEnvironmentData();
+   ucBuffer[1] = (tEnvData->uiVehSpeed & 0xff);
+   ucBuffer[0] = (tEnvData->uiVehSpeed >> 8) & 0xff;
    return E_OK;
 }
 

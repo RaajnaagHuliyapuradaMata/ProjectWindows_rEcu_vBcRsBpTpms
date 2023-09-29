@@ -34,14 +34,14 @@ extern void Can_ForwardMessageToCanIf(
    const Can_FrameType* tCanFrame
 );
 
-extern Can_ReturnType Can_Write(
-            Can_HwHandleType ucHthRefId
-   ,  const Can_PduType*     PduInfo_Write
+extern Type_McalCan_eReturn Can_Write(
+            Type_McalCan_tHandleHw ucHthRefId
+   ,  const Type_McalCan_stPdu*     PduInfo_Write
 );
 
-extern Can_ReturnType Can_SetControllerMode(
+extern Type_McalCan_eReturn Can_SetControllerMode(
       uint8                   ucController
-   ,  Can_StateTransitionType ucMode
+   ,  Type_McalCan_eStateTransition ucMode
 );
 
 #endif

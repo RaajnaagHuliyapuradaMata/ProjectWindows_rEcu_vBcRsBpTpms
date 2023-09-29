@@ -2,8 +2,10 @@
 
 #include "SwcApplDcm.hpp"
 
-#define SECA_LEVEL_APPLICATION  3
-#define SECA_LEVEL_PROGRAMMING  5
+#include "SwcApplTpms_Diag.hpp"
+
+#define SECA_LEVEL_APPLICATION                                                 3
+#define SECA_LEVEL_PROGRAMMING                                                 5
 
 static void CalculateSeed(uint8* Seed);
 static void ComputeKeyFromSeed(uint8 ucSecaLevel, uint8* seed, uint16 sizeSeed, uint8* key, uint16 maxSizeKey, uint16* sizeKey);
@@ -66,7 +68,7 @@ extern FUNC(Std_ReturnType, DCM_APPL_CODE) DcmDsp_StartVehicleEolTestProcedure_C
   S_DiagData.pucReqData = &dataIn1;
   S_DiagData.uiReqDataLen = 1;
   S_DiagData.puiResDataLen = &ushRespDataLength;
-  *ErrorCode = HufIf_DiagReqCallback(E_TPMS_DIAG_START_TPMS_EOL, &S_DiagData);
+  *ErrorCode = infSwcApplTpmsSwcServiceDcm_u8Callback(E_TPMS_DIAG_START_TPMS_EOL, &S_DiagData);
   if(*ErrorCode == DCM_E_OK){
    for(ucCounter = 0; ucCounter < (*S_DiagData.puiResDataLen); ucCounter++){
       dataOut1[ucCounter] = S_DiagData.pucResData[ucCounter];
@@ -92,7 +94,7 @@ extern FUNC(Std_ReturnType, DCM_APPL_CODE) DcmDsp_RequestResultVehicleEolTestPro
   S_DiagData.pucReqData = (uint8*)NULL;
   S_DiagData.uiReqDataLen = 0;
   S_DiagData.puiResDataLen = &ushRespDataLength;
-  *ErrorCode = HufIf_DiagReqCallback(E_TPMS_DIAG_RESULT_TPMS_EOL, &S_DiagData);
+  *ErrorCode = infSwcApplTpmsSwcServiceDcm_u8Callback(E_TPMS_DIAG_RESULT_TPMS_EOL, &S_DiagData);
   if((*ErrorCode == DCM_E_OK) && (*S_DiagData.puiResDataLen == 5)){
     *dataOut1 = S_DiagData.pucResData[0];
     *dataOut2 = S_DiagData.pucResData[1];
@@ -120,7 +122,7 @@ extern FUNC(Std_ReturnType, DCM_APPL_CODE) DcmDsp_StopVehicleEolTestProcedure_Ca
   S_DiagData.uiReqDataLen = 1;  //1 byte stop command
   S_DiagData.puiResDataLen = &ushRespDataLength;
 
-  *ErrorCode = HufIf_DiagReqCallback(E_TPMS_DIAG_STOP_TPMS_EOL, &S_DiagData);
+  *ErrorCode = infSwcApplTpmsSwcServiceDcm_u8Callback(E_TPMS_DIAG_STOP_TPMS_EOL, &S_DiagData);
 
   if(*ErrorCode == DCM_E_OK)
   {
@@ -376,7 +378,7 @@ FUNC(Std_ReturnType,DCM_APPL_CODE) DcmDspData_TpmsAbsTicks_ReadFunc (VAR(Dcm_OpS
   uint8 U8_Counter;
   tsTPMSDiag_Data S_DiagData;
 
-  (void) HufIf_DiagReqCallback(E_TPMS_DIAG_READ_ABS_TICKS, &S_DiagData);
+  (void) infSwcApplTpmsSwcServiceDcm_u8Callback(E_TPMS_DIAG_READ_ABS_TICKS, &S_DiagData);
 
   for(U8_Counter = 0; U8_Counter < (*S_DiagData.puiResDataLen); U8_Counter++)
   {
@@ -391,7 +393,7 @@ FUNC(Std_ReturnType,DCM_APPL_CODE) DcmDspData_FLSensorID_ReadFunc (VAR(Dcm_OpSta
   uint8 U8_Counter;
   tsTPMSDiag_Data S_DiagData;
 
-  (void) HufIf_DiagReqCallback(E_TPMS_DIAG_READ_ID_FL, &S_DiagData);
+  (void) infSwcApplTpmsSwcServiceDcm_u8Callback(E_TPMS_DIAG_READ_ID_FL, &S_DiagData);
 
   for(U8_Counter = 0; U8_Counter < 4U; U8_Counter++)
   {
@@ -406,7 +408,7 @@ FUNC(Std_ReturnType,DCM_APPL_CODE) DcmDspData_FRSensorID_ReadFunc (VAR(Dcm_OpSta
   uint8 U8_Counter;
   tsTPMSDiag_Data S_DiagData;
 
-  (void) HufIf_DiagReqCallback(E_TPMS_DIAG_READ_ID_FR, &S_DiagData);
+  (void) infSwcApplTpmsSwcServiceDcm_u8Callback(E_TPMS_DIAG_READ_ID_FR, &S_DiagData);
 
   for(U8_Counter = 0; U8_Counter < 4U; U8_Counter++)
   {
@@ -421,7 +423,7 @@ FUNC(Std_ReturnType,DCM_APPL_CODE) DcmDspData_RLSensorID_ReadFunc (VAR(Dcm_OpSta
   uint8 U8_Counter;
   tsTPMSDiag_Data S_DiagData;
 
-  (void) HufIf_DiagReqCallback(E_TPMS_DIAG_READ_ID_RL, &S_DiagData);
+  (void) infSwcApplTpmsSwcServiceDcm_u8Callback(E_TPMS_DIAG_READ_ID_RL, &S_DiagData);
 
   for(U8_Counter = 0; U8_Counter < 4U; U8_Counter++)
   {
@@ -436,7 +438,7 @@ FUNC(Std_ReturnType,DCM_APPL_CODE) DcmDspData_RRSensorID_ReadFunc (VAR(Dcm_OpSta
   uint8 U8_Counter;
   tsTPMSDiag_Data S_DiagData;
 
-  (void) HufIf_DiagReqCallback(E_TPMS_DIAG_READ_ID_RR, &S_DiagData);
+  (void) infSwcApplTpmsSwcServiceDcm_u8Callback(E_TPMS_DIAG_READ_ID_RR, &S_DiagData);
 
   for(U8_Counter = 0; U8_Counter < 4U; U8_Counter++)
   {
@@ -451,7 +453,7 @@ FUNC(Std_ReturnType,DCM_APPL_CODE) DcmDspData_WheelSensorParameter_ReadFunc (VAR
   uint8 U8_Counter;
   tsTPMSDiag_Data S_DiagData;
 
-  (void) HufIf_DiagReqCallback(E_TPMS_DIAG_READ_SPECIFIC_PARAMETERS, &S_DiagData);
+  (void) infSwcApplTpmsSwcServiceDcm_u8Callback(E_TPMS_DIAG_READ_SPECIFIC_PARAMETERS, &S_DiagData);
 
   for(U8_Counter = 0; U8_Counter < (*S_DiagData.puiResDataLen); U8_Counter++)
   {
@@ -472,7 +474,7 @@ FUNC(Std_ReturnType,DCM_APPL_CODE) DcmDspData_TpmsAutoLearnWsParameters_ReadFunc
   uint8 U8_Counter;
   tsTPMSDiag_Data S_DiagData;
 
-  (void) HufIf_DiagReqCallback(E_TPMS_DIAG_READ_AUTO_LEARN_WS_PARAMETERS, &S_DiagData);
+  (void) infSwcApplTpmsSwcServiceDcm_u8Callback(E_TPMS_DIAG_READ_AUTO_LEARN_WS_PARAMETERS, &S_DiagData);
 
   for(U8_Counter = 0; U8_Counter < (*S_DiagData.puiResDataLen); U8_Counter++)
   {
@@ -487,7 +489,7 @@ FUNC(Std_ReturnType,DCM_APPL_CODE) DcmDspData_NoiseLevelThreshold_ReadFunc (VAR(
   uint8 U8_Counter;
   tsTPMSDiag_Data S_DiagData;
 
-  (void) HufIf_DiagReqCallback(E_TPMS_DIAG_READ_NOISE_LEVEL, &S_DiagData);
+  (void) infSwcApplTpmsSwcServiceDcm_u8Callback(E_TPMS_DIAG_READ_NOISE_LEVEL, &S_DiagData);
 
   for(U8_Counter = 0; U8_Counter < (*S_DiagData.puiResDataLen); U8_Counter++)
   {
@@ -502,7 +504,7 @@ FUNC(Std_ReturnType,DCM_APPL_CODE) DcmDspData_WheelSensor01_ReadFunc (VAR(Dcm_Op
   uint8 U8_Counter;
   tsTPMSDiag_Data S_DiagData;
 
-  (void) HufIf_DiagReqCallback(E_TPMS_DIAG_READ_WS_ID1, &S_DiagData);
+  (void) infSwcApplTpmsSwcServiceDcm_u8Callback(E_TPMS_DIAG_READ_WS_ID1, &S_DiagData);
 
   for(U8_Counter = 0; U8_Counter < (*S_DiagData.puiResDataLen); U8_Counter++)
   {
@@ -517,7 +519,7 @@ FUNC(Std_ReturnType,DCM_APPL_CODE) DcmDspData_WheelSensor02_ReadFunc (VAR(Dcm_Op
   uint8 U8_Counter;
   tsTPMSDiag_Data S_DiagData;
 
-  (void) HufIf_DiagReqCallback(E_TPMS_DIAG_READ_WS_ID2, &S_DiagData);
+  (void) infSwcApplTpmsSwcServiceDcm_u8Callback(E_TPMS_DIAG_READ_WS_ID2, &S_DiagData);
 
   for(U8_Counter = 0; U8_Counter < (*S_DiagData.puiResDataLen); U8_Counter++)
   {
@@ -532,7 +534,7 @@ FUNC(Std_ReturnType,DCM_APPL_CODE) DcmDspData_WheelSensor03_ReadFunc (VAR(Dcm_Op
   uint8 U8_Counter;
   tsTPMSDiag_Data S_DiagData;
 
-  (void) HufIf_DiagReqCallback(E_TPMS_DIAG_READ_WS_ID3, &S_DiagData);
+  (void) infSwcApplTpmsSwcServiceDcm_u8Callback(E_TPMS_DIAG_READ_WS_ID3, &S_DiagData);
 
   for(U8_Counter = 0; U8_Counter < (*S_DiagData.puiResDataLen); U8_Counter++)
   {
@@ -547,7 +549,7 @@ FUNC(Std_ReturnType,DCM_APPL_CODE) DcmDspData_WheelSensor04_ReadFunc (VAR(Dcm_Op
   uint8 U8_Counter;
   tsTPMSDiag_Data S_DiagData;
 
-  (void) HufIf_DiagReqCallback(E_TPMS_DIAG_READ_WS_ID4, &S_DiagData);
+  (void) infSwcApplTpmsSwcServiceDcm_u8Callback(E_TPMS_DIAG_READ_WS_ID4, &S_DiagData);
 
   for(U8_Counter = 0; U8_Counter < (*S_DiagData.puiResDataLen); U8_Counter++)
   {
@@ -562,7 +564,7 @@ FUNC(Std_ReturnType,DCM_APPL_CODE) DcmDspData_LastReceivedWheelSensor_ReadFunc (
   uint8 U8_Counter;
   tsTPMSDiag_Data S_DiagData;
 
-  (void) HufIf_DiagReqCallback(E_TPMS_DIAG_READ_LAST_RECEIVED_WS, &S_DiagData);
+  (void) infSwcApplTpmsSwcServiceDcm_u8Callback(E_TPMS_DIAG_READ_LAST_RECEIVED_WS, &S_DiagData);
 
   for(U8_Counter = 0; U8_Counter < (*S_DiagData.puiResDataLen); U8_Counter++)
   {
@@ -581,7 +583,7 @@ FUNC(Std_ReturnType,DCM_APPL_CODE) DcmDspData_TemperatureWarningThreshold_ReadFu
   uint8 U8_Counter;
   tsTPMSDiag_Data S_DiagData;
 
-  (void) HufIf_DiagReqCallback(E_TPMS_DIAG_READ_TEMPERATURE_WARNING_THR, &S_DiagData);
+  (void) infSwcApplTpmsSwcServiceDcm_u8Callback(E_TPMS_DIAG_READ_TEMPERATURE_WARNING_THR, &S_DiagData);
 
   for(U8_Counter = 0; U8_Counter < (*S_DiagData.puiResDataLen); U8_Counter++)
   {
@@ -609,7 +611,7 @@ FUNC(Std_ReturnType,DCM_APPL_CODE) DcmDspData_TpmsAbsTicks_WriteFunc (P2CONST(ui
   S_DiagData.pucReqData = ((uint8 *)&Data[0]);
   S_DiagData.puiResDataLen = &U16_ResponseDataLength;
 
-  *ErrorCode = HufIf_DiagReqCallback(E_TPMS_DIAG_WRITE_ABS_TICKS, &S_DiagData);
+  *ErrorCode = infSwcApplTpmsSwcServiceDcm_u8Callback(E_TPMS_DIAG_WRITE_ABS_TICKS, &S_DiagData);
   if(*ErrorCode == DCM_E_OK)
   {
     return E_OK;
@@ -624,7 +626,7 @@ FUNC(Std_ReturnType,DCM_APPL_CODE) DcmDspData_FLSensorID_WriteFunc (P2CONST(uint
   tsTPMSDiag_Data S_DiagData;
   S_DiagData.pucReqData = ((uint8 *)&Data[0]);
   S_DiagData.puiResDataLen = &U16_ResponseDataLength;
-  *ErrorCode = HufIf_DiagReqCallback(E_TPMS_DIAG_WRITE_WS_ID1, &S_DiagData);
+  *ErrorCode = infSwcApplTpmsSwcServiceDcm_u8Callback(E_TPMS_DIAG_WRITE_WS_ID1, &S_DiagData);
   if(*ErrorCode == DCM_E_OK){
     return E_OK;
   }
@@ -638,7 +640,7 @@ FUNC(Std_ReturnType,DCM_APPL_CODE) DcmDspData_FRSensorID_WriteFunc (P2CONST(uint
   tsTPMSDiag_Data S_DiagData;
   S_DiagData.pucReqData = ((uint8 *)&Data[0]);
   S_DiagData.puiResDataLen = &U16_ResponseDataLength;
-  *ErrorCode = HufIf_DiagReqCallback(E_TPMS_DIAG_WRITE_WS_ID2, &S_DiagData);
+  *ErrorCode = infSwcApplTpmsSwcServiceDcm_u8Callback(E_TPMS_DIAG_WRITE_WS_ID2, &S_DiagData);
   if(*ErrorCode == DCM_E_OK){
     return E_OK;
   }
@@ -652,7 +654,7 @@ FUNC(Std_ReturnType,DCM_APPL_CODE) DcmDspData_RLSensorID_WriteFunc (P2CONST(uint
   tsTPMSDiag_Data S_DiagData;
   S_DiagData.pucReqData = ((uint8 *)&Data[0]);
   S_DiagData.puiResDataLen = &U16_ResponseDataLength;
-  *ErrorCode = HufIf_DiagReqCallback(E_TPMS_DIAG_WRITE_WS_ID3, &S_DiagData);
+  *ErrorCode = infSwcApplTpmsSwcServiceDcm_u8Callback(E_TPMS_DIAG_WRITE_WS_ID3, &S_DiagData);
   if(*ErrorCode == DCM_E_OK){
     return E_OK;
   }
@@ -666,7 +668,7 @@ FUNC(Std_ReturnType,DCM_APPL_CODE) DcmDspData_RRSensorID_WriteFunc (P2CONST(uint
   tsTPMSDiag_Data S_DiagData;
   S_DiagData.pucReqData = ((uint8 *)&Data[0]);
   S_DiagData.puiResDataLen = &U16_ResponseDataLength;
-  *ErrorCode = HufIf_DiagReqCallback(E_TPMS_DIAG_WRITE_WS_ID4, &S_DiagData);
+  *ErrorCode = infSwcApplTpmsSwcServiceDcm_u8Callback(E_TPMS_DIAG_WRITE_WS_ID4, &S_DiagData);
   if(*ErrorCode == DCM_E_OK){
     return E_OK;
   }
@@ -683,7 +685,7 @@ FUNC(Std_ReturnType,DCM_APPL_CODE) DcmDspData_WheelSensorParameter_WriteFunc (P2
   S_DiagData.pucReqData = ((uint8 *)&Data[0]);
   S_DiagData.puiResDataLen = &U16_ResponseDataLength;
 
-  *ErrorCode = HufIf_DiagReqCallback(E_TPMS_DIAG_WRITE_SPECIFIC_PARAMETERS, &S_DiagData);
+  *ErrorCode = infSwcApplTpmsSwcServiceDcm_u8Callback(E_TPMS_DIAG_WRITE_SPECIFIC_PARAMETERS, &S_DiagData);
   if(*ErrorCode != 0)
   {
     return E_NOT_OK;
@@ -701,7 +703,7 @@ FUNC(Std_ReturnType,DCM_APPL_CODE) DcmDspData_TpmsAutoLearnWsParameters_WriteFun
   S_DiagData.pucReqData = ((uint8 *)&Data[0]);
   S_DiagData.puiResDataLen = &U16_ResponseDataLength;
 
-  *ErrorCode = HufIf_DiagReqCallback(E_TPMS_DIAG_WRITE_AUTO_LEARN_WS_PARAMETERS, &S_DiagData);
+  *ErrorCode = infSwcApplTpmsSwcServiceDcm_u8Callback(E_TPMS_DIAG_WRITE_AUTO_LEARN_WS_PARAMETERS, &S_DiagData);
   if(*ErrorCode == DCM_E_OK)
   {
     return E_OK;
@@ -719,7 +721,7 @@ FUNC(Std_ReturnType,DCM_APPL_CODE) DcmDspData_NoiseLevelThreshold_WriteFunc (P2C
   S_DiagData.pucReqData = ((uint8 *)&Data[0]);
   S_DiagData.puiResDataLen = &U16_ResponseDataLength;
 
-  *ErrorCode = HufIf_DiagReqCallback(E_TPMS_DIAG_WRITE_NOISE_LEVEL, &S_DiagData);
+  *ErrorCode = infSwcApplTpmsSwcServiceDcm_u8Callback(E_TPMS_DIAG_WRITE_NOISE_LEVEL, &S_DiagData);
   if(*ErrorCode == DCM_E_OK)
   {
     return E_OK;
@@ -741,7 +743,7 @@ FUNC(Std_ReturnType,DCM_APPL_CODE) DcmDspData_TemperatureWarningThreshold_WriteF
   S_DiagData.pucReqData = ((uint8 *)&Data[0]);
   S_DiagData.puiResDataLen = &U16_ResponseDataLength;
 
-  *ErrorCode = HufIf_DiagReqCallback(E_TPMS_DIAG_WRITE_TEMPERATURE_WARNING_THR, &S_DiagData);
+  *ErrorCode = infSwcApplTpmsSwcServiceDcm_u8Callback(E_TPMS_DIAG_WRITE_TEMPERATURE_WARNING_THR, &S_DiagData);
   if(*ErrorCode == DCM_E_OK)
   {
     return E_OK;

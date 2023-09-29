@@ -1,12 +1,12 @@
 #ifndef CANIF_H
 #define CANIF_H
 
-#include "CanIf_Types.hpp"
+#include "Types_EcuabCanIf.hpp"
 
 #include "CanIf_Cfg.hpp"
 
 #if(CANIF_CONFIGURATION_VARIANT == CANIF_CFG_VAR_PBS)
-#include "CanIf_Types.hpp"
+#include "Types_EcuabCanIf.hpp"
 #endif
 
 #define CANIF_START_SEC_VAR_FAST_CLEARED_UNSPECIFIED
@@ -24,14 +24,14 @@ extern FUNC(void, CANIF_CODE) CanIf_Init(P2CONST (Type_CfgEcuabCanIf_st, AUTOMAT
 #define CANIF_START_SEC_CODE
 #include "CanIf_MemMap.hpp"
 extern FUNC(Std_ReturnType, CANIF_CODE) CanIf_SetControllerMode(VAR (uint8,AUTOMATIC) ControllerId
-   ,     VAR(CanIf_ControllerModeType,AUTOMATIC) ControllerMode);
+   ,     VAR(Type_EcuabCanIf_eModeController,AUTOMATIC) ControllerMode);
 #define CANIF_STOP_SEC_CODE
 #include "CanIf_MemMap.hpp"
 
 #define CANIF_START_SEC_CODE
 #include "CanIf_MemMap.hpp"
 extern FUNC(Std_ReturnType, CANIF_CODE) CanIf_GetControllerMode(VAR(uint8,AUTOMATIC) ControllerId
-   ,     P2VAR(CanIf_ControllerModeType, AUTOMATIC, CANIF_APPL_DATA) ControllerModePtr);
+   ,     P2VAR(Type_EcuabCanIf_eModeController, AUTOMATIC, CANIF_APPL_DATA) ControllerModePtr);
 #define CANIF_STOP_SEC_CODE
 #include "CanIf_MemMap.hpp"
 
@@ -53,7 +53,7 @@ extern FUNC(Std_ReturnType, CANIF_CODE) CanIf_CancelTransmit(VAR(Type_SwcService
 #define CANIF_START_SEC_CODE
 #include "CanIf_MemMap.hpp"
 extern FUNC(Std_ReturnType, CANIF_CODE) CanIf_SetPduMode(VAR(uint8,AUTOMATIC) ControllerId
-   ,     VAR(CanIf_PduModeType,AUTOMATIC) PduModeRequest);
+   ,     VAR(Type_EcuabCanIf_eModePdu,AUTOMATIC) PduModeRequest);
 #define CANIF_STOP_SEC_CODE
 #include "CanIf_MemMap.hpp"
 
@@ -83,8 +83,8 @@ extern FUNC(Std_ReturnType, CANIF_CODE)CanIf_DirectHw_Write(P2CONST(uint32, AUTO
 #include "CanIf_MemMap.hpp"
 extern FUNC(Std_ReturnType, CANIF_CODE) CanIf_GetPduMode(
                                                          VAR(uint8,AUTOMATIC) ControllerId
-   ,     P2VAR(CanIf_PduModeType, AUTOMATIC,CANIF_APPL_DATA) PduModePtr
-                                                        );
+   ,     P2VAR(Type_EcuabCanIf_eModePdu, AUTOMATIC,CANIF_APPL_DATA) PduModePtr
+);
 #define CANIF_STOP_SEC_CODE
 #include "CanIf_MemMap.hpp"
 
@@ -97,15 +97,15 @@ extern FUNC(Std_ReturnType, CANIF_CODE) CanIf_ReadRxPduData(VAR(Type_SwcServiceC
 
 #define CANIF_START_SEC_CODE
 #include "CanIf_MemMap.hpp"
-extern FUNC(CanIf_NotifStatusType, CANIF_CODE) CanIf_ReadTxNotifStatus(
+extern FUNC(Type_EcuabCanIf_eStatusNotification, CANIF_CODE) CanIf_ReadTxNotifStatus(
                                                                       VAR(Type_SwcServiceCom_tIdPdu,AUTOMATIC) CanIfTxSduId
-                                                                      );
+);
 #define CANIF_STOP_SEC_CODE
 #include "CanIf_MemMap.hpp"
 
 #define CANIF_START_SEC_CODE
 #include "CanIf_MemMap.hpp"
-extern FUNC(CanIf_NotifStatusType, CANIF_CODE) CanIf_ReadRxNotifStatus(VAR(Type_SwcServiceCom_tIdPdu, AUTOMATIC) CanIfRxSduId);
+extern FUNC(Type_EcuabCanIf_eStatusNotification, CANIF_CODE) CanIf_ReadRxNotifStatus(VAR(Type_SwcServiceCom_tIdPdu, AUTOMATIC) CanIfRxSduId);
 #define CANIF_STOP_SEC_CODE
 #include "CanIf_MemMap.hpp"
 
@@ -122,7 +122,7 @@ extern FUNC(void, CANIF_CODE) CanIf_GetVersionInfo (P2VAR(Std_VersionInfoType, A
 #include "CanIf_MemMap.hpp"
 extern FUNC(void, CANIF_CODE) CanIf_SetDynamicTxId(
                                                   VAR(Type_SwcServiceCom_tIdPdu,AUTOMATIC) CanTxPduId
-   ,     VAR(Can_IdType,AUTOMATIC) CanId
+   ,     VAR(Type_McalCan_tId,AUTOMATIC) CanId
                                                    );
 #define CANIF_STOP_SEC_CODE
 #include "CanIf_MemMap.hpp"
@@ -188,7 +188,7 @@ extern FUNC(Std_ReturnType, CANIF_CODE) CanIf_SetTrcvWakeupMode(
 extern FUNC(Std_ReturnType, CANIF_CODE) CanIf_ReturnRxPduId(
                                                      VAR(Type_SwcServiceCom_tIdPdu, AUTOMATIC) CanIfRxTargetPduId
    ,     P2VAR(Type_SwcServiceCom_tIdPdu, AUTOMATIC, CANIF_APPL_CONST) CanIfRxPduIdPtr
-                                                    );
+);
 #define CANIF_STOP_SEC_CODE
 #include "CanIf_MemMap.hpp"
 
@@ -197,7 +197,7 @@ extern FUNC(Std_ReturnType, CANIF_CODE) CanIf_ReturnRxPduId(
 extern FUNC(Std_ReturnType, CANIF_CODE) CanIf_ReturnTxPduId(
                                                      VAR(Type_SwcServiceCom_tIdPdu, AUTOMATIC) CanIfTxTargetPduId
    ,     P2VAR(Type_SwcServiceCom_tIdPdu, AUTOMATIC, CANIF_APPL_CONST) CanIfTxPduIdPtr
-                                                    );
+);
 #define CANIF_STOP_SEC_CODE
 #include "CanIf_MemMap.hpp"
 
@@ -215,7 +215,7 @@ extern FUNC(Std_ReturnType, CANIF_CODE) CanIf_SetBaudrate(
 #if(CANIF_PUBLIC_TXCONFIRM_POLLING_SUPPORT != STD_OFF)
 #define CANIF_START_SEC_CODE
 #include "CanIf_MemMap.hpp"
-extern FUNC(CanIf_NotifStatusType, CANIF_CODE) CanIf_GetTxConfirmationState(
+extern FUNC(Type_EcuabCanIf_eStatusNotification, CANIF_CODE) CanIf_GetTxConfirmationState(
                                        VAR(uint8,AUTOMATIC) ControllerId
                                                );
 #define CANIF_STOP_SEC_CODE

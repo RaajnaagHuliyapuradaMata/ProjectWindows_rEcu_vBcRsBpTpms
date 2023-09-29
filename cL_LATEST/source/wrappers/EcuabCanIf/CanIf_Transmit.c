@@ -37,13 +37,13 @@ FUNC(Std_ReturnType, CANIF_CODE) CanIf_XCore_LocalCore_Transmit(
           VAR(Type_SwcServiceCom_tIdPdu,    AUTOMATIC                  ) CanIfTxSduId
    ,  P2CONST(Type_SwcServiceCom_stInfoPdu, AUTOMATIC, CANIF_APPL_CONST) CanIfTxInfoPtr
 ){
-       VAR(Can_PduType,                   AUTOMATIC                 ) lPduInfo_st         = {NULL_PTR, 0, 0, 0};
-       VAR(Can_ReturnType,                AUTOMATIC                 ) lCanStatus_en       = CAN_NOT_OK;
+       VAR(Type_McalCan_stPdu,                   AUTOMATIC                 ) lPduInfo_st         = {NULL_PTR, 0, 0, 0};
+       VAR(Type_McalCan_eReturn,                AUTOMATIC                 ) lCanStatus_en       = CAN_NOT_OK;
        VAR(Type_SwcServiceCom_tLengthPdu, AUTOMATIC                 ) lSduLength          = 0;
        VAR(uint32,                        AUTOMATIC                 ) lCanId_u32          = 0;
        VAR(uint16,                        AUTOMATIC                 ) ltxPduCustId_t      = CanIf_Lok_ConfigSet_tpst->TxPduIdTable_Ptr[CanIfTxSduId];
    P2CONST(CanIf_Cfg_TxPduConfig_tst,     AUTOMATIC, CANIF_CFG_CONST) lTxPduConfig_pst    = (CanIf_Lok_ConfigSet_tpst->CanIf_TxPduConfigPtr) + ltxPduCustId_t;
-       VAR(Can_HwHandleType,              AUTOMATIC                 ) lHth_uo             = lTxPduConfig_pst->CanIf_TxBufferConfigPtr->CanIf_HthConfigPtr->CanObjectId;
+       VAR(Type_McalCan_tHandleHw,              AUTOMATIC                 ) lHth_uo             = lTxPduConfig_pst->CanIf_TxBufferConfigPtr->CanIf_HthConfigPtr->CanObjectId;
        VAR(uint8,                         AUTOMATIC                 ) lControllerId_u8    = lTxPduConfig_pst->CanIf_TxBufferConfigPtr->CanIf_HthConfigPtr->CanIf_CtrlConfigPtr->CtrlId;
      P2VAR(CanIf_ControllerStateType,     AUTOMATIC, AUTOMATIC      ) lControllerState_en = CanIf_Lok_ControllerState_ast + lControllerId_u8;
        VAR(Std_ReturnType,                AUTOMATIC                 ) lRetVal_en          = E_NOT_OK;
@@ -71,10 +71,10 @@ FUNC(Std_ReturnType, CANIF_CODE) CanIf_XCore_LocalCore_Transmit(
       else{
          lSduLength = CanIfTxInfoPtr->SduLength;
       }
-      lPduInfo_st.id  = (Can_IdType)lCanId_u32;
+      lPduInfo_st.id  = (Type_McalCan_tId)lCanId_u32;
       lPduInfo_st.id &= CANIF_MSB_BIT_RESET;
       lPduInfo_st.id |= (
-            (Can_IdType)lTxPduConfig_pst->TxPduCanIdType
+            (Type_McalCan_tId)lTxPduConfig_pst->TxPduCanIdType
          << CANIF_CANID_BIT_SHIFT
       );
       lPduInfo_st.swPduHandle = lTxPduConfig_pst->TxPduId;

@@ -8,7 +8,7 @@
 #include "CanIf_MemMap.hpp"
 Std_ReturnType CanIf_SetPduMode(
       uint8             ControllerId
-   ,  CanIf_PduModeType PduModeRequest
+   ,  Type_EcuabCanIf_eModePdu PduModeRequest
 ){
    CanIf_ControllerStateType* lControllerState_p = CanIf_Lok_ControllerState_ast + ControllerId;
    Std_ReturnType             lRetVal_en = E_NOT_OK;
@@ -33,10 +33,10 @@ Std_ReturnType CanIf_SetPduMode(
 
 Std_ReturnType CanIf_GetPduMode(
        uint8              ControllerId
-   ,   CanIf_PduModeType* PduModePtr
+   ,   Type_EcuabCanIf_eModePdu* PduModePtr
 ){
    CanIf_ControllerStateType* lControllerState_p = CanIf_Lok_ControllerState_ast + ControllerId;
-   *PduModePtr = (CanIf_PduModeType)((lControllerState_p->Ctrl_Pdu_mode) & BIT_MASK_CTRL_MODE);
+   *PduModePtr = (Type_EcuabCanIf_eModePdu)((lControllerState_p->Ctrl_Pdu_mode) & BIT_MASK_CTRL_MODE);
    return E_OK;
 }
 #define CANIF_STOP_SEC_CODE

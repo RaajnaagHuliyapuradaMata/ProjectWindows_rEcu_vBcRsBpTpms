@@ -14,7 +14,7 @@ void CanIf_Init(
 
 #if(CANIF_PUBLIC_SETDYNAMICTXID_API == STD_ON)
    uint32 * dynId_pu32;
-   Can_IdType canId_t;
+   Type_McalCan_tId canId_t;
    uint32 numTxPduId_u32;
    const CanIf_Cfg_TxPduConfig_tst * txPduConfig_pcst;
 #endif
@@ -46,7 +46,7 @@ void CanIf_Init(
                 {
                     canId_t = ((txPduConfig_pcst +index_u32)->TxPduCanId);
                     canId_t &= CANIF_MSB_BIT_RESET;
-                    canId_t |= (((Can_IdType)((txPduConfig_pcst +index_u32)->TxPduCanIdType))<<CANIF_CANID_BIT_SHIFT);
+                    canId_t |= (((Type_McalCan_tId)((txPduConfig_pcst +index_u32)->TxPduCanIdType))<<CANIF_CANID_BIT_SHIFT);
                     *(dynId_pu32 + ((txPduConfig_pcst +index_u32)->TxPduType)) = canId_t;
                 }
             }
@@ -84,7 +84,7 @@ void CanIf_DeInit(
 
 #if(CANIF_PUBLIC_SETDYNAMICTXID_API == STD_ON)
    uint32 * dynId_pu32;
-   Can_IdType canId_t;
+   Type_McalCan_tId canId_t;
    uint32 numTxPduId_u32;
    const CanIf_Cfg_TxPduConfig_tst * txPduConfig_pcst;
 #endif
@@ -109,7 +109,7 @@ void CanIf_DeInit(
                 {
                     canId_t = ((txPduConfig_pcst +index_u32)->TxPduCanId);
                     canId_t &= CANIF_MSB_BIT_RESET;
-                    canId_t |= (((Can_IdType)((txPduConfig_pcst +index_u32)->TxPduCanIdType))<<CANIF_CANID_BIT_SHIFT);
+                    canId_t |= (((Type_McalCan_tId)((txPduConfig_pcst +index_u32)->TxPduCanIdType))<<CANIF_CANID_BIT_SHIFT);
                     *(dynId_pu32 + ((txPduConfig_pcst +index_u32)->TxPduType)) = canId_t;
                 }
             }

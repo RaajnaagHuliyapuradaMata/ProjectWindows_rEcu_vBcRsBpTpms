@@ -8,8 +8,8 @@ FUNC(void, CANIF_CODE) CanIf_RxIndication_Internal(
       P2CONST(Can_HwType,                   AUTOMATIC, CANIF_APPL_DATA) Mailbox
    ,  P2CONST(Type_SwcServiceCom_stInfoPdu, AUTOMATIC, CANIF_APPL_DATA) PduInfoPtr
 ){
-     P2VAR(CanIf_NotifStatusType,        AUTOMATIC, AUTOMATIC      ) RxNotifPtr_pen     = CanIf_Lok_RxNotification_taen;
-       VAR(Can_IdType,                   AUTOMATIC                 ) CanIdNoIdType_t    = Mailbox->CanId & CANIF_PRV_MSB_BIT_RESET;
+     P2VAR(Type_EcuabCanIf_eStatusNotification,        AUTOMATIC, AUTOMATIC      ) RxNotifPtr_pen     = CanIf_Lok_RxNotification_taen;
+       VAR(Type_McalCan_tId,                   AUTOMATIC                 ) CanIdNoIdType_t    = Mailbox->CanId & CANIF_PRV_MSB_BIT_RESET;
        VAR(uint8,                        AUTOMATIC                 ) CanIdPduType_u8    = (uint8)((Mailbox->CanId)>>CANIF_CANID_BIT_SHIFT);
    P2CONST(CanIf_Cfg_Hrhtype_tst,        AUTOMATIC, CANIF_CFG_CONST) HrhCfg_pcst        = CanIf_Lok_ConfigSet_tpst->HrhConfig_pcst + CanIf_Lok_ConfigSet_tpst->HrhPduIdTable_Ptr[Mailbox->Hoh];
      P2VAR(CanIf_ControllerStateType,    AUTOMATIC, AUTOMATIC      ) ControllerState_ps = CanIf_Lok_ControllerState_ast + Mailbox->ControllerId;

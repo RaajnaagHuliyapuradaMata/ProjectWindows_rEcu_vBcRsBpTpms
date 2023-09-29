@@ -2,7 +2,7 @@
 
 #define CANIF_START_SEC_VAR_CLEARED_UNSPECIFIED
 #include "CanIf_MemMap.hpp"
-CanIf_NotifStatusType CanIf_Lok_RxNotification_taen[CANIF_CFG_NUM_CANRXPDUIDS];
+Type_EcuabCanIf_eStatusNotification CanIf_Lok_RxNotification_taen[CANIF_CFG_NUM_CANRXPDUIDS];
 #define CANIF_STOP_SEC_VAR_CLEARED_UNSPECIFIED
 #include "CanIf_MemMap.hpp"
 
@@ -18,4 +18,4 @@ const uint8 CanIf_Trcv_LUT[CANIF_NUM_TRANSCEIVERS] = {0};
 uint32 CanIf_DynTxPduCanId_au32[CANIF_TOTAL_DYNAMIC_PDUS];
 #endif
 
-CanIf_NotifStatusType CanIf_Lok_TxNotification_aen[CANIF_TOTAL_TXPDUS];
+Type_EcuabCanIf_eStatusNotification CanIf_Lok_TxNotification_aen[CANIF_TOTAL_TXPDUS];

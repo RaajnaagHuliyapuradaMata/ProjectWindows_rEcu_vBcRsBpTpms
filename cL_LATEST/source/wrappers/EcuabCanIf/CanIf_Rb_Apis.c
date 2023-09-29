@@ -26,7 +26,7 @@ Std_ReturnType CanIf_Rn_ReadTxPduCanId(
    ){
       lCanId_u32 = lTxPduConfig_pst->TxPduCanId;
       lCanId_u32 &= CANIF_MSB_BIT_RESET;
-      lCanId_u32 |= ( ((Can_IdType)lTxPduConfig_pst->TxPduCanIdType) << CANIF_CANID_BIT_SHIFT );
+      lCanId_u32 |= ( ((Type_McalCan_tId)lTxPduConfig_pst->TxPduCanIdType) << CANIF_CANID_BIT_SHIFT );
       RetVal = E_OK;
    }
    if(

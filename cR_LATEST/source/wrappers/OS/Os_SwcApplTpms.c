@@ -16,8 +16,6 @@
 #include "EnvManagerX.hpp"
 #include "RdcManagerX.hpp"
 #include "SysManagerX.hpp"
-#include "TmsManagerX.hpp"
-#include "iTpms_Interface.hpp"
 #include "DemManagerX.hpp"
 #include "EcuDiag.hpp"
 #include "DcmManagerX.hpp"
@@ -37,6 +35,8 @@
 #include "Version.hpp"
 
 #include "infMcalCanSwcServiceSchM.hpp"
+
+#include "iTpms_Interface.hpp"
 
 static uint8                ucLed               = 0;
 static uint8                uc100msTimer        = 0;
@@ -140,7 +140,7 @@ FUNC(boolean, OS_OS_CBK_IDLE_CODE) Os_Cbk_Idle(void){
 TASK(InitTask){
    HufIf_Init_Huf_SWC();
    Rdc_Init();
-   Tms_Init();
+   InfSwcApplTpmsSwcServiceOs_vInitFunction();
    Env_Init();
    CANMGR_Init();
    DemMGR_Init();
@@ -226,13 +226,19 @@ TASK(CyclicTask50ms){
 }
 
 TASK(CyclicTask200ms){
-   tsTPMS_Data* PS_TmsStatus           = Tms_GetTmsStatusPointer();
-   tsEnv_Data*  PS_EnvData             = Env_GetEnvironmentData();
-   uint16       ushCategoryConsistency = (uint16)(Memstack_GetCurrentNvMConsistence() & CU16_NVM_ALL_CATEG_CONSISTENT);
+   tsEnv_Data* PS_EnvData             = Env_GetEnvironmentData();
+   uint16      ushCategoryConsistency = (uint16)(Memstack_GetCurrentNvMConsistence() & CU16_NVM_ALL_CATEG_CONSISTENT);
 
-   Env_SetNvmBlockConsistency(ushCategoryConsistency);
-   HufIf_RCtSaTpmsData(PS_TmsStatus, PS_EnvData);
-   if(ushCategoryConsistency != CU16_NVM_ALL_CATEG_CONSISTENT){
+   Env_SetNvmBlockConsistency(
+      ushCategoryConsistency
+   );
+   HufIf_RCtSaTpmsData(
+      PS_EnvData
+   );
+   if(
+         CU16_NVM_ALL_CATEG_CONSISTENT
+      != ushCategoryConsistency
+   ){
       Memstack_WriteAllBlocks();
       Memstack_Appl_JobEndCallback_CAT01();
       Memstack_Appl_JobEndCallback_CAT02();

@@ -58,8 +58,8 @@ typedef struct{
 
 extern   CONST(CanIf_CallbackFuncType,    CANIF_CONST         ) CanIf_Callback;
 extern     VAR(CanIf_ControllerStateType, CANIF_VAR           ) CanIf_Lok_ControllerState_ast[];
-extern     VAR(CanIf_NotifStatusType,     CANIF_VAR           ) CanIf_Lok_TxNotification_aen[];
-extern     VAR(CanIf_NotifStatusType,     CANIF_VAR           ) CanIf_Lok_RxNotification_taen[CANIF_CFG_NUM_CANRXPDUIDS];
+extern     VAR(Type_EcuabCanIf_eStatusNotification,     CANIF_VAR           ) CanIf_Lok_TxNotification_aen[];
+extern     VAR(Type_EcuabCanIf_eStatusNotification,     CANIF_VAR           ) CanIf_Lok_RxNotification_taen[CANIF_CFG_NUM_CANRXPDUIDS];
 extern     VAR(boolean,                   CANIF_VAR           ) CanIf_Lok_InitStatus_b;
 
 FUNC(void, CANIF_CODE) CanIf_Lok_ReadRxBuffer(

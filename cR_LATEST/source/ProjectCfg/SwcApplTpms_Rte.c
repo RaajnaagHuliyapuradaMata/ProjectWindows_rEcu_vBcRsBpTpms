@@ -27,11 +27,6 @@
 #define ABS_AGE_INVALID                   ((uint8) 0xFFU)
 #define SIMULATED_TELEGRAM_SYNC_PATTERN   ((uint16) 0x0000U)
 
-#ifdef DEBUG_AUTOLOCATION
-static uint8 ucE7withInvalidTimestamp = 0;
-static uint8 ucE7withOutdatedTimestamp = 0;
-#endif
-
 tsEnv_Data       g_sEnv_Data;
 
 typedef struct{
@@ -56,10 +51,6 @@ static uint8 u8CheckSameTG(const uint8 *u8CurrentRFFrame, uint32 u32_TimeStamp);
 #pragma PRQA_NO_SIDE_EFFECTS u8CheckSameTG
 
 void HufIf_Init_Huf_SWC(void){
-#ifdef _USRDLL
-  Init_NvM_Simulation(FALSE);
-#else
-#endif
   InitEEAll();
   Init_Huf_Common();
   Init_CAN_Data();
@@ -70,9 +61,6 @@ void HufIf_Init_Huf_SWC(void){
 
 void HufIf_RCtSaReTelDec(tsWS_RxDataIn* spRxDataIn, const tsEnv_Data* spEnvDataIn)
 {
-#ifdef _WINDLL
-  boolean l_bCrcStatus = TRUE;
-#endif
   boolean l_bAnalizeAllRF = FALSE;
   uint16 l_uiSyncPattern;
   uint8  l_ucTelType;
@@ -91,11 +79,7 @@ void HufIf_RCtSaReTelDec(tsWS_RxDataIn* spRxDataIn, const tsEnv_Data* spEnvDataI
    }
     l_ucTelType = spRxDataIn->ucaTelegram[2];
     l_ulRxTimeStamp = spRxDataIn->ulRxTimeStamp;
-#ifdef _WINDLL
-    l_bAnalizeAllRF = TRUE;
-#else
     l_bAnalizeAllRF = DCH_IsDeveloperModeActive(); // Analyze all received RF frames
-#endif
    if((l_bAnalizeAllRF == TRUE) || (u8CheckSameTG( (uint8*)&spRxDataIn->ucaTelegram[2], l_ulRxTimeStamp) == 0))
    {
       if(((LearningWheelPosActiveSM() == TRUE) || (DCH_IsContinousAPCReadingActive() == TRUE)) && (l_ucTelType == cTelTypeRotatS))
@@ -105,10 +89,6 @@ void HufIf_RCtSaReTelDec(tsWS_RxDataIn* spRxDataIn, const tsEnv_Data* spEnvDataI
           PutRotatSDataInBuffer(spRxDataIn);
         }
         else{
-#ifdef DEBUG_AUTOLOCATION
-          ucE7withInvalidTimestamp++;
-          DCM_EventDataUpdateOnRx();
-#endif //DEBUG_AUTOLOCATION
         }
       }
       else{
@@ -126,75 +106,87 @@ void HufIf_RCtSaReTelDec(tsWS_RxDataIn* spRxDataIn, const tsEnv_Data* spEnvDataI
   }
 }
 
-void HufIf_RCtSaEnvData(const tsEnv_Data* spRxEnvDataIn){
-  static uint16 sl_uiOldVehSpeed = 0xFFFFU;
-  static uint8  sl_ucOldKLstate = VEH_IGN_OFF;
-  static uint8  sl_ucOldVehDirection = cDriveDirStop;
-  static boolean  sl_bOldBCMFault = FALSE;
-  uint8  l_ucNewVehDirection = 0U;
-  uint16 l_uiNewVehSpeed = 0U;
-  uint8 l_ucNewKLstate = 0U;
-  boolean l_bNewBCMFault = 0U;
-  g_sEnv_Data = *spRxEnvDataIn;
-  (void)VehStateGetKL15(&l_ucNewKLstate);
-  if(sl_ucOldKLstate != l_ucNewKLstate){
-   if(Off == l_ucNewKLstate){
-      EvTerminal15OffFZZ();
-      Init_Sys_After_Kl15_Off();
-      sl_uiOldVehSpeed = 0xFFFFU;
-      sl_ucOldVehDirection = cDriveDirStop;
-      sl_bOldBCMFault = FALSE;
-   }
-   else if(ON == l_ucNewKLstate){
+void HufIf_RCtSaEnvData(
+   const tsEnv_Data* spRxEnvDataIn
+){
+   static uint16 sl_uiOldVehSpeed = 0xFFFFU;
+   static uint8  sl_ucOldKLstate = VEH_IGN_OFF;
+   static uint8  sl_ucOldVehDirection = cDriveDirStop;
+   static boolean  sl_bOldBCMFault = FALSE;
+         uint8  l_ucNewVehDirection = 0U;
+         uint16 l_uiNewVehSpeed = 0U;
+         uint8 l_ucNewKLstate = 0U;
+         boolean l_bNewBCMFault = 0U;
+         g_sEnv_Data = *spRxEnvDataIn;
+
+   (void)VehStateGetKL15(&l_ucNewKLstate);
+   if(
+         sl_ucOldKLstate
+      != l_ucNewKLstate
+   ){
+      if(
+            Off
+         == l_ucNewKLstate
+      ){
+         EvTerminal15OffFZZ();
+         Init_Sys_After_Kl15_Off();
+         sl_uiOldVehSpeed     = 0xFFFFU;
+         sl_ucOldVehDirection = cDriveDirStop;
+         sl_bOldBCMFault      = FALSE;
+      }
+      else if(ON == l_ucNewKLstate){
       DTC_RestoreActiveStatusfromEE();
       EvTerminal15OnFZZ();
       InitSameTGBuffer();
       DTC_StatusOfDTC |= cDTC_WAS_DELETED_TROUGH_DIAG;
       U32_SimulatedTimestamp = 0U;
+      }
+      else{
+      }
+      sl_ucOldKLstate = l_ucNewKLstate;
    }
    else{
    }
-   sl_ucOldKLstate = l_ucNewKLstate;
-  }
-  else{
-  }
-  if(bGetBitFahrzeugzustandFZZ(cKL_15_EIN) == TRUE){
-    l_bNewBCMFault = g_sEnv_Data.bECU_Fault;
-   if(sl_bOldBCMFault != l_bNewBCMFault){
-      EvBCMFaultStatusChanged(l_bNewBCMFault);
-      sl_bOldBCMFault = l_bNewBCMFault;
-   }
-   else{
-   }
-    (void)ReceiveGetVehicleSpeed(&l_uiNewVehSpeed);
-   if(sl_uiOldVehSpeed != l_uiNewVehSpeed){
+   if(TRUE == bGetBitFahrzeugzustandFZZ(cKL_15_EIN)){
+      l_bNewBCMFault = g_sEnv_Data.bECU_Fault;
+      if(
+            sl_bOldBCMFault
+         != l_bNewBCMFault
+      ){
+         EvBCMFaultStatusChanged(l_bNewBCMFault);
+         sl_bOldBCMFault = l_bNewBCMFault;
+      }
+      else{
+      }
+      (void)ReceiveGetVehicleSpeed(&l_uiNewVehSpeed);
+      if(sl_uiOldVehSpeed != l_uiNewVehSpeed){
       VehStateTriggerHysteresis(VEHSTATE_VEHICLE_SPEED_HYST_ID, l_uiNewVehSpeed);
       VehStateTriggerHysteresis(VEHSTATE_REDIAG_ACTIVE_HYST_ID, l_uiNewVehSpeed);
       EvVehicleSpeedChangedBZ(l_uiNewVehSpeed);
       sl_uiOldVehSpeed = l_uiNewVehSpeed;
-   }
-   else{
-   }
-    (void)ReceiveGetDirection(&l_ucNewVehDirection);
-   if(sl_ucOldVehDirection != l_ucNewVehDirection){
-      if(cDriveDirBackward == l_ucNewVehDirection){
-        EvDriveDirectionBackwardFZZ();
       }
       else{
-        EvDriveDirectionForwardFZZ();
+      }
+      (void)ReceiveGetDirection(&l_ucNewVehDirection);
+      if(sl_ucOldVehDirection != l_ucNewVehDirection){
+      if(cDriveDirBackward == l_ucNewVehDirection){
+      EvDriveDirectionBackwardFZZ();
+      }
+      else{
+      EvDriveDirectionForwardFZZ();
       }
       sl_ucOldVehDirection = l_ucNewVehDirection;
-   }
-   else{
-   }
-   if(CU16_NVM_ALL_CATEG_CONSISTENT != g_sEnv_Data.uiNvmBlockConsistence){
+      }
+      else{
+      }
+      if(CU16_NVM_ALL_CATEG_CONSISTENT != g_sEnv_Data.uiNvmBlockConsistence){
       EE_InconsistencyHandling(g_sEnv_Data.uiNvmBlockConsistence);
+      }
+      else{
+      }
    }
    else{
    }
-  }
-  else{
-  }
 }
 
 void HufIf_RCtAbsEnvData(const tsEnvAbs_Data* spRxEnvAbsDataIn){
@@ -239,40 +231,80 @@ void HufIf_RCtAbsEnvData(const tsEnvAbs_Data* spRxEnvAbsDataIn){
   }
 }
 
-void HufIf_RCtSaTpmsData(tsTPMS_Data* spTPMS_Data, const tsEnv_Data* spEnvData){
-  uint8 ucLinStatus;
-  if(bGetBitFahrzeugzustandFZZ(cKL_15_EIN) == TRUE){
-   if((LearningWheelPosActiveSM() == TRUE) || (DCH_IsContinousAPCReadingActive() == TRUE)){
-      while((ucRotatSTelIndexGet != ucGetRotatSDataBufferIndex()) && (ucRotatSTelIndexGet < cWsTelBufferSize)){
-        ucLinStatus = LinABS((pGetRotatSDataTFromBuffer(ucRotatSTelIndexGet))->RxDataIn.ulRxTimeStamp);
-        if(ucLinStatus == cABS_OK){
-          ReadReDataFromRingBuffer_iBTCM(&(pGetRotatSDataTFromBuffer(ucRotatSTelIndexGet))->RxDataIn);
-          ucRotatSTelIndexGet++;
-          ucRotatSTelIndexGet %= cWsTelBufferSize;
-        }
-        else if(ucLinStatus == cABS_VALUE_TOO_OLD){
-          break;
-        }
-        else{
-          ucRotatSTelIndexGet++;
-          ucRotatSTelIndexGet %= cWsTelBufferSize;
-#ifdef DEBUG_AUTOLOCATION
-          ucE7withOutdatedTimestamp++;
-          DCM_EventDataUpdateOnRx();
-#endif
-        }
+void HufIf_RCtSaTpmsData(
+   const tsEnv_Data* spEnvData
+){
+   uint8 ucLinStatus;
+   if(
+         TRUE
+      == bGetBitFahrzeugzustandFZZ(
+            cKL_15_EIN
+         )
+   ){
+      if(
+            (
+                  TRUE
+               == LearningWheelPosActiveSM()
+            )
+         || (
+                  TRUE
+               == DCH_IsContinousAPCReadingActive()
+            )
+      ){
+         while(
+               (ucRotatSTelIndexGet != ucGetRotatSDataBufferIndex())
+            && (ucRotatSTelIndexGet < cWsTelBufferSize)
+         ){
+            ucLinStatus = LinABS(
+               (
+                  pGetRotatSDataTFromBuffer(
+                     ucRotatSTelIndexGet
+                  )
+               )->RxDataIn.ulRxTimeStamp
+            );
+            if(
+                  cABS_OK
+               == ucLinStatus
+            ){
+               ReadReDataFromRingBuffer_iBTCM(
+                  &(
+                     pGetRotatSDataTFromBuffer(
+                        ucRotatSTelIndexGet
+                     )
+                  )->RxDataIn
+               );
+               ucRotatSTelIndexGet++;
+               ucRotatSTelIndexGet %= cWsTelBufferSize;
+            }
+            else if(
+                  cABS_VALUE_TOO_OLD
+               == ucLinStatus
+            ){
+               break;
+            }
+            else{
+               ucRotatSTelIndexGet++;
+               ucRotatSTelIndexGet %= cWsTelBufferSize;
+            }
+         }
       }
    }
-  }
-  else{
-  }
-  HufIf_RCtSaEnvData(spEnvData);
-  if(bGetBitFahrzeugzustandFZZ(cKL_15_EIN) == TRUE){
-    Huf_SWC_Basic_Timer();
-  }
-  else{
-  }
-  GetSystem_TpmsStatus(&(spTPMS_Data->ucStatus));
+   else{
+   }
+   HufIf_RCtSaEnvData(
+      spEnvData
+   );
+   if(
+         TRUE
+      == bGetBitFahrzeugzustandFZZ(
+            cKL_15_EIN
+         )
+   ){
+      Huf_SWC_Basic_Timer();
+   }
+   else{
+   }
+   SwcApplTpms_vRunnableUpdateStatus();
 }
 
 static void Init_Sys_After_Kl15_Off(void){
@@ -367,14 +399,4 @@ static uint8 u8CheckSameTG(const uint8 *u8CurrentRFFrame, uint32 u32_TimeStamp){
   }
   return Return;
 }
-
-#ifdef DEBUG_AUTOLOCATION
-extern uint8 DCM_InvIf_GetNumberOfE7withInvalidTs(void){
-  return (uint8) ucE7withInvalidTimestamp;
-}
-
-extern uint8 DCM_InvIf_GetNumberOfE7withOutdatedTs(void){
-  return (uint8) ucE7withOutdatedTimestamp;
-}
-#endif
 

@@ -2,36 +2,13 @@
 #define CAN_GENERAL_TYPES_H
 
 #include "ComStack_Types.hpp"
-
-typedef uint32 Can_IdType;
-typedef uint16 Can_HwHandleType;
+#include "Types_McalCan.hpp"
 
 typedef struct{
-   Can_IdType       CanId;
-   Can_HwHandleType Hoh;
+   Type_McalCan_tId       CanId;
+   Type_McalCan_tHandleHw Hoh;
    uint8            ControllerId;
 }Can_HwType;
-
-typedef struct{
-   P2VAR(uint8,TYPEDEF,CAN_UPPER_READONLY) sdu;
-   Can_IdType                              id;
-   Type_SwcServiceCom_tIdPdu               swPduHandle;
-   uint8                                   length;
-}Can_PduType;
-
-typedef enum{
-      CAN_T_START
-   ,  CAN_T_STOP
-   ,  CAN_T_SLEEP
-   ,  CAN_T_WAKEUP
-   ,  CAN_T_MAXTRANSITION
-}Can_StateTransitionType;
-
-typedef enum{
-      CAN_OK
-   ,  CAN_NOT_OK
-   ,  CAN_BUSY
-}Can_ReturnType;
 
 typedef enum{
       CANTRCV_TRCVMODE_NORMAL

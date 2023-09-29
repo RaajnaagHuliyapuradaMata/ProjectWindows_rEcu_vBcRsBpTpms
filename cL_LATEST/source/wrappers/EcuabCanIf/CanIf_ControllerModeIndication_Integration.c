@@ -16,7 +16,7 @@
 void CanIf_ControllerModeIndication( uint8 ControllerId
    ,       Can_ControllerStateType ControllerMode )
 {
-   VAR(CanIf_ControllerModeType, AUTOMATIC) ControllerMode_tmp = CANIF_CS_UNINIT;
+   VAR(Type_EcuabCanIf_eModeController, AUTOMATIC) ControllerMode_tmp = CANIF_CS_UNINIT;
 
    switch(ControllerMode)
    {
@@ -40,7 +40,7 @@ void CanIf_ControllerModeIndication( uint8 ControllerId
 
 #elif(CANIF_CONTROLLERMODEINDICATION_VERSION <= 2)
 void CanIf_ControllerModeIndication( uint8 ControllerId
-   ,       CanIf_ControllerModeType ControllerMode )
+   ,       Type_EcuabCanIf_eModeController ControllerMode )
 {
 
    CanIf_ControllerModeIndication_Internal(ControllerId, ControllerMode);

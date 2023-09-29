@@ -194,92 +194,89 @@
 #define COM_CheckRxIPduDMStatus(IpduId)                              (Com_GetRamValue(RXIPDU,_DMSTATUS,COM_GET_RXPDURAM_S(IpduId).RxFlags) != COM_STOP)
 
 FUNC(void, COM_CODE) Com_ByteCopy(
-      P2VAR(uint8, AUTOMATIC, COM_APPL_DATA) dest
-   ,     P2CONST(uint8, AUTOMATIC, COM_APPL_DATA) src
-      , VAR(uint32, AUTOMATIC) Len
+        P2VAR(uint8,  AUTOMATIC, COM_APPL_DATA) dest
+   ,  P2CONST(uint8,  AUTOMATIC, COM_APPL_DATA) src
+   ,      VAR(uint32, AUTOMATIC               ) Len
 );
 
-FUNC(void, COM_CODE) Com_ByteCopyInit( P2VAR(uint8, AUTOMATIC, COM_APPL_DATA)   dest
-   ,     VAR(uint32, AUTOMATIC)                   Init_Val
-   ,     VAR(uint32, AUTOMATIC)                   Len );
+FUNC(void, COM_CODE) Com_ByteCopyInit(
+      P2VAR(uint8,  AUTOMATIC, COM_APPL_DATA) dest
+   ,    VAR(uint32, AUTOMATIC               ) Init_Val
+   ,    VAR(uint32, AUTOMATIC               ) Len
+);
 
 FUNC(void, COM_CODE) Com_PackSignal( VAR(uint8, AUTOMATIC)                  Endianess
    ,     VAR(Com_BitpositionType, AUTOMATIC)    Bit_Pos
    ,     VAR(Com_BitsizeType, AUTOMATIC)        Bitsize
    ,     VAR(Com_SigMaxType, AUTOMATIC)         Src_Buf
-   ,     P2VAR(uint8, AUTOMATIC, COM_APPL_DATA) Dest_Buf );
+   ,     P2VAR(uint8, AUTOMATIC, COM_APPL_DATA) Dest_Buf
+);
 
 FUNC(Com_SigMaxType, COM_CODE) Com_UnpackSignal( VAR(uint8, AUTOMATIC)                    Endianess
    ,     VAR(Com_BitpositionType, AUTOMATIC)      Bit_Pos
    ,     VAR(Com_BitsizeType, AUTOMATIC)          Bitsize
    ,     P2CONST(uint8, AUTOMATIC, COM_APPL_DATA) Src_Buf
-   ,     VAR(boolean, AUTOMATIC)                  IsSigned );
+   ,     VAR(boolean, AUTOMATIC)                  IsSigned
+);
 
 
 FUNC(uint32, COM_CODE) Com_UnpackOpaqueSignal( VAR(Com_BitpositionType, AUTOMATIC)      Bit_Pos
    ,     VAR(Com_BitsizeType, AUTOMATIC)          SignalLength
-   ,     P2CONST(uint8, AUTOMATIC, COM_APPL_DATA) Src_Buf);
+   ,     P2CONST(uint8, AUTOMATIC, COM_APPL_DATA) Src_Buf
+);
 
 FUNC(void, COM_CODE) Com_Lok_SendIpdu( VAR(Type_SwcServiceCom_tIdPdu, AUTOMATIC) ComTxPduId
-   ,     VAR(Com_SendIpduInfo, AUTOMATIC) sendIpduFlag_u16 );
+   ,     VAR(Com_SendIpduInfo, AUTOMATIC) sendIpduFlag_u16
+);
 
 FUNC(void,COM_CODE) Com_TxChangeMode(VAR(Type_CfgSwcServiceCom_tIdIPdu, AUTOMATIC) TxIpduId);
 
 FUNC(void, COM_CODE) Com_Lok_ProcessSignal(
                                 VAR(Type_SwcServiceCom_tIdPdu, AUTOMATIC)                       RxPduId
    ,     P2CONST(Type_SwcServiceCom_stInfoPdu, AUTOMATIC, COM_APPL_DATA)  PduInfoPtr
-                                          );
+);
 
 FUNC(void, COM_CODE) Com_TxIPduStop(VAR(Type_CfgSwcServiceCom_tIdIPdu, AUTOMATIC) IpduId);
-
-FUNC(void, COM_CODE) Com_ProcessRxIPdu(
-                                VAR(Type_SwcServiceCom_tIdPdu, AUTOMATIC)                       RxPduId
-   ,     P2CONST(Type_SwcServiceCom_stInfoPdu, AUTOMATIC, COM_APPL_DATA)  PduInfoPtr
-                                      );
-
 FUNC (void,COM_CODE) Com_Lok_ClearUpdateBits( Com_TxIpduConstPtrType TxIPduConstPtr);
-
 FUNC(Std_ReturnType, COM_CODE) Com_WriteSigGwReceiveQueue(Type_SwcServiceCom_tIdPdu ComRxPduId);
-
 FUNC(void, COM_CODE) Com_Lok_PackRxSignalGwBufferData(Com_RxSigConstPtrType RxSigConstPtr,Com_SignalIdType l_TxGwDestId);
-
 FUNC(void, COM_CODE) Com_InternalProcessTxConfirmation(VAR(Type_SwcServiceCom_tIdPdu, AUTOMATIC) TxPduId);
 
 extern FUNC(uint8, COM_CODE)    Com_InternalSendSignal( VAR(Com_SignalIdType, AUTOMATIC)        SignalId
-   ,     P2CONST(void, AUTOMATIC, COM_APPL_DATA) SignalDataPtr );
-extern FUNC(uint8, COM_CODE)    Com_InternalSendSignalGroup(VAR(Com_SignalGroupIdType, AUTOMATIC) SignalGroupId);
-extern FUNC(void, COM_CODE)     Com_InternalInvalidateShadowSignal(VAR(Com_SignalIdType, AUTOMATIC) SignalId);
-extern FUNC(void, COM_CODE)     Com_InternalMainFunctionRx( VAR(Com_MainFuncType,AUTOMATIC) RxMainFuncId );
-extern FUNC(void, COM_CODE)     Com_InternalMainFunctionTx( VAR(Com_MainFuncType,AUTOMATIC) TxMainFuncId );
+   ,     P2CONST(void, AUTOMATIC, COM_APPL_DATA) SignalDataPtr
+);
 
-extern VAR(Com_StatusType,COM_VAR)          Com_Uninit_Flag;
-extern VAR(Com_RxIpduRamData,COM_VAR)    Com_RxIpduRam_s[];
-extern VAR(Com_TxIpduRamData,COM_VAR)    Com_TxIpduRam_s[];
-extern VAR(Com_TxSignalFlagType,COM_VAR)   Com_TxSignalFlag[];
-extern VAR(Com_RxSignalFlagType,COM_VAR)   Com_RxSignalFlag[];
-extern VAR(uint8,COM_VAR)    Com_IpduCounter_s[];
-extern VAR(uint8,COM_VAR)    Com_IpduCounter_DM[];
-extern VAR(Com_IpduGroupVector, COM_VAR) Com_IpduGrpVector;
-extern VAR(Com_IpduGroupVector, COM_VAR) Com_IpduGrpVector_DM;
-extern VAR(uint16,COM_VAR) Com_ReducedPeriod_u16;
-extern VAR(Type_SwcServiceCom_tIdPdu,COM_VAR)    Com_RxGwQueue_aux[];
-extern VAR(Com_RxGwQueueRAMType, COM_VAR) Com_RxGwQueue_S;
-extern P2CONST(Com_ConfigData_tst,AUTOMATIC,COM_APPL_CONST) Com_Lok_Config_pcst;
-extern CONST(Type_CfgSwcServiceCom_stInfoModeTrans ,COM_CONST) Com_NONE_TransModeInfo;
-extern CONST(Type_CfgSwcServiceCom_stInfoSignalTx,COM_CONST)         CfgSwcServiceCom_castListInfoSignalTx[];
-extern CONST(Type_CfgSwcServiceCom_stInfoSignalRx,COM_CONST)         CfgSwcServiceCom_castListInfoSignalRx[];
-extern CONST(Type_CfgSwcServiceCom_stInfoIpduTx,COM_CONST)      CfgSwcServiceCom_castListInfoIpduTx[];
-extern CONST(Type_CfgSwcServiceCom_stInfoIpduRx,COM_CONST)      CfgSwcServiceCom_castListInfoIpduRx[];
-extern CONST(Type_CfgSwcServiceCom_stInfoIpduGrp,COM_CONST)     CfgSwcServiceCom_castListInfoIpduGrp[];
-extern CONST(Com_ConfigData_tst,COM_APPL_CONST) Com_Lok_Config_cst;
-extern CONST(Type_CfgSwcServiceCom_tIdIPdu ,COM_CONST) CfgSwcServiceCom_catListIdIPdu[];
-extern CONST(Type_CfgSwcServiceCom_stMainFunction, COM_CONST) Com_MainFunctionCfg[];
-extern CONST(Type_CfgSwcServiceCom_stBufferRamRx, COM_CONST) Com_Lok_xRxRamBuf_acst[];
+extern FUNC(uint8, COM_CODE) Com_InternalSendSignalGroup        (VAR(Com_SignalGroupIdType, AUTOMATIC) SignalGroupId);
+extern FUNC(void,  COM_CODE) Com_InternalInvalidateShadowSignal (VAR(Com_SignalIdType,      AUTOMATIC) SignalId);
+extern FUNC(void,  COM_CODE) Com_InternalMainFunctionRx         (VAR(Com_MainFuncType,      AUTOMATIC) RxMainFuncId);
+extern FUNC(void,  COM_CODE) Com_InternalMainFunctionTx         (VAR(Com_MainFuncType,      AUTOMATIC) TxMainFuncId);
+
+extern     VAR(Com_StatusType,                        COM_VAR                  ) Com_Uninit_Flag;
+extern     VAR(Com_RxIpduRamData,                     COM_VAR                  ) Com_RxIpduRam_s[];
+extern     VAR(Com_TxIpduRamData,                     COM_VAR                  ) Com_TxIpduRam_s[];
+extern     VAR(Com_TxSignalFlagType,                  COM_VAR                  ) Com_TxSignalFlag[];
+extern     VAR(Com_RxSignalFlagType,                  COM_VAR                  ) Com_RxSignalFlag[];
+extern     VAR(uint8,                                 COM_VAR                  ) Com_IpduCounter_s[];
+extern     VAR(uint8,                                 COM_VAR                  ) Com_IpduCounter_DM[];
+extern     VAR(Com_IpduGroupVector,                   COM_VAR                  ) Com_IpduGrpVector;
+extern     VAR(Com_IpduGroupVector,                   COM_VAR                  ) Com_IpduGrpVector_DM;
+extern     VAR(uint16,                                COM_VAR                  ) Com_ReducedPeriod_u16;
+extern     VAR(Type_SwcServiceCom_tIdPdu,             COM_VAR                  ) Com_RxGwQueue_aux[];
+extern     VAR(Com_RxGwQueueRAMType,                  COM_VAR                  ) Com_RxGwQueue_S;
+extern P2CONST(Com_ConfigData_tst,                    AUTOMATIC, COM_APPL_CONST) Com_Lok_Config_pcst;
+extern   CONST(Type_CfgSwcServiceCom_stInfoModeTrans, COM_CONST                ) Com_NONE_TransModeInfo;
+extern   CONST(Type_CfgSwcServiceCom_stInfoSignalTx,  COM_CONST                ) CfgSwcServiceCom_castListInfoSignalTx[];
+extern   CONST(Type_CfgSwcServiceCom_stInfoSignalRx,  COM_CONST                ) CfgSwcServiceCom_castListInfoSignalRx[];
+extern   CONST(Type_CfgSwcServiceCom_stInfoIpduTx,    COM_CONST                ) CfgSwcServiceCom_castListInfoIpduTx[];
+extern   CONST(Type_CfgSwcServiceCom_stInfoIpduRx,    COM_CONST                ) CfgSwcServiceCom_castListInfoIpduRx[];
+extern   CONST(Type_CfgSwcServiceCom_stInfoIpduGrp,   COM_CONST                ) CfgSwcServiceCom_castListInfoIpduGrp[];
+extern   CONST(Com_ConfigData_tst,                    COM_APPL_CONST           ) Com_Lok_Config_cst;
+extern   CONST(Type_CfgSwcServiceCom_tIdIPdu,         COM_CONST                ) CfgSwcServiceCom_catListIdIPdu[];
+extern   CONST(Type_CfgSwcServiceCom_stMainFunction,  COM_CONST                ) Com_MainFunctionCfg[];
+extern   CONST(Type_CfgSwcServiceCom_stBufferRamRx,   COM_CONST                ) Com_Lok_xRxRamBuf_acst[];
 
 #define COM_GET_TX_IPDU_CONSTDATA(COMPDUID)                          (&CfgSwcServiceCom_castListInfoIpduTx[COMPDUID])
-#define COM_GET_TX_IPDU_ID(COMPDUID)                                 (COMPDUID)
 #define COM_GET_RX_IPDU_CONSTDATA(COMPDUID)                          (&CfgSwcServiceCom_castListInfoIpduRx[COMPDUID])
-#define COM_GET_RX_IPDU_ID(COMPDUID)                                 (COMPDUID)
 #define COM_GET_IPDUGRP_CONSTDATA(COMPDUID)                          (&CfgSwcServiceCom_castListInfoIpduGrp[COMPDUID])
 #define COM_GET_IPDUGRP_ID(COMPDUID)                                 (COMPDUID)
 #define COM_GET_IPDUGRP_IPDUREF_CONSTDATA(COMPDUID)                  (&CfgSwcServiceCom_catListIdIPdu[COMPDUID])
@@ -301,7 +298,6 @@ extern CONST(Type_CfgSwcServiceCom_stBufferRamRx, COM_CONST) Com_Lok_xRxRamBuf_a
 #define COM_GET_GWGRPSIGIDMAP_CONSTDATA(COMGWGRPSIGID)               (&Com_Lok_xGwMapGrpSigIdCfg_acst[COMGWGRPSIGID])
 #define COM_GET_NUM_TOTAL_IPDU_GRP                                   COM_NUM_TOTAL_IPDU_GRP
 #define COM_GET_NUM_IPDUS_IN_LAST_IPDUGRP                            COM_NUM_IPDUS_IN_LAST_IPDUGRP
-#define COM_GET_MAINFUNCTION_CFG( MF_ID )                            (Com_MainFunctionCfg[ MF_ID ])
 #define COM_GET_SIGTYPEUINT8_BUFF(MF_ID,SIGNAL_INDEX)                (Com_Lok_xRxRamBuf_acst[MF_ID].Com_SigType_pu8[SIGNAL_INDEX])
 #define COM_GET_SIGTYPEUINT16_BUFF(MF_ID,SIGNAL_INDEX)               (Com_Lok_xRxRamBuf_acst[MF_ID].Com_SigType_pu16[SIGNAL_INDEX])
 #define COM_GET_SIGTYPEUINT32_BUFF(MF_ID,SIGNAL_INDEX)               (Com_Lok_xRxRamBuf_acst[MF_ID].Com_SigType_pu32[SIGNAL_INDEX])

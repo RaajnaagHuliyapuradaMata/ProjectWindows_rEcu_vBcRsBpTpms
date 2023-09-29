@@ -187,15 +187,15 @@ CONST(Type_CfgSwcServiceCom_stInfoIpduTx, COM_CONST) CfgSwcServiceCom_castListIn
 };
 
 CONST(Type_CfgSwcServiceCom_stInfoIpduRx, COM_CONST) CfgSwcServiceCom_castListInfoIpduRx[CfgSwcServiceCom_dNumIPduRx] = {
-      {Com_LocalBuf_ApplicationRequest_TPM_Can_Network_CANNODE_0,    &Com_IPdu_Callout_ApplicationRequest,        8,  8, (Com_RxIntSignalIdType)ComSignal_Internal_AppReqCmd_7,                     ComMainFunction_Internal_MainFunctionRx, 0x0}
-   ,  {Com_LocalBuf_BCM_peripheralMasterClock_Can_Network_CANNODE_0, &Com_IPdu_Callout_BCM_peripheralMasterClock, 8,  2, (Com_RxIntSignalIdType)ComSignal_Internal_BCM_peripherialMasterClockValid, ComMainFunction_Internal_MainFunctionRx, 0x0}
-   ,  {Com_LocalBuf_ESP_WSpeed_Front_BodyLCAN_Can_Network_CANNODE_0, &Com_IPdu_Callout_ESP_WSpeed_Front_BodyLCAN, 8,  8, (Com_RxIntSignalIdType)ComSignal_Internal_ESP_Wheel_Dir_Right_Front,       ComMainFunction_Internal_MainFunctionRx, 0x0}
-   ,  {Com_LocalBuf_ESP_WSpeed_Rear_BodyLCAN_Can_Network_CANNODE_0,  &Com_IPdu_Callout_ESP_WSpeed_Rear_BodyLCAN,  8,  8, (Com_RxIntSignalIdType)ComSignal_Internal_ESP_WSpeed_Rear_Message_Counter, ComMainFunction_Internal_MainFunctionRx, 0x0}
-   ,  {Com_LocalBuf_ESP_Wheel_Pulse_Stamped_Can_Network_CANNODE_0,   &Com_IPdu_Callout_ESP_Wheel_Pulse_Stamped,   8, 11, (Com_RxIntSignalIdType)ComSignal_Internal_ESP_Wheel_Pulse_Stamped_MC,      ComMainFunction_Internal_MainFunctionRx, 0x0}
-   ,  {Com_LocalBuf_RdcData_TPM_Can_Network_CANNODE_0,               &Com_IPdu_Callout_RdcData_TPM,               8,  8, (Com_RxIntSignalIdType)ComSignal_Internal_User_defined_val_5,              ComMainFunction_Internal_MainFunctionRx, 0x0}
-   ,  {Com_LocalBuf_TMM_Status_BodyLCAN_Can_Network_CANNODE_0,       &Com_IPdu_Callout_TMM_Status_BodyLCAN,       8,  1, (Com_RxIntSignalIdType)ComSignal_Internal_TMM_TempAmb,                     ComMainFunction_Internal_MainFunctionRx, 0x0}
-   ,  {Com_LocalBuf_VehSts_BodyLCAN_Can_Network_CANNODE_0,           &Com_IPdu_Callout_VehSts_BodyLCAN,           8,  1, (Com_RxIntSignalIdType)ComSignal_Internal_VehModCurr,                      ComMainFunction_Internal_MainFunctionRx, 0x0}
-   ,  {Com_LocalBuf_VmsStsReq_BodyLCAN_Can_Network_CANNODE_0,        &Com_IPdu_Callout_VmsStsReq_BodyLCAN,        8,  7, (Com_RxIntSignalIdType)ComSignal_Internal_VmsStateFdbk,                    ComMainFunction_Internal_MainFunctionRx, 0x0}
+      {Com_LocalBuf_ApplicationRequest_TPM_Can_Network_CANNODE_0,    &Com_IPdu_Callout_ApplicationRequest,        8,  8, (Com_RxIntSignalIdType)ComSignal_Internal_AppReqCmd_7,                     ComMainFunction_Internal_MainFunctionRx}
+   ,  {Com_LocalBuf_BCM_peripheralMasterClock_Can_Network_CANNODE_0, &Com_IPdu_Callout_BCM_peripheralMasterClock, 8,  2, (Com_RxIntSignalIdType)ComSignal_Internal_BCM_peripherialMasterClockValid, ComMainFunction_Internal_MainFunctionRx}
+   ,  {Com_LocalBuf_ESP_WSpeed_Front_BodyLCAN_Can_Network_CANNODE_0, &Com_IPdu_Callout_ESP_WSpeed_Front_BodyLCAN, 8,  8, (Com_RxIntSignalIdType)ComSignal_Internal_ESP_Wheel_Dir_Right_Front,       ComMainFunction_Internal_MainFunctionRx}
+   ,  {Com_LocalBuf_ESP_WSpeed_Rear_BodyLCAN_Can_Network_CANNODE_0,  &Com_IPdu_Callout_ESP_WSpeed_Rear_BodyLCAN,  8,  8, (Com_RxIntSignalIdType)ComSignal_Internal_ESP_WSpeed_Rear_Message_Counter, ComMainFunction_Internal_MainFunctionRx}
+   ,  {Com_LocalBuf_ESP_Wheel_Pulse_Stamped_Can_Network_CANNODE_0,   &Com_IPdu_Callout_ESP_Wheel_Pulse_Stamped,   8, 11, (Com_RxIntSignalIdType)ComSignal_Internal_ESP_Wheel_Pulse_Stamped_MC,      ComMainFunction_Internal_MainFunctionRx}
+   ,  {Com_LocalBuf_RdcData_TPM_Can_Network_CANNODE_0,               &Com_IPdu_Callout_RdcData_TPM,               8,  8, (Com_RxIntSignalIdType)ComSignal_Internal_User_defined_val_5,              ComMainFunction_Internal_MainFunctionRx}
+   ,  {Com_LocalBuf_TMM_Status_BodyLCAN_Can_Network_CANNODE_0,       &Com_IPdu_Callout_TMM_Status_BodyLCAN,       8,  1, (Com_RxIntSignalIdType)ComSignal_Internal_TMM_TempAmb,                     ComMainFunction_Internal_MainFunctionRx}
+   ,  {Com_LocalBuf_VehSts_BodyLCAN_Can_Network_CANNODE_0,           &Com_IPdu_Callout_VehSts_BodyLCAN,           8,  1, (Com_RxIntSignalIdType)ComSignal_Internal_VehModCurr,                      ComMainFunction_Internal_MainFunctionRx}
+   ,  {Com_LocalBuf_VmsStsReq_BodyLCAN_Can_Network_CANNODE_0,        &Com_IPdu_Callout_VmsStsReq_BodyLCAN,        8,  7, (Com_RxIntSignalIdType)ComSignal_Internal_VmsStateFdbk,                    ComMainFunction_Internal_MainFunctionRx}
 };
 
 CONST(Type_CfgSwcServiceCom_stInfoIpduGrp, COM_CONST) CfgSwcServiceCom_castListInfoIpduGrp[4] = {

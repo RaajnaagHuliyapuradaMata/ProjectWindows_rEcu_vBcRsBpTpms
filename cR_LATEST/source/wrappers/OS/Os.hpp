@@ -19,22 +19,7 @@
 #define OS_TARGET_PATCH_VERSION (20U)
 
 #include "Types_SwcServiceOs.hpp"
-
-#ifndef STD_TYPES_H
-  #error "STD_TYPES_H is not defined. This should appear in Std_Types.h (AUTOSAR requirement STD014). Is Std_Types.h in the include path? (try --samples:[Includes]overwrite -ISamples\Includes)"
-#endif
-#ifndef OS_APPL_CODE
-#define OS_APPL_CODE
-#endif
-#ifndef OS_CALLOUT_CODE
-#define OS_CALLOUT_CODE OS_APPL_CODE
-#endif
-#ifndef OS_VAR_CLEARED
-#define OS_VAR_CLEARED OS_VAR_POWER_ON_INIT
-#endif
-#ifndef OS_VAR_NO_INIT
-#define OS_VAR_NO_INIT OS_VAR_NOINIT
-#endif
+#include "CompilerCfg_SwcServiceOs.hpp"
 
 #ifdef _lint
 

@@ -156,41 +156,6 @@ extern void Env_SetNvmBlockConsistency(uint16 ushConsistencyFlags)
   Env__EnvironmentData.uiNvmBlockConsistence = ushConsistencyFlags;
 }
 
-//extern void Env_SetNvmBlockConsistency(uint8 U8_NvmCategory, boolean BO_IsNvmBlockConsistent)
-//{
-//  if((U8_NvmCategory == 0U) || (U8_NvmCategory > NVM_MAX_CATEGORYS))
-//  {
-//
-//  }
-//  else
-//  {
-//
-//    uint16 U16_PreviousNvmBlockConsistency = Env__EnvironmentData.uiNvmBlockConsistence;
-//
-//    if(BO_IsNvmBlockConsistent != FALSE)
-//    {
-//
-//      Env__EnvironmentData.uiNvmBlockConsistence |= (((uint16) 1U)<<(U8_NvmCategory - 1U));
-//    }
-//    else
-//    {
-//
-//      Env__EnvironmentData.uiNvmBlockConsistence &= (~(((uint16) 1U)<<(U8_NvmCategory - 1U)));
-//    }
-//
-//
-//    if(Env__EnvironmentData.uiNvmBlockConsistence != U16_PreviousNvmBlockConsistency)
-//    {
-//
-//      HufIf_RCtSaEnvData(&Env__EnvironmentData);
-//    }
-//    else
-//    {
-//
-//    }
-//  }
-//}
-
 extern void Env_SetNoiseLevel(uint16 U16_NoiseLevel)
 {
   Env__EnvironmentData.uiNoiseRSSI = U16_NoiseLevel;

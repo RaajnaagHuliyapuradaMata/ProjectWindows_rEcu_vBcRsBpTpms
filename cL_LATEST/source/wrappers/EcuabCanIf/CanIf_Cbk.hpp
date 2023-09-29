@@ -23,7 +23,7 @@ extern FUNC(void, CANIF_CODE) CanIf_ControllerBusOff(VAR(uint8,AUTOMATIC) Contro
 
 extern FUNC(void, CANIF_CODE) CanIf_ControllerModeIndication_Internal(
       VAR(uint8,                    AUTOMATIC) ControllerId
-   ,  VAR(CanIf_ControllerModeType, AUTOMATIC) ControllerMode
+   ,  VAR(Type_EcuabCanIf_eModeController, AUTOMATIC) ControllerMode
 );
 
 extern FUNC(void, CANIF_CODE) CanIf_ControllerErrorPassive( VAR(uint8, AUTOMATIC) ControllerId);

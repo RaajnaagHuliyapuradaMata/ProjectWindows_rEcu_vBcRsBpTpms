@@ -12,12 +12,12 @@ const Type_CfgEcuabCanIf_st *CanIf_Lok_ConfigSet_tpst;
 #include "CanIf_MemMap.hpp"
 FUNC(Std_ReturnType, CANIF_CODE) CanIf_SetControllerMode(
       VAR(uint8,                    AUTOMATIC) ControllerId
-   ,  VAR(CanIf_ControllerModeType, AUTOMATIC) ControllerMode
+   ,  VAR(Type_EcuabCanIf_eModeController, AUTOMATIC) ControllerMode
 ){
       P2VAR(CanIf_ControllerStateType, AUTOMATIC, AUTOMATIC)       lControllerState_p;
-        VAR(Can_ReturnType,            AUTOMATIC)                  lCanStatus_en = CAN_NOT_OK;
+        VAR(Type_McalCan_eReturn,            AUTOMATIC)                  lCanStatus_en = CAN_NOT_OK;
         VAR(Std_ReturnType,            AUTOMATIC)                  lRetVal_en    = E_NOT_OK;
-        VAR(Can_StateTransitionType,   AUTOMATIC)                  lCanMode;
+        VAR(Type_McalCan_eStateTransition,   AUTOMATIC)                  lCanMode;
    P2CONST(CanIf_Cfg_CtrlConfig_tst,  AUTOMATIC, CANIF_CFG_CONST) lCtrlConfig_pst;
    VAR(uint8, AUTOMATIC)          lCtrlCustId_u8;
    lCtrlCustId_u8     = CanIf_Lok_ConfigSet_tpst->CtrlIdTable_Ptr[ControllerId];
@@ -62,11 +62,11 @@ FUNC(Std_ReturnType, CANIF_CODE) CanIf_SetControllerMode(
 
 FUNC(Std_ReturnType, CANIF_CODE) CanIf_GetControllerMode(
         VAR(uint8,                    AUTOMATIC)                  ControllerId
-   ,  P2VAR(CanIf_ControllerModeType, AUTOMATIC, CANIF_APPL_DATA) ControllerModePtr
+   ,  P2VAR(Type_EcuabCanIf_eModeController, AUTOMATIC, CANIF_APPL_DATA) ControllerModePtr
 ){
    P2VAR(CanIf_ControllerStateType, AUTOMATIC, AUTOMATIC) lControllerState_p;
     lControllerState_p = CanIf_Lok_ControllerState_ast + ControllerId;
-    *ControllerModePtr = (CanIf_ControllerModeType)(((lControllerState_p->Ctrl_Pdu_mode)&BIT_MASK_PDU_MODE)>>CANIF_Ctrl_BIT_SHIFT);
+    *ControllerModePtr = (Type_EcuabCanIf_eModeController)(((lControllerState_p->Ctrl_Pdu_mode)&BIT_MASK_PDU_MODE)>>CANIF_Ctrl_BIT_SHIFT);
     return E_OK;
 }
 
@@ -87,7 +87,7 @@ FUNC(void, CANIF_CODE) CanIf_ControllerBusOff(
 
 FUNC(void, CANIF_CODE) CanIf_ControllerModeIndication_Internal(
       VAR(uint8,                    AUTOMATIC) ControllerId
-   ,  VAR(CanIf_ControllerModeType, AUTOMATIC) ControllerMode
+   ,  VAR(Type_EcuabCanIf_eModeController, AUTOMATIC) ControllerMode
 ){
      P2VAR(CanIf_ControllerStateType, AUTOMATIC, AUTOMATIC) lControllerState_p;
    P2CONST(CanIf_CallbackFuncType,    AUTOMATIC, AUTOMATIC) lCallBackPtr_p;

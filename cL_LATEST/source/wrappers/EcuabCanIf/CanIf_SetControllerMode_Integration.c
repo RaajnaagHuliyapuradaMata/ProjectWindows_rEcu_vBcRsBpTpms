@@ -10,9 +10,9 @@
 #define CANIF_START_SEC_CODE
 #include "CanIf_MemMap.hpp"
 
-FUNC(Can_ReturnType, CANIF_CODE) CanIf_SetControllerMode_Integration( uint8 Controller, Can_StateTransitionType Transition)
+FUNC(Type_McalCan_eReturn, CANIF_CODE) CanIf_SetControllerMode_Integration( uint8 Controller, Type_McalCan_eStateTransition Transition)
 {
-   Can_ReturnType retVal = CAN_NOT_OK;
+   Type_McalCan_eReturn retVal = CAN_NOT_OK;
 
 #if(CANIF_SETCONTROLLERMODE_INTEGRATION_VERSION > 2)
    Can_ControllerStateType requestedState;
@@ -34,9 +34,9 @@ FUNC(Can_ReturnType, CANIF_CODE) CanIf_SetControllerMode_Integration( uint8 Cont
         default: //CAN_T_MAXTRANSITION is not used by CanIf anywhere.
             requestedState = CAN_CS_UNINIT;
    }
-    // enum definition of Can_ReturnType are of the same value and meaning with Std_ReturnType.
-    // typecast to Can_ReturnType makes no change in term of meaning and functionality.
-    retVal = (Can_ReturnType)Can_SetControllerMode(Controller, requestedState);
+    // enum definition of Type_McalCan_eReturn are of the same value and meaning with Std_ReturnType.
+    // typecast to Type_McalCan_eReturn makes no change in term of meaning and functionality.
+    retVal = (Type_McalCan_eReturn)Can_SetControllerMode(Controller, requestedState);
 #elif(CANIF_SETCONTROLLERMODE_INTEGRATION_VERSION <= 2)
     retVal = Can_SetControllerMode(Controller, Transition);
 #endif

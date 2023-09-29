@@ -28,8 +28,8 @@ FUNC(void, COM_CODE) Com_InternalMainFunctionTx(
          Com_Uninit_Flag
       == COM_INIT
    ){
-      StartIPduId    = COM_GET_MAINFUNCTION_CFG(COM_NUM_OF_RX_MAINFUNCTION + (uint16)TxMainFuncId).StartIPduId;
-      EndIPduId      = StartIPduId + COM_GET_MAINFUNCTION_CFG(COM_NUM_OF_RX_MAINFUNCTION + (uint16)TxMainFuncId).NumOfIpdus;
+      StartIPduId    =               Com_MainFunctionCfg[COM_NUM_OF_RX_MAINFUNCTION + (uint16)TxMainFuncId].StartIPduId;
+      EndIPduId      = StartIPduId + Com_MainFunctionCfg[COM_NUM_OF_RX_MAINFUNCTION + (uint16)TxMainFuncId].NumOfIpdus;
       TxIPduConstPtr = COM_GET_TX_IPDU_CONSTDATA(StartIPduId);
       TxIpduRamPtr   = &COM_GET_TXPDURAM_S(StartIPduId);
       for(
@@ -556,7 +556,6 @@ FUNC(boolean, COM_CODE) Com_IsTxScheduled(
 ){
    Com_TxIpduRamPtrType                TxIpduRamPtr;
    VAR(boolean, AUTOMATIC)             IsTxScheduled;
-   ComTxPduId   = COM_GET_TX_IPDU_ID(ComTxPduId);
    TxIpduRamPtr = &COM_GET_TXPDURAM_S(ComTxPduId);
    (void)ComCallerTaskCycle;
    if(

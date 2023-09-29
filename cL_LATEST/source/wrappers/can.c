@@ -13,7 +13,7 @@
 #include "Os_ConfigInterrupts.hpp"
 #include "CanTrcv.hpp"
 
-CanIf_ControllerModeType ucControllerMode = CANIF_CS_UNINIT;
+Type_EcuabCanIf_eModeController ucControllerMode = CANIF_CS_UNINIT;
 
 void infMcalCanSwcApplEcuM_vInitFunction(void){
   RS_CAN_Init();
@@ -23,7 +23,7 @@ void infMcalCanSwcApplEcuM_vInitFunction(void){
 void Can_SetBaudrate(void){
 }
 
-Can_ReturnType Can_SetControllerMode(uint8 ucController, Can_StateTransitionType ucMode){
+Type_McalCan_eReturn Can_SetControllerMode(uint8 ucController, Type_McalCan_eStateTransition ucMode){
   switch(ucControllerMode){
    case CANIF_CS_SLEEP:
       if(ucMode == CAN_T_WAKEUP){
@@ -90,7 +90,7 @@ void Can_ForwardMessageToCanIf(
 ){
    Can_HwType                   tCanMailbox;
    Type_SwcServiceCom_stInfoPdu tPduInfo;
-   CanIf_ControllerModeType tCanIfControllerMode;
+   Type_EcuabCanIf_eModeController tCanIfControllerMode;
 
    CanIf_GetControllerMode(
          0
@@ -130,9 +130,9 @@ void Can_ForwardMessageToCanIf(
    }
 }
 
-Can_ReturnType Can_Write(
-            Can_HwHandleType ucHthRefId
-   ,  const Can_PduType*     PduInfo_Write
+Type_McalCan_eReturn Can_Write(
+            Type_McalCan_tHandleHw ucHthRefId
+   ,  const Type_McalCan_stPdu*     PduInfo_Write
 ){
    Can_FrameType tTxCanFrame;
    uint8         i;
