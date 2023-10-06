@@ -44,11 +44,6 @@ void SortBiggest1st(unsigned char *ptVal, unsigned char *ptIx, unsigned char ucM
 static unsigned char ucBitcount(
    unsigned char ucInt);
 static unsigned char ucGetPositionOnAx(unsigned char ucValue);
-
-#ifdef BUILD_WITH_UNUSED_FUNCTION
-static unsigned short ushGetABSingleTickTDL(unsigned char ucIx);
-#endif // BUILD_WITH_UNUSED_FUNCTION
-
 static unsigned short ushGetABSingleTickTDL(unsigned char ucIx);
 static unsigned short ushGetABSingleTickTDL_120Deg(unsigned char ucIx);
 static unsigned short ushGetABSingleTickTDL_240Deg(unsigned char ucIx);
@@ -131,20 +126,6 @@ unsigned char CounterPreparation(
    return ucRetVal;
 }
 
-/************************************************************************************************************
-** function:   NormalizeAndSortCnt
-**
-** ---------------------------------------------------------------------------------------------------------
-**
-** purpose:   Normalize and sort the diviation values by there value from highest to lowest
-** ---------------------------------------------------------------------------------------------------------
-**
-** input: -
-**
-**
-** output: tZOM[i].ucSort[] - indices in ucSort array are sorted according to the hight of diviation values
-**
-************************************************************************************************************/
 void NormalizeAndSortCnt(void){
    unsigned char i, j;
    unsigned long ulCmpSum = 0;
@@ -650,24 +631,6 @@ static unsigned char ucGenDMnD_TryExclMxAssign(
    return ucRet;
 }
 
-/************************************************************************************************************
-** function: ucGenDMnD_DistingAxes_SamePosition
-**
-** ---------------------------------------------------------------------------------------------------------
-**
-** purpose:  distinguish between axes for two wheels that competing for the same car side and the same wheel position
-** ---------------------------------------------------------------------------------------------------------
-**
-** input: i = index of first competing sensor, possible values [0...3]
-**        j = index of second competing sensor, possible values[0...3]
-ucAssign = pointer to variable which correspond to already set positions
-**
-** output: ucAssign = pointer to variable which correspond to set positions after this function
-**
-** Return: 1 = can't be distinguished between axes
-**         0 = position location based on RSSI-values from different axes successful
-**
-************************************************************************************************************/
 static unsigned char ucGenDMnD_DistingAxes_SamePosition(
    unsigned char i,
    unsigned char j,

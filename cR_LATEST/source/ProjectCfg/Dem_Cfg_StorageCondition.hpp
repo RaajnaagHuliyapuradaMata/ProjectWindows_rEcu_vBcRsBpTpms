@@ -7,17 +7,8 @@
 #define DEM_STORAGECONDITION_COUNT         0u
 #define DEM_STORAGECONDITION_ARRAYLENGTH   (DEM_STORAGECONDITION_COUNT)
 
-#if(DEM_STORAGECONDITION_ARRAYLENGTH <= 8) || (DEM_CFG_STORAGECONDITION == DEM_CFG_STORAGECONDITION_OFF)
 typedef uint8 Dem_StoCoList;
-#elif(DEM_STORAGECONDITION_ARRAYLENGTH <= 16)
-typedef uint16 Dem_StoCoList;
-#elif(DEM_STORAGECONDITION_ARRAYLENGTH <= 32)
-typedef uint32 Dem_StoCoList;
-#else
-#error DEM currently only supports up to 32 StorageConditions
-#endif
 
-#if(DEM_CFG_STORAGECONDITION == DEM_CFG_STORAGECONDITION_ON)
 #define DEM_STOCO_DemEventParameter_AutolocationFail             (0u)
 #define DEM_STOCO_DemEventParameter_CanAbsWheelPulseSignalMissing             (0u)
 #define DEM_STOCO_DemEventParameter_CanAtmosphericTemperatureSignalMissing             (0u)
@@ -65,8 +56,6 @@ typedef uint32 Dem_StoCoList;
    { \
    }\
 }
-
-#endif
 
 #endif
 

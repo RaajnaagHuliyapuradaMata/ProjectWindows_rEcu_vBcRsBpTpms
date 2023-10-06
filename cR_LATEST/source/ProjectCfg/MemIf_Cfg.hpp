@@ -1,5 +1,3 @@
-
-
 #if !defined (MEMIF_CFG_H)
 #define MEMIF_CFG_H
 
@@ -51,14 +49,10 @@
 
 #define MEMIF_CFG_MAJOR_VERSION	(5u)
 #define MEMIF_CFG_MINOR_VERSION	(2u)
-
 #define MEMIF_DEV_ERROR_DETECT       (STD_OFF)
 #define MEMIF_DEV_ERROR_REPORT       (STD_OFF)
-
 #define MEMIF_VERSION_INFO_API  (STD_OFF)
-
 #define MEMIF_Fee_30_SmallSector (0U)
-
 #define MEMIF_NUMBER_OF_DEVICES      (1U)
 
 typedef P2FUNC (Std_ReturnType, MEMIF_CODE, MemIf_ApiReadType) (uint16 BlockNumber, uint16 BlockOffset, MemIf_DataPtr_pu8 DataBufferPtr, uint16 Length);
@@ -81,21 +75,8 @@ typedef struct{
    MemIf_ApiSetModeType                SetMode;
 }MemIf_MemHwAApi_Type;
 
-#define MEMIF_START_SEC_CONST_8BIT
-# include "MemMap.hpp"
-
 extern CONST(uint8, MEMIF_CONST) MemIf_NumberOfDevices;
-
-#define MEMIF_STOP_SEC_CONST_8BIT
-# include "MemMap.hpp"
-
-#define MEMIF_START_SEC_CONST_32BIT
-# include "MemMap.hpp"
-
 extern CONST(MemIf_MemHwAApi_Type, MEMIF_CONST) MemIf_MemHwaApis[MEMIF_NUMBER_OF_DEVICES];
-
-#define MEMIF_STOP_SEC_CONST_32BIT
-# include "MemMap.hpp"
 
 #endif
 

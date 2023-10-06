@@ -1,5 +1,8 @@
 #include "Std_Types.hpp"
 
+#include "Types_SwcServiceComM.hpp"
+#include "Types_SwcServiceEcuM.hpp"
+
 #include "CanManager.hpp"
 #include "types.hpp"
 #include "Com.hpp"
@@ -9,7 +12,6 @@
 #include "ComM.hpp"
 #include "EnvManagerX.hpp"
 #include "RdcManagerX.hpp"
-#include "SysManagerX.hpp"
 #include "DemManagerX.hpp"
 #include "GpioX.hpp"
 #include "CanTrcv.hpp"
@@ -32,18 +34,18 @@ static void CANMGR_PduGroupInit(void){
 }
 
 void CANMGR_Init(void){
-   uint8 ucEcuMode;
+   Type_SwcServiceEcuM_eModesEcu ucEcuMode;
    CANMGR_PduGroupInit();
-   ucEcuMode = SYSMGR_GetEcuMode();
+   ucEcuMode = infSwcApplEcuM_eGetModeEcu();
    if(
-         cECUMODE_QUIET
+         SwcServiceEcuM_eModeEcu_Quiet
       == ucEcuMode
    ){
       CANMGR_SetFullCommunicationMode();
       CANMGR_StartCommTimeout();
    }
    else if(
-         cECUMODE_WAKE
+         SwcServiceEcuM_eModeEcu_Wake
       == ucEcuMode
    ){
       CANMGR_SetNoCommunicationMode();
@@ -67,7 +69,7 @@ void CANMGR_PduGroupStop(Com_IpduGroupIdType tGroupId){
 }
 
 void CANMGR_SetFullCommunicationMode(void){
-   ComM_ModeType tCurrentComMode;
+   Type_SwcServiceComM_tMode tCurrentComMode;
    (void) ComM_GetCurrentComMode(0, &tCurrentComMode);
    if(tCurrentComMode != COMM_FULL_COMMUNICATION){
       (void) ComM_RequestComMode(0, COMM_FULL_COMMUNICATION);
@@ -76,7 +78,7 @@ void CANMGR_SetFullCommunicationMode(void){
 }
 
 void CANMGR_SetNoCommunicationMode(void){
-   ComM_ModeType tCurrentComMode;
+   Type_SwcServiceComM_tMode tCurrentComMode;
    (void) ComM_GetCurrentComMode(0, &tCurrentComMode);
    if(tCurrentComMode != COMM_NO_COMMUNICATION){
       (void) ComM_RequestComMode(0, COMM_NO_COMMUNICATION);
@@ -95,7 +97,7 @@ void CANMGR_TickCommTimeout(void){
    if(ushCanCommTimeout > 0){
       ushCanCommTimeout--;
       if(ushCanCommTimeout == 0){
-         SYSMGR_SetEcuEvent(cECUEVENT_COMM_TIMEOUT);
+         infSwcServiceEcuM_vSetEventEcu(SwcServiceEcuM_eEventEcu_TimeoutComm);
       }
    }
 }
@@ -109,8 +111,8 @@ static void CANMGR_ResetCommTimeout(void){
    if(ushCanCommTimeout > 0){
       CANMGR_StartCommTimeout();
    }
-   else if(SYSMGR_GetEcuMode() == cECUMODE_MONITOR){
-      SYSMGR_SetEcuEvent(cECUEVENT_CAN_WAKE);
+   else if(infSwcApplEcuM_eGetModeEcu() == SwcServiceEcuM_eModeEcu_Monitor){
+      infSwcServiceEcuM_vSetEventEcu(SwcServiceEcuM_eEventEcu_WakeUpByCan);
    }
    else{
    }
@@ -127,8 +129,8 @@ void CANMGR_ControlCyclicApplicationPdu(void){
       == infSwcApplTpmsSwcServiceComM_bIsEnabledMessageCyclic()
    ){
       if(
-            cECUMODE_FULL
-         == SYSMGR_GetEcuMode()
+            SwcServiceEcuM_eModeEcu_Full
+         == infSwcApplEcuM_eGetModeEcu()
       ){
          if(
                FALSE
@@ -155,18 +157,18 @@ void CANMGR_ControlCyclicApplicationPdu(void){
 }
 
 void CANMGR_ApplicationRequest_UpdateValues(uint8* PU8_DataPointer){
-   Type_SwcApplTpms_stMessageCan tTPM_ApplicationRequest;
-   tTPM_ApplicationRequest.ucData0 = PU8_DataPointer[0];
-   tTPM_ApplicationRequest.ucData1 = PU8_DataPointer[1];
-   tTPM_ApplicationRequest.ucData2 = PU8_DataPointer[2];
-   tTPM_ApplicationRequest.ucData3 = PU8_DataPointer[3];
-   tTPM_ApplicationRequest.ucData4 = PU8_DataPointer[4];
-   tTPM_ApplicationRequest.ucData5 = PU8_DataPointer[5];
-   tTPM_ApplicationRequest.ucData6 = PU8_DataPointer[6];
-   tTPM_ApplicationRequest.ucData7 = PU8_DataPointer[7];
+   Type_SwcApplTpms_stMessageCan lstMessageCan;
+   lstMessageCan.ucData0 = PU8_DataPointer[0];
+   lstMessageCan.ucData1 = PU8_DataPointer[1];
+   lstMessageCan.ucData2 = PU8_DataPointer[2];
+   lstMessageCan.ucData3 = PU8_DataPointer[3];
+   lstMessageCan.ucData4 = PU8_DataPointer[4];
+   lstMessageCan.ucData5 = PU8_DataPointer[5];
+   lstMessageCan.ucData6 = PU8_DataPointer[6];
+   lstMessageCan.ucData7 = PU8_DataPointer[7];
    (void) infSwcApplTpmsSwcServiceCom_tCalloutRxMessage(
          CAN_MSG_DEBUG_REQ
-      ,  &tTPM_ApplicationRequest
+      ,  &lstMessageCan
    );
    CANMGR_ResetCommTimeout();
 }
@@ -328,7 +330,9 @@ void CANMGR_TMM_Status_BodyLCAN_UpdateValues(uint8* PU8_DataPointer){
    CANMGR_ResetCommTimeout();
 }
 
-void CANMGR_VehSts_BodyLCAN_UpdateValues(uint8* PU8_DataPointer){
+void CANMGR_VehSts_BodyLCAN_UpdateValues(
+   uint8* PU8_DataPointer
+){
    uint8                  U8_VehicleStatus = PU8_DataPointer[2] & 0x0F;
    Env_Enum_IgnitionState EN_IgnitionState;
    if(U8_VehicleStatus > CANMGR__IGNITION_ON_TRESHOLD){
@@ -345,7 +349,9 @@ void CANMGR_VehSts_BodyLCAN_UpdateValues(uint8* PU8_DataPointer){
    CANMGR_ResetCommTimeout();
 }
 
-void CANMGR_VmsStsReq_BodyLCAN_UpdateValues(uint8* PU8_DataPointer){
+void CANMGR_VmsStsReq_BodyLCAN_UpdateValues(
+   uint8* PU8_DataPointer
+){
    static uint8 U8_LastRearMessageCounter    = CANMGR__VMS_STS_REQ_MESSAGE_COUNTER_INVALID;
           uint8 U8_CurrentRearMessageCounter = PU8_DataPointer[1] & 0x0FU;
    if(U8_CurrentRearMessageCounter != U8_LastRearMessageCounter){

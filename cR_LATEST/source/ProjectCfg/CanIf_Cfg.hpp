@@ -209,7 +209,7 @@ typedef struct{
    P2FUNC(void, TYPEDEF, User_ControllerBusOff        )(VAR(uint8, AUTOMATIC) ControllerId);
    P2FUNC(void, TYPEDEF, User_ControllerModeIndication)(
          VAR(uint8,     AUTOMATIC) ControllerId
-      ,  VAR(Type_EcuabCanIf_eModeController, AUTOMATIC) ControllerMode
+      ,  VAR(Type_EcuabCanIf_eModesController, AUTOMATIC) ControllerMode
    );
 }CanIf_CallbackFuncType;
 

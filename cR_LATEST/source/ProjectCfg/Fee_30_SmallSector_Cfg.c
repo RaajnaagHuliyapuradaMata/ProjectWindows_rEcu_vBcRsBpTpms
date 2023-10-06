@@ -4,22 +4,14 @@
 #include "Fee_30_SmallSector.hpp"
 #include "NvM_Cbk.hpp"
 
-#if(   (FEE_30_SMALLSECTOR_CFG_MAJOR_VERSION != (2u)) \
-     || (FEE_30_SMALLSECTOR_CFG_MINOR_VERSION != (0u)))
-# error "Version numbers of Fee_30_SmallSector_Cfg.c and Fee_30_SmallSector_Cfg.h are inconsistent!"
-#endif
-
 #define FEE_30_SMALLSECTOR_START_SEC_CONST_8BIT
 #include "MemMap.hpp"
-
 CONST(uint8, FEE_30_SMALLSECTOR_PRIVATE_CONST) Fee_30_SmallSector_DatasetSelectionBits = (1U);
-
 #define FEE_30_SMALLSECTOR_STOP_SEC_CONST_8BIT
 #include "MemMap.hpp"
 
 #define FEE_30_SMALLSECTOR_START_SEC_CONST_UNSPECIFIED
 #include "MemMap.hpp"
-
 CONST(Fee_30_SmallSector_PartitionConfigType, FEE_30_SMALLSECTOR_PRIVATE_CONST) Fee_30_SmallSector_PartitionConfigList[FEE_30_SMALLSECTOR_NUMBER_OF_PARTITIONS] =
 {
    {
@@ -313,7 +305,6 @@ CONST(Fee_30_SmallSector_CbkJobEndNotificationType, FEE_30_SMALLSECTOR_PRIVATE_C
     NvM_JobEndNotification;
 CONST(Fee_30_SmallSector_CbkJobErrorNotificationType, FEE_30_SMALLSECTOR_PRIVATE_CONST) Fee_30_SmallSector_CbkJobErrorNotification =
     NvM_JobErrorNotification;
-
 #define FEE_30_SMALLSECTOR_STOP_SEC_CONST_UNSPECIFIED
 #include "MemMap.hpp"
 

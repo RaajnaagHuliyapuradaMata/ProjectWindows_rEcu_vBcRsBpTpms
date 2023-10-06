@@ -14,7 +14,7 @@
 /* certain responsibilities, if you distribute copies of the software, or if  */
 /* you modify it: responsibilities to respect the freedom of others.          */
 /*                                                                            */
-/* All rights reserved. Copyright © 1982 Raajnaag HULIYAPURADA MATA           */
+/* All rights reserved. Copyright ï¿½ 1982 Raajnaag HULIYAPURADA MATA           */
 /*                                                                            */
 /* Always refer latest software version from:                                 */
 /* https://github.com/RaajnaagHuliyapuradaMata?tab=repositories               */
@@ -61,13 +61,7 @@
 
 #define DEM_CFG_SETEVENTSTATUSCALLNOTIFICATION_OFF  STD_OFF
 #define DEM_CFG_SETEVENTSTATUSCALLNOTIFICATION_ON   STD_ON
-
-#if(defined DEM_SETEVENTSTATUSCALLNOTIFICATION)
-#define DEM_CFG_SETEVENTSTATUSCALLNOTIFICATION  DEM_CFG_SETEVENTSTATUSCALLNOTIFICATION_ON
-#else
 #define DEM_CFG_SETEVENTSTATUSCALLNOTIFICATION  DEM_CFG_SETEVENTSTATUSCALLNOTIFICATION_OFF
-#endif
-
 #define DEM_CFG_SETEVENTSTATUSALLOWEDCALLBACK_OFF  STD_OFF
 #define DEM_CFG_SETEVENTSTATUSALLOWEDCALLBACK_ON   STD_ON
 #define DEM_CFG_SETEVENTSTATUSALLOWEDCALLBACK  DEM_CFG_SETEVENTSTATUSALLOWEDCALLBACK_OFF

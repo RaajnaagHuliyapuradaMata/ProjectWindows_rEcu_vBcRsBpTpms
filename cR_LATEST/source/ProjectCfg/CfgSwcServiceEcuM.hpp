@@ -65,19 +65,19 @@ typedef struct{
    const Type_CfgSwcServiceCanTp_st* pcstCfgSwcServiceCanTp;
    const Type_CfgSwcServiceFiM_st*   pcstCfgSwcServiceFiM;
    const Type_CfgSwcServiceBswM_st*  pcstCfgSwcServiceBswM;
-}Type_SwcServiceEcuM_stRefCfgModules;
+}Type_CfgSwcServiceEcuM_stRefCfgModules;
 
 typedef struct{
          uint8  u8NumRefsPncComM;
    const uint8* pcau8ListRefsPnc;
-}Type_SwcServiceEcuM_stListRefsPncWakeup;
+}Type_CfgSwcServiceEcuM_stListRefsPncWakeup;
 
 typedef struct{
-         Type_SwcServiceOs_tModeApp               tModeAppDefault;
-         Type_SwcServiceEcuM_stInfoTargetShutdown stInfoTargetShutdownDefault;
-         Type_SwcServiceEcuM_stRefCfgModules      stRefCfgModules;
-   const Type_SwcServiceEcuM_stListRefsPncWakeup* pcstListRefsPncWakeup;
-         uint8                                    au8HashPostBuild[CfgSwcServiceEcuM_dLenHash];
+         Type_SwcServiceOs_tModeApp                  tModeAppDefault;
+         Type_SwcServiceEcuM_stInfoTargetShutdown    stInfoTargetShutdownDefault;
+         Type_CfgSwcServiceEcuM_stRefCfgModules      stRefCfgModules;
+   const Type_CfgSwcServiceEcuM_stListRefsPncWakeup* pcstListRefsPncWakeup;
+         uint8                                       au8HashPostBuild[CfgSwcServiceEcuM_dLenHash];
 }Type_CfgSwcServiceEcuM_st;
 
 /******************************************************************************/

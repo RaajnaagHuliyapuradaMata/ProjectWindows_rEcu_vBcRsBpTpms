@@ -14,13 +14,6 @@
 #define ucHystHiPc (uint8) (350 / ucPResInMBarc)
 #define scTemperatureWarningThresholdDefault        ((sint8) 80)
 
-#if((NVM_CAT01_SIZE_BYTES + NVM_CAT02_SIZE_BYTES + NVM_CAT03_SIZE_BYTES + \
-      NVM_CAT04_SIZE_BYTES + NVM_CAT05_SIZE_BYTES + NVM_CAT06_SIZE_BYTES + \
-      NVM_CAT07_SIZE_BYTES + NVM_CAT08_SIZE_BYTES + NVM_CAT09_SIZE_BYTES + \
-      NVM_CAT10_SIZE_BYTES) != NVM_HUF_DATA_MAX_BYTE_SIZE)
-  #error Check NV-Data byte size!
-#endif
-
 #define NVM_BLOCK_MEMBERS_CATEGORY_01   (NVM_CAT01_SIZE_BYTES / NVM_BLOCK_SIZE)
 #define NVM_BLOCK_MEMBERS_CATEGORY_02   (NVM_CAT02_SIZE_BYTES / NVM_BLOCK_SIZE)
 #define NVM_BLOCK_MEMBERS_CATEGORY_03   (NVM_CAT03_SIZE_BYTES / NVM_BLOCK_SIZE)
@@ -32,13 +25,6 @@
 #define NVM_BLOCK_MEMBERS_CATEGORY_09   (NVM_CAT09_SIZE_BYTES / NVM_BLOCK_SIZE)
 #define NVM_BLOCK_MEMBERS_CATEGORY_10   (NVM_CAT10_SIZE_BYTES / NVM_BLOCK_SIZE)
 
-#if((NVM_BLOCK_MEMBERS_CATEGORY_01 + NVM_BLOCK_MEMBERS_CATEGORY_02 + \
-      NVM_BLOCK_MEMBERS_CATEGORY_03 + NVM_BLOCK_MEMBERS_CATEGORY_04 + \
-      NVM_BLOCK_MEMBERS_CATEGORY_05 + NVM_BLOCK_MEMBERS_CATEGORY_06 + \
-      NVM_BLOCK_MEMBERS_CATEGORY_07 + NVM_BLOCK_MEMBERS_CATEGORY_08 + \
-      NVM_BLOCK_MEMBERS_CATEGORY_09 + NVM_BLOCK_MEMBERS_CATEGORY_10) != NVM_MAX_AMOUNT_BLOCKS)
-  #error Check NV-Data block members!
-#endif
 #define NVM_START_BLOCK_CAT_01        0U
 #define NVM_START_BLOCK_CAT_02        (NVM_START_BLOCK_CAT_01 + NVM_BLOCK_MEMBERS_CATEGORY_01)
 #define NVM_START_BLOCK_CAT_03        (NVM_START_BLOCK_CAT_02 + NVM_BLOCK_MEMBERS_CATEGORY_02)
@@ -92,8 +78,7 @@ struct struct_NvCat10_32Bit
   NVM_BLOCK_TYPE ulBlockAccess[NVM_BLOCK_MEMBERS_CATEGORY_10];
 };
 
-struct struct_NvCat01
-{
+struct struct_NvCat01{
   uint8 ucIdx01_WsIdWN                [NVM_CAT01_IDX01_REAL_SIZE];
   uint8 ucIdx02_CdIdWN                [NVM_CAT01_IDX02_REAL_SIZE];
   uint8 ucIdx03_WdIdWN                [NVM_CAT01_IDX03_REAL_SIZE];
@@ -104,14 +89,9 @@ struct struct_NvCat01
   uint8 ucIdx08_ucPatmo               [NVM_CAT01_IDX08_REAL_SIZE];
   sint8 scIdx09_scAdaptedTref         [NVM_CAT01_IDX09_REAL_SIZE];
   uint8 ucIdx10_Unused                [NVM_CAT01_IDX10_REAL_SIZE];
-  //uint8 ucIdx09_ucVarCodPlacardPress  [NVM_CAT01_IDX09_REAL_SIZE];   //RST NVM ok
-  //uint8 ucIdx10_ucVarCodMinPressThres [NVM_CAT01_IDX10_REAL_SIZE];
-  //uint8 ucIdx11_ucVarCodHighPressThres[NVM_CAT01_IDX11_REAL_SIZE];
-  //uint8 ucIdx12_ucVarCodAxImbSetThres [NVM_CAT01_IDX12_REAL_SIZE];
-  //uint8 ucIdx13_ucVarCodAxImbResThres [NVM_CAT01_IDX13_REAL_SIZE];
 };
-struct struct_NvCat02
-{
+
+struct struct_NvCat02{
   uint8 ucIdx01_ucReErrorStatuse    [NVM_CAT02_IDX01_REAL_SIZE];
   uint8 ucIdx02_ucReHeatUpStatuse   [NVM_CAT02_IDX02_REAL_SIZE];
   uint8 ucIdx03_ucFolgeAusfallCnt   [NVM_CAT02_IDX03_REAL_SIZE];
@@ -125,17 +105,13 @@ struct struct_NvCat02
   uint8 ucIdx11_DTCSingleActiveStatus [NVM_CAT02_IDX11_REAL_SIZE];
   uint8 ucIdx12_Unused              [NVM_CAT02_IDX12_REAL_SIZE];
 };
-struct struct_NvCat03
-{
+
+struct struct_NvCat03{
   uint8 ucIdx01_HistoryID                       [NVM_CAT03_IDX01_REAL_SIZE];
   uint8 ucIdx02_HistoryWP                       [NVM_CAT03_IDX02_REAL_SIZE];
   uint8 ucIdx03_WA_Parameter                    [NVM_CAT03_IDX03_REAL_SIZE];
   uint8 ucIdx04_WA_ABSTicksInOneRev             [NVM_CAT03_IDX04_REAL_SIZE];
   uint8 ucIdx05_ucVarAutolocationFailedCounter  [NVM_CAT03_IDX05_REAL_SIZE];
-  //uint8 ucIdx05_ucVarCodHighPressResetThres     [NVM_CAT03_IDX05_REAL_SIZE]; //RST NVM ok
-  //uint8 ucIdx06_ucVarCodTemperatureWarningThres [NVM_CAT03_IDX06_REAL_SIZE];
-  //uint8 ucIdx07_ucVarAutolocationFailedCounter  [NVM_CAT03_IDX07_REAL_SIZE];
-  //uint8 ucIdx08_ucVarCodOffroadPlacardPress     [NVM_CAT03_IDX08_REAL_SIZE];
   uint8 ucIdx06_Unused                          [NVM_CAT03_IDX06_REAL_SIZE];
   uint8 ucIdx07_Unused                          [NVM_CAT03_IDX07_REAL_SIZE];
   uint8 ucIdx08_Unused                          [NVM_CAT03_IDX08_REAL_SIZE];
@@ -143,16 +119,16 @@ struct struct_NvCat03
   uint8 ucIdx10_Test                            [NVM_CAT03_IDX10_REAL_SIZE];
   uint8 ucIdx11_Test                            [NVM_CAT03_IDX11_REAL_SIZE];
 };
-struct struct_NvCat04
-{
+
+struct struct_NvCat04{
   uint8 ucIdx01_CcpCrcFilter  [NVM_CAT04_IDX01_REAL_SIZE];
   uint8 ucIdx02_CcpIdFilter   [NVM_CAT04_IDX02_REAL_SIZE];
   uint8 ucIdx03_CcpAnzIdFilter[NVM_CAT04_IDX03_REAL_SIZE];
   uint8 ucIdx04_CcpOnOff      [NVM_CAT04_IDX04_REAL_SIZE];
   uint8 ucIdx05_CcpFilterIds  [NVM_CAT04_IDX05_REAL_SIZE];
 };
-struct struct_NvCat05
-{
+
+struct struct_NvCat05{
   uint8 ucIdx01_ucVarCodLegislation             [NVM_CAT05_IDX01_REAL_SIZE];
   uint8 ucIdx02_ucVarCodHighPressResetThres     [NVM_CAT05_IDX02_REAL_SIZE]; //RST NVM ok
   uint8 ucIdx03_ucVarCodTemperatureWarningThres [NVM_CAT05_IDX03_REAL_SIZE];
@@ -162,16 +138,10 @@ struct struct_NvCat05
   uint8 ucIdx07_ucVarCodHighPressThres          [NVM_CAT05_IDX07_REAL_SIZE];
   uint8 ucIdx08_ucVarCodAxImbSetThres           [NVM_CAT05_IDX08_REAL_SIZE];
   uint8 ucIdx09_ucVarCodAxImbResThres           [NVM_CAT05_IDX09_REAL_SIZE];
-  //sint8 scIdx02_scAdaptedTref        [NVM_CAT04_IDX02_REAL_SIZE];
   uint8 ucReserved                              [NVM_CAT05_IDX10_REAL_SIZE];
 };
-//struct struct_NvCat06
-//{
-//  uint8 ucReserved           [NVM_CAT06_IDX01_REAL_SIZE];
-//};
 
-struct struct_NvCat06
-{
+struct struct_NvCat06{
   uint8 ucIdx01_PressureFL[NVM_CAT06_IDX01_REAL_SIZE];
   uint8 ucIdx02_PressureFR[NVM_CAT06_IDX02_REAL_SIZE];
   uint8 ucIdx03_PressureRL[NVM_CAT06_IDX03_REAL_SIZE];
@@ -282,9 +252,6 @@ typedef void (*ftInitEECat)(void);
 static uintptr ui32GetMemberStartByte(uint8 ui8Cat, uint8 ui8Member);
 static uint8 ui8GetMemberSizeInByte(uint8 ui8Cat, uint8 ui8Member);
 static uint8 ui8GetCatSizeInBlocks (uint8 ui8Categ);
-#ifdef BUILD_WITH_UNUSED_FUNCTION
-static void ReadBlock2Categ(uint8 ui8Categ, NVM_BLOCK_TYPE * p2Target);
-#endif
 static void WriteCateg2Blocks(uint8 ui8Categ, NVM_BLOCK_TYPE * p2Target);
 static void   InitEECat01(void);
 static void   InitEECat02(void);
@@ -312,61 +279,16 @@ static const ftInitEECat arrInitEECatFunctions[NVM_MAX_CATEGORYS]=
    ,   &InitEECat09
    ,   &InitEECat10
 };
-#ifdef NVM_DEBUG
-uint8 u8_NvMWriteResult = 0;
-uint8 u8_NvMReadResult = 0;
-#endif
 
-/////////////////////////////////////// SMART HANDLER /////////////////////////////////////////
-
-#ifdef USE_MIRROR
-uint8  ui8WrMirror2EEPROM(uint8 ui8StartBlock) // updates mirror to EEPROM start at startblock, returns last updated Block Nr
-{
-#define cMaxBlocks2Read (uint8) 16  // maximum of blocks 2 read in total, could also be maximum blocks 2 write in total
-#define cMaxBlock2Write (uint8) 4   // maximum consecutive blocks to write
-
-   uint32 ulBlock;
-   uint8 ui8BloRdCt = (uint8) 0, ui8Blo2WrCt = (uint8) 0, ui8TotalBlocks = (uint8) 0, ui8CurBlock = (ui8StartBlock < NVM_MAX_AMOUNT_BLOCKS) ? ui8StartBlock:0;
-
-    do
-   {
-        do
-        {
-            ui8BloRdCt += (uint8) ClientIf_NvM_ReadBlock((uint16) ui8CurBlock, 1, &ulBlock );
-            if(ulBlock != tMirror.tBlAcc[ui8CurBlock ])
-                ui8Blo2WrCt++;
-            else
-                break;
-        }while((ui8BloRdCt < cMaxBlocks2Read) && (ui8Blo2WrCt<cMaxBlock2Write));
-
-        if(ui8Blo2WrCt > (uint8) 0)
-        {
-            (void) ClientIf_NvM_WriteBlock ((uint16) ui8CurBlock, ui8Blo2WrCt, &tMirror.tBlAcc[ui8CurBlock ]);
-            ui8Blo2WrCt = 0;
-        }
-
-        ui8CurBlock+= ui8BloRdCt;
-        if(ui8CurBlock >= NVM_MAX_AMOUNT_BLOCKS)
-            ui8CurBlock-= (uint8) NVM_MAX_AMOUNT_BLOCKS;
-        ui8TotalBlocks += ui8BloRdCt;
-        ui8BloRdCt = (uint8) 0;
-
-   }while(ui8TotalBlocks < cMaxBlocks2Read);
-
-    return(ui8CurBlock);
-}
-#endif
-
-static uintptr ui32GetMemberStartByte(uint8 ui8Cat, uint8 ui8Member)
-{
+static uintptr ui32GetMemberStartByte(
+   uint8 ui8Cat,
+   uint8 ui8Member){
   const MirrorType * p2Mir = 0;
   const uint8 * p2Member;
 
-  switch(ui8Cat)
-  {
+   switch(ui8Cat){
   case 1:
-      switch(ui8Member)
-      {
+         switch(ui8Member){
       case 1:
           p2Member = (const uint8 *) p2Mir ->tStrAcc .tCat01.sData.ucIdx01_WsIdWN ;
           break;
@@ -476,19 +398,6 @@ static uintptr ui32GetMemberStartByte(uint8 ui8Cat, uint8 ui8Member)
       case 8:
           p2Member = (uint8 *) p2Mir ->tStrAcc .tCat03.sData.ucIdx08_Unused ;
           break;
-      //case 5:
-      //    p2Member = (uint8 *) p2Mir ->tStrAcc .tCat03.sData.ucIdx05_ucVarCodHighPressResetThres ;
-      //    break;
-      //case 6:
-      //    p2Member = (uint8 *) p2Mir ->tStrAcc .tCat03.sData.ucIdx06_ucVarCodTemperatureWarningThres ;
-      //    break;
-      //case 7:
-      //    p2Member = (uint8 *) p2Mir ->tStrAcc .tCat03.sData.ucIdx07_ucVarAutolocationFailedCounter ;
-      //    break;
-      //case 8:
-      //    p2Member = (uint8 *) p2Mir ->tStrAcc .tCat03.sData.ucIdx08_ucVarCodOffroadPlacardPress ;
-      //    break;
-
       case 9:
           p2Member = (uint8 *) p2Mir ->tStrAcc .tCat03.sData.ucIdx09_Test ;
           break;
@@ -561,13 +470,6 @@ static uintptr ui32GetMemberStartByte(uint8 ui8Cat, uint8 ui8Member)
       case 10:
           p2Member = (uint8 *) p2Mir ->tStrAcc .tCat05.sData.ucReserved;
           break;
-
-      //case 2:
-      //    p2Member = (uint8 *) p2Mir ->tStrAcc .tCat05.sData.scIdx02_scAdaptedTref;
-      //    break;
-      //case 3:
-      //    p2Member = (uint8 *) p2Mir ->tStrAcc .tCat05.sData.ucReserved;
-      //    break;
 
       default:
           p2Member = (uint8 *) p2Mir ->tStrAcc .tCat01.sData.ucIdx01_WsIdWN ;
@@ -677,8 +579,8 @@ static uintptr ui32GetMemberStartByte(uint8 ui8Cat, uint8 ui8Member)
 
 static uint8 ui8GetMemberSizeInByte(uint8 ui8Cat, uint8 ui8Member)
 {
-    //const uint8 ui8MembersInCat[10]={13,12,11,5,3,1,1,1,1,4};
-   const uint8 ui8MembersInCat[NVM_MAX_CATEGORYS] = { NVM_CAT01_NUMBER_OF_MEMBERS, //RST NVM ok
+   const uint8 ui8MembersInCat[NVM_MAX_CATEGORYS] = {
+      NVM_CAT01_NUMBER_OF_MEMBERS,
                                                        NVM_CAT02_NUMBER_OF_MEMBERS
    ,     NVM_CAT03_NUMBER_OF_MEMBERS
    ,     NVM_CAT04_NUMBER_OF_MEMBERS
@@ -693,19 +595,16 @@ static uint8 ui8GetMemberSizeInByte(uint8 ui8Cat, uint8 ui8Member)
    uint8 ui8TmpCat, ui8TmpMember;
    uint32 ui32CurMemberStartByte,ui32PostMemberStartByte;
 
-    // range check: 1<=ui8Cat<=10, 1<=ui8Member<=NVM_CATxx_NUMBER_OF_MEMBERS
    if((ui8Cat > sizeof(ui8MembersInCat)) || ((uint8) 0 == ui8Cat) || (ui8Member > ui8MembersInCat[ui8Cat-1]) || ((uint8) 0 == ui8Member))
    {
         return (0);
    }
-    // figure out post member:
-   if(ui8MembersInCat[ui8Cat - 1] == ui8Member)   // at categ's end ?
-   {
-      if( (uint8) sizeof(ui8MembersInCat) == ui8Cat)  // last categ ?
+   if(ui8MembersInCat[ui8Cat - 1] == ui8Member){
+      if((uint8)sizeof(ui8MembersInCat) == ui8Cat)
       {
         ui32PostMemberStartByte = sizeof(((MirrorType *) 0)->tBlAcc);
       }
-      else{   // switch next categ 1st member
+      else{
           ui8TmpCat = ui8Cat + 1;
           ui8TmpMember = (uint8) 1;
           ui32PostMemberStartByte = ui32GetMemberStartByte (ui8TmpCat, ui8TmpMember);
@@ -716,18 +615,14 @@ static uint8 ui8GetMemberSizeInByte(uint8 ui8Cat, uint8 ui8Member)
       ui8TmpMember = ui8Member + 1;
       ui32PostMemberStartByte = ui32GetMemberStartByte (ui8TmpCat, ui8TmpMember);
    }
-
    ui32CurMemberStartByte = ui32GetMemberStartByte (ui8Cat , ui8Member );
-
     return ((uint8) ( 0xFF & (ui32PostMemberStartByte - ui32CurMemberStartByte) ) );
 }
 
 static uint8 ui8GetCatSizeInBlocks (uint8 ui8Categ)
 {
    uint16 ui16CategSizeInByte = 0;
-
-   switch(ui8Categ)
-   {
+   switch(ui8Categ){
    case 1:
         ui16CategSizeInByte = sizeof(((MirrorType *) 0)->tStrAcc.tCat01);
         break;
@@ -766,8 +661,10 @@ static uint8 ui8GetCatSizeInBlocks (uint8 ui8Categ)
     return((uint8) (ui16CategSizeInByte>>2));
 }
 
-void ReadBlock2Member(uint8 ui8Categ, uint8 ui8Member, uint8 * pui8Target)
-{
+void ReadBlock2Member(
+   uint8 ui8Categ,
+   uint8 ui8Member,
+   uint8* pui8Target){
   union
   {
     NVM_BLOCK_TYPE ulBlock[8];
@@ -795,11 +692,7 @@ void ReadBlock2Member(uint8 ui8Categ, uint8 ui8Member, uint8 * pui8Target)
   else{
   }
 
-#ifdef NVM_DEBUG
-  u8_NvMReadResult = ClientIf_NvM_ReadBlock( ui16BlockStartNr, (uint16) ui8BlockLen, tBuf.ulBlock);
-#else
   (void) ClientIf_NvM_ReadBlock( ui16BlockStartNr, (uint16) ui8BlockLen, tBuf.ulBlock);
-#endif
 
   if(ui8ByteSize != 0)
   {
@@ -851,31 +744,14 @@ void WriteMember2Blocks(uint8 ui8Categ, uint8 ui8Member, uint8 * pui8Target)
           tBuf.ui8ByteAcc [(ui32StartByteNr & 0x00000003)+ui8ByteSize] = *(pui8Target+ui8ByteSize);
           ui8Write = (uint8) 1;
         }
-      }while(ui8ByteSize>0);  // if one byte is different all blocks of the member will be written
+      }while(ui8ByteSize > 0);
    }
 
    if(ui8Write > 0)
    {
-#ifdef NVM_DEBUG
-      u8_NvMWriteResult = ClientIf_NvM_WriteBlock ( ui16BlockStartNr, (uint16) ui8BlockLen, tBuf.ulBlock);
-#else
       (void) ClientIf_NvM_WriteBlock ( ui16BlockStartNr, (uint16) ui8BlockLen, tBuf.ulBlock);
-#endif
-
    }
 }
-
-#ifdef BUILD_WITH_UNUSED_FUNCTION
-static void ReadBlock2Categ(uint8 ui8Categ, NVM_BLOCK_TYPE * p2Target)
-{
-
-  uint32 ui32StartByteNr = ui32GetMemberStartByte (ui8Categ,1);
-  uint16 ui16BlockStartNr = (uint16) (ui32StartByteNr>>2);
-  uint8 ui8BlockLen = ui8GetCatSizeInBlocks (ui8Categ);
-
-  ClientIf_NvM_ReadBlock( ui16BlockStartNr, (uint16) ui8BlockLen, p2Target);
-}
-#endif
 
 static void WriteCateg2Blocks(uint8 ui8Categ, NVM_BLOCK_TYPE * p2Target)
 {
@@ -944,27 +820,6 @@ static void InitEECat01(void){
    {
         tTmpCat1.sData.scIdx09_scAdaptedTref[l_ucLauf] = 0x14U;
    }
-    //for(l_ucLauf = 0U; l_ucLauf < sizeof(tTmpCat1.sData.ucIdx09_ucVarCodPlacardPress);l_ucLauf++)
-    //{
-    //    tTmpCat1.sData.ucIdx09_ucVarCodPlacardPress[l_ucLauf] = 0x84U;
-    //}
-    //for(l_ucLauf = 0U; l_ucLauf < sizeof(tTmpCat1.sData.ucIdx10_ucVarCodMinPressThres);l_ucLauf++)
-    //{
-    //    tTmpCat1.sData.ucIdx10_ucVarCodMinPressThres[l_ucLauf] = u8_US_NonExtra_MinPrs_digits;
-    //}
-    //for(l_ucLauf = 0U; l_ucLauf < sizeof(tTmpCat1.sData.ucIdx11_ucVarCodHighPressThres);l_ucLauf++)
-    //{
-    //    tTmpCat1.sData.ucIdx11_ucVarCodHighPressThres[l_ucLauf] = 0x86U;
-    //}
-    //for(l_ucLauf = 0U; l_ucLauf < sizeof(tTmpCat1.sData.ucIdx12_ucVarCodAxImbSetThres);l_ucLauf++)
-    //{
-    //    tTmpCat1.sData.ucIdx12_ucVarCodAxImbSetThres[l_ucLauf] = 0x0EU;
-    //}
-    //for(l_ucLauf = 0U; l_ucLauf < sizeof(tTmpCat1.sData.ucIdx13_ucVarCodAxImbResThres);l_ucLauf++)
-    //{
-    //    tTmpCat1.sData.ucIdx13_ucVarCodAxImbResThres[l_ucLauf] = 0x08U;
-    //}
-
     WriteCateg2Blocks (1, tTmpCat1 .ulData32Bit .ulBlockAccess);
 }
 
@@ -1027,17 +882,6 @@ static void InitEECat02(void){
 static void InitEECat03(void){
   union union_NVM_Cat03 tTmpCat3;
    uint8  l_ucLauf;
-#ifdef FIX_WHEEL_ID_AND_POSITIONS_DEBUG
-  NvM_WriteData_HistoryID_Fix(540001017U,0U);
-  NvM_WriteData_HistoryID_Fix(540001019U,1U);
-  NvM_WriteData_HistoryID_Fix(540001027U,2U);
-  NvM_WriteData_HistoryID_Fix(540001029U,3U);
-
-  NvM_WriteData_HistoryWP_Fix(0U,0U);
-  NvM_WriteData_HistoryWP_Fix(1U,1U);
-  NvM_WriteData_HistoryWP_Fix(2U,2U);
-  NvM_WriteData_HistoryWP_Fix(3U,3U);
-#else
   for(l_ucLauf = 0U; l_ucLauf < sizeof(tTmpCat3.sData.ucIdx01_HistoryID);l_ucLauf++)
   {
     tTmpCat3.sData.ucIdx01_HistoryID[l_ucLauf] = 0x00U;
@@ -1046,43 +890,18 @@ static void InitEECat03(void){
   {
     tTmpCat3.sData.ucIdx02_HistoryWP[l_ucLauf] = 0x00U;
   }
-#endif
 
-#ifdef FIX_WHEEL_ID_AND_POSITIONS_DEBUG
-    tTmpCat3.sData.ucIdx03_WA_Parameter[ 0] = ucDefWACtrl;
-    tTmpCat3.sData.ucIdx03_WA_Parameter[ 1] = ucDefAxDistInDm;
-    tTmpCat3.sData.ucIdx03_WA_Parameter[ 2] = ucDefWheelDiamInDm;
-    tTmpCat3.sData.ucIdx03_WA_Parameter[ 3] = ucDefMinRssiDistance;
-    tTmpCat3.sData.ucIdx03_WA_Parameter[ 4] = ucDefLeRiMinDistance;
-    tTmpCat3.sData.ucIdx03_WA_Parameter[ 5] = ucECUPosRear;
-    tTmpCat3.sData.ucIdx03_WA_Parameter[ 6] = ucDefMinCt4AxAnalysis;
-    tTmpCat3.sData.ucIdx03_WA_Parameter[ 7] = ucDefMinCt4ER;
-    tTmpCat3.sData.ucIdx03_WA_Parameter[ 8] = ucDefMinCt4HistER;
-    tTmpCat3.sData.ucIdx03_WA_Parameter[ 9] = ucDefMinERMeanRssiLevel;
-    tTmpCat3.sData.ucIdx03_WA_Parameter[10] = ucDefWATOTimeInSec;
-#else
   for(l_ucLauf = 0U; l_ucLauf < sizeof(tTmpCat3.sData.ucIdx03_WA_Parameter);l_ucLauf++)
   {
     tTmpCat3.sData.ucIdx03_WA_Parameter[l_ucLauf] = 0x00U;
   }
-#endif
 
   tTmpCat3.sData.ucIdx04_WA_ABSTicksInOneRev[0] = cDefaultABSCountNr;
   tTmpCat3.sData.ucIdx04_WA_ABSTicksInOneRev[1] = cDefaultABSCountNr;
-
-//  for(l_ucLauf = 0U; l_ucLauf < sizeof(tTmpCat3.sData.ucIdx05_ucVarCodHighPressResetThres);l_ucLauf++)
-//  {
-//    tTmpCat3.sData.ucIdx05_ucVarCodHighPressResetThres[l_ucLauf] = ucHystHiPc;
-//  }
-
   tTmpCat3.sData.ucIdx05_ucVarAutolocationFailedCounter[0] = ucDefAutolocationFailedCounterInit;
   tTmpCat3.sData.ucIdx06_Unused[0] = 0;
   tTmpCat3.sData.ucIdx07_Unused[0] = 0;
   tTmpCat3.sData.ucIdx08_Unused[0] = 0;
-  //tTmpCat3.sData.ucIdx05_ucVarCodHighPressResetThres[0] = ucHystHiPc;
-  //tTmpCat3.sData.ucIdx06_ucVarCodTemperatureWarningThres[0] = (uint8) scTemperatureWarningThresholdDefault;
-  //tTmpCat3.sData.ucIdx07_ucVarAutolocationFailedCounter[0] = ucDefAutolocationFailedCounterInit;
-  //tTmpCat3.sData.ucIdx08_ucVarCodOffroadPlacardPress[0] = u8_Us_NonExtra_Offroad_Press_digits;
 
   for(l_ucLauf = 0U; l_ucLauf < sizeof(tTmpCat3.sData.ucIdx09_Test);l_ucLauf++)
   {
@@ -1160,11 +979,6 @@ static void InitEECat05(void){
   {
       tTmpCat5.sData.ucIdx09_ucVarCodAxImbResThres[i] = 0x08U;
   }
-  //for( i = 0; i < sizeof(tTmpCat5 .sData.scIdx02_scAdaptedTref); i++)
-  //{
-  //      tTmpCat5 .sData.scIdx02_scAdaptedTref[i] = 0x14U;
-  //}
-
   for( i = 0; i < sizeof(tTmpCat5 .sData.ucReserved); i++)
   {
         tTmpCat5 .sData.ucReserved[i] = 0x05U;
@@ -1254,16 +1068,4 @@ void EE_InconsistencyHandling(uint16 uiNvmCategoryConsistence)
    }
   }
 }
-
-#ifdef NVM_DEBUG
-
-uint8 DCM_InvIf_NvmReadResult(void){
-  return u8_NvMReadResult;
-}
-
-uint8 DCM_InvIf_NvmWriteResult(void){
-  return u8_NvMWriteResult;
-}
-
-#endif
 

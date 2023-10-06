@@ -15,7 +15,6 @@ static boolean DCM_IsMemoryInitialized(uint8* ucBuffer, uint8 ucLength);
 #include "iTpms_Interface.hpp"
 #include "DcmAppl.hpp"
 #include "rba_DiagLib_MemUtils.hpp"
-#include "SysManagerX.hpp"
 #include "DcmManagerX.hpp"
 #include "FeeFblBlockInterfaceX.hpp"
 #include "ProductionFlashInterfaceX.hpp"

@@ -24,15 +24,6 @@ uint8 DcmCheckMessageAuthentication(uint8 ucSid, const uint8* aucMessage, uint16
   uint8  i;
   uint8  ucRetVal = MSG_NO_AUTH_NEEDED;
   uint8  aucKey[kEepSizeSecKey_UDSMSGKEY];
-
-#ifdef DEBUG_IGNORE_MESSAGE_AUTHENTICATION
-  ushSubFunc=ushSubFunc;
-  aucKey[0]=aucKey[0];
-  aucHash[0]=aucHash[0];
-  i=i;
-  ucRetVal = MSG_NO_AUTH_NEEDED;
-#else
-
   DcmGetSubFunctionFromMessageBuffer(ucSid, aucMessage, &ushSubFunc);
   if(DcmAuthenticationNeeded(ucSid, ushSubFunc) == TRUE){
    if(DcmHashExist(ucSid, ushSubFunc, (uint32)ushLength) == TRUE){
@@ -52,7 +43,6 @@ uint8 DcmCheckMessageAuthentication(uint8 ucSid, const uint8* aucMessage, uint16
       }
    }
   }
-#endif
   return ucRetVal;
 }
 
@@ -60,12 +50,6 @@ uint8 DcmAppendMessageAuthentication(uint8 ucSid, uint8* aucDataToAdd, uint32 us
   uint16 ushSubFunc;
   uint8 ucRetVal = 0;
   uint8 aucKey[kEepSizeSecKey_UDSMSGKEY];
-
-#ifdef DEBUG_IGNORE_MESSAGE_AUTHENTICATION
-  ushSubFunc=ushSubFunc;
-  aucKey[0]=aucKey[0];
-#else
-
   if(DcmGetSubFunctionFromMessageBuffer(ucSid, (const uint8*)ucResponseMessage, &ushSubFunc) == TRUE){
    if(DcmAuthenticationNeeded(ucSid, ushSubFunc) == TRUE){
       FEEFBL_GetUdsMsgKey(aucKey);
@@ -75,7 +59,6 @@ uint8 DcmAppendMessageAuthentication(uint8 ucSid, uint8* aucDataToAdd, uint32 us
       }
    }
   }
-#endif
   return ucRetVal;
 }
 

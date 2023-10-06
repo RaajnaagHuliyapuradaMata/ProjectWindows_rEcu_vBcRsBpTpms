@@ -1,9 +1,7 @@
-
 #ifndef OS_CFG_H
 #define OS_CFG_H
 
 #define OS_TARGET_RH850GHS
-
 #define OS_NUM_APPMODES (2U)
 #define OS_NUM_APPLICATIONS (1U)
 #define OS_NUM_SPINLOCKS (0U)
@@ -21,7 +19,6 @@
 #define OS_NUM_TRACECATEGORIES (0U)
 #define OS_TRACE_CATEGORY_ALWAYS ((Os_TraceCategoriesType)(0x80000000UL))
 #define OS_TRACE_CATEGORY_NEVER  ((Os_TraceCategoriesType)(0x00000000UL))
-
 #define OS_NUM_COUNTERS (1U)
 #define OSCYCLEDURATION (12.5)
 #define OSCYCLESPERSECOND (80000000U)
@@ -42,9 +39,6 @@
 #define OS_NUM_CORES (1U)
 #define OS_NUM_OS_CORES (1U)
 #define OS_CORE_ID_MASTER (0U)
-
-#define OS_START_SEC_CODE_LIB
-#include "Os_MemMap.hpp"
 
 extern FUNC(StatusType, OS_CODE) Os_IncrementCounter_OneMillisecondCounter(void);
 extern FUNC(void, OS_CODE) Os_Entry_CyclicTask1sec(void);
@@ -67,70 +61,16 @@ extern FUNC(void, OS_CODE) Os_Entry_CAT2ISR_Can0Receive(void);
 extern FUNC(void, OS_CODE) Os_Entry_FLS_FLENDNM_CAT2_ISR(void);
 extern FUNC(void, OS_CODE) Os_Entry_CAT2ISR_OneMillisecond(void);
 extern FUNC(void, OS_CODE) Os_Entry_CAT2ISR_TelRec(void);
-
-#define OS_STOP_SEC_CODE_LIB
-#include "Os_MemMap.hpp"
-
-#define OS_START_SEC_ERRORHOOK_HUFTPMS_CODE
-#include "Os_MemMap.hpp"
-
 extern FUNC(void, OS_ERRORHOOK_HUFTPMS_CODE) ErrorHook_HufTpms(StatusType Error) ;
-
-#define OS_STOP_SEC_ERRORHOOK_HUFTPMS_CODE
-#include "Os_MemMap.hpp"
-
-#define OS_START_SEC_OS_CBK_ALARM_CB_ALARM10MS_CODE
-#include "Os_MemMap.hpp"
-
 extern FUNC(void, OS_OS_CBK_ALARM_CB_ALARM10MS_CODE) Os_Cbk_Alarm_CB_Alarm10ms(void);
-
-#define OS_STOP_SEC_OS_CBK_ALARM_CB_ALARM10MS_CODE
-#include "Os_MemMap.hpp"
-
-#define OS_START_SEC_OS_CBK_ALARM_CB_ALARM200MS_CODE
-#include "Os_MemMap.hpp"
-
 extern FUNC(void, OS_OS_CBK_ALARM_CB_ALARM200MS_CODE) Os_Cbk_Alarm_CB_Alarm200ms(void);
-
-#define OS_STOP_SEC_OS_CBK_ALARM_CB_ALARM200MS_CODE
-#include "Os_MemMap.hpp"
-
-#define OS_START_SEC_OS_CBK_ALARM_CB_ALARM50MS_CODE
-#include "Os_MemMap.hpp"
-
 extern FUNC(void, OS_OS_CBK_ALARM_CB_ALARM50MS_CODE) Os_Cbk_Alarm_CB_Alarm50ms(void);
-
-#define OS_STOP_SEC_OS_CBK_ALARM_CB_ALARM50MS_CODE
-#include "Os_MemMap.hpp"
-
-#define OS_START_SEC_OS_CBK_ALARM_CB_ALARMONESECOND_CODE
-#include "Os_MemMap.hpp"
-
 extern FUNC(void, OS_OS_CBK_ALARM_CB_ALARMONESECOND_CODE) Os_Cbk_Alarm_CB_AlarmOneSecond(void);
-
-#define OS_STOP_SEC_OS_CBK_ALARM_CB_ALARMONESECOND_CODE
-#include "Os_MemMap.hpp"
-
-#define OS_START_SEC_SHUTDOWNHOOK_HUFTPMS_CODE
-#include "Os_MemMap.hpp"
-
 extern FUNC(void, OS_SHUTDOWNHOOK_HUFTPMS_CODE) ShutdownHook_HufTpms(StatusType Error) ;
-
-#define OS_STOP_SEC_SHUTDOWNHOOK_HUFTPMS_CODE
-#include "Os_MemMap.hpp"
-
-#define OS_START_SEC_STARTUPHOOK_HUFTPMS_CODE
-#include "Os_MemMap.hpp"
-
 extern FUNC(void, OS_STARTUPHOOK_HUFTPMS_CODE) StartupHook_HufTpms(void) ;
 
-#define OS_STOP_SEC_STARTUPHOOK_HUFTPMS_CODE
-#include "Os_MemMap.hpp"
-
 #define OS_STACK_MONITORING
-
 #define HufTpms ((ApplicationType)1U)
-
 #define CyclicTask1sec (&Os_const_tasks0[0])
 #define OS_TPL_FOR_CyclicTask1sec (0U)
 #define OS_IMASK_FOR_CyclicTask1sec (0x00U)
@@ -232,7 +172,6 @@ DeclareAlarm(Alarm50ms)
 #define Os_LogIntervalEnd(IntervalID,Category)
 #define Os_LogIntervalEndValue(IntervalID,Value,Category)
 #define Os_LogIntervalEndData(IntervalID,Data,Length,Category)
-#ifndef OS_TRACE_NAMESPACE_PURE
 #define LogTracepoint(TpointID,Category) Os_LogTracepoint(TpointID,Category)
 #define LogTracepointValue(TpointID,Value,Category) Os_LogTracepointValue(TpointID,Value,Category)
 #define LogTracepointData(TpointID,Data,Length,Category) Os_LogTracepointData(TpointID,Data,Length,Category)
@@ -245,6 +184,5 @@ DeclareAlarm(Alarm50ms)
 #define LogIntervalEnd(IntervalID,Category) Os_LogIntervalEnd(IntervalID,Category)
 #define LogIntervalEndValue(IntervalID,Value,Category) Os_LogIntervalEndValue(IntervalID,Value,Category)
 #define LogIntervalEndData(IntervalID,Data,Length,Category) Os_LogIntervalEndData(IntervalID,Data,Length,Category)
-#endif
 
 #endif

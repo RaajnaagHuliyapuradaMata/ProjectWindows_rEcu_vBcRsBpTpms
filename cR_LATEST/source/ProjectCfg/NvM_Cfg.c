@@ -6,22 +6,6 @@
 
 #include "NvM_Cfg.hpp"
 #include "NvM_PrivateCfg.hpp"
-
-#if((NVM_CFG_MAJOR_VERSION != (5u)) \
-        || (NVM_CFG_MINOR_VERSION != (7u)))
-# error "Version numbers of NvM_Cfg.c and NvM_Cfg.h are inconsistent!"
-#endif
-
-#if((NVM_PRIV_CFG_MAJOR_VERSION != NVM_CFG_MAJOR_VERSION) \
-        || (NVM_PRIV_CFG_MINOR_VERSION != NVM_CFG_MINOR_VERSION))
-# error "Version numbers of NvM_Cfg.c and Nvm_PrivateCfg.h.h are inconsistent!"
-#endif
-
-#if((NVM_TYPES_MAJOR_VERSION != NVM_CFG_MAJOR_VERSION) \
-        || (NVM_TYPES_MINOR_VERSION != NVM_CFG_MINOR_VERSION))
-# error "Version numbers of NvM_Cfg.c and NvM_Types.h are inconsistent!"
-#endif
-
 #include "SchM_NvM.hpp"
 
 #define NVM_SIZE_STANDARD_JOB_QUEUE  (12U)
@@ -29,41 +13,30 @@
 
 #define NVM_START_SEC_CONST_8
 #include "MemMap.hpp"
-
 CONST(uint8, NVM_PRIVATE_CONST) NvM_NoOfWrAttempts_u8 = 1U;
-
 #define NVM_STOP_SEC_CONST_8
 #include "MemMap.hpp"
 
 #define NVM_START_SEC_CONST_16
 #include "MemMap.hpp"
-
 CONST(uint16, NVM_CONFIG_CONST) NvM_NoOfCrcBytes_u16 = 64U;
-
 CONST(uint16, NVM_PRIVATE_CONST) NvM_CrcQueueSize_u16 = NVM_TOTAL_NUM_OF_NVRAM_BLOCKS;
-
 #define NVM_STOP_SEC_CONST_16
 #include "MemMap.hpp"
 
 #define NVM_START_SEC_CONST_UNSPECIFIED
 #include "MemMap.hpp"
-
 CONST(NvM_QueueSizesType, NVM_PRIVATE_CONST) NvM_QueueSizes_t =
 {
-
     (NVM_SIZE_STANDARD_JOB_QUEUE + NVM_SIZE_IMMEDIATE_JOB_QUEUE) - 1u
    ,   NVM_SIZE_STANDARD_JOB_QUEUE
 };
-
 #define NVM_STOP_SEC_CONST_UNSPECIFIED
 #include "MemMap.hpp"
 
 #define NVM_START_SEC_VAR_NOINIT_8
 #include "MemMap.hpp"
-
 static VAR(uint8, NVM_PRIVATE_DATA) NvMConfigBlock_RamBlock_au8[4U];
-
-#if((NVM_CRC_INT_BUFFER == STD_ON) || (NVM_REPAIR_REDUNDANT_BLOCKS_API == STD_ON))
 static VAR(uint8, NVM_PRIVATE_DATA) NvMBlock_CAT01_Crc_au8[2UL];
 static VAR(uint8, NVM_PRIVATE_DATA) NvMBlock_CAT02_Crc_au8[2UL];
 static VAR(uint8, NVM_PRIVATE_DATA) NvMBlock_CAT03_Crc_au8[2UL];
@@ -76,20 +49,14 @@ static VAR(uint8, NVM_PRIVATE_DATA) NvMBlock_CAT09_Crc_au8[2UL];
 static VAR(uint8, NVM_PRIVATE_DATA) NvMBlock_CAT10_Crc_au8[2UL];
 static VAR(uint8, NVM_PRIVATE_DATA) NvMBlock_BSW_Data_Crc_au8[2UL];
 static VAR(uint8, NVM_PRIVATE_DATA) ECUM_CFG_NVM_BLOCK_Crc_au8[2UL];
-
 VAR(uint8, NVM_PRIVATE_DATA) NvM_InternalBuffer_au8[NVM_INTERNAL_BUFFER_LENGTH];
-#endif
-
 VAR(uint8, NVM_PRIVATE_DATA) NvM_TestBuffer_u8;
-
 #define NVM_STOP_SEC_VAR_NOINIT_8
 #include "MemMap.hpp"
 
 #define NVM_START_SEC_CONST_DESCRIPTOR_TABLE
 #include "MemMap.hpp"
-
 CONST(NvM_BlockIdType, NVM_PUBLIC_CONST) NvM_NoOfBlockIds_t = NVM_TOTAL_NUM_OF_NVRAM_BLOCKS;
-
 CONST(NvM_CompiledConfigIdType, NVM_PUBLIC_CONST) NvM_CompiledConfigId_t = {(uint16)NVM_COMPILED_CONFIG_ID};
 
 CONST(NvM_BlockDescriptorType, NVM_CONFIG_CONST) NvM_BlockDescriptorTable_at[NVM_TOTAL_NUM_OF_NVRAM_BLOCKS] =
@@ -835,35 +802,24 @@ typedef unsigned int NvM_LengthCheck;
 
 #define NVM_START_SEC_VAR_NOINIT_UNSPECIFIED
 #include "MemMap.hpp"
-
-#if(NVM_API_CONFIG_CLASS != NVM_API_CONFIG_CLASS_1)
-
 VAR(NvM_QueueEntryType, NVM_PRIVATE_DATA) NvM_JobQueue_at[NVM_SIZE_STANDARD_JOB_QUEUE + NVM_SIZE_IMMEDIATE_JOB_QUEUE];
-#endif
-
 #define NVM_STOP_SEC_VAR_NOINIT_UNSPECIFIED
 #include "MemMap.hpp"
 
 #define NVM_START_SEC_VAR_POWER_ON_INIT_UNSPECIFIED
 #include "MemMap.hpp"
-
 VAR(NvM_RamMngmtAreaType, NVM_CONFIG_DATA) NvM_BlockMngmtArea_at[NVM_TOTAL_NUM_OF_NVRAM_BLOCKS];
-
 VAR(NvM_RamMngmtAreaType, NVM_CONFIG_DATA) NvM_DcmBlockMngmt_t;
-
 #define NVM_STOP_SEC_VAR_POWER_ON_INIT_UNSPECIFIED
 #include "MemMap.hpp"
 
 #define NVM_START_SEC_CODE
 #include "MemMap.hpp"
-
 FUNC(void, NVM_PRIVATE_CODE) NvM_EnterCriticalSection(void){
-
     SchM_Enter_NvM_NVM_EXCLUSIVE_AREA_0();
 }
 
 FUNC(void, NVM_PRIVATE_CODE) NvM_ExitCriticalSection(void){
-
     SchM_Exit_NvM_NVM_EXCLUSIVE_AREA_0();
 }
 
@@ -872,9 +828,7 @@ FUNC(void, NVM_PRIVATE_CODE) NvM_ExitCriticalSection(void){
 
 FUNC(void, NVM_PRIVATE_CODE) NvM_MultiBlockCbk(NvM_ServiceIdType ServiceId, NvM_RequestResultType JobResult)
 {
-
     NvM_invokeMultiBlockMode(ServiceId, JobResult);
-
    if(JobResult != NVM_REQ_PENDING)
    {
         NvM_invokeMultiCbk(ServiceId, JobResult);
@@ -883,32 +837,23 @@ FUNC(void, NVM_PRIVATE_CODE) NvM_MultiBlockCbk(NvM_ServiceIdType ServiceId, NvM_
 
 #define NvM_invokeCbk(descr, serv, res) (descr)->CallbackFunc_pt((serv), (res))
 #define NvM_invokeCurrentBlockMode(id, res)
-
 void NvM_BlockNotification(NvM_BlockIdType BlockId, NvM_ServiceIdType ServiceId, NvM_RequestResultType JobResult)
 {
-
    const NvM_BlockIdType orgBlockId = NVM_BLOCK_FROM_DCM_ID(BlockId);
    const NvM_BlockDescrPtrType blockDescriptorPtr = &NvM_BlockDescriptorTable_at[orgBlockId];
-
    if(orgBlockId == BlockId)
    {
-
         if((blockDescriptorPtr->CallbackFunc_pt != NULL_PTR) && (JobResult != NVM_REQ_PENDING) &&
             (ServiceId != NVM_WRITE_ALL) &&
             (!((ServiceId == NVM_READ_ALL) && ((blockDescriptorPtr->Flags_u8 & NVM_CBK_DURING_READALL_ON) != NVM_CBK_DURING_READALL_ON))))
         {
-
             NvM_invokeCbk(blockDescriptorPtr, ServiceId, JobResult);
         }
-
         if(blockDescriptorPtr->NotifyBswM == TRUE)
         {
-
             NvM_invokeCurrentBlockMode(BlockId, JobResult);
         }
    }
 }
-
 #define NVM_STOP_SEC_CODE
 #include "MemMap.hpp"
-
