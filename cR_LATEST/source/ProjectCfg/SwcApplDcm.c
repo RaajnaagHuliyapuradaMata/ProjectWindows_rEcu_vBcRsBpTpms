@@ -19,7 +19,7 @@ static boolean DCM_IsMemoryInitialized(uint8* ucBuffer, uint8 ucLength);
 #include "FeeFblBlockInterfaceX.hpp"
 #include "ProductionFlashInterfaceX.hpp"
 #include "DcmMsgAuthenticationX.hpp"
-#include "crc.hpp"
+#include "LibAutosar_Crc.hpp"
 #include "hmac_sha2.hpp"
 
 static uint8 aucSecurityKeyReprogramming[16];
@@ -872,7 +872,7 @@ static void CalculateSeed(uint8* Seed)
       ucRandom[i] = ullRandom & 0xff;
       ullRandom >>= 8;
    }
-   ulRandom = Crc_CalculateCRC32((const uint8*)ucRandom, 8, 0xffffffff, TRUE);
+   ulRandom = LibAutosarCrc_u32Calculate((const uint8*)ucRandom, 8, 0xffffffff, TRUE);
 
    for(i=(j*4); i<((j*4)+4); i++)
    {

@@ -233,11 +233,11 @@ void CANMGR_ESP_WSpeed_Front_BodyLCAN_UpdateValues(uint8* PU8_DataPointer){
 }
 
 void CANMGR_ESP_WSpeed_Rear_BodyLCAN_UpdateValues(uint8* PU8_DataPointer){
-   static uint8 U8_LastRearMessageCounter    = CANMGR__ESP_WSPEED_REAR_MESSAGE_COUNTER_INVALID;
-          uint8 U8_CurrentRearMessageCounter = PU8_DataPointer[1] & 0x0FU;
-   if(U8_CurrentRearMessageCounter != U8_LastRearMessageCounter){
-      U8_LastRearMessageCounter = U8_CurrentRearMessageCounter;
-      if(U8_CurrentRearMessageCounter != CANMGR__ESP_WSPEED_FRONT_MESSAGE_COUNTER_INVALID){
+   static uint8 u8CounterMessageRearLast    = CANMGR__ESP_WSPEED_REAR_MESSAGE_COUNTER_INVALID;
+          uint8 u8CounterMessageRearCurrent = PU8_DataPointer[1] & 0x0FU;
+   if(u8CounterMessageRearCurrent != u8CounterMessageRearLast){
+      u8CounterMessageRearLast = u8CounterMessageRearCurrent;
+      if(u8CounterMessageRearCurrent != CANMGR__ESP_WSPEED_FRONT_MESSAGE_COUNTER_INVALID){
          uint8  U8_RearLeftWheelQualifier = (PU8_DataPointer[1] >> 4) & 0x03U;
          uint8  U8_RearRightWheelQualifier = (PU8_DataPointer[1] >> 6) & 0x03U;
          uint16 U16_RearLeftWheelSpeed = (((uint16) PU8_DataPointer[2]) << 8) | ((uint16) PU8_DataPointer[3]);
@@ -268,50 +268,26 @@ void CANMGR_ESP_WSpeed_Rear_BodyLCAN_UpdateValues(uint8* PU8_DataPointer){
 }
 
 void CANMGR_ESP_Wheel_Pulse_Stamped_UpdateValues(uint8* PU8_DataPointer){
-   static uint8 U8_LastRearMessageCounter = CANMGR__ESP_WHEEL_PULSE_MESSAGE_COUNTER_INVALID;
-          uint8 U8_CurrentRearMessageCounter = PU8_DataPointer[1] & 0x0FU;
-   if(U8_CurrentRearMessageCounter != U8_LastRearMessageCounter){
-      U8_LastRearMessageCounter = U8_CurrentRearMessageCounter;
-      if(U8_CurrentRearMessageCounter != CANMGR__ESP_WHEEL_PULSE_MESSAGE_COUNTER_INVALID){
-         boolean BO_FrontLeftPulseQualifier = (PU8_DataPointer[1] >> 7) & 0x01U;
+   static uint8 u8CounterMessageRearLast    = CANMGR__ESP_WHEEL_PULSE_MESSAGE_COUNTER_INVALID;
+          uint8 u8CounterMessageRearCurrent = PU8_DataPointer[1] & 0x0FU;
+   if(u8CounterMessageRearLast != u8CounterMessageRearCurrent){
+      u8CounterMessageRearLast = u8CounterMessageRearCurrent;
+      if(CANMGR__ESP_WHEEL_PULSE_MESSAGE_COUNTER_INVALID != u8CounterMessageRearCurrent){
+         boolean BO_FrontLeftPulseQualifier  = (PU8_DataPointer[1] >> 7) & 0x01U;
          boolean BO_FrontRightPulseQualifier = (PU8_DataPointer[1] >> 5) & 0x01U;
-         boolean BO_RearLeftPulseQualifier = (PU8_DataPointer[1] >> 6) & 0x01U;
-         boolean BO_RearRightPulseQualifier = (PU8_DataPointer[1] >> 4) & 0x01U;
-         boolean bMessageInvalid = FALSE;
-         tsEnvAbs_Data tTPM_WheelPulse_Structure;
+         boolean BO_RearLeftPulseQualifier   = (PU8_DataPointer[1] >> 6) & 0x01U;
+         boolean BO_RearRightPulseQualifier  = (PU8_DataPointer[1] >> 4) & 0x01U;
+         boolean bMessageInvalid             = FALSE;
+         Type_SwcApplTpms_stWheelPulseStamped tTPM_WheelPulse_Structure;
          uint16 U16_WheelPulseTimestamp;
          U16_WheelPulseTimestamp = (((uint16) PU8_DataPointer[6]) << 8) | ((uint16) PU8_DataPointer[7]);
          tTPM_WheelPulse_Structure.ulAbsTimeStamp = Rdc_ConvertWheelPulseTimestamp(U16_WheelPulseTimestamp);
          tTPM_WheelPulse_Structure.uiSimTimeStamp = 0xFFFFU;
          tTPM_WheelPulse_Structure.ucAge = 0xFFU;
-         if(FALSE != BO_FrontLeftPulseQualifier){
-            tTPM_WheelPulse_Structure.uiPulseCtrFL = PU8_DataPointer[2];
-         }
-         else{
-            tTPM_WheelPulse_Structure.uiPulseCtrFL = CANMGR__WHEEL_PULSE_INVALID_SUBST_VALUE;
-            bMessageInvalid = TRUE;
-         }
-         if(FALSE != BO_FrontRightPulseQualifier){
-            tTPM_WheelPulse_Structure.uiPulseCtrFR = PU8_DataPointer[4];
-         }
-         else{
-            tTPM_WheelPulse_Structure.uiPulseCtrFR = CANMGR__WHEEL_PULSE_INVALID_SUBST_VALUE;
-            bMessageInvalid = TRUE;
-         }
-         if(FALSE != BO_RearLeftPulseQualifier){
-            tTPM_WheelPulse_Structure.uiPulseCtrRL = PU8_DataPointer[3];
-         }
-         else{
-            tTPM_WheelPulse_Structure.uiPulseCtrRL = CANMGR__WHEEL_PULSE_INVALID_SUBST_VALUE;
-            bMessageInvalid = TRUE;
-         }
-         if(FALSE != BO_RearRightPulseQualifier){
-            tTPM_WheelPulse_Structure.uiPulseCtrRR = PU8_DataPointer[5];
-         }
-         else{
-            tTPM_WheelPulse_Structure.uiPulseCtrRR = CANMGR__WHEEL_PULSE_INVALID_SUBST_VALUE;
-            bMessageInvalid = TRUE;
-         }
+         if(FALSE != BO_FrontLeftPulseQualifier)  {tTPM_WheelPulse_Structure.uiPulseCtrFL = PU8_DataPointer[2];} else{tTPM_WheelPulse_Structure.uiPulseCtrFL = CANMGR__WHEEL_PULSE_INVALID_SUBST_VALUE; bMessageInvalid = TRUE;}
+         if(FALSE != BO_FrontRightPulseQualifier) {tTPM_WheelPulse_Structure.uiPulseCtrFR = PU8_DataPointer[4];} else{tTPM_WheelPulse_Structure.uiPulseCtrFR = CANMGR__WHEEL_PULSE_INVALID_SUBST_VALUE; bMessageInvalid = TRUE;}
+         if(FALSE != BO_RearLeftPulseQualifier)   {tTPM_WheelPulse_Structure.uiPulseCtrRL = PU8_DataPointer[3];} else{tTPM_WheelPulse_Structure.uiPulseCtrRL = CANMGR__WHEEL_PULSE_INVALID_SUBST_VALUE; bMessageInvalid = TRUE;}
+         if(FALSE != BO_RearRightPulseQualifier)  {tTPM_WheelPulse_Structure.uiPulseCtrRR = PU8_DataPointer[5];} else{tTPM_WheelPulse_Structure.uiPulseCtrRR = CANMGR__WHEEL_PULSE_INVALID_SUBST_VALUE; bMessageInvalid = TRUE;}
          HufIf_RCtAbsEnvData(&tTPM_WheelPulse_Structure);
          if(FALSE == bMessageInvalid){
             DemMGR_RxReceived(DEMMGR_E_ESP_WHEEL_PULSE_STAMPED_INDEX);
@@ -352,11 +328,11 @@ void CANMGR_VehSts_BodyLCAN_UpdateValues(
 void CANMGR_VmsStsReq_BodyLCAN_UpdateValues(
    uint8* PU8_DataPointer
 ){
-   static uint8 U8_LastRearMessageCounter    = CANMGR__VMS_STS_REQ_MESSAGE_COUNTER_INVALID;
-          uint8 U8_CurrentRearMessageCounter = PU8_DataPointer[1] & 0x0FU;
-   if(U8_CurrentRearMessageCounter != U8_LastRearMessageCounter){
-      U8_LastRearMessageCounter = U8_CurrentRearMessageCounter;
-      if(U8_CurrentRearMessageCounter != CANMGR__VMS_STS_REQ_MESSAGE_COUNTER_INVALID){
+   static uint8 u8CounterMessageRearLast    = CANMGR__VMS_STS_REQ_MESSAGE_COUNTER_INVALID;
+          uint8 u8CounterMessageRearCurrent = PU8_DataPointer[1] & 0x0FU;
+   if(u8CounterMessageRearLast != u8CounterMessageRearCurrent){
+      u8CounterMessageRearLast = u8CounterMessageRearCurrent;
+      if(u8CounterMessageRearCurrent != CANMGR__VMS_STS_REQ_MESSAGE_COUNTER_INVALID){
          boolean BO_RoadMode;
          BO_RoadMode = (PU8_DataPointer[3] >> 3U) & 0x01U;
          Env_SetRoadMode(BO_RoadMode);

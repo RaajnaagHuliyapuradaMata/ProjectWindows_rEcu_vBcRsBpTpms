@@ -81,17 +81,17 @@ void Rdc_ProcessTelegram(
 }
 
 void Rdc_ForwardRfDataToTms(void){
-   tsEnv_Data* PS_EnvData = Env_GetEnvironmentData();
+   Type_SwcApplTpms_stStatusBody* PS_EnvData = Env_GetEnvironmentData();
    while(RdcRb_IsBufferEmpty() == FALSE){
-      tsWS_RxDataIn* PS_RxData = RdcRb_ReadTelegram();
+      Type_SwcApplTpms_stTelegramWS* PS_RxData = RdcRb_ReadTelegram();
       HufIf_RCtSaReTelDec(PS_RxData, PS_EnvData);
    }
 }
 
 void Rdc_ForwardSimulatedRfDataToTms(uint8* PU8_DataPointer){
-   tsWS_RxDataIn S_RxData;
+   Type_SwcApplTpms_stTelegramWS S_RxData;
    uint16 U16_SimulatedTimestamp;
-   tsEnv_Data* PS_EnvData = Env_GetEnvironmentData();
+   Type_SwcApplTpms_stStatusBody* PS_EnvData = Env_GetEnvironmentData();
    U16_SimulatedTimestamp = (((uint16) PU8_DataPointer[6]) << 8) | ((uint16) PU8_DataPointer[7]);
    if(
          (PU8_DataPointer[2] == RDC__LEARN_TELEGRAM_PACKAGE_ID)

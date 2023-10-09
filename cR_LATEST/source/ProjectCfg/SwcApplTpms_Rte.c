@@ -41,12 +41,12 @@ static RFTelegramFilter OneRFTelegramInformation[8];
 static uint8            U8_PositionCnt;
 static uint32           U32_SimulatedTimestamp;
 
-tsEnv_Data g_sEnv_Data;
+Type_SwcApplTpms_stStatusBody g_sEnv_Data;
 
 static void  Init_Sys_After_Kl15_Off        (void);
 static void  Init_Std_Modules_After_Kl30_On (void);
 static void  InitSameTGBuffer               (void);
-static void  ProcessSimulatedTelegram       (tsWS_RxDataIn* spRxDataIn);
+static void  ProcessSimulatedTelegram       (Type_SwcApplTpms_stTelegramWS* spRxDataIn);
 
 static uint8 u8CheckSameTG(
       const uint8* u8CurrentRFFrame
@@ -64,8 +64,8 @@ void HufIf_Init_Huf_SWC(void){
 }
 
 void HufIf_RCtSaReTelDec(
-            tsWS_RxDataIn* spRxDataIn
-   ,  const tsEnv_Data*    spEnvDataIn
+            Type_SwcApplTpms_stTelegramWS* spRxDataIn
+   ,  const Type_SwcApplTpms_stStatusBody*    spEnvDataIn
 ){
    boolean l_bAnalizeAllRF = FALSE;
    uint16  l_uiSyncPattern;
@@ -129,7 +129,7 @@ void HufIf_RCtSaReTelDec(
 }
 
 void HufIf_RCtSaEnvData(
-   const tsEnv_Data* spRxEnvDataIn
+   const Type_SwcApplTpms_stStatusBody* spRxEnvDataIn
 ){
    static uint16  sl_uiOldVehSpeed     = 0xFFFFU;
    static uint8   sl_ucOldKLstate      = VEH_IGN_OFF;
@@ -207,7 +207,7 @@ void HufIf_RCtSaEnvData(
 }
 
 void HufIf_RCtAbsEnvData(
-   const tsEnvAbs_Data* spRxEnvAbsDataIn
+   const Type_SwcApplTpms_stWheelPulseStamped* spRxEnvAbsDataIn
 ){
    uint32 u32TempAbsTimeStamp;
    uint16 u16TempAbsSig[4];
@@ -251,7 +251,7 @@ void HufIf_RCtAbsEnvData(
 }
 
 void HufIf_RCtSaTpmsData(
-   const tsEnv_Data* spEnvData
+   const Type_SwcApplTpms_stStatusBody* spEnvData
 ){
    uint8 ucLinStatus;
    if(TRUE == bGetBitFahrzeugzustandFZZ(cKL_15_EIN)){
@@ -330,7 +330,7 @@ static void InitSameTGBuffer(void){
 }
 
 static void ProcessSimulatedTelegram(
- tsWS_RxDataIn* spRxDataIn
+ Type_SwcApplTpms_stTelegramWS* spRxDataIn
 ){
    uint8  l_ucTelType;
    l_ucTelType = spRxDataIn->ucaTelegram[2];

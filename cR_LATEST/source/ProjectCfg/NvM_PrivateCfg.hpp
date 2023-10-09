@@ -185,7 +185,7 @@ extern CONST(uint8, NVM_PRIVATE_CONST) NvM_NoOfWrAttempts_u8;
 extern CONST(uint16, NVM_CONFIG_CONST) NvM_NoOfCrcBytes_u16;
 extern CONST(uint16, NVM_PRIVATE_CONST) NvM_CrcQueueSize_u16;
 
-#include "Crc.hpp"
+#include "LibAutosar_Crc.hpp"
 
 #define NVM_USE_CRC16 STD_ON
 #define NVM_USE_CRC32 STD_OFF

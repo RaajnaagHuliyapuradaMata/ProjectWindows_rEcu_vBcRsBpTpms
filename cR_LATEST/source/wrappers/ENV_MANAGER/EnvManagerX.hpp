@@ -27,7 +27,7 @@ typedef enum{
 }Env_Enum_WheelIndex;
 
 extern void                   Env_Init                             (void);
-extern tsEnv_Data*            Env_GetEnvironmentData               (void);
+extern Type_SwcApplTpms_stStatusBody*            Env_GetEnvironmentData               (void);
 extern void                   Env_SetIgnitionStateFromBus          (Env_Enum_IgnitionState      EN_IgnitionState);
 extern void                   Env_SetAmbientTemperature            (uint8                       U8_AmbientTemperature);
 extern void                   Env_SetAtmosphericPressure           (uint8                       U8_AtmosphericPressure);

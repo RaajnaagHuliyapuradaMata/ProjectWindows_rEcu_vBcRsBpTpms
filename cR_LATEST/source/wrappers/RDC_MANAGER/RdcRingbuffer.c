@@ -47,13 +47,13 @@ extern void RdcRb_StoreTelegram(struct rfstruct* PS_TelegramData, uint32* PU32_T
   }
 }
 
-extern void RdcRb_StoreSimulatedTelegram(tsWS_RxDataIn* tSimulatedTelegram){
+extern void RdcRb_StoreSimulatedTelegram(Type_SwcApplTpms_stTelegramWS* tSimulatedTelegram){
   RdcRb__S_RingBuffer.UN_RxData.AS_RxData[RdcRb__S_RingBuffer.U8_WritePosition] = *tSimulatedTelegram;
   RdcRb__IncrementWritePosition();
 }
 
-extern tsWS_RxDataIn* RdcRb_ReadTelegram(void){
-  tsWS_RxDataIn* PS_RxData = &RdcRb__S_RingBuffer.UN_RxData.AS_RxData[RdcRb__S_RingBuffer.U8_ReadPosition];
+extern Type_SwcApplTpms_stTelegramWS* RdcRb_ReadTelegram(void){
+  Type_SwcApplTpms_stTelegramWS* PS_RxData = &RdcRb__S_RingBuffer.UN_RxData.AS_RxData[RdcRb__S_RingBuffer.U8_ReadPosition];
   RdcRb__IncrementReadPosition();
   return PS_RxData;
 }

@@ -95,7 +95,7 @@ typedef uint8  Com_TimeBaseType;
 /******************************************************************************/
 /* FUNCTIONS                                                                  */
 /******************************************************************************/
-extern FUNC(void,COM_CODE) Com_TxNotify_ApplicationResponse_TPM_Can_Network_CANNODE_0(void);
+extern FUNC(void, COM_CODE) Com_TxNotify_ApplicationResponse_TPM_Can_Network_CANNODE_0(void);
 
 /******************************************************************************/
 /* EOF                                                                        */

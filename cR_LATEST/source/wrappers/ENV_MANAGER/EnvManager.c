@@ -8,7 +8,7 @@
 
 static Env__Struct_WheelInfo  Env__S_WheelInfo[ENV_E_MAX_WHEEL_INDEX];
 static Env_Enum_IgnitionState EN_IgnitionStateFromBus;
-static tsEnv_Data             Env__EnvironmentData;
+static Type_SwcApplTpms_stStatusBody             Env__EnvironmentData;
 static uint8                  ucVehicleMode;
 static boolean                bCoastModeActive = FALSE;
 
@@ -40,7 +40,7 @@ void Env_Init(void){
    }
 }
 
-tsEnv_Data* Env_GetEnvironmentData(void){
+Type_SwcApplTpms_stStatusBody* Env_GetEnvironmentData(void){
    Env__DetermineVehicleSpeedAndDirection();
    return &Env__EnvironmentData;
 }
