@@ -4,8 +4,6 @@
 #include "fbl_def.hpp"
 
 #define FBL_BHSENS_NVM
-#define cMETADATA_APP 0
-#define cMETADATA_FBL 1
 
 #ifndef WRAPNV_USE_DUMMY_STATEMENT
 #define WRAPNV_USE_DUMMY_STATEMENT STD_ON

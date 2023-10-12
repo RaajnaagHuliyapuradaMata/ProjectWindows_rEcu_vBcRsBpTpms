@@ -2,10 +2,8 @@
 
 #include "RdcRingbuffer.hpp"
 #include "ata_Rec_X.hpp"
-#include "version.hpp"
 
 static RdcRb__Struct_Ringbuffer RdcRb__S_RingBuffer;
-
 static void RdcRb__IncrementWritePosition(void);
 static void RdcRb__IncrementReadPosition(void);
 

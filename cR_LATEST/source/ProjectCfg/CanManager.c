@@ -15,7 +15,6 @@
 #include "DemManagerX.hpp"
 #include "GpioX.hpp"
 #include "CanTrcv.hpp"
-#include "version.hpp"
 
 #include "iTpms_Interface.hpp"
 
@@ -158,14 +157,14 @@ void CANMGR_ControlCyclicApplicationPdu(void){
 
 void CANMGR_ApplicationRequest_UpdateValues(uint8* PU8_DataPointer){
    Type_SwcApplTpms_stMessageCan lstMessageCan;
-   lstMessageCan.ucData0 = PU8_DataPointer[0];
-   lstMessageCan.ucData1 = PU8_DataPointer[1];
-   lstMessageCan.ucData2 = PU8_DataPointer[2];
-   lstMessageCan.ucData3 = PU8_DataPointer[3];
-   lstMessageCan.ucData4 = PU8_DataPointer[4];
-   lstMessageCan.ucData5 = PU8_DataPointer[5];
-   lstMessageCan.ucData6 = PU8_DataPointer[6];
-   lstMessageCan.ucData7 = PU8_DataPointer[7];
+   lstMessageCan.lptru8Data0 = PU8_DataPointer[0];
+   lstMessageCan.lptru8Data1 = PU8_DataPointer[1];
+   lstMessageCan.lptru8Data2 = PU8_DataPointer[2];
+   lstMessageCan.lptru8Data3 = PU8_DataPointer[3];
+   lstMessageCan.lptru8Data4 = PU8_DataPointer[4];
+   lstMessageCan.lptru8Data5 = PU8_DataPointer[5];
+   lstMessageCan.lptru8Data6 = PU8_DataPointer[6];
+   lstMessageCan.lptru8Data7 = PU8_DataPointer[7];
    (void) infSwcApplTpmsSwcServiceCom_tCalloutRxMessage(
          CAN_MSG_DEBUG_REQ
       ,  &lstMessageCan

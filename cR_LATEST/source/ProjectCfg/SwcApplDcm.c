@@ -7,11 +7,10 @@
 #define SECA_LEVEL_APPLICATION                                                 3
 #define SECA_LEVEL_PROGRAMMING                                                 5
 
-static void CalculateSeed(uint8* Seed);
-static void ComputeKeyFromSeed(uint8 ucSecaLevel, uint8* seed, uint16 sizeSeed, uint8* key, uint16 maxSizeKey, uint16* sizeKey);
-static boolean DCM_IsMemoryInitialized(uint8* ucBuffer, uint8 ucLength);
+#include "Types_CfgSwcServiceStartUp.hpp"
+#include "CfgSwcServiceStartUp.hpp"
+#include "SwcServiceStartUp.hpp"
 
-#include "version.hpp"
 #include "iTpms_Interface.hpp"
 #include "DcmAppl.hpp"
 #include "rba_DiagLib_MemUtils.hpp"
@@ -24,6 +23,10 @@ static boolean DCM_IsMemoryInitialized(uint8* ucBuffer, uint8 ucLength);
 
 static uint8 aucSecurityKeyReprogramming[16];
 static uint8 aucSecurityKeyApplication[16];
+
+static void CalculateSeed(uint8* Seed);
+static void ComputeKeyFromSeed(uint8 ucSecaLevel, uint8* seed, uint16 sizeSeed, uint8* key, uint16 maxSizeKey, uint16* sizeKey);
+static boolean DCM_IsMemoryInitialized(uint8* ucBuffer, uint8 lu8Length);
 
 FUNC(Std_ReturnType, DCM_APPL_CODE) DcmDsp_StartEcuEolTestProcedure_Callback(
         VAR(Dcm_OpStatusType, AUTOMATIC) OpStatus
@@ -186,10 +189,10 @@ FUNC(Std_ReturnType,DCM_APPL_CODE) DcmDspData_ApplicationID_ReadFunc(
    Data[0] = 1U;
    Data += 1;
    if(
-         VERSION_GetEcuProgramInformationPart1(
+         SwcServiceStartUp_u8GetEcuProgramInformationPart1(
                Data
             ,  cSTRING_ECU_PROGRAM_INFO_1_LENGTH
-            ,  cMETADATA_APP
+            ,  CfgSwcServiceStartUp_eProgramSw_App
          )
       == FALSE
    ){
@@ -206,8 +209,8 @@ FUNC(Std_ReturnType,DCM_APPL_CODE) DcmDspData_AppSwFingerprint_ReadFunc (VAR(Dcm
   Data[0] = 1U;
   Data += 1;
 
-  Data += FEEFBL_GetTesterSerialNumber(Data, cMETADATA_APP);
-  Data += FEEFBL_GetProgrammingDate(Data, cMETADATA_APP);
+  Data += FEEFBL_GetTesterSerialNumber(Data, CfgSwcServiceStartUp_eProgramSw_App);
+  Data += FEEFBL_GetProgrammingDate(Data, CfgSwcServiceStartUp_eProgramSw_App);
 
   return E_OK;
 }
@@ -218,10 +221,10 @@ FUNC(Std_ReturnType,DCM_APPL_CODE) DcmDspData_ApplicationProgramInformation_Read
   Data[0] = 1U;
   Data += 1;
 
-  Data += VERSION_GetEcuProgramInformationPart1(Data, cSTRING_ECU_PROGRAM_INFO_1_LENGTH, cMETADATA_APP);
-  Data += VERSION_GetEcuProgramInformationPart2(Data, cSTRING_ECU_PROGRAM_INFO_2_LENGTH, cMETADATA_APP);
-  Data += FEEFBL_GetTesterSerialNumber(Data, cMETADATA_APP);
-  Data += FEEFBL_GetProgrammingDate(Data, cMETADATA_APP);
+  Data += SwcServiceStartUp_u8GetEcuProgramInformationPart1(Data, cSTRING_ECU_PROGRAM_INFO_1_LENGTH, CfgSwcServiceStartUp_eProgramSw_App);
+  Data += SwcServiceStartUp_u8GetEcuProgramInformationPart2(Data, cSTRING_ECU_PROGRAM_INFO_2_LENGTH, CfgSwcServiceStartUp_eProgramSw_App);
+  Data += FEEFBL_GetTesterSerialNumber(Data, CfgSwcServiceStartUp_eProgramSw_App);
+  Data += FEEFBL_GetProgrammingDate(Data, CfgSwcServiceStartUp_eProgramSw_App);
   //Data += PRODFLASH_GetEcuProgramFingerprintApplication(Data);
 
   return E_OK;
@@ -238,7 +241,7 @@ FUNC(Std_ReturnType,DCM_APPL_CODE) DcmDspData_BootloaderID_ReadFunc (VAR(Dcm_OpS
 
   Data[0] = 1U;
   Data += 1;
-  if(VERSION_GetEcuProgramInformationPart1(Data, cSTRING_ECU_PROGRAM_INFO_1_LENGTH, cMETADATA_FBL) == FALSE)
+  if(SwcServiceStartUp_u8GetEcuProgramInformationPart1(Data, cSTRING_ECU_PROGRAM_INFO_1_LENGTH, CfgSwcServiceStartUp_eProgramSw_Fbl) == FALSE)
   {
     return E_NOT_OK;
   }
@@ -247,54 +250,40 @@ FUNC(Std_ReturnType,DCM_APPL_CODE) DcmDspData_BootloaderID_ReadFunc (VAR(Dcm_OpS
   }
 }
 
-FUNC(Std_ReturnType,DCM_APPL_CODE) DcmDspData_BootSwFingerprint_ReadFunc (VAR(Dcm_OpStatusType,AUTOMATIC) OpStatus,P2VAR(uint8,AUTOMATIC,DCM_INTERN_DATA) Data)
-{
-
+FUNC(Std_ReturnType,DCM_APPL_CODE) DcmDspData_BootSwFingerprint_ReadFunc (VAR(Dcm_OpStatusType,AUTOMATIC) OpStatus,P2VAR(uint8,AUTOMATIC,DCM_INTERN_DATA) Data){
   Data[0] = 1U;
   Data += 1;
-
-  Data += FEEFBL_GetTesterSerialNumber(Data, cMETADATA_FBL);
-  Data += FEEFBL_GetProgrammingDate(Data, cMETADATA_FBL);
-  //(void)PRODFLASH_GetEcuProgramFingerprintBootloader(Data);
-
+  Data += FEEFBL_GetTesterSerialNumber(Data, CfgSwcServiceStartUp_eProgramSw_Fbl);
+  Data += FEEFBL_GetProgrammingDate(Data, CfgSwcServiceStartUp_eProgramSw_Fbl);
   return E_OK;
 }
 
-FUNC(Std_ReturnType,DCM_APPL_CODE) DcmDspData_BootloaderProgramInformation_ReadFunc (VAR(Dcm_OpStatusType,AUTOMATIC) OpStatus,P2VAR(uint8,AUTOMATIC,DCM_INTERN_DATA) Data)
-{
-  //Number of programs
+FUNC(Std_ReturnType,DCM_APPL_CODE) DcmDspData_BootloaderProgramInformation_ReadFunc (VAR(Dcm_OpStatusType,AUTOMATIC) OpStatus,P2VAR(uint8,AUTOMATIC,DCM_INTERN_DATA) Data){
   Data[0] = 1U;
   Data += 1;
-
-  Data += VERSION_GetEcuProgramInformationPart1(Data, cSTRING_ECU_PROGRAM_INFO_1_LENGTH, cMETADATA_FBL);
-  Data += VERSION_GetEcuProgramInformationPart2(Data, cSTRING_ECU_PROGRAM_INFO_2_LENGTH, cMETADATA_FBL);
-  Data += FEEFBL_GetTesterSerialNumber(Data, cMETADATA_FBL);
-  Data += FEEFBL_GetProgrammingDate(Data, cMETADATA_FBL);
-  //Data += PRODFLASH_GetEcuProgramFingerprintBootloader(Data);
-
+  Data += SwcServiceStartUp_u8GetEcuProgramInformationPart1(Data, cSTRING_ECU_PROGRAM_INFO_1_LENGTH, CfgSwcServiceStartUp_eProgramSw_Fbl);
+  Data += SwcServiceStartUp_u8GetEcuProgramInformationPart2(Data, cSTRING_ECU_PROGRAM_INFO_2_LENGTH, CfgSwcServiceStartUp_eProgramSw_Fbl);
+  Data += FEEFBL_GetTesterSerialNumber(Data, CfgSwcServiceStartUp_eProgramSw_Fbl);
+  Data += FEEFBL_GetProgrammingDate(Data, CfgSwcServiceStartUp_eProgramSw_Fbl);
   return E_OK;
 }
 
-FUNC(Std_ReturnType,DCM_APPL_CODE) DcmDspData_AuxId_ReadFunc (VAR(Dcm_OpStatusType,AUTOMATIC) OpStatus,P2VAR(uint8,AUTOMATIC,DCM_INTERN_DATA) Data)
-{
-  VERSION_GetAuxId(Data, cSTRING_SIZ_AUX_ID, cAPP);
+FUNC(Std_ReturnType,DCM_APPL_CODE) DcmDspData_AuxId_ReadFunc (VAR(Dcm_OpStatusType,AUTOMATIC) OpStatus,P2VAR(uint8,AUTOMATIC,DCM_INTERN_DATA) Data){
+  SwcServiceStartUp_u8GetAuxId(Data, cSTRING_SIZ_AUX_ID, CfgSwcServiceStartUp_eProgramSw_App);
   return E_OK;
 }
 
-FUNC(Std_ReturnType,DCM_APPL_CODE) DcmDspData_ModeId_ReadFunc (VAR(Dcm_OpStatusType,AUTOMATIC) OpStatus,P2VAR(uint8,AUTOMATIC,DCM_INTERN_DATA) Data)
-{
-  VERSION_GetModeId(Data, cSTRING_SIZ_AUX_ID, cAPP);
+FUNC(Std_ReturnType,DCM_APPL_CODE) DcmDspData_ModeId_ReadFunc (VAR(Dcm_OpStatusType,AUTOMATIC) OpStatus,P2VAR(uint8,AUTOMATIC,DCM_INTERN_DATA) Data){
+  SwcServiceStartUp_u8GetModeId(Data, cSTRING_SIZ_AUX_ID, CfgSwcServiceStartUp_eProgramSw_App);
   return E_OK;
 }
 
-FUNC(Std_ReturnType,DCM_APPL_CODE) DcmDspData_ComponentAndSwType_ReadFunc (VAR(Dcm_OpStatusType,AUTOMATIC) OpStatus,P2VAR(uint8,AUTOMATIC,DCM_INTERN_DATA) Data)
-{
-  (void)VERSION_GetComponentAndSwType(Data, cSTRING_SIZ_COMPANDSWTYPE, cAPP);
+FUNC(Std_ReturnType,DCM_APPL_CODE) DcmDspData_ComponentAndSwType_ReadFunc (VAR(Dcm_OpStatusType,AUTOMATIC) OpStatus,P2VAR(uint8,AUTOMATIC,DCM_INTERN_DATA) Data){
+  (void)SwcServiceStartUp_u8GetComponentAndSwType(Data, cSTRING_SIZ_COMPANDSWTYPE, CfgSwcServiceStartUp_eProgramSw_App);
   return E_OK;
 }
 
-FUNC(Std_ReturnType,DCM_APPL_CODE) DcmDspData_FullGenealogyBlock_ReadFunc (VAR(Dcm_OpStatusType,AUTOMATIC) OpStatus,P2VAR(uint8,AUTOMATIC,DCM_INTERN_DATA) Data)
-{
+FUNC(Std_ReturnType,DCM_APPL_CODE) DcmDspData_FullGenealogyBlock_ReadFunc (VAR(Dcm_OpStatusType,AUTOMATIC) OpStatus,P2VAR(uint8,AUTOMATIC,DCM_INTERN_DATA) Data){
   Data += PRODFLASH_GetGenealogyVersion(Data);
   Data += PRODFLASH_GetComponentId(Data);
   Data += PRODFLASH_GetPcbaId(Data);
@@ -306,30 +295,25 @@ FUNC(Std_ReturnType,DCM_APPL_CODE) DcmDspData_FullGenealogyBlock_ReadFunc (VAR(D
   Data += PRODFLASH_GetRivianEcuSerialNumber(Data);
   Data += PRODFLASH_GetApplicationSignature(Data);
   Data += PRODFLASH_GetGenealogyCrc32(Data);
-
   return E_OK;
 }
 
-FUNC(Std_ReturnType,DCM_APPL_CODE) DcmDspData_GenealogyCrc32_ReadFunc (VAR(Dcm_OpStatusType,AUTOMATIC) OpStatus,P2VAR(uint8,AUTOMATIC,DCM_INTERN_DATA) Data)
-{
-  (void)PRODFLASH_GetGenealogyCrc32(Data);
-  return E_OK;
+FUNC(Std_ReturnType,DCM_APPL_CODE) DcmDspData_GenealogyCrc32_ReadFunc (VAR(Dcm_OpStatusType,AUTOMATIC) OpStatus,P2VAR(uint8,AUTOMATIC,DCM_INTERN_DATA) Data){
+   (void)PRODFLASH_GetGenealogyCrc32(Data);
+   return E_OK;
 }
 
-FUNC(Std_ReturnType,DCM_APPL_CODE) DcmDspData_GenealogyVersionNumber_ReadFunc (VAR(Dcm_OpStatusType,AUTOMATIC) OpStatus,P2VAR(uint8,AUTOMATIC,DCM_INTERN_DATA) Data)
-{
-  PRODFLASH_GetGenealogyVersion(Data);
-  //VERSION_GetGenealogyVersion(Data, cSTRING_SIZ_SCHEMA_VERS, cAPP);
-  return E_OK;
+FUNC(Std_ReturnType,DCM_APPL_CODE) DcmDspData_GenealogyVersionNumber_ReadFunc (VAR(Dcm_OpStatusType,AUTOMATIC) OpStatus,P2VAR(uint8,AUTOMATIC,DCM_INTERN_DATA) Data){
+   PRODFLASH_GetGenealogyVersion(Data);
+   return E_OK;
 }
 
-FUNC(Std_ReturnType,DCM_APPL_CODE) DcmDspData_ActiveSessionIndicator_ReadFunc (VAR(Dcm_OpStatusType,AUTOMATIC) OpStatus,P2VAR(uint8,AUTOMATIC,DCM_INTERN_DATA) Data)
-{
-  Dcm_SesCtrlType ActiveSession;
-  Dcm_GetSesCtrlType(&ActiveSession);
-  *Data = ActiveSession;
+FUNC(Std_ReturnType,DCM_APPL_CODE) DcmDspData_ActiveSessionIndicator_ReadFunc (VAR(Dcm_OpStatusType,AUTOMATIC) OpStatus,P2VAR(uint8,AUTOMATIC,DCM_INTERN_DATA) Data){
+   Dcm_SesCtrlType ActiveSession;
+   Dcm_GetSesCtrlType(&ActiveSession);
+   *Data = ActiveSession;
 
-  return E_OK;
+   return E_OK;
 }
 
 FUNC(Std_ReturnType,DCM_APPL_CODE) DcmDspData_EcuSerialNumber_ReadFunc (VAR(Dcm_OpStatusType,AUTOMATIC) OpStatus,P2VAR(uint8,AUTOMATIC,DCM_INTERN_DATA) Data)
@@ -943,12 +927,12 @@ Std_ReturnType DCM_CheckSecurityLevelForReadDids(Dcm_NegativeResponseCodeType *N
   return retVal;
 }
 
-static boolean DCM_IsMemoryInitialized(uint8* ucBuffer, uint8 ucLength)
+static boolean DCM_IsMemoryInitialized(uint8* ucBuffer, uint8 lu8Length)
 {
   boolean bResult = TRUE;
   uint8 i;
 
-  for(i=0; i<ucLength; i++)
+  for(i=0; i<lu8Length; i++)
   {
    if(ucBuffer[i] != 0xff)
    {

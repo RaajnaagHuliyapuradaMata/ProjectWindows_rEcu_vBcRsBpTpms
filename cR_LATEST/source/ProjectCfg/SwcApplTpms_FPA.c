@@ -507,7 +507,7 @@ static unsigned char ucGenDMnD_TryExclMxAssign(
    unsigned char ucHelpRet;
    unsigned char ucTmp;
    unsigned char ucTmpZomIx = 0;
-   unsigned char ucIndex = 0;
+   unsigned char u8Index = 0;
    unsigned char ucIncrErrCnt = 0;
    unsigned char ucTempCarSide = 0;
    unsigned char i, j;
@@ -614,13 +614,13 @@ static unsigned char ucGenDMnD_TryExclMxAssign(
             for(i = 0; i < cMaxLR; i++){
                if((tZOM[i].ucStatus & 0x0F) == 0){
                   ucTmpZomIx |= (1 << i);
-                  ucIndex = i;
+                  u8Index = i;
                }
             }
             if(ucBitcount(
                ucTmpZomIx) == 1){
                SetZOMWP(
-                  ucIndex,
+                  u8Index,
                   ucTmp);
                ucRet = 1;
                ucDebugAllocType |= 0x10;

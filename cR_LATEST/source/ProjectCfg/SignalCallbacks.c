@@ -10,7 +10,6 @@
 #include "DemManagerX.hpp"
 #include "DemAppInterfaceX.hpp"
 #include "AdcX.hpp"
-#include "version.hpp"
 
 extern void Debug_GetTgRxIrqCounter(
    uint8* ucIrqCnt,
@@ -81,13 +80,13 @@ FUNC(boolean, COM_CODE) Com_IPdu_Callout_HMIPressure_TPM(
       ,  ptr->SduLength
    );
    Dem_SetCurrentTirePressures(
-         stMessage.ucData2
-      ,  stMessage.ucData3
-      ,  stMessage.ucData4
-      ,  stMessage.ucData5
+         stMessage.lptru8Data2
+      ,  stMessage.lptru8Data3
+      ,  stMessage.lptru8Data4
+      ,  stMessage.lptru8Data5
    );
    Dem_SetCurrentLearnLocateStatus(
-      stMessage.ucData6
+      stMessage.lptru8Data6
    );
    return TRUE;
 }
@@ -126,10 +125,10 @@ FUNC(boolean, COM_CODE) Com_IPdu_Callout_HMITempAndRefPress_TPM(
       ,  ptr->SduLength
    );
    Dem_SetCurrentTireTemperatures(
-         stMessage.ucData0
-      ,  stMessage.ucData1
-      ,  stMessage.ucData2
-      ,  stMessage.ucData3
+         stMessage.lptru8Data0
+      ,  stMessage.lptru8Data1
+      ,  stMessage.lptru8Data2
+      ,  stMessage.lptru8Data3
    );
    return TRUE;
 }

@@ -3,7 +3,6 @@
 #include "SwcApplDcm_MsgAuthentication.hpp"
 #include "hmac_sha2.hpp"
 #include "FeeFblBlockInterfaceX.hpp"
-#include "version.hpp"
 #include "Dcm.hpp"
 
 #define INIT_SID_1 { cSidReadDataByIdent , cDidBootSwFingerprint, cDidApplSwFingerprint, cDidProgImgBL     , cDidProgImgAPP1  , cDidKeyGenCounters, cDidManufSuppMode, cDidEepBlockStatus }
@@ -20,7 +19,7 @@ static const uint16 aushAuthList[NO_OF_SID][NO_OF_DID_RID] = INIT_MSG_AUTHENTICA
 
 uint8 DcmCheckMessageAuthentication(uint8 ucSid, const uint8* aucMessage, uint16 ushLength){
   uint16 ushSubFunc;
-  uint8  aucHash[cSIZE_OF_HASH];
+  uint8  au8Hash[cSIZE_OF_HASH];
   uint8  i;
   uint8  ucRetVal = MSG_NO_AUTH_NEEDED;
   uint8  aucKey[kEepSizeSecKey_UDSMSGKEY];
@@ -30,10 +29,10 @@ uint8 DcmCheckMessageAuthentication(uint8 ucSid, const uint8* aucMessage, uint16
       FEEFBL_GetUdsMsgKey(aucKey);
       if(DcmKeyExist(aucKey, kEepSizeSecKey_UDSMSGKEY) == TRUE){
         ushLength -= cSIZE_OF_HASH;
-        hmac_sha256(aucKey, kEepSizeSecKey_UDSMSGKEY, aucMessage, ushLength, aucHash, cSIZE_OF_HASH);
+        hmac_sha256(aucKey, kEepSizeSecKey_UDSMSGKEY, aucMessage, ushLength, au8Hash, cSIZE_OF_HASH);
         ucRetVal = MSG_AUTH_SUCCESSFUL;
         for(i=0; i<cSIZE_OF_HASH; i++){
-          if(aucMessage[ushLength+i] != aucHash[i]){
+          if(aucMessage[ushLength+i] != au8Hash[i]){
             ucRetVal = MSG_REJECTED;
           }
         }
@@ -46,7 +45,7 @@ uint8 DcmCheckMessageAuthentication(uint8 ucSid, const uint8* aucMessage, uint16
   return ucRetVal;
 }
 
-uint8 DcmAppendMessageAuthentication(uint8 ucSid, uint8* aucDataToAdd, uint32 ushLength, uint8* ucResponseMessage){
+uint8 DcmAppendMessageAuthentication(uint8 ucSid, uint8* alptru8DataToAdd, uint32 ushLength, uint8* ucResponseMessage){
   uint16 ushSubFunc;
   uint8 ucRetVal = 0;
   uint8 aucKey[kEepSizeSecKey_UDSMSGKEY];
@@ -54,7 +53,7 @@ uint8 DcmAppendMessageAuthentication(uint8 ucSid, uint8* aucDataToAdd, uint32 us
    if(DcmAuthenticationNeeded(ucSid, ushSubFunc) == TRUE){
       FEEFBL_GetUdsMsgKey(aucKey);
       if(DcmKeyExist(aucKey, kEepSizeSecKey_UDSMSGKEY) == TRUE){
-        hmac_sha256(aucKey, kEepSizeSecKey_UDSMSGKEY, (const uint8*)ucResponseMessage, ushLength, aucDataToAdd, cSIZE_OF_HASH);
+        hmac_sha256(aucKey, kEepSizeSecKey_UDSMSGKEY, (const uint8*)ucResponseMessage, ushLength, alptru8DataToAdd, cSIZE_OF_HASH);
         ucRetVal = cSIZE_OF_HASH;
       }
    }
@@ -128,10 +127,10 @@ static boolean DcmAuthenticationNeeded(uint8 ucSid, uint16 ushDidRid){
   return ucRetVal;
 }
 
-static boolean DcmKeyExist(uint8* aucKey, uint8 ucLength){
+static boolean DcmKeyExist(uint8* aucKey, uint8 lu8Length){
   uint8 i;
   boolean ucRetVal = FALSE;
-  for(i=0; i<ucLength; i++){
+  for(i=0; i<lu8Length; i++){
    if(aucKey[i] != 0xff){
       ucRetVal = TRUE;
    }
