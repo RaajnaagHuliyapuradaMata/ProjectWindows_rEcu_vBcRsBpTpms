@@ -57,7 +57,7 @@
 
 static boolean DcmHashExist(uint8 ucSid, uint16 ushDidRid, uint32 ulServiceLength);
 static boolean DcmAuthenticationNeeded(uint8 ucSid, uint16 ushDidRid);
-static boolean DcmKeyExist(uint8* aucKey, uint8 lu8Length);
+static boolean DcmKeyExist(uint8* aucKey, uint8 ucLength);
 static boolean DcmGetSubFunctionFromMessageBuffer(uint8 ucSID, const uint8* aucMessage, uint16* ushSubFunc);
 
 #endif

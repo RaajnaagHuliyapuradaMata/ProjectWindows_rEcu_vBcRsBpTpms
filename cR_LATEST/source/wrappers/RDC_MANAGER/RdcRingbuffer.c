@@ -2,8 +2,10 @@
 
 #include "RdcRingbuffer.hpp"
 #include "ata_Rec_X.hpp"
+#include "version.hpp"
 
 static RdcRb__Struct_Ringbuffer RdcRb__S_RingBuffer;
+
 static void RdcRb__IncrementWritePosition(void);
 static void RdcRb__IncrementReadPosition(void);
 
@@ -45,13 +47,13 @@ extern void RdcRb_StoreTelegram(struct rfstruct* PS_TelegramData, uint32* PU32_T
   }
 }
 
-extern void RdcRb_StoreSimulatedTelegram(Type_SwcApplTpms_stTelegramWS* tSimulatedTelegram){
+extern void RdcRb_StoreSimulatedTelegram(tsWS_RxDataIn* tSimulatedTelegram){
   RdcRb__S_RingBuffer.UN_RxData.AS_RxData[RdcRb__S_RingBuffer.U8_WritePosition] = *tSimulatedTelegram;
   RdcRb__IncrementWritePosition();
 }
 
-extern Type_SwcApplTpms_stTelegramWS* RdcRb_ReadTelegram(void){
-  Type_SwcApplTpms_stTelegramWS* PS_RxData = &RdcRb__S_RingBuffer.UN_RxData.AS_RxData[RdcRb__S_RingBuffer.U8_ReadPosition];
+extern tsWS_RxDataIn* RdcRb_ReadTelegram(void){
+  tsWS_RxDataIn* PS_RxData = &RdcRb__S_RingBuffer.UN_RxData.AS_RxData[RdcRb__S_RingBuffer.U8_ReadPosition];
   RdcRb__IncrementReadPosition();
   return PS_RxData;
 }

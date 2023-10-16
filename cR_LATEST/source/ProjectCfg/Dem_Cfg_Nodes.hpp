@@ -14,7 +14,7 @@
 /* certain responsibilities, if you distribute copies of the software, or if  */
 /* you modify it: responsibilities to respect the freedom of others.          */
 /*                                                                            */
-/* All rights reserved. Copyright ï¿½ 1982 Raajnaag HULIYAPURADA MATA           */
+/* All rights reserved. Copyright © 1982 Raajnaag HULIYAPURADA MATA           */
 /*                                                                            */
 /* Always refer latest software version from:                                 */
 /* https://github.com/RaajnaagHuliyapuradaMata?tab=repositories               */
@@ -31,10 +31,13 @@
 #define DEM_CFG_DEPDEGRADATIONREASONRECOVERABLE_OFF  STD_OFF
 #define DEM_CFG_DEPDEGRADATIONREASONRECOVERABLE_ON   STD_ON
 #define DEM_CFG_DEPDEGRADATIONREASONRECOVERABLE  DEM_CFG_DEPDEGRADATIONREASONRECOVERABLE_OFF
+
 #define DEM_CFG_DEPRECOVERYLIMIT_OFF  STD_OFF
 #define DEM_CFG_DEPRECOVERYLIMIT_ON   STD_ON
 #define DEM_CFG_DEPRECOVERYLIMIT  DEM_CFG_DEPRECOVERYLIMIT_OFF
+
 #define DEM_CFG_DEPENDENCY_PENDING_ON             FALSE
+
 #define DEM_CFG_FAILUREDEPENDENCY_RECHECK_LIMIT  80u
 
 #define DEM_CFG_NODEPARAMS \
@@ -54,6 +57,7 @@
 #define DEM_CFG_DemCallback_TpmsEcuFailure_IDX  4
 #define DEM_CFG_DemCallback_TpmsSensorsFailure_IDX  5
 #define DEM_CFG_DemCallback_TpmsStatusFailure_IDX  6
+
 #define DEM_CFG_NODEFAILEDCALLBACK_COUNT  6
 #define DEM_CFG_NODEFAILEDCALLBACK_ARRAYLENGTH  (DEM_CFG_NODEFAILEDCALLBACK_COUNT+1)
 

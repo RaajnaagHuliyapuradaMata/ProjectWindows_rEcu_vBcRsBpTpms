@@ -14,7 +14,7 @@
 /* certain responsibilities, if you distribute copies of the software, or if  */
 /* you modify it: responsibilities to respect the freedom of others.          */
 /*                                                                            */
-/* All rights reserved. Copyright ï¿½ 1982 Raajnaag HULIYAPURADA MATA           */
+/* All rights reserved. Copyright © 1982 Raajnaag HULIYAPURADA MATA           */
 /*                                                                            */
 /* Always refer latest software version from:                                 */
 /* https://github.com/RaajnaagHuliyapuradaMata?tab=repositories               */
@@ -32,6 +32,7 @@
 #define DEM_CFG_EVTCATEGORY_ON   STD_ON
 #define DEM_CFG_EVTCATEGORY  DEM_CFG_EVTCATEGORY_OFF
 
+#if(DEM_CFG_EVTCATEGORY == DEM_CFG_EVTCATEGORY_ON)
 typedef uint8 Dem_EvtCategoryPrioType;
 
 #define DemConf_DemEventCategory_DemEventCategory_0                   1uL
@@ -45,6 +46,7 @@ typedef uint8 Dem_EvtCategoryPrioType;
 {DemConf_DemEventCategoryPriority_INVALIDPRIO                },\
  {DemConf_DemEventCategoryPriority_DemEventCategory_0         }, \
 }
+#endif
 
 /******************************************************************************/
 /* MACROS                                                                     */

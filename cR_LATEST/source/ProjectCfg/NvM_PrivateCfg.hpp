@@ -1,3 +1,5 @@
+
+
 #ifndef NVM_CFG_H_PRIVATE
 #define NVM_CFG_H_PRIVATE
 
@@ -68,23 +70,32 @@ typedef struct{
 }NvM_RamMngmtAreaType;
 
 typedef P2VAR(NvM_RamMngmtAreaType, AUTOMATIC, NVM_CONFIG_DATA) NvM_RamMngmtPtrType;
+
 typedef P2FUNC(Std_ReturnType, NVM_APPL_CODE, NvM_AsyncCbkPtrType) (NvM_ServiceIdType ServiceId, NvM_RequestResultType JobResult);
+
 typedef P2FUNC(Std_ReturnType, NVM_APPL_CODE, NvM_InitCbkPtrType)(void);
+
 typedef P2FUNC(Std_ReturnType, NVM_APPL_CODE, NvM_WriteRamToNvMCbkPtrType)(P2VAR(void, AUTOMATIC, NVM_APPL_DATA));
 typedef P2FUNC(Std_ReturnType, NVM_APPL_CODE, NvM_ReadRamFromNvMCbkPtrType)(P2CONST(void, AUTOMATIC, NVM_APPL_DATA));
+
 typedef P2VAR(uint8, AUTOMATIC, NVM_APPL_DATA) NvM_RamAddressType;
 typedef P2CONST(uint8, AUTOMATIC, NVM_APPL_DATA) NvM_ConstRamAddressType;
+
 typedef P2CONST(uint8, AUTOMATIC, NVM_APPL_CONST)NvM_RomAddressType;
 
 #define NVM_CALC_RAM_CRC_USED STD_OFF
 
+#if(NVM_CRC_INT_BUFFER == STD_ON)
 typedef P2VAR(uint8, AUTOMATIC, NVM_PRIVATE_DATA) NvM_RamCrcAddressType;
+#endif
 
 #define NVM_BLOCK_USE_CRC_OFF                (0u)
 #define NVM_BLOCK_CRC_8_ON                   (1u)
 #define NVM_BLOCK_CRC_16_ON                  (2u)
 #define NVM_BLOCK_CRC_32_ON                  (3u)
+
 #define NVM_BLOCK_CRC_MASK                   (0x03)
+
 #define NVM_CALC_RAM_BLOCK_CRC_ON            (1u)
 #define NVM_CALC_RAM_BLOCK_CRC_OFF           (0u)
 #define NVM_BLOCK_WRITE_PROT_ON              (2u)
@@ -111,7 +122,9 @@ typedef struct{
     NvM_AsyncCbkPtrType     CallbackFunc_pt;
     NvM_ReadRamFromNvMCbkPtrType CbkGetMirrorFunc_pt;
     NvM_WriteRamToNvMCbkPtrType CbkSetMirrorFunc_pt;
+#if(NVM_CRC_INT_BUFFER == STD_ON)
     NvM_RamCrcAddressType   RamBlockCrcAddr_t;
+#endif
    uint16                  NvIdentifier_u16;
    uint16                  NvBlockLength_u16;
     NvM_BitFieldType        NvBlockCount_u8 :8;
@@ -137,7 +150,12 @@ typedef enum{
    ,   NVM_INT_FID_NO_JOB_PENDING
 }NvM_InternalServiceIdEnumType;
 
+#if(NVM_DEV_ERROR_DETECT == STD_ON)
+typedef NvM_InternalServiceIdEnumType NvM_InternalServiceIdType;
+#else
 typedef uint8 NvM_InternalServiceIdType;
+#endif
+
 typedef uint8 NvM_QueueEntryRefType;
 
 typedef struct{
@@ -146,6 +164,9 @@ typedef struct{
     NvM_InternalServiceIdType   ServiceId;
     NvM_QueueEntryRefType       NextEntry;
     NvM_QueueEntryRefType       PrevEntry;
+#if(NVM_JOB_PRIORISATION == STD_ON)
+   uint8                       JobPrio;
+#endif
 }NvM_QueueEntryType;
 
 typedef struct{
@@ -159,44 +180,116 @@ typedef struct{
 #define NVM_STATE_CHANGED_CL   (0xFDu)
 #define NVM_NVRAM_UPTODATE_SET (0x04u)
 #define NVM_NVRAM_UPTODATE_CL  (0xFBu)
+
 #define NVM_WR_PROT_SET        (0x80u)
 #define NVM_WR_PROT_CL         (0x7Fu)
 #define NVM_LOCK_STAT_SET      (0x40u)
 #define NVM_LOCK_STAT_CL       (0xBFu)
+
 #define NVM_NVBLOCK_STATE_UPTODATE (0x00u)
 #define NVM_NVBLOCK_STATE_OUTDATED (0x01u)
 #define NVM_NVBLOCK_STATE_DEFECT   (0x02u)
 #define NVM_NVBLOCK_STATE_UNKNOWN  (0x03u)
+
 #define NVM_NVBLOCK_STATE_SEC_ACTIVE   (0x80u)
 #define NVM_NVBLOCK_STATE_PRI_ACTIVE   (0x7Fu)
+
 #define NVM_PRI_NVBLOCK_STATE_SHIFT (0x5u)
 #define NVM_SEC_NVBLOCK_STATE_SHIFT (0x3u)
+
 #define NVM_NVBLOCK_STATE_BIT_MASK (0x3u)
+
 #define NVM_USE_BLOCK_ID_CHECK STD_OFF
 
+#define NVM_START_SEC_CODE
+#include "MemMap.hpp"
+
 extern FUNC(void, NVM_PRIVATE_CODE) NvM_EnterCriticalSection(void);
+
 extern FUNC(void, NVM_PRIVATE_CODE) NvM_ExitCriticalSection(void);
+
 extern FUNC(void, NVM_PRIVATE_CODE) NvM_MultiBlockCbk(NvM_ServiceIdType, NvM_RequestResultType);
+
 extern FUNC(void, NVM_PRIVATE_CODE) NvM_BlockNotification(NvM_BlockIdType, NvM_ServiceIdType, NvM_RequestResultType);
+
+#define NVM_STOP_SEC_CODE
+#include "MemMap.hpp"
+
+#define NVM_START_SEC_VAR_NOINIT_8
+#include "MemMap.hpp"
+
+#if((NVM_CRC_INT_BUFFER == STD_ON) || (NVM_REPAIR_REDUNDANT_BLOCKS_API == STD_ON))
+
 extern VAR(uint8, NVM_PRIVATE_DATA) NvM_InternalBuffer_au8[];
+#endif
+
 extern VAR(uint8, NVM_PRIVATE_DATA) NvM_TestBuffer_u8;
+
+#define NVM_STOP_SEC_VAR_NOINIT_8
+#include "MemMap.hpp"
+
+#if(NVM_API_CONFIG_CLASS != NVM_API_CONFIG_CLASS_1)
+#define NVM_START_SEC_VAR_NOINIT_UNSPECIFIED
+# include "MemMap.hpp"
+
 extern VAR(NvM_QueueEntryType, NVM_PRIVATE_DATA) NvM_JobQueue_at[];
+
+#define NVM_STOP_SEC_VAR_NOINIT_UNSPECIFIED
+# include "MemMap.hpp"
+#endif
+
+#define NVM_START_SEC_CONST_8
+#include "MemMap.hpp"
+
 extern CONST(uint8, NVM_PRIVATE_CONST) NvM_NoOfWrAttempts_u8;
+
+#define NVM_STOP_SEC_CONST_8
+#include "MemMap.hpp"
+
+#define NVM_START_SEC_CONST_16
+#include "MemMap.hpp"
+
 extern CONST(uint16, NVM_CONFIG_CONST) NvM_NoOfCrcBytes_u16;
+
 extern CONST(uint16, NVM_PRIVATE_CONST) NvM_CrcQueueSize_u16;
+
+#define NVM_STOP_SEC_CONST_16
+#include "MemMap.hpp"
 
 #include "LibAutosar_Crc.hpp"
 
 #define NVM_USE_CRC16 STD_ON
 #define NVM_USE_CRC32 STD_OFF
+
 #define NVM_CRC32_XOR_VALUE     0xFFFFFFFFuL
 #define NVM_INITIAL_CRC_16_VALUE    0xFFFFFFFFuL
 #define NVM_INITIAL_CRC_32_VALUE    (0xFFFFFFFFuL ^ NVM_CRC32_XOR_VALUE)
 
+#define NVM_START_SEC_CONST_UNSPECIFIED
+#include "MemMap.hpp"
+
 extern CONST(NvM_QueueSizesType, NVM_PRIVATE_CONST) NvM_QueueSizes_t;
+
+#define NVM_STOP_SEC_CONST_UNSPECIFIED
+#include "MemMap.hpp"
+
+#define NVM_START_SEC_CONST_DESCRIPTOR_TABLE
+#include "MemMap.hpp"
+
 extern CONST(NvM_BlockDescriptorType, NVM_CONFIG_CONST) NvM_BlockDescriptorTable_at[];
+
+#define NVM_STOP_SEC_CONST_DESCRIPTOR_TABLE
+#include "MemMap.hpp"
+
+#define NVM_START_SEC_VAR_POWER_ON_INIT_UNSPECIFIED
+#include "MemMap.hpp"
+
 extern VAR(NvM_RamMngmtAreaType, NVM_CONFIG_DATA) NvM_BlockMngmtArea_at[];
+
 extern VAR(NvM_RamMngmtAreaType, NVM_CONFIG_DATA) NvM_DcmBlockMngmt_t;
+
+#define NVM_STOP_SEC_VAR_POWER_ON_INIT_UNSPECIFIED
+#include "MemMap.hpp"
 
 #endif
 

@@ -14,7 +14,7 @@
 /* certain responsibilities, if you distribute copies of the software, or if  */
 /* you modify it: responsibilities to respect the freedom of others.          */
 /*                                                                            */
-/* All rights reserved. Copyright ï¿½ 1982 Raajnaag HULIYAPURADA MATA           */
+/* All rights reserved. Copyright © 1982 Raajnaag HULIYAPURADA MATA           */
 /*                                                                            */
 /* Always refer latest software version from:                                 */
 /* https://github.com/RaajnaagHuliyapuradaMata?tab=repositories               */
@@ -40,9 +40,11 @@
 #define DEM_NVM_ID_EVMEM_LOC_8                   9u
 #define DEM_NVM_ID_EVMEM_LOC_9                   10u
 #define DEM_NVM_ID_EVT_STATUSBYTE                11u
+
 #define DEM_NVM_CFG_BLOCKID_TYPE                 uint8
 #define DEM_NVM_CFG_NUM_BLOCKS_TOTAL             12
 #define DEM_NVM_CFG_NUM_BLOCKS_EXTENDED          11
+
 #define DEM_NVM_CFG_NUM_STORAGEBUFFER            2
 #define DEM_CFG_COPY_FCT_ID_MEMCOPY           0
 #define DEM_NVM_CFG_COPYFCT_NUM  1

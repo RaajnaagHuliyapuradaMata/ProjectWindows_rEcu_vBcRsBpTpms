@@ -110,7 +110,7 @@
 #define CANIF_RX_DYNAMIC_PDUS                                                 0u
 #define CANIF_NUM_TRANSCEIVERS                                                 0
 #define CANIF_MAX_PDU_INDEX                                              0xFFFFu
-#define CanIf_CFG_Size_Of_CANID                         sizeof(Type_McalCan_tId)
+#define CanIf_CFG_Size_Of_CANID                               sizeof(Type_McalCan_tId)
 #define CANIF_CFG_NUM_CANRXPDUIDS                                            11u
 #define CANIF_CFG_TOTAL_HRH_NUM                                              11u
 #define CANIF_CFG_TOTAL_HOH_NUM                                              16u
@@ -206,12 +206,47 @@ typedef enum{
 }CanIf_DlcErrorReturnType;
 
 typedef struct{
+#if CANIF_CFG_TRCV_DRV_SUPPORT == STD_ON
+   P2FUNC(void, TYPEDEF, User_TransceiverModeIndication)(
+         VAR(uint8,     AUTOMATIC) TransceiverId
+      ,  VAR(CanTrcv_TrcvModeType, AUTOMATIC) TransceiverMode
+   );
+#if(CANIF_CFG_TRCV_WAKEUP_SUPPORT == STD_ON && CANIF_PUBLIC_WAKEUP_CHECK_VALIDATION_SUPPORT == STD_ON)
+   P2FUNC(void, TYPEDEF, User_ValidateWakeupEvent) (VAR(Type_SwcServiceEcuM_tSourceWakeup,AUTOMATIC) WakeupSource);
+#endif
+#endif
+
+#if(CANIF_PUBLIC_PN_SUPPORT == STD_ON)
+   P2FUNC(void, TYPEDEF, User_ClearTrcvWufFlagIndication )(VAR(uint8,AUTOMATIC) Transceiver);
+   P2FUNC(void, TYPEDEF, User_CheckTrcvWakeFlagIndication)(VAR(uint8,AUTOMATIC) Transceiver);
+   P2FUNC(void, TYPEDEF, User_ConfirmPnAvailability      )(VAR(uint8,AUTOMATIC) TransceiverId);
+#endif
+
    P2FUNC(void, TYPEDEF, User_ControllerBusOff        )(VAR(uint8, AUTOMATIC) ControllerId);
    P2FUNC(void, TYPEDEF, User_ControllerModeIndication)(
          VAR(uint8,     AUTOMATIC) ControllerId
-      ,  VAR(Type_EcuabCanIf_eModesController, AUTOMATIC) ControllerMode
+      ,  VAR(Type_EcuabCanIf_eModeController, AUTOMATIC) ControllerMode
    );
+
+#if(CANIF_RB_ERROR_PASSIVE_SUPPORT != STD_OFF)
+   P2FUNC(void, TYPEDEF, User_ControllerErrorPassive)(VAR(uint8, AUTOMATIC) ControllerId);
+#endif
+
+#if(CANIF_CFG_DLC_CHECK != STD_OFF)
+   P2FUNC(CanIf_DlcErrorReturnType, TYPEDEF, Dlc_Error_Notification)(
+         VAR(Type_SwcServiceCom_tIdPdu, AUTOMATIC) PduId_qu8
+      ,  VAR(uint8,     AUTOMATIC) SduLength
+   );
+#endif
 }CanIf_CallbackFuncType;
+
+#if(CANIF_TRCV_WAKEUP_SUPPORT== STD_ON)
+typedef struct{
+   uint8 TransceiverId;
+   uint8 ControllerId;
+    Type_SwcServiceEcuM_tSourceWakeup WakeupSourceId;
+}CanIf_Wakeup;
+#endif
 
 typedef struct{
    P2FUNC(void, TYPEDEF, CddRxIndication)(VAR(Type_SwcServiceCom_tIdPdu, AUTOMATIC),P2CONST(Type_SwcServiceCom_stInfoPdu, AUTOMATIC,CANIF_APPL_CONST));
@@ -227,6 +262,35 @@ typedef struct{
 typedef struct{
    P2FUNC(void, CANIF_APPL_CODE, UserTxConfirmation)(Type_SwcServiceCom_tIdPdu TxPduTargetPduId);
 }CanIf_TxCbk_Prototype;
+
+#if(CANIF_XCORE_CFG_ENABLED != STD_OFF)
+ typedef enum{
+   CANIF_XCORE_PIPE_RX = 0
+   ,  CANIF_XCORE_PIPE_TX
+   ,  CANIF_XCORE_PIPE_TXCONF
+}CanIf_XCore_PipeProcesingType;
+
+typedef struct{
+   uint16 PipeId_u16;
+   uint16 SrcCoreId_u16;
+   uint16 DestCoreId_u16;
+   uint32 FifoRamSizeBytes_u32;
+   uint32 DestFlags_u32;
+    TaskType DestRecvId;
+   void* PipeFifoRam_pv;
+   CanIf_XCore_PipeProcesingType PipeType;
+}CanIf_XCore_PipeConfigType_st;
+
+typedef struct{
+   uint8 CanIf_XCoreCanControllerCoreAffinity[CANIF_XCORE_NUMCANCTRL];
+   uint8 CanIf_XCoreUserTypeCoreAffinity[MAX_USER_TYPE];
+   uint16 CanIf_XCoreTxPipeMatrix[CANIF_XCORE_NUMCORES][CANIF_XCORE_NUMCORES];
+   uint16 CanIf_XCoreTxConfirmationPipeMatrix[CANIF_XCORE_NUMCORES][CANIF_XCORE_NUMCORES];
+   uint16 CanIf_XCoreRxPipeMatrix[CANIF_XCORE_NUMCORES][CANIF_XCORE_NUMCORES];
+   uint16 NumPipes_u16;
+   CanIf_XCore_PipeConfigType_st PipeConfigs_ast[CANIF_XCORE_MAX_NUM_PIPES];
+}CanIf_XCore_ConfigType;
+#endif
 
 /******************************************************************************/
 /* CONSTS                                                                     */

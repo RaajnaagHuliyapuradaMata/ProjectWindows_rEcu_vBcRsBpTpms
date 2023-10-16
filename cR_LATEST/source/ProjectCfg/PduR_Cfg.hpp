@@ -102,7 +102,11 @@
 #define PDUR_COM_CANCELRX_SUPPORT   0
 #endif
 
-extern CONST( Type_CfgSwcServicePduR_st, PDUR_CONST) CfgSwcServicePduR_cst;
+#define PDUR_START_SEC_CONFIG_DATA_POSTBUILD_UNSPECIFIED
+#include "PduR_MemMap.hpp"
+    extern CONST( Type_CfgSwcServicePduR_st, PDUR_CONST)  CfgSwcServicePduR_cst;
+#define PDUR_STOP_SEC_CONFIG_DATA_POSTBUILD_UNSPECIFIED
+#include "PduR_MemMap.hpp"
 
 #endif
 

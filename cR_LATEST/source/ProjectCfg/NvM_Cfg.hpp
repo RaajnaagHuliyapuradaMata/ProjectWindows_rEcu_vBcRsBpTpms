@@ -1,3 +1,5 @@
+
+
 #if(!defined NVM_CFG_H_PUBLIC)
 #define NVM_CFG_H_PUBLIC
 
@@ -6,33 +8,53 @@
 #define NVM_CFG_PATCH_VERSION    (0u)
 
 #include "Rte_NvM_Type.hpp"
+
 #include "NvM_Types.hpp"
 
-typedef union{
+typedef union
+{
    uint16 Word_u16;
    uint8  Bytes_au8[2u];
 }NvM_CompiledConfigIdType;
 
 #define NVM_DEV_ERROR_DETECT                  (STD_OFF)
+
 #define NVM_DYNAMIC_CONFIGURATION             (STD_ON)
+
 #define NVM_API_CONFIG_CLASS_1                (1u)
 #define NVM_API_CONFIG_CLASS_2                (3u)
 #define NVM_API_CONFIG_CLASS_3                (7u)
+
 #define NVM_API_CONFIG_CLASS                  (NVM_API_CONFIG_CLASS_3)
+
 #define NVM_JOB_PRIORISATION                  STD_OFF
+
 #define NVM_COMPILED_CONFIG_ID                (2U)
+
 #define NVM_DRV_MODE_SWITCH                   (STD_ON)
+
 #define NVM_POLLING_MODE                      (STD_OFF)
+
 #define NVM_CRC_INT_BUFFER                    (STD_ON)
+
 #define NVM_TOTAL_NUM_OF_NVRAM_BLOCKS         (27UL)
+
 #define NVM_INTERNAL_BUFFER_LENGTH            130UL
+
 #define NVM_VERSION_INFO_API                  (STD_ON)
+
 #define NVM_SET_RAM_BLOCK_STATUS_API          (STD_ON)
+
 #define NVM_KILL_WRITEALL_API                 (STD_ON)
+
 #define NVM_REPAIR_REDUNDANT_BLOCKS_API       (STD_OFF)
+
 #define NVM_DATASET_SELECTION_BITS            (1U)
+
 #define NVM_DCM_BLOCK_OFFSET                  0x8000u
+
 #define NvM_GetDcmBlockId(MyApplBlockId)      ((MyApplBlockId) | NVM_DCM_BLOCK_OFFSET)
+
 #define NvMConf___MultiBlockRequest (0U)
 #define NvMConf_NvMBlockDescriptor_NvMConfigBlock (1UL)
 #define NvMConf_NvMBlockDescriptor_NvMBlock_CAT01 (2UL)
@@ -61,8 +83,15 @@ typedef union{
 #define NvMConf_NvMBlockDescriptor_NvMBlock_DemNvm_IdDemGenericNvData (25UL)
 #define NvMConf_NvMBlockDescriptor_NvMBlock_FBL_Data (26UL)
 
+#define NVM_START_SEC_CONST_DESCRIPTOR_TABLE
+#include "MemMap.hpp"
+
 extern CONST(uint16, NVM_PUBLIC_CONST) NvM_NoOfBlockIds_t;
+
 extern CONST(NvM_CompiledConfigIdType, NVM_PUBLIC_CONST) NvM_CompiledConfigId_t;
+
+#define NVM_STOP_SEC_CONST_DESCRIPTOR_TABLE
+#include "MemMap.hpp"
 
 #ifndef NVM_USE_DUMMY_FUNCTIONS
 #define NVM_USE_DUMMY_FUNCTIONS STD_OFF

@@ -25,8 +25,6 @@
 /******************************************************************************/
 #include "Std_Types.hpp"
 
-#include "Types_SwcServiceComM.hpp"
-
 #include "EcuM.hpp"
 #include "EcuM_Cfg_Startup.hpp"
 
@@ -45,24 +43,12 @@
 /******************************************************************************/
 /* CONSTS                                                                     */
 /******************************************************************************/
-#define ECUM_START_SEC_CONST_UNSPECIFIED
-#include "EcuM_Cfg_MemMap.hpp"
-CONST(Type_CfgSwcServiceEcuM_stListRefsPncWakeup, ECUM_CONST) CfgSwcServiceEcuM_castListRefsPncWakeup[CfgSwcServiceEcuM_dNumSourceWakeup] = {
-      {0, NULL_PTR}
-   ,  {0, NULL_PTR}
-   ,  {0, NULL_PTR}
-   ,  {0, NULL_PTR}
-   ,  {0, NULL_PTR}
-};
-#define ECUM_STOP_SEC_CONST_UNSPECIFIED
-#include "EcuM_Cfg_MemMap.hpp"
-
 #define ECUM_START_SEC_CONFIG_DATA_POSTBUILD_UNSPECIFIED
 #include "EcuM_Cfg_MemMap.hpp"
 CONST(Type_CfgSwcServiceEcuM_st, ECUM_CONST) CfgSwcServiceEcuM_cst = {
       OSDEFAULTAPPMODE
    ,  {
-            SwcServiceEcuM_eTargetShutdown_OFF
+            ECUM_SHUTDOWN_TARGET_OFF
          ,  0
          ,  0
       }
@@ -76,7 +62,7 @@ CONST(Type_CfgSwcServiceEcuM_st, ECUM_CONST) CfgSwcServiceEcuM_cst = {
          ,  NULL_PTR
          ,  &CfgSwcServiceBswM_cst
       }
-   ,  &CfgSwcServiceEcuM_castListRefsPncWakeup[0]
+   ,  &EcuM_Cfg_dataWkupPNCRef_cast[0]
    ,  {
             0xD4
          ,  0x1D
@@ -102,7 +88,6 @@ CONSTP2CONST(Type_CfgSwcServiceEcuM_st,AUTOMATIC,ECUM_CONST) CfgSwcServiceEcuM_c
 };
 #define ECUM_STOP_SEC_CONFIG_DATA_POSTBUILD_UNSPECIFIED
 #include "EcuM_Cfg_MemMap.hpp"
-
 /******************************************************************************/
 /* PARAMS                                                                     */
 /******************************************************************************/

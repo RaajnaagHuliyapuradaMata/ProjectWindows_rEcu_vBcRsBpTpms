@@ -16,8 +16,8 @@
 typedef struct{
   union
   {
-    Type_SwcApplTpms_stTelegramWS AS_RxData[RDCRB__NUMBER_OF_STORED_TELEGRAMS];
-   uint8 U8_RxDataBytes[RDCRB__NUMBER_OF_STORED_TELEGRAMS * sizeof(Type_SwcApplTpms_stTelegramWS)];
+    tsWS_RxDataIn AS_RxData[RDCRB__NUMBER_OF_STORED_TELEGRAMS];
+   uint8 U8_RxDataBytes[RDCRB__NUMBER_OF_STORED_TELEGRAMS * sizeof(tsWS_RxDataIn)];
   }UN_RxData;
   uint8 U8_ReadPosition;
   uint8 U8_WritePosition;

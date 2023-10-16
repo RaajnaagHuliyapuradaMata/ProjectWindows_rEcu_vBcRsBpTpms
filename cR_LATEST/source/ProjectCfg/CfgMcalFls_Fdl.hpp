@@ -14,7 +14,7 @@
 /* certain responsibilities, if you distribute copies of the software, or if  */
 /* you modify it: responsibilities to respect the freedom of others.          */
 /*                                                                            */
-/* All rights reserved. Copyright ï¿½ 1982 Raajnaag HULIYAPURADA MATA           */
+/* All rights reserved. Copyright © 1982 Raajnaag HULIYAPURADA MATA           */
 /*                                                                            */
 /* Always refer latest software version from:                                 */
 /* https://github.com/RaajnaagHuliyapuradaMata?tab=repositories               */
@@ -30,8 +30,15 @@
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
+#if(FLS_CRITICAL_SECTION_PROTECTION == STD_ON)
 #define FDL_CRITICAL_SECTION_BEGIN     FLS_ENTER_CRITICAL_SECTION(DRIVERSTATE_DATA_PROTECTION);
 #define FDL_CRITICAL_SECTION_END       FLS_EXIT_CRITICAL_SECTION(DRIVERSTATE_DATA_PROTECTION);
+#endif
+
+#if(FLS_CRITICAL_SECTION_PROTECTION == STD_OFF)
+#define FDL_CRITICAL_SECTION_BEGIN
+#define FDL_CRITICAL_SECTION_END
+#endif
 
 #define R_FDL_DEVICE_SPECIFIC_INIT                             \
    *(volatile uint32_t*)0xFFA08000UL = 0xFFFFFFFFUL;          \

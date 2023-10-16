@@ -91,7 +91,7 @@ FUNC(void, COM_CODE) infSwcServiceComSwcServiceSchM_vMainFunctionTx(void){
    );
 }
 
-FUNC(void, COM_CODE) Com_TxNotify_ApplicationResponse_TPM_Can_Network_CANNODE_0(void){
+FUNC(void,COM_CODE) Com_TxNotify_ApplicationResponse_TPM_Can_Network_CANNODE_0(void){
 }
 #define COM_STOP_SEC_CODE
 #include "Com_MemMap.hpp"

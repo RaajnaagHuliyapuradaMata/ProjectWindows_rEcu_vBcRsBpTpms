@@ -14,7 +14,7 @@
 /* certain responsibilities, if you distribute copies of the software, or if  */
 /* you modify it: responsibilities to respect the freedom of others.          */
 /*                                                                            */
-/* All rights reserved. Copyright ï¿½ 1982 Raajnaag HULIYAPURADA MATA           */
+/* All rights reserved. Copyright © 1982 Raajnaag HULIYAPURADA MATA           */
 /*                                                                            */
 /* Always refer latest software version from:                                 */
 /* https://github.com/RaajnaagHuliyapuradaMata?tab=repositories               */
@@ -34,8 +34,17 @@
 #define DEM_ENABLECONDITION_COUNT         0u
 #define DEM_ENABLECONDITION_ARRAYLENGTH   (DEM_ENABLECONDITION_COUNT)
 
+#if(DEM_ENABLECONDITION_ARRAYLENGTH <= 8) || (DEM_CFG_ENABLECONDITION == DEM_CFG_ENABLECONDITION_OFF)
 typedef uint8 Dem_EnCoList;
+#elif(DEM_ENABLECONDITION_ARRAYLENGTH <= 16)
+typedef uint16 Dem_EnCoList;
+#elif(DEM_ENABLECONDITION_ARRAYLENGTH <= 32)
+typedef uint32 Dem_EnCoList;
+#else
+#error DEM currently only supports up to 32 EnableConditions
+#endif
 
+#if(DEM_CFG_ENABLECONDITION == DEM_CFG_ENABLECONDITION_ON)
 #define DEM_ENCO_DemEventParameter_AutolocationFail  (0u)
 #define DEM_ENCO_DemEventParameter_CanAbsWheelPulseSignalMissing  (0u)
 #define DEM_ENCO_DemEventParameter_CanAtmosphericTemperatureSignalMissing  (0u)
@@ -78,6 +87,7 @@ typedef uint8 Dem_EnCoList;
 #define DEM_ENCO_Event_NoEcuSerialNumber        (0u)
 #define DEM_ENCO_Event_NoVin                    (0u)
 #define DEM_CFG_ENCO_INITIALSTATE               (0u)
+#endif
 
 /******************************************************************************/
 /* MACROS                                                                     */
