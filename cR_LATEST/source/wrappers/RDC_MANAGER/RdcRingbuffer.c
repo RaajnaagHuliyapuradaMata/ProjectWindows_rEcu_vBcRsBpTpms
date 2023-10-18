@@ -2,7 +2,7 @@
 
 #include "RdcRingbuffer.hpp"
 #include "ata_Rec_X.hpp"
-#include "version.hpp"
+#include "CfgSwcServiceStartUp.hpp"
 
 static RdcRb__Struct_Ringbuffer RdcRb__S_RingBuffer;
 

@@ -25,6 +25,7 @@
 /******************************************************************************/
 #include "Std_Types.hpp"
 
+#include "Types_McalDio.hpp"
 #include "uC_Dio.hpp"
 #include "CfgMcalDio.hpp"
 
@@ -51,7 +52,7 @@
 /******************************************************************************/
 /* OBJECTS                                                                    */
 /******************************************************************************/
-CONST(Type_McalDio_stPin, MCALDIO_CONFIG_DATA) CfgMcalDio_castListPins[] = {
+CONST(Type_McalDio_stPin, MCALDIO_CONFIG_DATA) CfgMcalDio_castListInfoPins[] = {
       {GPIO_LED1      , 3u,  &PMC10, &PM10, &PPR10, &PIBC10, &P10}
    ,  {GPIO_LCD_E     , 6u,  &PMC8 , &PM8 , &PPR8,  &PIBC8,  &P8}
    ,  {GPIO_LCD_RW    , 5u,  &PMC8 , &PM8 , &PPR8,  &PIBC8,  &P8}
@@ -78,6 +79,19 @@ CONST(Type_McalDio_stPin, MCALDIO_CONFIG_DATA) CfgMcalDio_castListPins[] = {
    ,  {GPIO_TP1       , 1u , &PMC9,  &PM9 , &PPR9,  &PIBC9,  &P9}
    ,  {GPIO_TP2       , 2u , &PMC9,  &PM9 , &PPR9,  &PIBC9,  &P9}
    ,  {GPIO_TP3       , 3u , &PMC9,  &PM9 , &PPR9,  &PIBC9,  &P9}
+};
+
+const Type_CfgMcalDio_stInfoPin ACfgMcalDio_castListPins[] = {
+      {CfgMcalDio_ePinName_AP0, 0u, &APM0, &APPR0, &APIBC0, &AP0}
+   ,  {CfgMcalDio_ePinName_AP1, 1u, &APM0, &APPR0, &APIBC0, &AP0}
+   ,  {CfgMcalDio_ePinName_AP2, 2u, &APM0, &APPR0, &APIBC0, &AP0}
+   ,  {CfgMcalDio_ePinName_AP3, 3u, &APM0, &APPR0, &APIBC0, &AP0}
+   ,  {CfgMcalDio_ePinName_AP4, 4u, &APM0, &APPR0, &APIBC0, &AP0}
+   ,  {CfgMcalDio_ePinName_AP5, 5u, &APM0, &APPR0, &APIBC0, &AP0}
+   ,  {CfgMcalDio_ePinName_AP6, 6u, &APM0, &APPR0, &APIBC0, &AP0}
+   ,  {CfgMcalDio_ePinName_AP7, 7u, &APM0, &APPR0, &APIBC0, &AP0}
+   ,  {CfgMcalDio_ePinName_AP8, 8u, &APM0, &APPR0, &APIBC0, &AP0}
+   ,  {CfgMcalDio_ePinName_AP9, 9u, &APM0, &APPR0, &APIBC0, &AP0}
 };
 
 /******************************************************************************/

@@ -1,6 +1,6 @@
 #pragma once
 /******************************************************************************/
-/* File   : CfgSwcServiceEcuM.h                                               */
+/* File   : Types_CfgSwcServiceStartUp.hpp                                    */
 /*                                                                            */
 /* Author : Raajnaag HULIYAPURADA MATA                                        */
 /*                                                                            */
@@ -24,30 +24,10 @@
 /******************************************************************************/
 /* #INCLUDES                                                                  */
 /******************************************************************************/
-#include "CompilerCfg_SwcServiceEcuM.hpp"
-#include "Types_SwcServiceEcuM.hpp"
-
-#include "CfgEcuabCanIf.hpp"
-#include "CfgSwcServiceBswM.hpp"
-#include "CfgSwcServiceCanSM.hpp"
-#include "CfgSwcServiceCanTp.hpp"
-#include "CfgSwcServiceCom.hpp"
-#include "CfgSwcServiceComM.hpp"
-#include "CfgSwcServiceFiM.hpp"
-#include "CfgSwcServiceOs.hpp"
-#include "CfgSwcServicePduR.hpp"
 
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
-#define CfgSwcServiceEcuM_dLenHash                                          (16)
-#define CfgSwcServiceEcuM_dSourceWakeupNone ((Type_SwcServiceEcuM_tSourceWakeup) 0x0000u) //TBD: enum
-#define CfgSwcServiceEcuM_dPOWER            ((Type_SwcServiceEcuM_tSourceWakeup) 0x0001u)
-#define CfgSwcServiceEcuM_dRESET            ((Type_SwcServiceEcuM_tSourceWakeup) 0x0002u)
-#define CfgSwcServiceEcuM_dINTERNAL_RESET   ((Type_SwcServiceEcuM_tSourceWakeup) 0x0004u)
-#define CfgSwcServiceEcuM_dINTERNAL_WDG     ((Type_SwcServiceEcuM_tSourceWakeup) 0x0008u)
-#define CfgSwcServiceEcuM_dEXTERNAL_WDG     ((Type_SwcServiceEcuM_tSourceWakeup) 0x1000u)
-#define CfgSwcServiceEcuM_dNumConfigSet                                        1
 
 /******************************************************************************/
 /* MACROS                                                                     */
@@ -57,28 +37,29 @@
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
 typedef struct{
-   const Type_CfgEcuabCanIf_st*      pcstCfgEcuabCanIf;
-   const Type_CfgSwcServiceComM_st*  pcstCfgSwcServiceComM;
-   const Type_CfgSwcServiceCanSM_st* pcstCfgSwcServiceCanSM;
-   const Type_CfgSwcServicePduR_st*  pcstCfgSwcServicePduR;
-   const Type_CfgSwcServiceCom_st*   pcstCfgSwcServiceCom;
-   const Type_CfgSwcServiceCanTp_st* pcstCfgSwcServiceCanTp;
-   const Type_CfgSwcServiceFiM_st*   pcstCfgSwcServiceFiM;
-   const Type_CfgSwcServiceBswM_st*  pcstCfgSwcServiceBswM;
-}Type_SwcServiceEcuM_stRefCfgModules;
-
-typedef struct{
-         uint8  u8NumRefsPncComM;
-   const uint8* pcau8ListRefsPnc;
-}Type_SwcServiceEcuM_stListRefsPncWakeup;
-
-typedef struct{
-         Type_SwcServiceOs_tModeApp               tModeAppDefault;
-         Type_SwcServiceEcuM_stInfoTargetShutdown stInfoTargetShutdownDefault;
-         Type_SwcServiceEcuM_stRefCfgModules      stRefCfgModules;
-   const Type_SwcServiceEcuM_stListRefsPncWakeup* pcstListRefsPncWakeup;
-         uint8                                    au8HashPostBuild[CfgSwcServiceEcuM_dLenHash];
-}Type_CfgSwcServiceEcuM_st;
+   uint8  ucSchemaVersion;
+   uint8  ucUnused1;
+   uint16 ushComponentId;
+   uint8  ucPcbaId;
+   uint8  ucAuxId;
+   uint16 ushModeId;
+   uint8  aucTfsChangeset[8];
+   uint8  ucEcuProgramType;
+   uint8  ucUnused2;
+   uint16 ushDownloadProtocolVersion;
+   uint32 ulStartupAddress;
+   uint32 ulCrc32;
+   uint8  aucUnused3[4];
+   uint8  ucMajor;
+   uint8  ucMinor;
+   uint16 ushMicro;
+   uint8  ucIndex;
+   uint8  ucDummy1[183];
+   uint32 ulCrc32App;
+   uint8  ucHash[16];
+   uint8  ucDummy2[14];
+   uint8  ucChecksum[2];
+}tDescriptorBlock;
 
 /******************************************************************************/
 /* CONSTS                                                                     */
@@ -87,12 +68,10 @@ typedef struct{
 /******************************************************************************/
 /* PARAMS                                                                     */
 /******************************************************************************/
-extern CONSTP2CONST(Type_CfgSwcServiceEcuM_st, AUTOMATIC,ECUM_CONST) CfgSwcServiceEcuM_capst[CfgSwcServiceEcuM_dNumConfigSet];
 
 /******************************************************************************/
 /* OBJECTS                                                                    */
 /******************************************************************************/
-extern P2CONST(Type_CfgSwcServiceEcuM_st, SWCSERVICEECUM_VAR, SWCSERVICEECUM_CONFIG_DATA) SwcServiceEcuM_pcstCfg; //TBD: Move to right header
 
 /******************************************************************************/
 /* FUNCTIONS                                                                  */

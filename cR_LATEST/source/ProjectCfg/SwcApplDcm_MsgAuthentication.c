@@ -3,7 +3,7 @@
 #include "SwcApplDcm_MsgAuthentication.hpp"
 #include "hmac_sha2.hpp"
 #include "FeeFblBlockInterfaceX.hpp"
-#include "version.hpp"
+#include "CfgSwcServiceStartUp.hpp"
 #include "Dcm.hpp"
 
 #define INIT_SID_1 { cSidReadDataByIdent , cDidBootSwFingerprint, cDidApplSwFingerprint, cDidProgImgBL     , cDidProgImgAPP1  , cDidKeyGenCounters, cDidManufSuppMode, cDidEepBlockStatus }

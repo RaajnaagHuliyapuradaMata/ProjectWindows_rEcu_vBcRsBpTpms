@@ -212,20 +212,20 @@ typedef struct{
       ,  VAR(CanTrcv_TrcvModeType, AUTOMATIC) TransceiverMode
    );
 #if(CANIF_CFG_TRCV_WAKEUP_SUPPORT == STD_ON && CANIF_PUBLIC_WAKEUP_CHECK_VALIDATION_SUPPORT == STD_ON)
-   P2FUNC(void, TYPEDEF, User_ValidateWakeupEvent) (VAR(Type_SwcServiceEcuM_tSourceWakeup,AUTOMATIC) WakeupSource);
+   P2FUNC(void, TYPEDEF, User_ValidateWakeupEvent) (VAR(Type_SwcServiceEcuM_tSourceWakeup, AUTOMATIC) WakeupSource);
 #endif
 #endif
 
 #if(CANIF_PUBLIC_PN_SUPPORT == STD_ON)
-   P2FUNC(void, TYPEDEF, User_ClearTrcvWufFlagIndication )(VAR(uint8,AUTOMATIC) Transceiver);
-   P2FUNC(void, TYPEDEF, User_CheckTrcvWakeFlagIndication)(VAR(uint8,AUTOMATIC) Transceiver);
-   P2FUNC(void, TYPEDEF, User_ConfirmPnAvailability      )(VAR(uint8,AUTOMATIC) TransceiverId);
+   P2FUNC(void, TYPEDEF, User_ClearTrcvWufFlagIndication )(VAR(uint8, AUTOMATIC) Transceiver);
+   P2FUNC(void, TYPEDEF, User_CheckTrcvWakeFlagIndication)(VAR(uint8, AUTOMATIC) Transceiver);
+   P2FUNC(void, TYPEDEF, User_ConfirmPnAvailability      )(VAR(uint8, AUTOMATIC) TransceiverId);
 #endif
 
    P2FUNC(void, TYPEDEF, User_ControllerBusOff        )(VAR(uint8, AUTOMATIC) ControllerId);
    P2FUNC(void, TYPEDEF, User_ControllerModeIndication)(
          VAR(uint8,     AUTOMATIC) ControllerId
-      ,  VAR(Type_EcuabCanIf_eModeController, AUTOMATIC) ControllerMode
+      ,  VAR(Type_EcuabCanIf_eModesController, AUTOMATIC) ControllerMode
    );
 
 #if(CANIF_RB_ERROR_PASSIVE_SUPPORT != STD_OFF)

@@ -1,5 +1,6 @@
+#pragma once
 /******************************************************************************/
-/* File   : EcuM_PBcfg.c                                                      */
+/* File   : CfgSwcServiceStartUp.hpp                                          */
 /*                                                                            */
 /* Author : Raajnaag HULIYAPURADA MATA                                        */
 /*                                                                            */
@@ -13,7 +14,7 @@
 /* certain responsibilities, if you distribute copies of the software, or if  */
 /* you modify it: responsibilities to respect the freedom of others.          */
 /*                                                                            */
-/* All rights reserved. Copyright © 1982 Raajnaag HULIYAPURADA MATA           */
+/* All rights reserved. Copyright ï¿½ 1982 Raajnaag HULIYAPURADA MATA           */
 /*                                                                            */
 /* Always refer latest software version from:                                 */
 /* https://github.com/RaajnaagHuliyapuradaMata?tab=repositories               */
@@ -23,14 +24,50 @@
 /******************************************************************************/
 /* #INCLUDES                                                                  */
 /******************************************************************************/
-#include "Std_Types.hpp"
-
-#include "EcuM.hpp"
-#include "EcuM_Cfg_Startup.hpp"
+#include "types.hpp"
+#include "Types_CfgSwcServiceStartUp.hpp" //TBD: To be deleted!
 
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
+#define cAPP                                                                   0
+#define cFBL                                                                   1
+#define PRODUCTION_SW                                                        0x0
+#define DEVELOPMENT_SW                                                       0x1
+#define SW_CATEGORY                                                PRODUCTION_SW
+//#define SW_CATEGORY                                             DEVELOPMENT_SW
+
+#define CfgSwcServiceStartUp_dAddressApplicationStart      ((uint32) 0x20000)
+#define CfgSwcServiceStartUp_dAddressApplicationEnd        ((uint32) 0x77BFF)
+#define cSTRING_ECU_PROGRAM_INFO_1_LENGTH                                     17
+#define cSTRING_ECU_PROGRAM_INFO_2_LENGTH                                     38
+#define cSTRING_SIZ_SCHEMA_VERS                                                1
+#define cSTRING_SIZ_COMP_ID                                                    2
+#define cSTRING_SIZ_PCBA_ID                                                    1
+#define cSTRING_SIZ_AUX_ID                                                     1
+#define cSTRING_SIZ_MODE_ID                                                    2
+#define cSTRING_SIZ_PROG_TYPE                                                  1
+#define cSTRING_SIZ_DL_PROT_VERS                                               2
+#define cSTRING_SIZ_INDEX                                                      1
+#define cSTRING_SIZ_MAJOR                                                      1
+#define cSTRING_SIZ_MINOR                                                      1
+#define cSTRING_SIZ_MICRO                                                      2
+#define cSTRING_SIZ_CRC32                                                      4
+#define cSTRING_SIZ_HASH                                                      16
+#define cSTRING_SIZ_COMPANDSWTYPE ((cSTRING_SIZ_COMP_ID-1) + (cSTRING_SIZ_DL_PROT_VERS-1) + cSTRING_SIZ_PROG_TYPE)
+#define cSTRING_SIZ_FULLGENBLOCK                                             133
+#define cSTRING_SIZ_TFSCS                                                      8
+#define cSTRING_IDX_SCHEMA_VERS                                                0
+#define cSTRING_IDX_COMP_ID   cSTRING_IDX_SCHEMA_VERS + cSTRING_SIZ_SCHEMA_VERS
+#define cSTRING_IDX_PCBA_ID   cSTRING_IDX_COMP_ID     + cSTRING_SIZ_COMP_ID
+#define cSTRING_IDX_AUX_ID    cSTRING_IDX_PCBA_ID     + cSTRING_SIZ_PCBA_ID
+#define cSTRING_IDX_MODE_ID   cSTRING_IDX_AUX_ID      + cSTRING_SIZ_AUX_ID
+#define cSTRING_IDX_PROG_TYPE cSTRING_IDX_MODE_ID     + cSTRING_SIZ_MODE_ID
+#define cSTRING_IDX_INDEX     cSTRING_IDX_PROG_TYPE   + cSTRING_SIZ_PROG_TYPE
+#define cSTRING_IDX_MAJOR     cSTRING_IDX_INDEX       + cSTRING_SIZ_INDEX
+#define cSTRING_IDX_MINOR     cSTRING_IDX_MAJOR       + cSTRING_SIZ_MAJOR
+#define cSTRING_IDX_MICRO     cSTRING_IDX_MINOR       + cSTRING_SIZ_MINOR
+#define cSTRING_IDX_CRC       cSTRING_IDX_MICRO       + cSTRING_SIZ_MICRO
 
 /******************************************************************************/
 /* MACROS                                                                     */
@@ -43,51 +80,7 @@
 /******************************************************************************/
 /* CONSTS                                                                     */
 /******************************************************************************/
-#define ECUM_START_SEC_CONFIG_DATA_POSTBUILD_UNSPECIFIED
-#include "EcuM_Cfg_MemMap.hpp"
-CONST(Type_CfgSwcServiceEcuM_st, ECUM_CONST) CfgSwcServiceEcuM_cst = {
-      OSDEFAULTAPPMODE
-   ,  {
-            ECUM_SHUTDOWN_TARGET_OFF
-         ,  0
-         ,  0
-      }
-   ,  {
-            &CfgEcuabCanIf_st
-         ,  NULL_PTR
-         ,  &CfgSwcServiceCanSM_castConfigSet[0]
-         ,  &CfgSwcServicePduR_cst
-         ,  NULL_PTR
-         ,  &CfgSwcServiceCanTp_cst
-         ,  NULL_PTR
-         ,  &CfgSwcServiceBswM_cst
-      }
-   ,  &EcuM_Cfg_dataWkupPNCRef_cast[0]
-   ,  {
-            0xD4
-         ,  0x1D
-         ,  0x8C
-         ,  0xD9
-         ,  0x8F
-         ,  0x00
-         ,  0xB2
-         ,  0x04
-         ,  0xE9
-         ,  0x80
-         ,  0x09
-         ,  0x98
-         ,  0xEC
-         ,  0xF8
-         ,  0x42
-         ,  0x7E
-      }
-};
 
-CONSTP2CONST(Type_CfgSwcServiceEcuM_st, AUTOMATIC,ECUM_CONST) CfgSwcServiceEcuM_capst[CfgSwcServiceEcuM_dNumConfigSet] = {
-   &CfgSwcServiceEcuM_cst
-};
-#define ECUM_STOP_SEC_CONFIG_DATA_POSTBUILD_UNSPECIFIED
-#include "EcuM_Cfg_MemMap.hpp"
 /******************************************************************************/
 /* PARAMS                                                                     */
 /******************************************************************************/
@@ -103,4 +96,3 @@ CONSTP2CONST(Type_CfgSwcServiceEcuM_st, AUTOMATIC,ECUM_CONST) CfgSwcServiceEcuM_
 /******************************************************************************/
 /* EOF                                                                        */
 /******************************************************************************/
-

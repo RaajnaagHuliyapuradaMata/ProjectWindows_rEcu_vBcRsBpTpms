@@ -30,8 +30,8 @@ void ApplMcu_vDeepStop(void){
    if(TRCV_GetWakeupFlag() == TRUE){
       ApplMcu_vPerformReset();
    }
-   infMcalCanEcuabCanIf_tSetModeController(0, CAN_T_STOP);
-   infMcalCanEcuabCanIf_tSetModeController(0, CAN_T_SLEEP);
+   infMcalCanEcuabCanIf_tSetModeController(0, McalCan_eStatesTransition_STOP);
+   infMcalCanEcuabCanIf_tSetModeController(0, McalCan_eStatesTransition_SLEEP);
    TRCV_Standby();
    rf_ata5785_off_mode();
    GPIO_DeInit();

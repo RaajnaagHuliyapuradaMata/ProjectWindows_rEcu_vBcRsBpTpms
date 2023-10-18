@@ -10,5 +10,5 @@ Std_ReturnType NvM_Rn_SetWriteAllTrigger(uint16 ushBlockNr, boolean bSet)
   {
     Memstack_SetEcuNvMRamBlockStatus(ushBlockNr);
   }
-  return E_OK;
+   return E_OK;
 }

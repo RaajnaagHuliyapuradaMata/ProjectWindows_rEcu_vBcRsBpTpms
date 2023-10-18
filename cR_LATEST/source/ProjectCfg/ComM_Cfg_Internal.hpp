@@ -126,7 +126,7 @@ typedef struct ComM_ChannelTypeStruct{
    boolean PncNmRequest;
 #endif
 #if(COMM_NVM_ENABLED != STD_OFF)
-   VAR(boolean,AUTOMATIC) ComMNoWakeUpInhibitionNvmStorage_b;
+   VAR(boolean, AUTOMATIC) ComMNoWakeUpInhibitionNvmStorage_b;
 #endif
    boolean ComMFullCommRequestNotificationEnabled;
 }ComM_ChannelType;
