@@ -13,7 +13,7 @@
 /* certain responsibilities, if you distribute copies of the software, or if  */
 /* you modify it: responsibilities to respect the freedom of others.          */
 /*                                                                            */
-/* All rights reserved. Copyright © 1982 Raajnaag HULIYAPURADA MATA           */
+/* All rights reserved. Copyright ï¿½ 1982 Raajnaag HULIYAPURADA MATA           */
 /*                                                                            */
 /* Always refer latest software version from:                                 */
 /* https://github.com/RaajnaagHuliyapuradaMata?tab=repositories               */
@@ -60,52 +60,6 @@
 /******************************************************************************/
 /* FUNCTIONS                                                                  */
 /******************************************************************************/
-#if(COMM_RTE_SUPPORT != STD_OFF)
-#define COMM_START_SEC_CODE
-#include "ComM_Cfg_MemMap.hpp"
-FUNC(void, COMM_CODE) ComM_Rte_Switch_UM_currentMode(VAR(ComM_UserHandleType, AUTOMATIC) UserId, VAR(uint8, AUTOMATIC) lowestMode)
-{
-    Std_ReturnType retVal;
-    (void) lowestMode;
-   switch(UserId)
-   {
-        case (ComMConf_ComMUser_ComMUser_Can_Network_Channel):
-        {
-            retVal = (Std_ReturnType)(Rte_Switch_UM_ComMUser_Can_Network_Channel_currentMode(lowestMode));
-        }
-        break;
-        default:
-        {
-            retVal = E_OK;
-        }
-        break;
-   }
-    (void)retVal;
-}
-#define COMM_STOP_SEC_CODE
-#include "ComM_Cfg_MemMap.hpp"
-
-#if((COMM_FULLCOMREQ_NOTIF != STD_OFF))
-#define COMM_START_SEC_CODE
-#include "ComM_Cfg_MemMap.hpp"
-FUNC(void, COMM_CODE) ComM_CurrentChannelRequest_Rte_Write(VAR(uint8, AUTOMATIC) ChannelId,P2VAR(ComM_UserHandleArrayType, AUTOMATIC, COMM_APPL_DATA) data)
-{
-    Std_ReturnType retVal;
-   switch(ChannelId)
-   {
-        default:
-        {
-            retVal = E_OK;
-        }
-        break;
-   }
-    (void)retVal;
-}
-#define COMM_STOP_SEC_CODE
-#include "ComM_Cfg_MemMap.hpp"
-#endif
-#endif
-
 #define COMM_START_SEC_CODE
 #include "ComM_Cfg_MemMap.hpp"
 static FUNC(Std_ReturnType, COMM_CODE) ComM_Dummy_RequestComMode
@@ -170,15 +124,6 @@ CONST(ComM_BusSmApiType, COMM_CONST) ComM_BusSmApi[] =
 };
 #define COMM_STOP_SEC_CONST_UNSPECIFIED
 #include "ComM_Cfg_MemMap.hpp"
-
-#if((COMM_LIMIT_TO_NOCOM_ENABLED != STD_OFF)||(COMM_PREVENT_WAKEUP_ENABLED != STD_OFF))
-#define COMM_START_SEC_CONST_8
-#include "ComM_Cfg_MemMap.hpp"
-CONST(ComM_InhibitionStatusType, COMM_CONST) ComM_EcuGroupClassification_Init = 0x00;
-
-#define COMM_STOP_SEC_CONST_8
-#include "ComM_Cfg_MemMap.hpp"
-#endif
 
 /******************************************************************************/
 /* EOF                                                                        */

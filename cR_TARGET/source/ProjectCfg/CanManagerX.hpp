@@ -1,6 +1,4 @@
-
-#ifndef CAN_MANAGER_X_H
-#define CAN_MANAGER_X_H
+#pragma once
 
 #include "Com_Cfg.hpp"
 
@@ -29,4 +27,3 @@ extern void CANMGR_StartCommTimeout(void);
 extern void CANMGR_ElongateCommTimeout(uint16 ushAddTime);
 extern void DIAG_CheckCANSignalMissingDTC(void);
 
-#endif

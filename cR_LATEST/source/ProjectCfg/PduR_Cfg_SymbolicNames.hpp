@@ -1,9 +1,9 @@
-#ifndef PDUR_CFG_SYMBOLICNAMES_H
-#define PDUR_CFG_SYMBOLICNAMES_H
+#pragma once
 
-#define PDUR_VARIANT_PRE_COMPILE                                             (0)
-#define PDUR_VARIANT_POSTBUILD_LOADABLE                                      (1)
-#define PDUR_CONFIGURATION_VARIANT                      PDUR_VARIANT_PRE_COMPILE
+#define PDUR_VARIANT_PRE_COMPILE                                                     (0)
+#define PDUR_VARIANT_POSTBUILD_LOADABLE                                              (1)
+
+#define PDUR_CONFIGURATION_VARIANT                              PDUR_VARIANT_PRE_COMPILE
 
 #define PduRConf_PduRSrcPdu_ApplicationCyclic_TPM_Can_Network_CANNODE_0_Com2PduR       0
 #define PduRConf_PduRDestPdu_ApplicationCyclic_TPM_Can_Network_CANNODE_0_PduR2CanIf    0
@@ -30,5 +30,3 @@
 #define CfgSwcServicePduR_PduDestTxDiagUds_Physical_PduR2CanTp                         0
 #define PduRConf_PduRSrcPdu_VehSts_BodyLCAN_Can_Network_CANNODE_0_CanIf2PduR           7
 #define PduRConf_PduRSrcPdu_VmsStsReq_BodyLCAN_Can_Network_CANNODE_0_CanIf2PduR        8
-
-#endif

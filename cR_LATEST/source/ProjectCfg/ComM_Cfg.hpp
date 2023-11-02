@@ -14,7 +14,7 @@
 /* certain responsibilities, if you distribute copies of the software, or if  */
 /* you modify it: responsibilities to respect the freedom of others.          */
 /*                                                                            */
-/* All rights reserved. Copyright © 1982 Raajnaag HULIYAPURADA MATA           */
+/* All rights reserved. Copyright ï¿½ 1982 Raajnaag HULIYAPURADA MATA           */
 /*                                                                            */
 /* Always refer latest software version from:                                 */
 /* https://github.com/RaajnaagHuliyapuradaMata?tab=repositories               */
@@ -32,14 +32,13 @@
 /******************************************************************************/
 #define COMM_ECUC_RB_RTE_IN_USE                                          STD_OFF
 #define COMM_MODULE_ID                                                       12u
-#define COMM_VENDOR_ID                                                        6u
+#define COMM_VENDOR_ID                                                        1u
 #define COMM_AR_RELEASE_MAJOR_VERSION                                         4u
 #define COMM_AR_RELEASE_MINOR_VERSION                                         2u
 #define COMM_AR_RELEASE_REVISION_VERSION                                      2u
 #define COMM_SW_MAJOR_VERSION                                                 5u
 #define COMM_SW_MINOR_VERSION                                                 4u
 #define COMM_SW_PATCH_VERSION                                                 0u
-
 #define COMM_VARIANT_PRECOMPILE                                             0x00
 #define COMM_VARIANT_POSTBUILD_LOADABLE                                     0x01
 #define COMM_CONFIGURATION_VARIANT                       COMM_VARIANT_PRECOMPILE

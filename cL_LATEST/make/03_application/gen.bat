@@ -10,7 +10,7 @@ set local_dir=%~d0%~p0
 :: Root directory
 set root_dir=%local_dir%\..\..\..\..\..
 :: Hexview executable
-set hexview_exe=%root_dir%\06_Tools\Hexview\hexview.exe
+set hexview_exe=%root_dir%\repo_tools\Hexview\hexview.exe
 :: Keys
 set key=%local_dir%\key.txt
 

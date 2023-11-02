@@ -6,7 +6,7 @@ if not exist "%1" goto nohexfile
 set local_dir=%~d0%~p0
 
 set root_dir=%local_dir%\..\..\..\..\..
-set hexview_exe=%root_dir%\06_Tools\Hexview\hexview.exe
+set hexview_exe=%root_dir%\repo_tools\Hexview\hexview.exe
 set key=%local_dir%\key.txt
 
 echo Calculate CRC...

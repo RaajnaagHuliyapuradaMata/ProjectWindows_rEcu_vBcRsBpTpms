@@ -7,7 +7,7 @@ echo ##########################################################
 echo # Clean application                                      #
 echo ##########################################################
 echo.
-..\..\..\..\06_Tools\GNU\make.exe clean -f./Make/Makefile
+..\..\..\..\repo_tools\GNU\make.exe clean -f./Make/Makefile
 echo.
 
 @if errorlevel 1 goto fehler

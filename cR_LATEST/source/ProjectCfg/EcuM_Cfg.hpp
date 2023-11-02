@@ -4,7 +4,7 @@
 #include "CfgMcalMcu.hpp"
 #include "Os.hpp"
 #include "CfgSwcServiceEcuM.hpp"
-#include "infMcalMcuSwcApplEcuM.hpp" //TBD: change to Types_McalMcu.hpp
+#include "infMcalMcuSwcApplEcuM.hpp"
 
 #define ECUM_VERSION_INFO_API	(STD_OFF)
 #define ECUM_DEV_ERROR_DETECT 	(STD_ON)
@@ -53,14 +53,7 @@ typedef struct{
 }EcuM_Cfg_CheckWakeupSrc_tst;
 #endif
 
-#define ECUM_START_SEC_CONFIG_DATA_8
-#include "EcuM_Cfg_MemMap.hpp"
 extern CONST( uint8, ECUM_CONST) CfgSwcServiceEcuM_au8HashPreCompile[CfgSwcServiceEcuM_dLenHash];
-#define ECUM_STOP_SEC_CONFIG_DATA_8
-#include "EcuM_Cfg_MemMap.hpp"
-
-#define ECUM_START_SEC_CONST_UNSPECIFIED
-#include "EcuM_Cfg_MemMap.hpp"
 extern CONST( EcuM_Cfg_dataWkupSrcStruct_tst,  ECUM_CONST)  EcuM_Cfg_idxWakeupSourcesPC_au32[CfgSwcServiceEcuM_dNumSourceWakeup];
 extern CONST( Type_SwcServiceEcuM_stListRefsPncWakeup,  ECUM_CONST)  EcuM_Cfg_dataWkupPNCRef_cast[CfgSwcServiceEcuM_dNumSourceWakeup];
 
@@ -68,22 +61,11 @@ extern CONST( Type_SwcServiceEcuM_stListRefsPncWakeup,  ECUM_CONST)  EcuM_Cfg_da
 extern CONST( EcuM_Cfg_dataSleepModeStruct_tst  ,  ECUM_CONST)  EcuM_Cfg_idxSleepModes_au32[ECUM_CFG_NUM_SLEEP_MODES];
 #endif
 
-#define ECUM_STOP_SEC_CONST_UNSPECIFIED
-#include "EcuM_Cfg_MemMap.hpp"
-
 #if(ECUM_SLEEP_SUPPORT_ENABLE == TRUE)
-#define ECUM_START_SEC_VAR_CLEARED_UNSPECIFIED
-#include "EcuM_Cfg_MemMap.hpp"
 extern volatile VAR( EcuM_Cfg_CheckWakeupSrc_tst, ECUM_VAR_CLEARED_UNSPECIFIED )EcuM_Cfg_CheckWakeupTimer_ast[CfgSwcServiceEcuM_dNumSourceWakeup];
-#define ECUM_STOP_SEC_VAR_CLEARED_UNSPECIFIED
-#include "EcuM_Cfg_MemMap.hpp"
 #endif//ECUM_SLEEP_SUPPORT_ENABLE
 
-#define ECUM_START_SEC_CONST_16
-#include "EcuM_Cfg_MemMap.hpp"
-   extern CONST( uint16, ECUM_CONST) EcuM_Cfg_idxGoDownValidCallerArr_au16[ECUM_CFG_GODOWN_CALLER_ARR_LEN];
-#define ECUM_STOP_SEC_CONST_16
-#include "EcuM_Cfg_MemMap.hpp"
+extern CONST( uint16, ECUM_CONST) EcuM_Cfg_idxGoDownValidCallerArr_au16[ECUM_CFG_GODOWN_CALLER_ARR_LEN];
 
 #define ECUM_CFG_NVM_BLOCK_CONFIGURED TRUE
 #define ECUM_WKUP_SRC_START_BIT_MASK   ((uint32)0x00000001)

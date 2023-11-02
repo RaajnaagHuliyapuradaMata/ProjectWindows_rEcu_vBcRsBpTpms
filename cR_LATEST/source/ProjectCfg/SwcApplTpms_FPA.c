@@ -10,7 +10,6 @@
 #include "global.hpp"
 #include "SwcApplTpms_DevCanMesReqInterfaces.hpp"
 
-#ifdef FPA
 #define cFPARefWidth                                                           1
 #define cMinCt4Dec                                           ((unsigned char)14)
 #define cDeltaRelValAtBegin                                                    5
@@ -45,10 +44,6 @@ static unsigned char ucBitcount(
    unsigned char ucInt);
 static unsigned char ucGetPositionOnAx(unsigned char ucValue);
 
-#ifdef BUILD_WITH_UNUSED_FUNCTION
-static unsigned short ushGetABSingleTickTDL(unsigned char ucIx);
-#endif // BUILD_WITH_UNUSED_FUNCTION
-
 static unsigned short ushGetABSingleTickTDL(unsigned char ucIx);
 static unsigned short ushGetABSingleTickTDL_120Deg(unsigned char ucIx);
 static unsigned short ushGetABSingleTickTDL_240Deg(unsigned char ucIx);
@@ -64,10 +59,8 @@ static unsigned char ucRefResetCounter;
 static unsigned char ucDebugSumCorr[cSumWE][cMaxLR];
 static unsigned char ucDebugAllocType;
 
-#ifdef ABS_Test_LOG_ENABLE
 unsigned short ushDebug_dN[cSumABSig] = {0};
 unsigned short ushDebug_dN2[cSumABSig] = {0};
-#endif
 
 unsigned char CounterPreparation(
    unsigned char ucID,
@@ -103,7 +96,6 @@ unsigned char CounterPreparation(
       GenCmpVal(
          ucID);
 
-#ifdef SPEEDWEIGHT
       if(0x00 == (ptInputWA->RotatS.ucSnRH & 0x40)){
          ucTrackLoop++;
       }
@@ -118,7 +110,6 @@ unsigned char CounterPreparation(
          GenCmpVal(
             ucID);
       }
-#endif
 
       for(j = 0; j < cSumABSig ; j++){
          if(tZOM[ucID].ushPosCompVal2[j] < tZOM[ucID].ushPosCompVal[j]){
@@ -131,20 +122,6 @@ unsigned char CounterPreparation(
    return ucRetVal;
 }
 
-/************************************************************************************************************
-** function:   NormalizeAndSortCnt
-**
-** ---------------------------------------------------------------------------------------------------------
-**
-** purpose:   Normalize and sort the diviation values by there value from highest to lowest
-** ---------------------------------------------------------------------------------------------------------
-**
-** input: -
-**
-**
-** output: tZOM[i].ucSort[] - indices in ucSort array are sorted according to the hight of diviation values
-**
-************************************************************************************************************/
 void NormalizeAndSortCnt(void){
    unsigned char i, j;
    unsigned long ulCmpSum = 0;
@@ -217,10 +194,8 @@ static void GenCmpVal(
             i) / 2)) % (unsigned short)ucGetAnZahn(
             i);
 
-#ifdef ABS_Test_LOG_ENABLE
          ushDebug_dN[i] = ushdN;
          ushDebug_dN2[i] = ushdN2;
-#endif
 
          if(tZOM[ucID].ucAlgoTelEvtCnt > (cFPARefWidth + 1)){
             if(tZOM[ucID].ucAlgoTelEvtCnt < (unsigned char)(128 + cFPARefWidth)){
@@ -613,9 +588,7 @@ static unsigned char ucGenDMnD_TryExclMxAssign(
          }
       }
       if(ucIncrErrCnt != 0){
-#ifdef DETECT_SYMC_WALLOC_DTC
          IncAxisDetectionError();
-#endif
 }
       if(ucPreAssign == 0x0F){
          ucRet = 1;
@@ -650,24 +623,6 @@ static unsigned char ucGenDMnD_TryExclMxAssign(
    return ucRet;
 }
 
-/************************************************************************************************************
-** function: ucGenDMnD_DistingAxes_SamePosition
-**
-** ---------------------------------------------------------------------------------------------------------
-**
-** purpose:  distinguish between axes for two wheels that competing for the same car side and the same wheel position
-** ---------------------------------------------------------------------------------------------------------
-**
-** input: i = index of first competing sensor, possible values [0...3]
-**        j = index of second competing sensor, possible values[0...3]
-ucAssign = pointer to variable which correspond to already set positions
-**
-** output: ucAssign = pointer to variable which correspond to set positions after this function
-**
-** Return: 1 = can't be distinguished between axes
-**         0 = position location based on RSSI-values from different axes successful
-**
-************************************************************************************************************/
 static unsigned char ucGenDMnD_DistingAxes_SamePosition(
    unsigned char i,
    unsigned char j,
@@ -1267,5 +1222,3 @@ static unsigned char ucGetPositionOnAx(
       return 0xFF;
    }
 }
-
-#endif //FPA

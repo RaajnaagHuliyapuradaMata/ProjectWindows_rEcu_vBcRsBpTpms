@@ -1,62 +1,26 @@
-
-
 #ifndef FEE_30_SMALLSECTOR_CFG_H_PUBLIC
 #define FEE_30_SMALLSECTOR_CFG_H_PUBLIC
 
-#ifndef FEE_USE_DUMMY_FUNCTIONS
 #define FEE_USE_DUMMY_FUNCTIONS STD_OFF
-#endif
-#ifndef FEE_USE_DUMMY_STATEMENT
 #define FEE_USE_DUMMY_STATEMENT STD_ON
-#endif
-#ifndef FEE_DUMMY_STATEMENT
 #define FEE_DUMMY_STATEMENT(v) (v)=(v)
-#endif
-#ifndef FEE_DUMMY_STATEMENT_CONST
 #define FEE_DUMMY_STATEMENT_CONST(v) (void)(v)
-#endif
-#ifndef FEE_ATOMIC_BIT_ACCESS_IN_BITFIELD
 #define FEE_ATOMIC_BIT_ACCESS_IN_BITFIELD STD_ON
-#endif
-#ifndef FEE_ATOMIC_VARIABLE_ACCESS
 #define FEE_ATOMIC_VARIABLE_ACCESS 32U
-#endif
-#ifndef FEE_PROCESSOR_CANOEEMU
 #define FEE_PROCESSOR_CANOEEMU
-#endif
-#ifndef FEE_COMP_
 #define FEE_COMP_
-#endif
-#ifndef FEE_GEN_GENERATOR_MSR
 #define FEE_GEN_GENERATOR_MSR
-#endif
-#ifndef FEE_CPUTYPE_BITORDER_LSB2MSB
 #define FEE_CPUTYPE_BITORDER_LSB2MSB
-#endif
-#ifndef FEE_CONFIGURATION_VARIANT_PRECOMPILE
 #define FEE_CONFIGURATION_VARIANT_PRECOMPILE 1
-#endif
-#ifndef FEE_CONFIGURATION_VARIANT_LINKTIME
 #define FEE_CONFIGURATION_VARIANT_LINKTIME 2
-#endif
-#ifndef FEE_CONFIGURATION_VARIANT_POSTBUILD_LOADABLE
 #define FEE_CONFIGURATION_VARIANT_POSTBUILD_LOADABLE 3
-#endif
-#ifndef FEE_CONFIGURATION_VARIANT
 #define FEE_CONFIGURATION_VARIANT FEE_CONFIGURATION_VARIANT_PRECOMPILE
-#endif
-#ifndef FEE_POSTBUILD_VARIANT_SUPPORT
 #define FEE_POSTBUILD_VARIANT_SUPPORT STD_OFF
-#endif
-
 #define FEE_30_SMALLSECTOR_CFG_MAJOR_VERSION    (2u)
 #define FEE_30_SMALLSECTOR_CFG_MINOR_VERSION    (0u)
-
 #define FEE_30_SMALLSECTOR_DEV_ERROR_DETECT	(STD_OFF)
 #define FEE_30_SMALLSECTOR_DEV_ERROR_REPORT	(STD_OFF)
-
 #define FEE_30_SMALLSECTOR_VERSION_INFO_API STD_OFF
-
 #define FeeConf_FeeBlockConfiguration_FeeConfigBlock                           2U
 #define FeeConf_FeeBlockConfiguration_FeeBlock_FBL_Data                        4U
 #define FeeConf_FeeBlockConfiguration_FeeBlockConfiguration_CAT01              6U
@@ -86,16 +50,12 @@
 
 typedef uint32 Fee_30_SmallSector_AddressType;
 
-#ifdef FEE_30_SMALLSECTOR_IMPLEMENTATION_SOURCE
-
-# include "Fls.hpp"
+#include "Fls.hpp"
 
 #define FEE_30_SMALLSECTOR_LAYER_ONE_INDEX             (0x00U)
 #define FEE_30_SMALLSECTOR_LAYER_TWO_INDEX             (0x01U)
 #define FEE_30_SMALLSECTOR_LAYER_THREE_INDEX           (0x02U)
-
 #define FEE_30_SMALLSECTOR_NUMBER_OF_FLS_DEVICES       (1U)
-
 #define FEE_30_SMALLSECTOR_FLS_POLLING_MODE            (STD_OFF)
 #define FEE_30_SMALLSECTOR_CORRECT_SINGLE_BIT_FLIPS    (STD_OFF)
 #define FEE_30_SMALLSECTOR_MANAGEMENT_SIZE             (1U)
@@ -104,14 +64,11 @@ typedef uint32 Fee_30_SmallSector_AddressType;
 #define FEE_30_SMALLSECTOR_NUMBER_OF_BLOCKS            (26U)
 #define FEE_30_SMALLSECTOR_MAX_WRITE_ALIGNMENT         (8U)
 #define FEE_30_SMALLSECTOR_MAX_READ_SIZE               (24U)
-
 #define FEE_30_SMALLSECTOR_STATIC_PATTERN              (0xAAU)
-
 #define FEE_30_SMALLSECTOR_NVM_POLLING_MODE            (STD_OFF)
 
 typedef P2VAR(uint8, AUTOMATIC, FEE_30_SMALLSECTOR_APPL_DATA) Fee_30_SmallSector_DataPtr;
 typedef P2CONST(uint8, AUTOMATIC, FEE_30_SMALLSECTOR_APPL_DATA) Fee_30_SmallSector_ConstDataPtr;
-
 typedef P2FUNC(Std_ReturnType, FEE_30_SMALLSECTOR_PRIVATE_CODE, Fee_30_SmallSector_ReadPtrType)(Fls_AddressType FlsAddress, Fee_30_SmallSector_DataPtr TargetAddressPtr, Fls_LengthType Length);
 typedef P2FUNC(Std_ReturnType, FEE_30_SMALLSECTOR_PRIVATE_CODE, Fee_30_SmallSector_WritePtrType)(Fls_AddressType FlsAddress, Fee_30_SmallSector_ConstDataPtr SourceAddressPtr, Fls_LengthType Length);
 typedef P2FUNC(Std_ReturnType, FEE_30_SMALLSECTOR_PRIVATE_CODE, Fee_30_SmallSector_ComparePtrType)(Fls_AddressType FlsAddress, Fee_30_SmallSector_ConstDataPtr DataBufferPtr, Fls_LengthType Length);
@@ -156,28 +113,12 @@ typedef struct{
 typedef P2FUNC(void, FEE_30_SMALLSECTOR_NVM_CODE, Fee_30_SmallSector_CbkJobEndNotificationType)(void);
 typedef P2FUNC(void, FEE_30_SMALLSECTOR_NVM_CODE, Fee_30_SmallSector_CbkJobErrorNotificationType)(void);
 
-#define FEE_30_SMALLSECTOR_START_SEC_CONST_8BIT
-#include "MemMap.hpp"
-
 extern CONST(uint8, FEE_30_SMALLSECTOR_PRIVATE_CONST) Fee_30_SmallSector_DatasetSelectionBits;
-
-#define FEE_30_SMALLSECTOR_STOP_SEC_CONST_8BIT
-#include "MemMap.hpp"
-
-#define FEE_30_SMALLSECTOR_START_SEC_CONST_UNSPECIFIED
-#include "MemMap.hpp"
-
 extern CONST(Fee_30_SmallSector_PartitionConfigType, FEE_30_SMALLSECTOR_PRIVATE_CONST) Fee_30_SmallSector_PartitionConfigList[FEE_30_SMALLSECTOR_NUMBER_OF_PARTITIONS];
 extern CONST(Fee_30_SmallSector_BlockConfigType, FEE_30_SMALLSECTOR_PRIVATE_CONST) Fee_30_SmallSector_BlockConfigList[FEE_30_SMALLSECTOR_NUMBER_OF_BLOCKS];
 extern CONST(Fee_30_SmallSector_FlsApiType, FEE_30_SMALLSECTOR_PRIVATE_CONST) Fee_30_SmallSector_FlsApi0;
-
 extern CONST(Fee_30_SmallSector_CbkJobEndNotificationType, FEE_30_SMALLSECTOR_PRIVATE_CONST) Fee_30_SmallSector_CbkJobEndNotification;
 extern CONST(Fee_30_SmallSector_CbkJobErrorNotificationType, FEE_30_SMALLSECTOR_PRIVATE_CONST) Fee_30_SmallSector_CbkJobErrorNotification;
-
-#define FEE_30_SMALLSECTOR_STOP_SEC_CONST_UNSPECIFIED
-#include "MemMap.hpp"
-
-#endif
 
 #endif
 

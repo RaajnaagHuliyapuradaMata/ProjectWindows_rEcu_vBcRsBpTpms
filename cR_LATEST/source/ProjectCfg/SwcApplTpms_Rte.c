@@ -18,19 +18,14 @@
 #include "abs_linX.hpp"
 #include "SwcApplTpms_abs_lin.hpp"
 #include "IDOM_X.hpp"
-#include "SwcApplTpms_DevCanMessages.hpp" // for this function DCM_InitCanDebug();
-#include "DevCanHandling.hpp"     // for this function DCH_Init();
-#include "SwcApplTpms_LearnEOL.hpp"      // for this function EOL_InitLearnRoutine();
+#include "SwcApplTpms_DevCanMessages.hpp"
+#include "DevCanHandling.hpp"
+#include "SwcApplTpms_LearnEOL.hpp"
 
 #define TIME_TO_ALLOW_SAME_TGms           400U
 #define ABS_SIMULATED_TIMESTAMP_INVALID   ((uint16) 0xFFFFU)
 #define ABS_AGE_INVALID                   ((uint8) 0xFFU)
 #define SIMULATED_TELEGRAM_SYNC_PATTERN   ((uint16) 0x0000U)
-
-#ifdef DEBUG_AUTOLOCATION
-static uint8 ucE7withInvalidTimestamp = 0;
-static uint8 ucE7withOutdatedTimestamp = 0;
-#endif
 
 tsEnv_Data       g_sEnv_Data;
 
@@ -56,10 +51,6 @@ static uint8 u8CheckSameTG(const uint8 *u8CurrentRFFrame, uint32 u32_TimeStamp);
 #pragma PRQA_NO_SIDE_EFFECTS u8CheckSameTG
 
 void HufIf_Init_Huf_SWC(void){
-#ifdef _USRDLL
-  Init_NvM_Simulation(FALSE);
-#else
-#endif
   InitEEAll();
   Init_Huf_Common();
   Init_CAN_Data();
@@ -70,9 +61,6 @@ void HufIf_Init_Huf_SWC(void){
 
 void HufIf_RCtSaReTelDec(tsWS_RxDataIn* spRxDataIn, const tsEnv_Data* spEnvDataIn)
 {
-#ifdef _WINDLL
-  boolean l_bCrcStatus = TRUE;
-#endif
   boolean l_bAnalizeAllRF = FALSE;
   uint16 l_uiSyncPattern;
   uint8  l_ucTelType;
@@ -91,11 +79,7 @@ void HufIf_RCtSaReTelDec(tsWS_RxDataIn* spRxDataIn, const tsEnv_Data* spEnvDataI
    }
     l_ucTelType = spRxDataIn->ucaTelegram[2];
     l_ulRxTimeStamp = spRxDataIn->ulRxTimeStamp;
-#ifdef _WINDLL
-    l_bAnalizeAllRF = TRUE;
-#else
     l_bAnalizeAllRF = DCH_IsDeveloperModeActive(); // Analyze all received RF frames
-#endif
    if((l_bAnalizeAllRF == TRUE) || (u8CheckSameTG( (uint8*)&spRxDataIn->ucaTelegram[2], l_ulRxTimeStamp) == 0))
    {
       if(((LearningWheelPosActiveSM() == TRUE) || (DCH_IsContinousAPCReadingActive() == TRUE)) && (l_ucTelType == cTelTypeRotatS))
@@ -105,10 +89,6 @@ void HufIf_RCtSaReTelDec(tsWS_RxDataIn* spRxDataIn, const tsEnv_Data* spEnvDataI
           PutRotatSDataInBuffer(spRxDataIn);
         }
         else{
-#ifdef DEBUG_AUTOLOCATION
-          ucE7withInvalidTimestamp++;
-          DCM_EventDataUpdateOnRx();
-#endif //DEBUG_AUTOLOCATION
         }
       }
       else{
@@ -256,10 +236,6 @@ void HufIf_RCtSaTpmsData(tsTPMS_Data* spTPMS_Data, const tsEnv_Data* spEnvData){
         else{
           ucRotatSTelIndexGet++;
           ucRotatSTelIndexGet %= cWsTelBufferSize;
-#ifdef DEBUG_AUTOLOCATION
-          ucE7withOutdatedTimestamp++;
-          DCM_EventDataUpdateOnRx();
-#endif
         }
       }
    }
@@ -367,14 +343,4 @@ static uint8 u8CheckSameTG(const uint8 *u8CurrentRFFrame, uint32 u32_TimeStamp){
   }
   return Return;
 }
-
-#ifdef DEBUG_AUTOLOCATION
-extern uint8 DCM_InvIf_GetNumberOfE7withInvalidTs(void){
-  return (uint8) ucE7withInvalidTimestamp;
-}
-
-extern uint8 DCM_InvIf_GetNumberOfE7withOutdatedTs(void){
-  return (uint8) ucE7withOutdatedTimestamp;
-}
-#endif
 

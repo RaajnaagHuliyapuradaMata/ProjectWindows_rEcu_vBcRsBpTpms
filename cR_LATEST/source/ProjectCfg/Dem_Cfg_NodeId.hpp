@@ -14,7 +14,7 @@
 /* certain responsibilities, if you distribute copies of the software, or if  */
 /* you modify it: responsibilities to respect the freedom of others.          */
 /*                                                                            */
-/* All rights reserved. Copyright © 1982 Raajnaag HULIYAPURADA MATA           */
+/* All rights reserved. Copyright ï¿½ 1982 Raajnaag HULIYAPURADA MATA           */
 /*                                                                            */
 /* Always refer latest software version from:                                 */
 /* https://github.com/RaajnaagHuliyapuradaMata?tab=repositories               */
@@ -31,7 +31,6 @@
 #define DEM_NODEID_INVALID             0
 #define DEM_NODEID_COUNT               6u
 #define DEM_NODEID_ARRAYLENGTH         (DEM_NODEID_COUNT+1u)
-
 #define DemConf_DemNode_DemComponent_CanBus 1
 #define DemConf_DemNode_DemComponent_PowerSystem 2
 #define DemConf_DemNode_DemComponent_TpmsConfiguration 3
@@ -46,11 +45,7 @@
 /******************************************************************************/
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
-#if(DEM_NODEID_ARRAYLENGTH <= 255)
 typedef uint8 Dem_ComponentIdType;
-#else
-typedef uint16 Dem_ComponentIdType;
-#endif
 
 /******************************************************************************/
 /* CONSTS                                                                     */

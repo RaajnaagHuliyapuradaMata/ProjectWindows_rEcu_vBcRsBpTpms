@@ -7,52 +7,62 @@
 #include "wallocX.hpp"
 #include "SwcApplTpms_DevCanMesReqInterfaces.hpp"
 
-#ifdef ABS_Test_LOG_ENABLE
- unsigned short ushABSRefOffset[4];              // Abs Offset after overflow
- unsigned char ucABSComp[4];                     // ABS sensor's tick after linearization (value between 0 and 255)
-#endif //ABS-Test_LOG_ENABLE
+static uint8 ucAbsState;
+static tABS_DATA tAbsDataBuff[cAbsBufferSize];
+static uint16 ushLinAbsData[4];
+static uint8 ucAbsIndex;
+static uint8 ucABSIndex1, ucABSIndex2;
+static uint8 aucPreviousOverflowCnt[cNUMBER_OF_WHEELS];
+static uint8 aucCurrentOverflowCnt[cNUMBER_OF_WHEELS];
+uint32 ulDebugAbsTimeDiff = 0;
+uint32 ulDebugRfTimeStamp = 0;
+uint32 ulDebugRfTimeStampDiff = 0;
+uint32 ulDebugAbs2RfTimeDiff = 0;
+uint16 ushDebugAbsCntVlDiff = 0;
+uint16 ushDebugAbsCntVrDiff = 0;
+uint16 ushDebugAbsCntHlDiff = 0;
+uint16 ushDebugAbsCntHrDiff = 0;
+uint16 ushDebugDivisor = 0;
+uint16 ushDebugAbsCntVlLin = 0;
+uint16 ushDebugAbsCntVrLin = 0;
+uint16 ushDebugAbsCntHlLin = 0;
+uint16 ushDebugAbsCntHrLin = 0;
+uint8 ucDebugError = 0;
 
-#ifdef DEBUG_AUTOLOCATION
-uint8 u8_DebugABSIndex1;
-uint8 u8_DebugABSIndex2;
-#endif
+unsigned short ushABSRefOffset[4];
+unsigned char ucABSComp[4];
 
-#ifdef NVM_DEBUG
-uint8 u8_DebugABSTicksFront;
-uint8 u8_DebugABSTicksRear;
-#endif
+static uint16 ushCalcABS(
+   uint32 ulRfTimeStamp,
+   uint32 ul1stAbsTimeStamp,
+   uint16 ush1stAbsCnt,
+   uint32 ul2ndAbsTimeStamp,
+   uint16 ush2ndAbsCnt);
+
+static void HandleOverflowABS(
+   uint8 ucWheelPosition,
+   uint8 ucABSTicksAx);
 
 void InitABS(void)
 {
   uint8 ucLoop;
   uint8 ucWheelCounter;
-
-#ifdef ABS_Test_LOG_ENABLE
    uint8 j;
-#endif //ABS-Test_LOG_ENABLE
 
-#if(cABS_DEBUG_MODE == TRUE)
    ulDebugAbsTimeDiff     = 0;
-
    ulDebugRfTimeStamp     = 0;
    ulDebugRfTimeStampDiff = 0;
-
    ulDebugAbs2RfTimeDiff  = 0;
-
    ushDebugAbsCntVlDiff    = 0;
    ushDebugAbsCntVrDiff    = 0;
    ushDebugAbsCntHlDiff    = 0;
    ushDebugAbsCntHrDiff    = 0;
-
    ushDebugDivisor         = 0;
-
    ushDebugAbsCntVlLin     = 0;
    ushDebugAbsCntVrLin     = 0;
    ushDebugAbsCntHlLin     = 0;
    ushDebugAbsCntHrLin     = 0;
-
    ucDebugError            = 0;
-#endif
 
   for( ucLoop = 0; ucLoop < cAbsBufferSize; ucLoop++ )
   {
@@ -71,28 +81,16 @@ void InitABS(void)
     aucCurrentOverflowCnt[ucWheelCounter] = 0;
   }
 
-#ifdef ABS_Test_LOG_ENABLE
    for(j = 0; j < 4; j++)
    {
       ucABSComp[j] = 0;
       ushABSRefOffset[j] = 0;
    }
-#endif //ABS-Test_LOG_ENABLE
 
   ucAbsState = cABS_STATE_INIT;
   ucAbsIndex = 0;
   ucABSIndex1 = 0;
   ucABSIndex2 = 0;
-
-#ifdef DEBUG_AUTOLOCATION
-  u8_DebugABSIndex1 = 0;
-  u8_DebugABSIndex2 = 0;
-#endif
-
-#ifdef NVM_DEBUG
-  u8_DebugABSTicksFront = 0;
-  u8_DebugABSTicksRear = 0;
-#endif
 }
 
 void PutABS( uint32 ulTime, const uint16 ushCnt[] )
@@ -113,7 +111,7 @@ void PutABS( uint32 ulTime, const uint16 ushCnt[] )
   }
   else{
 
-   ucAbsIndex %= cAbsBufferSize; //start to refill buffer from the beginning if full;  out of bounds protection
+      ucAbsIndex %= cAbsBufferSize;
    if(ucAbsIndex == 0)
    {
       ucAbsIndexPrev = cAbsBufferSize - 1;
@@ -162,14 +160,6 @@ uint8 GetLinABS( uint16 ushCnt[] )
   return ucRet;
 }
 
-#ifdef BUILD_WITH_UNUSED_FUNCTION
-
-uint8 ucStateABS(void)
-{
-  return ucAbsState;
-}
-#endif //BUILD_WITH_UNUSED_FUNCTION
-
 uint8 LinABS( uint32 ulRfTimeStamp )
 {
   uint8 ucRet = 0xFF;
@@ -183,13 +173,6 @@ uint8 LinABS( uint32 ulRfTimeStamp )
    ucABSTicksFrontAx = ucGetABSTicksFullRevolFrontAx();
    ucABSTicksRearAx = ucGetABSTicksFullRevolRearAx();
 
-#ifdef NVM_DEBUG
-   u8_DebugABSTicksFront = ucABSTicksFrontAx;
-   u8_DebugABSTicksRear = ucABSTicksRearAx;
-#endif
-
-#if(cABS_DEBUG_MODE == TRUE)
-
    if( ulDebugRfTimeStamp > ulRfTimeStamp )
    {
 
@@ -200,9 +183,7 @@ uint8 LinABS( uint32 ulRfTimeStamp )
    }
 
    ulDebugRfTimeStamp = ulRfTimeStamp;
-#endif //(cABS_DEBUG_MODE == TRUE)
 
-    //Find the left-hand side ABS-value in buffer
    ucABSIndex1 = 0xFF;
    ucABSIndex2 = 0xFF;
    for(ucLoop = 0; ucLoop < cAbsBufferSize; ucLoop++)
@@ -215,7 +196,7 @@ uint8 LinABS( uint32 ulRfTimeStamp )
           ucABSIndex1 = ucLoop;
         }
         else{
-          if(tAbsDataBuff[ucLoop].ulAbsTimeStamp >= tAbsDataBuff[ucABSIndex1].ulAbsTimeStamp)  //20.01.2017 SSH: bugfix instead of ">" is correct ">=" in case we have two identical Abs-Time-values
+            if(tAbsDataBuff[ucLoop].ulAbsTimeStamp >= tAbsDataBuff[ucABSIndex1].ulAbsTimeStamp)
           {
             ucABSIndex1 = ucLoop;
           }
@@ -234,7 +215,6 @@ uint8 LinABS( uint32 ulRfTimeStamp )
       }
    }
 
-    //find the right-hand side ABS-value in buffer
    if(ucABSIndex1 != 0xFF)
    {
       if(ucABSIndex1 == ucABSIndex2)
@@ -249,17 +229,10 @@ uint8 LinABS( uint32 ulRfTimeStamp )
       else{
         ucABSIndex2 = ucABSIndex1 + 1;
       }
-
-#ifdef DEBUG_AUTOLOCATION
-      u8_DebugABSIndex1 = ucABSIndex1;
-      u8_DebugABSIndex2 = ucABSIndex2;
-#endif
-
-      if(tAbsDataBuff[ucABSIndex1].ulAbsTimeStamp <= tAbsDataBuff[ucABSIndex2].ulAbsTimeStamp) //time stamp overflow protection
+      if(tAbsDataBuff[ucABSIndex1].ulAbsTimeStamp <= tAbsDataBuff[ucABSIndex2].ulAbsTimeStamp)
       {
         if(tAbsDataBuff[ucABSIndex2].ulAbsTimeStamp < ulRfTimeStamp)
         {
-          //right-hand ABS-Value is too old => liniarisation now not possible. Try at the next cyclic function call
           ucRet = cABS_VALUE_TOO_OLD;
           ucAbsState = ccABS_STATE_LinABS_ERR;
         }
@@ -277,30 +250,19 @@ uint8 LinABS( uint32 ulRfTimeStamp )
             ushLinAbsData[ucWheelCounter] = (0xFFFF & (tAbsDataBuff[ucABSIndex1].aushAbsCnt[ucWheelCounter] + aushDivisor[ucWheelCounter]));
           }
 
-#if(cABS_DEBUG_MODE == TRUE)
           ushDebugAbsCntVlLin = ushLinAbsData[0];
           ushDebugAbsCntVrLin = ushLinAbsData[1];
           ushDebugAbsCntHlLin = ushLinAbsData[2];
           ushDebugAbsCntHrLin = ushLinAbsData[3];
-#endif
-
-          //ABS-Counter-Overflow handling
 
           HandleOverflowABS(cFRONT_LEFT, ucABSTicksFrontAx);
-
           HandleOverflowABS(cFRONT_RIGHT, ucABSTicksFrontAx);
-
           HandleOverflowABS(cREAR_LEFT, ucABSTicksRearAx);
-
           HandleOverflowABS(cREAR_RIGHT, ucABSTicksRearAx);
-
-#ifdef ABS_Test_LOG_ENABLE
           ucABSComp[0] = (uint8)((ushLinAbsData[0] + ushABSRefOffset[0]) % ucABSTicksFrontAx);
           ucABSComp[1] = (uint8)((ushLinAbsData[1] + ushABSRefOffset[1]) % ucABSTicksFrontAx);
           ucABSComp[2] = (uint8)((ushLinAbsData[2] + ushABSRefOffset[2]) % ucABSTicksRearAx);
           ucABSComp[3] = (uint8)((ushLinAbsData[3] + ushABSRefOffset[3]) % ucABSTicksRearAx);
-#endif //ABS_Test_LOG_ENABLE
-
           ucRet = cABS_OK;
           ucAbsState = ccABS_STATE_LinABS_AVL;
         }
@@ -310,7 +272,7 @@ uint8 LinABS( uint32 ulRfTimeStamp )
         ucAbsState = ccABS_STATE_LinABS_ERR;
       }
    }
-   else{//all ABS-values in Buffer are newer then WS-RxTimeStamp => Liniarisation for this WS-RxTimeStamp not possible
+   else{
       ucRet = cABS_ERROR;
       ucAbsState = ccABS_STATE_LinABS_ERR;
    }
@@ -377,31 +339,9 @@ static void HandleOverflowABS(uint8 ucWheelPosition, uint8 ucABSTicksAx)
   ucRefCorrectionValue = (ucOverflowOffset * ucABSigOFL_MOD_ZAHN(ucABSTicksAx)) % ucABSTicksAx;
 
   RebuildABSRef(ucWheelPosition, ucABSTicksAx, ucRefCorrectionValue);
-#ifdef ABS_Test_LOG_ENABLE
   ushABSRefOffset[ucWheelPosition] = (ushABSRefOffset[ucWheelPosition] + (uint16)ucRefCorrectionValue) % (uint8)ucABSTicksAx;
-#endif//ABS_Test_LOG_ENABLE
   aucPreviousOverflowCnt[ucWheelPosition] = tAbsDataBuff[ucTempOverflowCntIdx].aucOverflowCnt[ucWheelPosition];
 }
-
-//uint8 DCM_InvIf_AbsTicsOverflow_FL_GetCntValue(void)
-//{
-//  return aucPreviousOverflowCnt[cFRONT_LEFT];
-//}
-
-//uint8 DCM_InvIf_AbsTicsOverflow_FR_GetCntValue(void)
-//{
-//  return aucPreviousOverflowCnt[cFRONT_RIGHT];
-//}
-
-//uint8 DCM_InvIf_AbsTicsOverflow_RL_GetCntValue(void)
-//{
-//  return aucPreviousOverflowCnt[cREAR_LEFT];
-//}
-
-//uint8 DCM_InvIf_AbsTicsOverflow_RR_GetCntValue(void)
-//{
-//  return aucPreviousOverflowCnt[cREAR_RIGHT];
-//}
 
 uint8 DCM_InvIf_AbsLinAngle_FL_GetHistoryValue(void){
   return ucABSComp[0];
@@ -434,88 +374,3 @@ uint8 DCM_InvIf_AbsLinGetCntValueRL(void){
 uint8 DCM_InvIf_AbsLinGetCntValueRR(void){
   return (uint8) (0xFF & ushLinAbsData[3]);
 }
-#ifdef DEBUG_AUTOLOCATION
-
-void DCM_InvIf_ulDebugRfTimeStampGetValue(uint8 *u8_DebugTimeStampValue)
-{
-  // Intel on CAN
-  //u8_DebugTimeStampValue[0] = (uint8) (   ulDebugRfTimeStamp  & 0x000000FFU );
-  //u8_DebugTimeStampValue[1] = (uint8) ( ( ulDebugRfTimeStamp  & 0x0000FF00U ) >>  8U);
-  //u8_DebugTimeStampValue[2] = (uint8) ( ( ulDebugRfTimeStamp  & 0x00FF0000U ) >> 16U);
-
-  // Motorola on CAN
-  u8_DebugTimeStampValue[0] = (uint8) ( ( ulDebugRfTimeStamp  & 0x00FF0000U ) >> 16U);
-  u8_DebugTimeStampValue[1] = (uint8) ( ( ulDebugRfTimeStamp  & 0x0000FF00U ) >>  8U);
-  u8_DebugTimeStampValue[2] = (uint8) (   ulDebugRfTimeStamp  & 0x000000FFU );
-}
-
-void DCM_InvIf_ulAbsTimeStampPreviousGetValue(uint8 *u8_DebugTimeStampValue)
-{
-  // Motorola on CAN
-
-  u8_DebugTimeStampValue[0] = (uint8) ( ( tAbsDataBuff[u8_DebugABSIndex1].ulAbsTimeStamp   & 0x00FF0000U ) >> 16U);
-  u8_DebugTimeStampValue[1] = (uint8) ( ( tAbsDataBuff[u8_DebugABSIndex1].ulAbsTimeStamp   & 0x0000FF00U ) >>  8U);
-  u8_DebugTimeStampValue[2] = (uint8) (   tAbsDataBuff[u8_DebugABSIndex1].ulAbsTimeStamp   & 0x000000FFU );
-}
-
-void DCM_InvIf_ulAbsTimeStampNextGetValue(uint8 *u8_DebugTimeStampValue)
-{
-  // Motorola on CAN
-
-  u8_DebugTimeStampValue[0] = (uint8) ( ( tAbsDataBuff[u8_DebugABSIndex2].ulAbsTimeStamp   & 0x00FF0000U ) >> 16U);
-  u8_DebugTimeStampValue[1] = (uint8) ( ( tAbsDataBuff[u8_DebugABSIndex2].ulAbsTimeStamp   & 0x0000FF00U ) >>  8U);
-  u8_DebugTimeStampValue[2] = (uint8) (   tAbsDataBuff[u8_DebugABSIndex2].ulAbsTimeStamp   & 0x000000FFU );
-}
-
-// RST Debug: return timestamp of oldest and newest ABS matrix entry
-void DCM_InvIf_ulAbsTimeStampGetOldestValue(uint8 *u8_DebugTimeStampValue)
-{
-  uint8 i;
-  uint32 ulTS = 0xffffffff;
-
-  for(i=0; i<cAbsBufferSize; i++)
-  {
-   if(tAbsDataBuff[i].ulAbsTimeStamp < ulTS)
-   {
-      ulTS = tAbsDataBuff[i].ulAbsTimeStamp;
-   }
-  }
-
-  // Motorola on CAN
-  u8_DebugTimeStampValue[0] = (uint8) ( ( ulTS   & 0x00FF0000U ) >> 16U);
-  u8_DebugTimeStampValue[1] = (uint8) ( ( ulTS   & 0x0000FF00U ) >>  8U);
-  u8_DebugTimeStampValue[2] = (uint8) (   ulTS   & 0x000000FFU );
-}
-
-void DCM_InvIf_ulAbsTimeStampGetNewestValue(uint8 *u8_DebugTimeStampValue)
-{
-  uint8 i;
-  uint32 ulTS = 0x0;
-
-  for(i=0; i<cAbsBufferSize; i++)
-  {
-   if(tAbsDataBuff[i].ulAbsTimeStamp > ulTS)
-   {
-      ulTS = tAbsDataBuff[i].ulAbsTimeStamp;
-   }
-  }
-
-  // Motorola on CAN
-  u8_DebugTimeStampValue[0] = (uint8) ( ( ulTS   & 0x00FF0000U ) >> 16U);
-  u8_DebugTimeStampValue[1] = (uint8) ( ( ulTS   & 0x0000FF00U ) >>  8U);
-  u8_DebugTimeStampValue[2] = (uint8) (   ulTS   & 0x000000FFU );
-}
-
-#endif
-
-#ifdef NVM_DEBUG
-
-uint8 DCM_InvIf_DebugABSTicksFront(void){
-  return u8_DebugABSTicksFront;
-}
-
-uint8 DCM_InvIf_DebugABSTicksRear(void){
-  return u8_DebugABSTicksRear;
-}
-
-#endif
