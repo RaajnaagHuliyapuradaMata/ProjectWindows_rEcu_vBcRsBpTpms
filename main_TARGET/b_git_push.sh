@@ -1,16 +1,16 @@
 cd ./source/common
 ./b_git_push.sh
 
-cd ../EcuabCanIf
-./b_git_push.sh
-
-cd ../EcuabCanTrcv
-./b_git_push.sh
-
 cd ../EcuabFee
 ./b_git_push.sh
 
-cd ../EcuabMemIf
+cd ../EcuabIfCan
+./b_git_push.sh
+
+cd ../EcuabIfMem
+./b_git_push.sh
+
+cd ../EcuabTrcvCan
 ./b_git_push.sh
 
 cd ../LibAutosar
@@ -40,6 +40,15 @@ cd ../McalMcu
 cd ../McalWdg
 ./b_git_push.sh
 
+cd ../ProjectARA
+./b_git_push.sh
+
+cd ../ProjectCfg
+./b_git_push.sh
+
+cd ../ProjectMemMap
+./b_git_push.sh
+
 cd ../SwcApplDcm
 ./b_git_push.sh
 
@@ -56,12 +65,6 @@ cd ../SwcApplTpms
 ./b_git_push.sh
 
 cd ../SwcServiceBswM
-./b_git_push.sh
-
-cd ../SwcServiceCanSm
-./b_git_push.sh
-
-cd ../SwcServiceCanTp
 ./b_git_push.sh
 
 cd ../SwcServiceCom
@@ -97,11 +100,17 @@ cd ../SwcServicePduR
 cd ../SwcServiceSchM
 ./b_git_push.sh
 
+cd ../SwcServiceSmCan
+./b_git_push.sh
+
 cd ../SwcServiceStartUp
+./b_git_push.sh
+
+cd ../SwcServiceTpCan
 ./b_git_push.sh
 
 cd ../..
 git add .
 git status
-git commit -m "AUTOSAR - Hotfixes - pRealEcu_cR_TARGET"
+git commit -m "AUTOSAR Migration Activities - EcuReal_vBcRsBpTpms_TARGET"
 git push

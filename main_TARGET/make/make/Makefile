@@ -8,17 +8,20 @@ DIR_OUTPUT_OBJ = output/objects
 DIR_OUTPUT_LST = output/list
 
 Include_common                 = $(DIR_SOURCE)/common
-Source_ProjectCfg              = $(DIR_SOURCE)/ProjectCfg
-Source_ProjectCompiler         = $(DIR_SOURCE)/ProjectCompiler
-Source_ProjectARA              = $(DIR_SOURCE)/ProjectARA
-Source_SwcApplDcm              = $(DIR_SOURCE)/SwcApplDcm
-Source_SwcApplDem              = $(DIR_SOURCE)/SwcApplDem
-Source_SwcApplEcuM             = $(DIR_SOURCE)/SwcApplEcuM
-Source_SwcApplNvM              = $(DIR_SOURCE)/SwcApplNvM
-Source_SwcApplTpms             = $(DIR_SOURCE)/SwcApplTpms
+Source_LibAutosar              = $(DIR_SOURCE)/LibAutosar
+Source_McalAdc                 = $(DIR_SOURCE)/McalAdc
+Source_McalCan                 = $(DIR_SOURCE)/McalCan
+Source_McalDio                 = $(DIR_SOURCE)/McalDio
+Source_McalFls                 = $(DIR_SOURCE)/McalFls
+Source_McalGpt                 = $(DIR_SOURCE)/McalGpt
+Source_McalLin                 = $(DIR_SOURCE)/McalLin
+Source_McalMcu                 = $(DIR_SOURCE)/McalMcu
+Source_McalWdg                 = $(DIR_SOURCE)/McalWdg
+Source_EcuabFee                = $(DIR_SOURCE)/EcuabFee
+Source_EcuabIfCan              = $(DIR_SOURCE)/EcuabIfCan
+Source_EcuabIfMem              = $(DIR_SOURCE)/EcuabIfMem
+Source_EcuabTrcvCan            = $(DIR_SOURCE)/EcuabTrcvCan
 Source_SwcServiceBswM          = $(DIR_SOURCE)/SwcServiceBswM
-Source_SwcServiceCanSm         = $(DIR_SOURCE)/SwcServiceCanSm
-Source_SwcServiceCanTp         = $(DIR_SOURCE)/SwcServiceCanTp
 Source_SwcServiceCom           = $(DIR_SOURCE)/SwcServiceCom
 Source_SwcServiceComM          = $(DIR_SOURCE)/SwcServiceComM
 Source_SwcServiceDcm           = $(DIR_SOURCE)/SwcServiceDcm
@@ -30,20 +33,17 @@ Source_SwcServiceNvM           = $(DIR_SOURCE)/SwcServiceNvM
 Source_SwcServiceOs            = $(DIR_SOURCE)/SwcServiceOs
 Source_SwcServicePduR          = $(DIR_SOURCE)/SwcServicePduR
 Source_SwcServiceSchM          = $(DIR_SOURCE)/SwcServiceSchM
+Source_SwcServiceSmCan         = $(DIR_SOURCE)/SwcServiceSmCan
 Source_SwcServiceStartUp       = $(DIR_SOURCE)/SwcServiceStartUp
-Source_EcuabCanIf              = $(DIR_SOURCE)/EcuabCanIf
-Source_EcuabCanTrcv            = $(DIR_SOURCE)/EcuabCanTrcv
-Source_EcuabFee                = $(DIR_SOURCE)/EcuabFee
-Source_EcuabMemIf              = $(DIR_SOURCE)/EcuabMemIf
-Source_LibAutosar              = $(DIR_SOURCE)/LibAutosar
-Source_McalAdc                 = $(DIR_SOURCE)/McalAdc
-Source_McalCan                 = $(DIR_SOURCE)/McalCan
-Source_McalDio                 = $(DIR_SOURCE)/McalDio
-Source_McalFls                 = $(DIR_SOURCE)/McalFls
-Source_McalGpt                 = $(DIR_SOURCE)/McalGpt
-Source_McalLin                 = $(DIR_SOURCE)/McalLin
-Source_McalMcu                 = $(DIR_SOURCE)/McalMcu
-Source_McalWdg                 = $(DIR_SOURCE)/McalWdg
+Source_SwcServiceTpCan         = $(DIR_SOURCE)/SwcServiceTpCan
+Source_SwcApplDcm              = $(DIR_SOURCE)/SwcApplDcm
+Source_SwcApplDem              = $(DIR_SOURCE)/SwcApplDem
+Source_SwcApplEcuM             = $(DIR_SOURCE)/SwcApplEcuM
+Source_SwcApplNvM              = $(DIR_SOURCE)/SwcApplNvM
+Source_SwcApplTpms             = $(DIR_SOURCE)/SwcApplTpms
+Source_ProjectCfg              = $(DIR_SOURCE)/ProjectCfg
+Source_ProjectMemMap           = $(DIR_SOURCE)/ProjectMemMap
+Source_ProjectARA              = $(DIR_SOURCE)/ProjectARA
 Source_wrappers                = $(DIR_SOURCE)/wrappers
 Source_wrappers_Bfx            = $(DIR_SOURCE)/wrappers/Bfx
 Source_wrappers_LibAutosarDiag = $(DIR_SOURCE)/wrappers/LibAutosarDiag
@@ -571,16 +571,23 @@ wdt.o\
 #******************************************************************************
 INC = \
 $(Include_common)\
+$(Source_ProjectMemMap)\
 $(Source_ProjectCfg)\
-$(Source_ProjectCompiler)\
-$(Source_SwcApplDcm)\
-$(Source_SwcApplDem)\
-$(Source_SwcApplEcuM)\
-$(Source_SwcApplNvM)\
-$(Source_SwcApplTpms)\
+$(Source_ProjectARA)\
+$(Source_LibAutosar)\
+$(Source_McalAdc)\
+$(Source_McalCan)\
+$(Source_McalDio)\
+$(Source_McalFls)\
+$(Source_McalGpt)\
+$(Source_McalLin)\
+$(Source_McalMcu)\
+$(Source_McalWdg)\
+$(Source_EcuabFee)\
+$(Source_EcuabIfCan)\
+$(Source_EcuabIfMem)\
+$(Source_EcuabTrcvCan)\
 $(Source_SwcServiceBswM)\
-$(Source_SwcServiceCanSm)\
-$(Source_SwcServiceCanTp)\
 $(Source_SwcServiceCom)\
 $(Source_SwcServiceComM)\
 $(Source_SwcServiceDcm)\
@@ -592,21 +599,14 @@ $(Source_SwcServiceNvM)\
 $(Source_SwcServiceOs)\
 $(Source_SwcServicePduR)\
 $(Source_SwcServiceSchM)\
+$(Source_SwcServiceSmCan)\
 $(Source_SwcServiceStartUp)\
-$(Source_EcuabCanIf)\
-$(Source_EcuabCanTrcv)\
-$(Source_EcuabFee)\
-$(Source_EcuabMemIf)\
-$(Source_LibAutosar)\
-$(Source_McalAdc)\
-$(Source_McalCan)\
-$(Source_McalDio)\
-$(Source_McalFls)\
-$(Source_McalGpt)\
-$(Source_McalLin)\
-$(Source_McalMcu)\
-$(Source_McalWdg)\
-$(Source_ProjectARA)\
+$(Source_SwcServiceTpCan)\
+$(Source_SwcApplDcm)\
+$(Source_SwcApplDem)\
+$(Source_SwcApplEcuM)\
+$(Source_SwcApplNvM)\
+$(Source_SwcApplTpms)\
 $(Source_wrappers_McalAta)\
 $(Source_wrappers_VStdLib)\
 $(Source_wrappers_FBL_APPL)\
@@ -621,15 +621,20 @@ $(Source_wrappers)\
 # search for source files in following directories
 #******************************************************************************
 VPATH = \
-$(Source_ProjectCfg)\
-$(Source_SwcApplDcm)\
-$(Source_SwcApplDem)\
-$(Source_SwcApplEcuM)\
-$(Source_SwcApplNvM)\
-$(Source_SwcApplTpms)\
+$(Source_LibAutosar)\
+$(Source_McalAdc)\
+$(Source_McalCan)\
+$(Source_McalDio)\
+$(Source_McalFls)\
+$(Source_McalGpt)\
+$(Source_McalLin)\
+$(Source_McalMcu)\
+$(Source_McalWdg)\
+$(Source_EcuabFee)\
+$(Source_EcuabIfCan)\
+$(Source_EcuabIfMem)\
+$(Source_EcuabTrcvCan)\
 $(Source_SwcServiceBswM)\
-$(Source_SwcServiceCanSm)\
-$(Source_SwcServiceCanTp)\
 $(Source_SwcServiceCom)\
 $(Source_SwcServiceComM)\
 $(Source_SwcServiceDcm)\
@@ -641,21 +646,16 @@ $(Source_SwcServiceNvM)\
 $(Source_SwcServiceOs)\
 $(Source_SwcServicePduR)\
 $(Source_SwcServiceSchM)\
+$(Source_SwcServiceSmCan)\
 $(Source_SwcServiceStartUp)\
-$(Source_EcuabCanIf)\
-$(Source_EcuabCanTrcv)\
-$(Source_EcuabFee)\
-$(Source_EcuabMemIf)\
-$(Source_LibAutosar)\
-$(Source_McalAdc)\
-$(Source_McalCan)\
-$(Source_McalDio)\
-$(Source_McalFls)\
-$(Source_McalGpt)\
-$(Source_McalLin)\
-$(Source_McalMcu)\
-$(Source_McalWdg)\
+$(Source_SwcServiceTpCan)\
+$(Source_SwcApplDcm)\
+$(Source_SwcApplDem)\
+$(Source_SwcApplEcuM)\
+$(Source_SwcApplNvM)\
+$(Source_SwcApplTpms)\
 $(Source_ProjectARA)\
+$(Source_ProjectCfg)\
 $(Source_wrappers_McalAta)\
 $(Source_wrappers_VStdLib)\
 $(Source_wrappers_FBL_APPL)\
