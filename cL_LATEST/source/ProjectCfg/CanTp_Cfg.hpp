@@ -31,7 +31,7 @@
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
-#define CANTP_VENDOR_ID                                                     (6u)
+#define CANTP_VENDOR_ID                                                     (1u)
 #define CANTP_MODULE_ID                                                    (35u)
 #define CANTP_INSTANCE_ID                                                   (0u)
 #define CANTP_AR_RELEASE_MAJOR_VERSION                                      (4u)

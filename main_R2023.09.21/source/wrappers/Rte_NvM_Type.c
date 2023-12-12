@@ -246,12 +246,12 @@ extern void  Memstack_SetEcuNvMRamBlockStatus(uint16 ushBlockNr)
 void infSwcServiceNvMSwcApplEcuM_InitFunction(void){
    NvM_RequestResultType Int_NvMultiBlockStatus;
    Fls_Init(FlsConfigSet);
-   Fee_30_SmallSector_Init();
+   EcuabFee_Init();
    NvM_Init();
    NvM_ReadAll();
    do{
       NvM_MainFunction();
-      Fee_30_SmallSector_MainFunction();
+      EcuabFee_MainFunction();
       Fls_MainFunction();
       NvM_GetErrorStatus(NvMConf___MultiBlockRequest, &Int_NvMultiBlockStatus);
    }while( Int_NvMultiBlockStatus == NVM_REQ_PENDING );
@@ -264,7 +264,7 @@ void infSwcServiceNvMSwcApplEcuM_InitFunction(void){
 
 extern void Memstack_Main(void){
     NvM_MainFunction();
-    Fee_30_SmallSector_MainFunction();
+    EcuabFee_MainFunction();
     Fls_MainFunction();
 }
 
@@ -273,7 +273,7 @@ extern void Memstack_WriteAllBlocks(void){
   NvM_WriteAll();
   do{
     NvM_MainFunction();
-    Fee_30_SmallSector_MainFunction();
+    EcuabFee_MainFunction();
     Fls_MainFunction();
     NvM_GetErrorStatus(NvMConf___MultiBlockRequest, &Int_NvMultiBlockStatus);
   }

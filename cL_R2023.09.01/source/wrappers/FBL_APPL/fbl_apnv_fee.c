@@ -1,7 +1,7 @@
 #include "fbl_def.hpp"
 #include "wdt.hpp"
 #include "Fee_30_SmallSector.hpp"
-#include "Fee_30_SmallSector_Cfg.hpp"
+#include "EcuabFee_Cfg.hpp"
 #include "Fls.hpp"
 
 #define FBL_NV_CONTROL_DATA_FEE_BLOCK_NUMBER                   FeeConf_FeeBlockConfiguration_FeeBlock_FBL_Data
@@ -53,29 +53,29 @@ static tFblResult ApplFblNvRead( vuint16 blockNumber
    MemIf_JobResultType feeJobResult;
 
    while(   (MEMIF_IDLE != Fls_GetStatus())
-        || (MEMIF_IDLE != Fee_30_SmallSector_GetStatus())
-        || (MEMIF_JOB_PENDING == Fee_30_SmallSector_GetJobResult()))
+        || (MEMIF_IDLE != EcuabFee_GetStatus())
+        || (MEMIF_JOB_PENDING == EcuabFee_GetJobResult()))
    {
         Wdt_TriggerWD0(); // Trigger Watchdog
 
-        Fee_30_SmallSector_MainFunction();
+        EcuabFee_MainFunction();
         Fls_MainFunction();
    }
-   if(E_OK == Fee_30_SmallSector_Read(blockNumber, blockOffset, pBuffer, length))
+   if(E_OK == EcuabFee_Read(blockNumber, blockOffset, pBuffer, length))
    {
       while(   (MEMIF_IDLE != Fls_GetStatus())
-             || (MEMIF_IDLE != Fee_30_SmallSector_GetStatus())
-             || (MEMIF_JOB_PENDING == Fee_30_SmallSector_GetJobResult()))
+             || (MEMIF_IDLE != EcuabFee_GetStatus())
+             || (MEMIF_JOB_PENDING == EcuabFee_GetJobResult()))
       {
 
          Wdt_TriggerWD0();  // Trigger Watchdog
 
-         Fee_30_SmallSector_MainFunction();
+         EcuabFee_MainFunction();
          Fls_MainFunction();
 
       }
 
-      feeJobResult = Fee_30_SmallSector_GetJobResult();
+      feeJobResult = EcuabFee_GetJobResult();
       if(MEMIF_JOB_OK == feeJobResult)
       {
          result = kFblOk;
@@ -108,28 +108,28 @@ static tFblResult ApplFblNvWrite( vuint16 blockNumber
 
    // handle pending jobs first
    while(   (MEMIF_IDLE != Fls_GetStatus())
-        || (MEMIF_IDLE != Fee_30_SmallSector_GetStatus())
-        || (MEMIF_JOB_PENDING == Fee_30_SmallSector_GetJobResult()))
+        || (MEMIF_IDLE != EcuabFee_GetStatus())
+        || (MEMIF_JOB_PENDING == EcuabFee_GetJobResult()))
    {
         Wdt_TriggerWD0(); // Trigger Watchdog
 
-        Fee_30_SmallSector_MainFunction();
+        EcuabFee_MainFunction();
         Fls_MainFunction();
    }
 
-   if(E_OK == Fee_30_SmallSector_Write(blockNumber, pBuffer))
+   if(E_OK == EcuabFee_Write(blockNumber, pBuffer))
    {
       while(   (MEMIF_IDLE != Fls_GetStatus())
-             || (MEMIF_IDLE != Fee_30_SmallSector_GetStatus())
-             || (MEMIF_JOB_PENDING == Fee_30_SmallSector_GetJobResult()))
+             || (MEMIF_IDLE != EcuabFee_GetStatus())
+             || (MEMIF_JOB_PENDING == EcuabFee_GetJobResult()))
       {
          Wdt_TriggerWD0(); // Trigger Watchdog
 
-         Fee_30_SmallSector_MainFunction();
+         EcuabFee_MainFunction();
          Fls_MainFunction();
       }
 
-      if(MEMIF_JOB_OK == Fee_30_SmallSector_GetJobResult())
+      if(MEMIF_JOB_OK == EcuabFee_GetJobResult())
       {
          result = kFblOk;
       }
@@ -290,7 +290,7 @@ tFblResult ApplFblNvInit(void)
 {
 
   Fls_Init(FlsConfigSet);
-  Fee_30_SmallSector_Init();
+  EcuabFee_Init();
 
   return kFblOk;
 }

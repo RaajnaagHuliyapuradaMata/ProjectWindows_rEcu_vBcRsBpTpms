@@ -1,26 +1,26 @@
-#define FEE_30_SMALLSECTOR_IMPLEMENTATION_SOURCE
+#define EcuabFee_IMPLEMENTATION_SOURCE
 
 #include "Std_Types.hpp"
 #include "Fee_30_SmallSector.hpp"
 #include "NvM_Cbk.hpp"
 
-#if(   (FEE_30_SMALLSECTOR_CFG_MAJOR_VERSION != (2u)) \
-     || (FEE_30_SMALLSECTOR_CFG_MINOR_VERSION != (0u)))
-# error "Version numbers of Fee_30_SmallSector_Cfg.c and Fee_30_SmallSector_Cfg.h are inconsistent!"
+#if(   (EcuabFee_CFG_MAJOR_VERSION != (2u)) \
+     || (EcuabFee_CFG_MINOR_VERSION != (0u)))
+# error "Version numbers of EcuabFee_Cfg.c and EcuabFee_Cfg.h are inconsistent!"
 #endif
 
-#define FEE_30_SMALLSECTOR_START_SEC_CONST_8BIT
+#define EcuabFee_START_SEC_CONST_8BIT
 #include "MemMap.hpp"
 
-CONST(uint8, FEE_30_SMALLSECTOR_PRIVATE_CONST) Fee_30_SmallSector_DatasetSelectionBits = (1U);
+CONST(uint8, EcuabFee_PRIVATE_CONST) EcuabFee_DatasetSelectionBits = (1U);
 
-#define FEE_30_SMALLSECTOR_STOP_SEC_CONST_8BIT
+#define EcuabFee_STOP_SEC_CONST_8BIT
 #include "MemMap.hpp"
 
-#define FEE_30_SMALLSECTOR_START_SEC_CONST_UNSPECIFIED
+#define EcuabFee_START_SEC_CONST_UNSPECIFIED
 #include "MemMap.hpp"
 
-CONST(Fee_30_SmallSector_PartitionConfigType, FEE_30_SMALLSECTOR_PRIVATE_CONST) Fee_30_SmallSector_PartitionConfigList[FEE_30_SMALLSECTOR_NUMBER_OF_PARTITIONS] =
+CONST(EcuabFee_PartitionConfigType, EcuabFee_PRIVATE_CONST) EcuabFee_PartitionConfigList[EcuabFee_NUMBER_OF_PARTITIONS] =
 {
    {
       0x00000800UL
@@ -28,7 +28,7 @@ CONST(Fee_30_SmallSector_PartitionConfigType, FEE_30_SMALLSECTOR_PRIVATE_CONST) 
    ,     0x0008U
    ,     0x0008U
    ,     0x0000U
-   ,     &Fee_30_SmallSector_FlsApi0
+   ,     &EcuabFee_FlsApi0
    ,     0xFFU
    ,     TRUE
    ,  {
@@ -41,7 +41,7 @@ CONST(Fee_30_SmallSector_PartitionConfigType, FEE_30_SMALLSECTOR_PRIVATE_CONST) 
    ,     0x0008U
    ,     0x0008U
    ,     0x0000U
-   ,     &Fee_30_SmallSector_FlsApi0
+   ,     &EcuabFee_FlsApi0
    ,     0xFFU
    ,     TRUE
    ,  {
@@ -65,7 +65,7 @@ CONST(Fee_30_SmallSector_PartitionConfigType, FEE_30_SMALLSECTOR_PRIVATE_CONST) 
    ,     0x0008U
    ,     0x0008U
    ,     0x0000U
-   ,     &Fee_30_SmallSector_FlsApi0
+   ,     &EcuabFee_FlsApi0
    ,     0xFFU
    ,     TRUE
    ,  {
@@ -86,7 +86,7 @@ CONST(Fee_30_SmallSector_PartitionConfigType, FEE_30_SMALLSECTOR_PRIVATE_CONST) 
   }
 };
 
-CONST(Fee_30_SmallSector_BlockConfigType, FEE_30_SMALLSECTOR_PRIVATE_CONST) Fee_30_SmallSector_BlockConfigList[FEE_30_SMALLSECTOR_NUMBER_OF_BLOCKS] =
+CONST(EcuabFee_BlockConfigType, EcuabFee_PRIVATE_CONST) EcuabFee_BlockConfigList[EcuabFee_NUMBER_OF_BLOCKS] =
 {
   {
       0x00000000UL
@@ -298,7 +298,7 @@ CONST(Fee_30_SmallSector_BlockConfigType, FEE_30_SMALLSECTOR_PRIVATE_CONST) Fee_
   }
 };
 
-CONST(Fee_30_SmallSector_FlsApiType, FEE_30_SMALLSECTOR_PRIVATE_CONST) Fee_30_SmallSector_FlsApi0 =
+CONST(EcuabFee_FlsApiType, EcuabFee_PRIVATE_CONST) EcuabFee_FlsApi0 =
 {
     Fls_Read
    ,   Fls_Write
@@ -309,11 +309,11 @@ CONST(Fee_30_SmallSector_FlsApiType, FEE_30_SMALLSECTOR_PRIVATE_CONST) Fee_30_Sm
    ,   Fls_GetJobResult
 };
 
-CONST(Fee_30_SmallSector_CbkJobEndNotificationType, FEE_30_SMALLSECTOR_PRIVATE_CONST) Fee_30_SmallSector_CbkJobEndNotification =
+CONST(EcuabFee_CbkJobEndNotificationType, EcuabFee_PRIVATE_CONST) EcuabFee_CbkJobEndNotification =
     NvM_JobEndNotification;
-CONST(Fee_30_SmallSector_CbkJobErrorNotificationType, FEE_30_SMALLSECTOR_PRIVATE_CONST) Fee_30_SmallSector_CbkJobErrorNotification =
+CONST(EcuabFee_CbkJobErrorNotificationType, EcuabFee_PRIVATE_CONST) EcuabFee_CbkJobErrorNotification =
     NvM_JobErrorNotification;
 
-#define FEE_30_SMALLSECTOR_STOP_SEC_CONST_UNSPECIFIED
+#define EcuabFee_STOP_SEC_CONST_UNSPECIFIED
 #include "MemMap.hpp"
 

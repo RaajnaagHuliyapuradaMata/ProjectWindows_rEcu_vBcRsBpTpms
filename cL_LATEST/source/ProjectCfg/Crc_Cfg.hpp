@@ -28,7 +28,7 @@
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
-#define CRC_VENDOR_ID                   (6U)
+#define CRC_VENDOR_ID                   (1U)
 #define CRC_MODULE_ID                   (201U)
 #define CRC_SW_MAJOR_VERSION            (2U)
 #define CRC_SW_MINOR_VERSION            (0U)

@@ -1,7 +1,7 @@
 
 
-#ifndef FEE_30_SMALLSECTOR_CFG_H_PUBLIC
-#define FEE_30_SMALLSECTOR_CFG_H_PUBLIC
+#ifndef EcuabFee_CFG_H_PUBLIC
+#define EcuabFee_CFG_H_PUBLIC
 
 #ifndef FEE_USE_DUMMY_FUNCTIONS
 #define FEE_USE_DUMMY_FUNCTIONS STD_OFF
@@ -49,13 +49,13 @@
 #define FEE_POSTBUILD_VARIANT_SUPPORT STD_OFF
 #endif
 
-#define FEE_30_SMALLSECTOR_CFG_MAJOR_VERSION    (2u)
-#define FEE_30_SMALLSECTOR_CFG_MINOR_VERSION    (0u)
+#define EcuabFee_CFG_MAJOR_VERSION    (2u)
+#define EcuabFee_CFG_MINOR_VERSION    (0u)
 
-#define FEE_30_SMALLSECTOR_DEV_ERROR_DETECT	(STD_OFF)
-#define FEE_30_SMALLSECTOR_DEV_ERROR_REPORT	(STD_OFF)
+#define EcuabFee_DEV_ERROR_DETECT	(STD_OFF)
+#define EcuabFee_DEV_ERROR_REPORT	(STD_OFF)
 
-#define FEE_30_SMALLSECTOR_VERSION_INFO_API STD_OFF
+#define EcuabFee_VERSION_INFO_API STD_OFF
 
 #define FeeConf_FeeBlockConfiguration_FeeConfigBlock                           2U
 #define FeeConf_FeeBlockConfiguration_FeeBlock_FBL_Data                        4U
@@ -84,97 +84,97 @@
 #define FeeConf_FeeBlockConfiguration_FeeBlockConfiguration_ECUM_CFG_NVM_BLOCK 50U
 #define FeeConf_FeeBlockConfiguration_FeeBlock_BSW_Data                        52U
 
-typedef uint32 Fee_30_SmallSector_AddressType;
+typedef uint32 EcuabFee_AddressType;
 
-#ifdef FEE_30_SMALLSECTOR_IMPLEMENTATION_SOURCE
+#ifdef EcuabFee_IMPLEMENTATION_SOURCE
 
 # include "Fls.hpp"
 
-#define FEE_30_SMALLSECTOR_LAYER_ONE_INDEX             (0x00U)
-#define FEE_30_SMALLSECTOR_LAYER_TWO_INDEX             (0x01U)
-#define FEE_30_SMALLSECTOR_LAYER_THREE_INDEX           (0x02U)
+#define EcuabFee_LAYER_ONE_INDEX             (0x00U)
+#define EcuabFee_LAYER_TWO_INDEX             (0x01U)
+#define EcuabFee_LAYER_THREE_INDEX           (0x02U)
 
-#define FEE_30_SMALLSECTOR_NUMBER_OF_FLS_DEVICES       (1U)
+#define EcuabFee_NUMBER_OF_FLS_DEVICES       (1U)
 
-#define FEE_30_SMALLSECTOR_FLS_POLLING_MODE            (STD_OFF)
-#define FEE_30_SMALLSECTOR_CORRECT_SINGLE_BIT_FLIPS    (STD_OFF)
-#define FEE_30_SMALLSECTOR_MANAGEMENT_SIZE             (1U)
-#define FEE_30_SMALLSECTOR_MAX_BLOCKS_PER_PARTITION    (13U)
-#define FEE_30_SMALLSECTOR_NUMBER_OF_PARTITIONS        (3U)
-#define FEE_30_SMALLSECTOR_NUMBER_OF_BLOCKS            (26U)
-#define FEE_30_SMALLSECTOR_MAX_WRITE_ALIGNMENT         (8U)
-#define FEE_30_SMALLSECTOR_MAX_READ_SIZE               (24U)
+#define EcuabFee_FLS_POLLING_MODE            (STD_OFF)
+#define EcuabFee_CORRECT_SINGLE_BIT_FLIPS    (STD_OFF)
+#define EcuabFee_MANAGEMENT_SIZE             (1U)
+#define EcuabFee_MAX_BLOCKS_PER_PARTITION    (13U)
+#define EcuabFee_NUMBER_OF_PARTITIONS        (3U)
+#define EcuabFee_NUMBER_OF_BLOCKS            (26U)
+#define EcuabFee_MAX_WRITE_ALIGNMENT         (8U)
+#define EcuabFee_MAX_READ_SIZE               (24U)
 
-#define FEE_30_SMALLSECTOR_STATIC_PATTERN              (0xAAU)
+#define EcuabFee_STATIC_PATTERN              (0xAAU)
 
-#define FEE_30_SMALLSECTOR_NVM_POLLING_MODE            (STD_OFF)
+#define EcuabFee_NVM_POLLING_MODE            (STD_OFF)
 
-typedef P2VAR(uint8, AUTOMATIC, FEE_30_SMALLSECTOR_APPL_DATA) Fee_30_SmallSector_DataPtr;
-typedef P2CONST(uint8, AUTOMATIC, FEE_30_SMALLSECTOR_APPL_DATA) Fee_30_SmallSector_ConstDataPtr;
+typedef P2VAR(uint8, AUTOMATIC, EcuabFee_APPL_DATA) EcuabFee_DataPtr;
+typedef P2CONST(uint8, AUTOMATIC, EcuabFee_APPL_DATA) EcuabFee_ConstDataPtr;
 
-typedef P2FUNC(Std_ReturnType, FEE_30_SMALLSECTOR_PRIVATE_CODE, Fee_30_SmallSector_ReadPtrType)(Fls_AddressType FlsAddress, Fee_30_SmallSector_DataPtr TargetAddressPtr, Fls_LengthType Length);
-typedef P2FUNC(Std_ReturnType, FEE_30_SMALLSECTOR_PRIVATE_CODE, Fee_30_SmallSector_WritePtrType)(Fls_AddressType FlsAddress, Fee_30_SmallSector_ConstDataPtr SourceAddressPtr, Fls_LengthType Length);
-typedef P2FUNC(Std_ReturnType, FEE_30_SMALLSECTOR_PRIVATE_CODE, Fee_30_SmallSector_ComparePtrType)(Fls_AddressType FlsAddress, Fee_30_SmallSector_ConstDataPtr DataBufferPtr, Fls_LengthType Length);
-typedef P2FUNC(Std_ReturnType, FEE_30_SMALLSECTOR_PRIVATE_CODE, Fee_30_SmallSector_ErasePtrType)(Fls_AddressType FlsAddress, Fls_LengthType Length);
-typedef P2FUNC(Std_ReturnType, FEE_30_SMALLSECTOR_PRIVATE_CODE, Fee_30_SmallSector_BlankCheckPtrType)(Fls_AddressType FlsAddress, Fls_LengthType Length);
-typedef P2FUNC(MemIf_StatusType, FEE_30_SMALLSECTOR_PRIVATE_CODE, Fee_30_SmallSector_GetStatusPtrType)(void);
-typedef P2FUNC(MemIf_JobResultType, FEE_30_SMALLSECTOR_PRIVATE_CODE, Fee_30_SmallSector_GetJobResultPtrType)(void);
-
-typedef struct{
-   Fee_30_SmallSector_ReadPtrType Read;
-   Fee_30_SmallSector_WritePtrType Write;
-   Fee_30_SmallSector_ComparePtrType Compare;
-   Fee_30_SmallSector_ErasePtrType Erase;
-   Fee_30_SmallSector_BlankCheckPtrType BlankCheck;
-   Fee_30_SmallSector_GetStatusPtrType GetStatus;
-   Fee_30_SmallSector_GetJobResultPtrType GetJobResult;
-}Fee_30_SmallSector_FlsApiType;
-
-typedef P2CONST(Fee_30_SmallSector_FlsApiType, AUTOMATIC, FEE_30_SMALLSECTOR_APPL_DATA) Fee_30_SmallSector_FlsApiPtrType;
+typedef P2FUNC(Std_ReturnType, EcuabFee_PRIVATE_CODE, EcuabFee_ReadPtrType)(Fls_AddressType FlsAddress, EcuabFee_DataPtr TargetAddressPtr, Fls_LengthType Length);
+typedef P2FUNC(Std_ReturnType, EcuabFee_PRIVATE_CODE, EcuabFee_WritePtrType)(Fls_AddressType FlsAddress, EcuabFee_ConstDataPtr SourceAddressPtr, Fls_LengthType Length);
+typedef P2FUNC(Std_ReturnType, EcuabFee_PRIVATE_CODE, EcuabFee_ComparePtrType)(Fls_AddressType FlsAddress, EcuabFee_ConstDataPtr DataBufferPtr, Fls_LengthType Length);
+typedef P2FUNC(Std_ReturnType, EcuabFee_PRIVATE_CODE, EcuabFee_ErasePtrType)(Fls_AddressType FlsAddress, Fls_LengthType Length);
+typedef P2FUNC(Std_ReturnType, EcuabFee_PRIVATE_CODE, EcuabFee_BlankCheckPtrType)(Fls_AddressType FlsAddress, Fls_LengthType Length);
+typedef P2FUNC(MemIf_StatusType, EcuabFee_PRIVATE_CODE, EcuabFee_GetStatusPtrType)(void);
+typedef P2FUNC(MemIf_JobResultType, EcuabFee_PRIVATE_CODE, EcuabFee_GetJobResultPtrType)(void);
 
 typedef struct{
-    Fee_30_SmallSector_AddressType PartitionStartAddress;
+   EcuabFee_ReadPtrType Read;
+   EcuabFee_WritePtrType Write;
+   EcuabFee_ComparePtrType Compare;
+   EcuabFee_ErasePtrType Erase;
+   EcuabFee_BlankCheckPtrType BlankCheck;
+   EcuabFee_GetStatusPtrType GetStatus;
+   EcuabFee_GetJobResultPtrType GetJobResult;
+}EcuabFee_FlsApiType;
+
+typedef P2CONST(EcuabFee_FlsApiType, AUTOMATIC, EcuabFee_APPL_DATA) EcuabFee_FlsApiPtrType;
+
+typedef struct{
+    EcuabFee_AddressType PartitionStartAddress;
    uint16 PartitionAddressAlignment;
    uint16 PartitionWriteAlignment;
    uint16 PartitionReadAlignment;
    uint16 FlsDeviceIndex;
-    Fee_30_SmallSector_FlsApiPtrType FlsApiPtr;
+    EcuabFee_FlsApiPtrType FlsApiPtr;
    uint8 FlsEraseValue;
    boolean BlankCheckApiEnabled;
-   uint16 BlockNumberList[FEE_30_SMALLSECTOR_MAX_BLOCKS_PER_PARTITION];
-}Fee_30_SmallSector_PartitionConfigType;
+   uint16 BlockNumberList[EcuabFee_MAX_BLOCKS_PER_PARTITION];
+}EcuabFee_PartitionConfigType;
 
 typedef struct{
-    Fee_30_SmallSector_AddressType BlockStartAddress;
+    EcuabFee_AddressType BlockStartAddress;
    uint16 DataLength;
    uint8 NumberOfInstances;
    uint8 NumberOfDatasets;
    boolean IsImmediateData;
    boolean HasVerificationEnabled;
-}Fee_30_SmallSector_BlockConfigType;
+}EcuabFee_BlockConfigType;
 
-typedef P2FUNC(void, FEE_30_SMALLSECTOR_NVM_CODE, Fee_30_SmallSector_CbkJobEndNotificationType)(void);
-typedef P2FUNC(void, FEE_30_SMALLSECTOR_NVM_CODE, Fee_30_SmallSector_CbkJobErrorNotificationType)(void);
+typedef P2FUNC(void, EcuabFee_NVM_CODE, EcuabFee_CbkJobEndNotificationType)(void);
+typedef P2FUNC(void, EcuabFee_NVM_CODE, EcuabFee_CbkJobErrorNotificationType)(void);
 
-#define FEE_30_SMALLSECTOR_START_SEC_CONST_8BIT
+#define EcuabFee_START_SEC_CONST_8BIT
 #include "MemMap.hpp"
 
-extern CONST(uint8, FEE_30_SMALLSECTOR_PRIVATE_CONST) Fee_30_SmallSector_DatasetSelectionBits;
+extern CONST(uint8, EcuabFee_PRIVATE_CONST) EcuabFee_DatasetSelectionBits;
 
-#define FEE_30_SMALLSECTOR_STOP_SEC_CONST_8BIT
+#define EcuabFee_STOP_SEC_CONST_8BIT
 #include "MemMap.hpp"
 
-#define FEE_30_SMALLSECTOR_START_SEC_CONST_UNSPECIFIED
+#define EcuabFee_START_SEC_CONST_UNSPECIFIED
 #include "MemMap.hpp"
 
-extern CONST(Fee_30_SmallSector_PartitionConfigType, FEE_30_SMALLSECTOR_PRIVATE_CONST) Fee_30_SmallSector_PartitionConfigList[FEE_30_SMALLSECTOR_NUMBER_OF_PARTITIONS];
-extern CONST(Fee_30_SmallSector_BlockConfigType, FEE_30_SMALLSECTOR_PRIVATE_CONST) Fee_30_SmallSector_BlockConfigList[FEE_30_SMALLSECTOR_NUMBER_OF_BLOCKS];
-extern CONST(Fee_30_SmallSector_FlsApiType, FEE_30_SMALLSECTOR_PRIVATE_CONST) Fee_30_SmallSector_FlsApi0;
+extern CONST(EcuabFee_PartitionConfigType, EcuabFee_PRIVATE_CONST) EcuabFee_PartitionConfigList[EcuabFee_NUMBER_OF_PARTITIONS];
+extern CONST(EcuabFee_BlockConfigType, EcuabFee_PRIVATE_CONST) EcuabFee_BlockConfigList[EcuabFee_NUMBER_OF_BLOCKS];
+extern CONST(EcuabFee_FlsApiType, EcuabFee_PRIVATE_CONST) EcuabFee_FlsApi0;
 
-extern CONST(Fee_30_SmallSector_CbkJobEndNotificationType, FEE_30_SMALLSECTOR_PRIVATE_CONST) Fee_30_SmallSector_CbkJobEndNotification;
-extern CONST(Fee_30_SmallSector_CbkJobErrorNotificationType, FEE_30_SMALLSECTOR_PRIVATE_CONST) Fee_30_SmallSector_CbkJobErrorNotification;
+extern CONST(EcuabFee_CbkJobEndNotificationType, EcuabFee_PRIVATE_CONST) EcuabFee_CbkJobEndNotification;
+extern CONST(EcuabFee_CbkJobErrorNotificationType, EcuabFee_PRIVATE_CONST) EcuabFee_CbkJobErrorNotification;
 
-#define FEE_30_SMALLSECTOR_STOP_SEC_CONST_UNSPECIFIED
+#define EcuabFee_STOP_SEC_CONST_UNSPECIFIED
 #include "MemMap.hpp"
 
 #endif

@@ -12,7 +12,7 @@
 
 #include "Std_Types.hpp"
 
-#define RBA_BSWSRV_VENDOR_ID   (6)
+#define RBA_BSWSRV_VENDOR_ID   (1)
 #define RBA_BSWSRV_MODULE_ID   (255)
 #define RBA_BSWSRV_INSTANCE_ID (0)
 

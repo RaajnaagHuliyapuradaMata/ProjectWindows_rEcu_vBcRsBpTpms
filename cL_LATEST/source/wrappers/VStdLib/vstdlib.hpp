@@ -64,7 +64,7 @@
 #  endif
 # endif
 
-#define VSTDLIB_VENDOR_ID                   (30u)
+#define VSTDLIB_VENDOR_ID                   (1u)
 #define VSTDLIB_MODULE_ID                   (255u)
 
 #define VSTDLIB_SW_MAJOR_VERSION            (2u)

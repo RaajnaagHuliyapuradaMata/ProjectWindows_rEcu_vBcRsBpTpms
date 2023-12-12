@@ -32,7 +32,7 @@
 /* #DEFINES                                                                   */
 /******************************************************************************/
 #define AUTOSAR_VERSION_AR42                   STD_ON
-#define PDUR_VENDOR_ID            6u
+#define PDUR_VENDOR_ID            1u
 #define PDUR_MODULE_ID            51u
 #define PDUR_SW_MAJOR_VERSION     9u
 #define PDUR_SW_MINOR_VERSION     0u

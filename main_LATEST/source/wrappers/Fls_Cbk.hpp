@@ -13,8 +13,8 @@
 #define FLS_START_SEC_APPL_CODE
 #include "MemMap.hpp"
 
-extern FUNC(void, FLS_APPL_CODE) Fee_30_SmallSector_JobEndNotification(void);
-extern FUNC(void, FLS_APPL_CODE) Fee_30_SmallSector_JobErrorNotification(void);
+extern FUNC(void, FLS_APPL_CODE) EcuabFee_JobEndNotification(void);
+extern FUNC(void, FLS_APPL_CODE) EcuabFee_JobErrorNotification(void);
 
 #define FLS_STOP_SEC_APPL_CODE
 #include "MemMap.hpp"

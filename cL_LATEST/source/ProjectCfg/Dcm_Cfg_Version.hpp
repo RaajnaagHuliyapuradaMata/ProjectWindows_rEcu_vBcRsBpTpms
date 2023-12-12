@@ -28,7 +28,7 @@
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
-#define DCM_VENDOR_ID                                                          6
+#define DCM_VENDOR_ID                                                          1
 #define DCM_MODULE_ID                                                       0x35
 #define DCM_INSTANCE_ID                                                    0x00u
 #define DCM_AR_RELEASE_MAJOR_VERSION                                           4

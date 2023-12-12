@@ -28,7 +28,7 @@
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
-#define CANSM_VENDOR_ID                                                       6u
+#define CANSM_VENDOR_ID                                                       1u
 #define CANSM_MODULE_ID                                                     140u
 #define CANSM_AR_RELEASE_MAJOR_VERSION                                        4u
 #define CANSM_AR_RELEASE_MINOR_VERSION                                        2u

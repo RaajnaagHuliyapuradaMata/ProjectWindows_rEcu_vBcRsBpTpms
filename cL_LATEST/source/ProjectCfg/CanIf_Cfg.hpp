@@ -65,7 +65,7 @@
 #define CANIF_BASIC_CAN_SUPPORT_LIST                                     STD_OFF
 #define CANIF_RXPDU_CANID_RANGE                                          STD_OFF
 
-#define CANIF_VENDOR_ID                                                       6u
+#define CANIF_VENDOR_ID                                                       1u
 #define CANIF_MODULE_ID                                                      60u
 #define CANIF_AR_RELEASE_MAJOR_VERSION                                        4u
 #define CANIF_AR_RELEASE_MINOR_VERSION                                        2u

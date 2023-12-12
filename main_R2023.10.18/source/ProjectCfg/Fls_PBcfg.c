@@ -41,9 +41,9 @@ CONST(Fls_ConfigType, FLS_CONST) Fls_GstConfiguration[] =
 
     0x0ED70118UL,
 
-    Fee_30_SmallSector_JobEndNotification,
+    EcuabFee_JobEndNotification,
 
-    Fee_30_SmallSector_JobErrorNotification,
+    EcuabFee_JobErrorNotification,
 
     NULL_PTR,
 

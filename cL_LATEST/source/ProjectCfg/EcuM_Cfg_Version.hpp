@@ -28,7 +28,7 @@
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
-#define ECUM_VENDOR_ID                                                      (6U)
+#define ECUM_VENDOR_ID                                                      (1U)
 #define ECUM_AR_RELEASE_MAJOR_VERSION                                       (4U)
 #define ECUM_AR_RELEASE_MINOR_VERSION                                       (2U)
 #define ECUM_AR_RELEASE_REVISION_VERSION                                    (2U)

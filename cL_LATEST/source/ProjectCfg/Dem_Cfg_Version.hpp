@@ -28,7 +28,7 @@
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
-#define DEM_VENDOR_ID                              6
+#define DEM_VENDOR_ID                              1
 #define DEM_MODULE_ID                              54
 #define DEM_INSTANCE_ID                            0
 #define DEM_AR_RELEASE_MAJOR_VERSION               4

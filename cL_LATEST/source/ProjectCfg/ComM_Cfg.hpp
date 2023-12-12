@@ -31,7 +31,7 @@
 /* #DEFINES                                                                   */
 /******************************************************************************/
 #define COMM_MODULE_ID                                                       12u
-#define COMM_VENDOR_ID                                                        6u
+#define COMM_VENDOR_ID                                                        1u
 #define COMM_AR_RELEASE_MAJOR_VERSION                                         4u
 #define COMM_AR_RELEASE_MINOR_VERSION                                         2u
 #define COMM_AR_RELEASE_REVISION_VERSION                                      2u

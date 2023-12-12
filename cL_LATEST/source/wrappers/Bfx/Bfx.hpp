@@ -41,7 +41,7 @@ extern "C" {
 #endif
 
 #define BFX_MODULE_ID                   205
-#define BFX_VENDOR_ID                   6
+#define BFX_VENDOR_ID                   1
 #define BFX_SW_MAJOR_VERSION            8
 #define BFX_SW_MINOR_VERSION            0
 #define BFX_SW_PATCH_VERSION            0
