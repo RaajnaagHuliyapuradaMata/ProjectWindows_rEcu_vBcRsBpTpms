@@ -408,7 +408,7 @@ EcuM_WakeupServices.o\
 EnvManager.o\
 fbl_apnv_fee.o\
 fdl_descriptor.o\
-Fee_30_SmallSector.o\
+EcuabFee.o\
 EcuabFee_BlockHandler.o\
 EcuabFee_Cfg.o\
 EcuabFee_DatasetHandler.o\
