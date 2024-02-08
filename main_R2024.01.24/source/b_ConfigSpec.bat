@@ -20,7 +20,7 @@ DEL McalAdc
 MKLINK /D McalAdc           ..\..\..\..\repo_submodules\McalAdc\pRealEcu_R2023.09.21
 
 DEL McalAta
-MKLINK /D McalAta           ..\..\..\..\repo_submodules\McalAta\pRealEcu_R2024.01.24
+MKLINK /D McalAta           ..\..\..\..\repo_submodules\McalAta\RenesasRH850F1LR7F7010133AFP_R2024.01.24
 
 DEL McalCan
 MKLINK /D McalCan           ..\..\..\..\repo_submodules\McalCan\pRealEcu_R2023.10.18
@@ -42,6 +42,15 @@ MKLINK /D McalMcu           ..\..\..\..\repo_submodules\McalMcu\pRealEcu_R2023.1
 
 DEL McalWdg
 MKLINK /D McalWdg           ..\..\..\..\repo_submodules\McalWdg\pRealEcu_R2023.09.21
+
+DEL ProjectARA
+MKLINK /D ProjectARA        ..\..\..\..\repo_submodules\ProjectARA\vBcRsBpTpms_R2024.01.24
+
+DEL ProjectCfg
+MKLINK /D ProjectCfg        ..\..\..\..\repo_submodules\ProjectCfg\vBcRsBpTpms_R2024.01.24
+
+DEL ProjectMemMap
+MKLINK /D ProjectMemMap     ..\..\..\..\repo_submodules\ProjectMemMap\vBcRsBpTpms_R2024.01.24
 
 DEL SwcApplDcm
 MKLINK /D SwcApplDcm        ..\..\..\..\repo_submodules\SwcApplDcm\pRealEcu_R2023.10.18
