@@ -112,5 +112,5 @@ cd ../SwcServiceTpCan
 cd ../..
 git add .
 git status
-git commit -m "AUTOSAR Migration Activities - ProjectWindows_EcuReal_vBcRsBpTpms_LATEST"
+git commit -m "AUTOSAR Migration Activities - ProjectWindows_rEcu_vBcRsBpTpms_LATEST"
 git push
