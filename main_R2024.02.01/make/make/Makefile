@@ -17,8 +17,6 @@ Source_SwcApplEcuM             = $(DIR_SOURCE)/SwcApplEcuM
 Source_SwcApplNvM              = $(DIR_SOURCE)/SwcApplNvM
 Source_SwcApplTpms             = $(DIR_SOURCE)/SwcApplTpms
 Source_SwcServiceBswM          = $(DIR_SOURCE)/SwcServiceBswM
-Source_SwcServiceCanSm         = $(DIR_SOURCE)/SwcServiceCanSm
-Source_SwcServiceCanTp         = $(DIR_SOURCE)/SwcServiceCanTp
 Source_SwcServiceCom           = $(DIR_SOURCE)/SwcServiceCom
 Source_SwcServiceComM          = $(DIR_SOURCE)/SwcServiceComM
 Source_SwcServiceDcm           = $(DIR_SOURCE)/SwcServiceDcm
@@ -30,14 +28,16 @@ Source_SwcServiceNvM           = $(DIR_SOURCE)/SwcServiceNvM
 Source_SwcServiceOs            = $(DIR_SOURCE)/SwcServiceOs
 Source_SwcServicePduR          = $(DIR_SOURCE)/SwcServicePduR
 Source_SwcServiceSchM          = $(DIR_SOURCE)/SwcServiceSchM
+Source_SwcServiceCanSm         = $(DIR_SOURCE)/SwcServiceCanSm
 Source_SwcServiceStartUp       = $(DIR_SOURCE)/SwcServiceStartUp
-Source_EcuabCanIf              = $(DIR_SOURCE)/EcuabCanIf
-Source_EcuabCanTrcv            = $(DIR_SOURCE)/EcuabCanTrcv
+Source_SwcServiceCanTp         = $(DIR_SOURCE)/SwcServiceCanTp
 Source_EcuabFee                = $(DIR_SOURCE)/EcuabFee
+Source_EcuabCanIf              = $(DIR_SOURCE)/EcuabCanIf
 Source_EcuabMemIf              = $(DIR_SOURCE)/EcuabMemIf
+Source_McalAta                 = $(DIR_SOURCE)/McalAta
+Source_EcuabCanTrcv            = $(DIR_SOURCE)/EcuabCanTrcv
 Source_LibAutosar              = $(DIR_SOURCE)/LibAutosar
 Source_McalAdc                 = $(DIR_SOURCE)/McalAdc
-Source_McalAta                 = $(DIR_SOURCE)/McalAta
 Source_McalCan                 = $(DIR_SOURCE)/McalCan
 Source_McalDio                 = $(DIR_SOURCE)/McalDio
 Source_McalFls                 = $(DIR_SOURCE)/McalFls
@@ -580,8 +580,6 @@ $(Source_SwcApplEcuM)\
 $(Source_SwcApplNvM)\
 $(Source_SwcApplTpms)\
 $(Source_SwcServiceBswM)\
-$(Source_SwcServiceCanSm)\
-$(Source_SwcServiceCanTp)\
 $(Source_SwcServiceCom)\
 $(Source_SwcServiceComM)\
 $(Source_SwcServiceDcm)\
@@ -593,11 +591,14 @@ $(Source_SwcServiceNvM)\
 $(Source_SwcServiceOs)\
 $(Source_SwcServicePduR)\
 $(Source_SwcServiceSchM)\
+$(Source_SwcServiceCanSm)\
 $(Source_SwcServiceStartUp)\
-$(Source_EcuabCanIf)\
-$(Source_EcuabCanTrcv)\
+$(Source_SwcServiceCanTp)\
 $(Source_EcuabFee)\
+$(Source_EcuabCanIf)\
 $(Source_EcuabMemIf)\
+$(Source_McalAta)\
+$(Source_EcuabCanTrcv)\
 $(Source_LibAutosar)\
 $(Source_McalAdc)\
 $(Source_McalCan)\
@@ -608,7 +609,6 @@ $(Source_McalLin)\
 $(Source_McalMcu)\
 $(Source_McalWdg)\
 $(Source_ProjectARA)\
-$(Source_McalAta)\
 $(Source_wrappers_VStdLib)\
 $(Source_wrappers_FBL_APPL)\
 $(Source_wrappers_RDCMANAGER)\
@@ -629,8 +629,6 @@ $(Source_SwcApplEcuM)\
 $(Source_SwcApplNvM)\
 $(Source_SwcApplTpms)\
 $(Source_SwcServiceBswM)\
-$(Source_SwcServiceCanSm)\
-$(Source_SwcServiceCanTp)\
 $(Source_SwcServiceCom)\
 $(Source_SwcServiceComM)\
 $(Source_SwcServiceDcm)\
@@ -642,11 +640,14 @@ $(Source_SwcServiceNvM)\
 $(Source_SwcServiceOs)\
 $(Source_SwcServicePduR)\
 $(Source_SwcServiceSchM)\
+$(Source_SwcServiceCanSm)\
 $(Source_SwcServiceStartUp)\
-$(Source_EcuabCanIf)\
-$(Source_EcuabCanTrcv)\
+$(Source_SwcServiceCanTp)\
 $(Source_EcuabFee)\
+$(Source_EcuabCanIf)\
 $(Source_EcuabMemIf)\
+$(Source_McalAta)\
+$(Source_EcuabCanTrcv)\
 $(Source_LibAutosar)\
 $(Source_McalAdc)\
 $(Source_McalCan)\
@@ -657,7 +658,6 @@ $(Source_McalLin)\
 $(Source_McalMcu)\
 $(Source_McalWdg)\
 $(Source_ProjectARA)\
-$(Source_McalAta)\
 $(Source_wrappers_VStdLib)\
 $(Source_wrappers_FBL_APPL)\
 $(Source_wrappers_RDCMANAGER)\

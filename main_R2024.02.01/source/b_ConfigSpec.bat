@@ -1,26 +1,26 @@
 DEL common
 MKLINK /D common            ..\..\..\..\repo_submodules\common\vBcRsBpTpms_R2023.10.18
 
-DEL EcuabCanIf
-MKLINK /D EcuabCanIf        ..\..\..\..\repo_submodules\EcuabIfCan\rECUTpmsHW6.2_R2023.10.18
-
-DEL EcuabCanTrcv
-MKLINK /D EcuabCanTrcv      ..\..\..\..\repo_submodules\EcuabTrcvCan\rECUTpmsHW6.2_R2023.09.21
-
 DEL EcuabFee
 MKLINK /D EcuabFee          ..\..\..\..\repo_submodules\EcuabFee\rECUTpmsHW6.2_R2024.01.24
 
+DEL EcuabCanIf
+MKLINK /D EcuabCanIf        ..\..\..\..\repo_submodules\EcuabIfCan\rECUTpmsHW6.2_R2023.10.18
+
 DEL EcuabMemIf
 MKLINK /D EcuabMemIf        ..\..\..\..\repo_submodules\EcuabIfMem\rECUTpmsHW6.2_R2024.01.24
+
+DEL McalAta
+MKLINK /D McalAta           ..\..\..\..\repo_submodules\EcuabIfRf\ATA5785_R2024.02.01
+
+DEL EcuabCanTrcv
+MKLINK /D EcuabCanTrcv      ..\..\..\..\repo_submodules\EcuabTrcvCan\TJA1043_R2023.09.21
 
 DEL LibAutosar
 MKLINK /D LibAutosar        ..\..\..\..\repo_submodules\LibAutosar\vBcRsBpTpms_R2023.10.18
 
 DEL McalAdc
 MKLINK /D McalAdc           ..\..\..\..\repo_submodules\McalAdc\RenesasRH850F1LR7F7010133AFP_R2023.09.21
-
-DEL McalAta
-MKLINK /D McalAta           ..\..\..\..\repo_submodules\McalAta\RenesasRH850F1LR7F7010133AFP_R2024.02.01
 
 DEL McalCan
 MKLINK /D McalCan           ..\..\..\..\repo_submodules\McalCan\RenesasRH850F1LR7F7010133AFP_R2023.10.18
@@ -70,12 +70,6 @@ MKLINK /D SwcApplTpms       ..\..\..\..\repo_submodules\SwcApplTpms\vBcRsB_R2023
 DEL SwcServiceBswM
 MKLINK /D SwcServiceBswM    ..\..\..\..\repo_submodules\SwcServiceBswM\vBcRsB_R2023.09.21
 
-DEL SwcServiceCanSm
-MKLINK /D SwcServiceCanSm   ..\..\..\..\repo_submodules\SwcServiceSmCan\vBcRsB_R2023.10.18
-
-DEL SwcServiceCanTp
-MKLINK /D SwcServiceCanTp   ..\..\..\..\repo_submodules\SwcServiceTpCan\vBcRsB_R2023.10.18
-
 DEL SwcServiceCom
 MKLINK /D SwcServiceCom     ..\..\..\..\repo_submodules\SwcServiceCom\vBcRsB_R2023.10.18
 
@@ -109,6 +103,12 @@ MKLINK /D SwcServicePduR    ..\..\..\..\repo_submodules\SwcServicePduR\vBcRsB_R2
 DEL SwcServiceSchM
 MKLINK /D SwcServiceSchM    ..\..\..\..\repo_submodules\SwcServiceSchM\vBcRsB_R2023.09.21
 
+DEL SwcServiceCanSm
+MKLINK /D SwcServiceCanSm   ..\..\..\..\repo_submodules\SwcServiceSmCan\vBcRsB_R2023.10.18
+
 DEL SwcServiceStartUp
 MKLINK /D SwcServiceStartUp ..\..\..\..\repo_submodules\SwcServiceStartUp\vBcRsB_R2024.02.01
+
+DEL SwcServiceCanTp
+MKLINK /D SwcServiceCanTp   ..\..\..\..\repo_submodules\SwcServiceTpCan\vBcRsB_R2023.10.18
 
